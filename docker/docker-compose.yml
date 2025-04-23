@@ -1,0 +1,63 @@
+version: '3.9'
+
+services:
+  ruqya-frontend:
+    image: ruqya-frontend:1.3.3
+    build:
+      context: ../frontend
+#      platforms:
+#        - linux/amd64
+#        - linux/arm64
+    ports:
+      - "3001:3000"
+    depends_on:
+      - ruqya-api
+    env_file:
+      - ../frontend/.env.production
+    networks:
+      - app-network
+
+  ruqya-admin:
+    image: ruqya-admin:1.3.0
+    build:
+      context: ../admin-panel
+#      platforms:
+#        - linux/amd64
+#        - linux/arm64
+    ports:
+      - "3002:3000"
+    depends_on:
+      - ruqya-api
+    env_file:
+      - ../admin-panel/.env.production
+    networks:
+      - app-network
+
+  ruqya-api:
+    image: ruqya-api:1.3.1
+    build:
+      context: ../api-service
+#      platforms:
+#        - linux/amd64
+#        - linux/arm64
+    ports:
+      - "5050:5050"
+    env_file:
+      - ../api-service/.env.production
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:4.4
+    volumes:
+      - /ruqya/data:/data/db
+      - /ruqya/backup:/backup
+    networks:
+      - app-network
+    ports:
+      - "27317:27017"
+  #    restart: always
+
+networks:
+  app-network:
+    driver: bridge

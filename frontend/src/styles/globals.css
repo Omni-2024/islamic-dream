@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* @font-face {
+  font-family: 'FullSans-LC50Book';
+  src: url('/fonts/FullSans-LC50Book.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'TheFullSans-LC50Book';
+  src: url('/fonts/TheFullSans-LC50Book.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'full-sans-lc-90-bold';
+  src: url('/fonts/full-sans-lc-90-bold.otf') format('opentype');
+} */
+
+@font-face {
+  font-family: 'Full Sans LC';
+  src: url('/fonts/TheFullSans-LC50Book.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: normal;
+
+}
+
+
+body {
+  font-family: 'Full Sans LC', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input {
+  background-color: white !important; /* Ensure the background is white */
+  border: none;
+  outline: none;
+  /* padding: 0.5rem; */
+  /* border-radius: 0.375rem;  */
+}
+
+input:focus {
+  background-color: white !important; /* Ensure the background remains white on focus */
+}
+
+input:-webkit-autofill {
+  background-color: white !important;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: black !important;
+}
+
+.sidebar-navigation {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* 
+select {
+  background-color: white !important; 
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 0.375rem; 
+}
+
+select {
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 2.5em 1.5em;
+  padding-right: 3.5rem;
+} */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.loading-dot {
+  animation: pulse 1s infinite;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@media only screen and (min-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 1440px) {
+  .mac-button-adjustment {
+    padding-top: 0.5rem; /* pt-2 */
+    padding-bottom: 0.25rem; /* pb-1 */
+  }
+}
+
+.button-default {
+  padding: 0.75rem 0; /* py-3 */
+}
+
+/* for raqicard */
+.scrollbar-hide::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: auto;
+  scrollbar-width: auto;
+}
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.languages-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: inline-flex;
+}
+
+.languages-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.languages-scroll.animate {
+  animation: scrollX 15s linear infinite;
+}
+
+.languages-scroll.animate:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollX {
+0% {
+  transform: translateX(0);
+}
+100% {
+  transform: translateX(-50%);
+}
+}
+
+.animate-scrollX {
+animation: scrollX 15s linear infinite;
+-webkit-user-select: none;
+user-select: none;
+cursor: grab;
+}
+
+.animate-scrollX:active {
+cursor: grabbing;
+animation-play-state: paused;
+}
+
+.pause-animation {
+animation-play-state: paused;
+}
+
+
+/* get stream */
+
+
+
+.str-video {
+  /*background-color: #2BA2A5;*/
+  color: #ffffff;
+  /* height: 100dvh; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure it takes full viewport height */
+  overflow: hidden; /* Prevent scrolling for the video meeting part */
+}
+
+.str-video__speaker-layout__wrapper {
+   flex-grow: 0 !important;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.str-video__call-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem !important;
+  padding: 0.6rem 0.6rem !important;
+  background-color: #008080;
+  border-radius: 25px;
+  width: fit-content;
+  margin: 30px auto;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  margin: 0 auto;
+  gap: 1rem; /* Ensure there is a gap between video and controls */
+}
+
+@media (max-width: 768px) {
+  .str-video__call-controls {
+    /* margin: 20px 10px; */
+    gap: 1rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .str-video__call-controls {
+    position: fixed;
+    bottom: 20px;
+  }
+}
+
+.noise-btn{
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: black;
+  cursor: pointer;
+  display:flex ;
+  justify-content: center;
+  align-items: center;
+}
+
+.noise-btn svg{
+  color: white;
+}
+
+.react-tooltip {
+  background-color: #000; /* Black background */
+  color: #fff;           /* White text */
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.my-icon-enabled {
+  background-color: red;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.my-icon-disabled {
+  background-color: grey;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+
+/* DatePicker Custom Styles */
+.react-datepicker {
+  font-family: inherit;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.react-datepicker__header {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.react-datepicker__day--selected {
+  background-color: #0C8281 !important;
+  color: white !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: rgba(12, 130, 129, 0.1) !important;
+  color: #0C8281 !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: rgba(12, 130, 129, 0.1) !important;
+}
+
+.react-datepicker__day--disabled {
+  color: #cbd5e0 !important;
+  cursor: not-allowed !important;
+}
+
+.custom-popper {
+  z-index: 1050 !important; /* Ensure the popper has a higher z-index */
+}
+
+.custom-popper {
+  z-index: 9999 !important;
+}
+
+/* DatePicker Clear Button Custom Style */
+.react-datepicker__close-icon {
+  padding: 0;
+  display: flex;
+  color: #6B7280;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-datepicker__close-icon::after {
+  background-color: transparent !important;
+  color: #6B7280;
+  font-size: 1.5rem;
+  padding: 0;
+  content: "×";
+}
+
+.react-datepicker__close-icon:hover::after {
+  color: #6B7280;
+}
+
+/* Custom Scrollbar Styles */
+.toast-success-container {
+  color: #000 !important;
+  border-radius: 8px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #34A853 !important;
+  box-shadow: 0px 1px 5px rgba(248, 175, 175, 0.1) !important;
+}
+
+.toast-success-container-after {
+  overflow: hidden;
+  position: relative;
+}
+
+.toast-success-container-after::after{
+  top: 0;
+  left: 0;
+  content: '';
+  width: 7px;
+  height: 100%;
+  position: absolute;
+  display: inline-block;
+  background-color: #34A853;
+}
+
+.toast-success {
+  background: #34A853 !important;
+  color: white !important;
+}
+
+.toast-error {
+  background: #EE0022 !important;
+  color: white !important;
+}
+
+
+
+
+/* google button */
+.login-with-google-btn {
+  transition: background-color .3s, box-shadow .3s;
+    
+  padding: 12px 16px 12px 42px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+  
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+  
+  &:hover {
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+  }
+  
+  &:active {
+    background-color: #eeeeee;
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 
+      0 -1px 0 rgba(0, 0, 0, .04),
+      0 2px 4px rgba(0, 0, 0, .25),
+      0 0 0 3px #c8dafc;
+  }
+  
+  &:disabled {
+    filter: grayscale(100%);
+    background-color: #ebebeb;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+    cursor: not-allowed;
+  }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.dropdown-transition {
+  transition: height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--height);
+    opacity: 1;
+  }
+}
+
+.slide-down {
+  animation: slideDown 0.3s ease-in-out forwards;
+}

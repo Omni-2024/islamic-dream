@@ -1,0 +1,9 @@
+{
+    "firstName": "John Doe",
+    "email": "JohnDoe@gmail.com",
+    "gender": "Male",
+    "DOB": "2024-01-31",
+    "country": "United States",
+    "language": "English",
+    "mobile": "1234567890"
+}

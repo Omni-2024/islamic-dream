@@ -1,0 +1,15 @@
+[
+    {
+        "_id": "67ba255d2b5c2e905060fa00",
+        "topic": "Ruhaim's Session",
+        "date": "2025-02-23 14:00",
+        "rakiId": "679bba3f3d6f1d200346271e",
+        "userId": "678fec27c3bb5a04822519a9",
+        "notificationSend": false,
+        "status": "scheduled",
+        "isPaid": false,
+        "meetingId": "67ba255d2b5c2e905060fa00",
+        "__v": 0,
+        "originalTimezone": "Asia/Colombo"
+    }
+]

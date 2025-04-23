@@ -1,0 +1,13 @@
+services:
+  frontend:
+    image: frontend:0.0.1
+    build:
+      context: .
+      target: runner
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    environment:
+      - NODE_ENV=development
+    command: node server.js

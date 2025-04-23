@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "raqi": "Raqi1",
+    "name": "John Doe",
+    "date": "2022-01-01",
+    "rating": 5,
+    "comment": "Great product, I love it!"
+  },
+  {
+    "id": 2,
+    "raqi": "Raqi1",
+    "name": "Jane Doe",
+    "rating": 4.1,
+    "comment": "Good product, I like it! Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui architecto incidunt suscipit, vitae ullam voluptatum consequatur accusantium, alias aut ipsam non! Reprehenderit alias et, quasi assumenda odio at error perspiciatis ipsum totam illo hic officiis sunt minima animi praesentium velit repellendus facilis blanditiis porro! Cupiditate harum nihil neque impedit explicabo ducimus, tempora optio nam architecto provident laudantium? Labore eum amet doloribus officia, harum impedit omnis, earum sed quia ex dolor beatae voluptatem numquam ullam voluptates deleniti fuga a fugiat repellendus quisquam sit laboriosam corporis? Quibusdam accusantium omnis, voluptate enim quia eum ad suscipit natus aspernatur voluptatum quam debitis magnam consequatur veniam cupiditate ea recusandae, tempora a provident! Natus, nostrum at! Doloremque explicabo maiores cum nesciunt! In sapiente necessitatibus deleniti at illum ipsam dicta velit deserunt atque perspiciatis ducimus molestias facere tempora quia veniam, odit error magni? Sunt numquam autem est amet odit sequi assumenda explicabo veniam consectetur ex aperiam voluptatum dicta ratione aliquam impedit, rem, quis reprehenderit tenetur dolores, eveniet delectus iste. Perspiciatis deleniti ea minima earum voluptas ipsam. In labore adipisci minima culpa porro asperiores voluptas ab itaque, fuga, et aperiam consequuntur debitis qui enim perferendis iste, animi corporis nam nihil eveniet exercitationem dolore. Vitae reprehenderit minus voluptate quo rem aspernatur iste laboriosam commodi quos alias, ut atque molestias eaque expedita, unde voluptates sapiente odio quis sit facilis provident dolor possimus eveniet nostrum? Officiis fugit molestiae ipsa repellendus eligendi rerum laudantium deleniti adipisci beatae. Veritatis eaque excepturi maiores doloribus. Sint quas, earum ratione quod laborum culpa ut ipsum ducimus unde, accusamus esse iure. Optio maxime voluptates perspiciatis fugiat provident eligendi? Doloribus beatae, inventore perspiciatis, placeat dolorem consectetur quos delectus enim sint a suscipit iure vero sequi molestiae quibusdam quasi ullam. Aperiam tempore porro, numquam adipisci illo pariatur ipsam voluptas omnis perferendis, modi similique neque fugit! Vero fugit fuga consequuntur!"
+  },
+  {
+    "id": 3,
+    "raqi": "Raqi1",
+    "name": "John Smith",
+    "rating": 3.3,
+    "comment": "Okay product, I don't mind it!"
+  },
+  {
+    "id": 4,
+    "raqi": "Raqi2",
+    "name": "Jane Smith",
+    "rating": 2,
+    "comment": "Bad product, I hate it!"
+  },
+  {
+    "id": 5,
+    "raqi": "Raqi3",
+    "name": "John Doe",
+    "rating": 1,
+    "comment": "Terrible product, I don't want it!"
+  }
+]
