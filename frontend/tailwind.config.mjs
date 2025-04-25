@@ -24,11 +24,11 @@ export default {
         foreground: "var(--foreground)",
         header: "#36454F",
         RuqyaGray: "#36454F",
-        RuqyaGreen: "#008080",
+        RuqyaGreen: "#2DB573",
         RuqyaLightPurple: "#E6E6FA",//#E6E6FA80
         LightGray: "#E6E6FA80",
         mobilePurple:"#E6E6FA",
-        RuqyaLightGreen: "#00CCCC",
+        RuqyaLightGreen: "#3ae391",
       },
       fontFamily: {
         fullsans: ['"FullSans-LC50Book"', 'sans-serif'],
