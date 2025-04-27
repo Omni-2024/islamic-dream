@@ -4,7 +4,11 @@ dist/
 build/
 .DS_Store
 .env
-.env.*
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.env.production
 !/src/.env.example
 
 # Logs
