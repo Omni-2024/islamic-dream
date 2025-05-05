@@ -1,70 +1,102 @@
-import Button from "@/components/ui/buttons/DefaultButton";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
-function First() {
-  const [svgScale, setSvgScale] = useState(2.1);
-  const [svgTranslateY, setSvgTranslateY] = useState(0);
+export default function First() {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      const sectionHeight = document.getElementById("first").clientHeight;
-      const newScale = sectionHeight / 280; // Increase to make the svg smaller
-      const newTranslateY = -((newScale - 1.6) * 50); // Increase to move the svg up
-      setSvgScale(newScale);
-      setSvgTranslateY(newTranslateY);
+    // Set initial visibility
+    setIsVisible(true);
+    
+    // Handle scroll animations
+    const handleScroll = () => {
+      const elements = document.querySelectorAll('.scroll-animate');
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.75) {
+          el.classList.add('is-visible');
+        }
+      });
     };
 
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Initial call
-
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+    
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <section id="first" className="relative w-full h-auto lg:h-60vh min-h-[400px] bg-RuqyaLightPurple overflow-x-clip">
-      {/* Overlay to prevent background from affecting content */}
-      <div className="absolute inset-0 bg-RuqyaLightPurple opacity-50"></div>
-
-      {/* SVG Background - Hidden on mobile, visible on large screens */}
-      <div className="hidden lg:block absolute right-0 bottom-0 pointer-events-none animate-fade-in" style={{ animationDelay: "0.2s" }}>
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="8.19 7.39 16.4 18" style={{ animationDelay: "0.2s", transform: `scale(${svgScale}) translateY(${svgTranslateY}px)` }}>
-          <path d="M13.794 8.89258C14.9487 6.89258 17.8355 6.89258 18.9902 8.89258L24.1863 17.8926C25.341 19.8926 23.8976 22.3926 21.5882 22.3926H11.1959C8.88654 22.3926 7.44316 19.8926 8.59786 17.8926L13.794 8.89258Z" fill="#2DB573" />
-          <path d="M21.5885 10.3923C23.8979 10.3923 25.3413 12.8923 24.1866 14.8923L18.9904 23.8923C17.8357 25.8923 14.949 25.8923 13.7943 23.8923L8.59813 14.8923C7.44343 12.8923 8.88681 10.3923 11.1962 10.3923L21.5885 10.3923Z" fill="#2DB573" />
-        </svg>
+    <section id="hero" className="relative w-full bg-white overflow-hidden py-8 md:py-12">
+      {/* Background decorative element */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -bottom-32 -right-32 w-64 md:w-96 h-64 md:h-96 rounded-full bg-purple-100 opacity-50"></div>
       </div>
 
-      {/* Main Content Container */}
-      <div className="relative h-full flex items-center justify-center mx-[8%]">
-        <div className="mx-auto px-3 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center lg:gap-5 gap-0 relative z-10">
-            {/* Text Content */}
-            <div className="space-y-6 animate-fade-in text-center lg:text-left mb-10 order-2 lg:order-1" style={{ animationDelay: "0.4s" }}>
-              <h1 className="text-3xl lg:text-5xl xl:text-6xl font-[1000] text-RuqyaGray leading-tight">
-                <span className="text-RuqyaGreen block">
-                  Empower Your
-                  <br />
-                  Spirit with Ruqyah
-                </span>
-              </h1>
-              <p className="text-sm lg:text-lg max-w-xl mx-auto xl:mx-0">Connect with expert Raqis for personalized spiritual healing and guidance.</p>
-              <div className="flex w-full xl:w-auto text-center items-center justify-center lg:items-start lg:justify-start gap-4 mt-10">
-                <Button text="Book a Session" link="/BookRaqis" color="RuqyaGreen" bg={true} className="px-6 py-3 rounded-lg whitespace-nowrap animate-fade-in" style={{ animationDelay: "0.6s" }} />
-                <Button text="Learn Ruqyah" link="/SelfRuqyah" className="px-6 py-3 border-RuqyaGreen border text-[#0d766e] bg-[rgba(0,204,204,0.1)] rounded-lg whitespace-nowrap animate-fade-in" style={{ animationDelay: "0.8s" }} />
+      {/* Main Content Container - Using exact same container as in Header */}
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          
+          {/* Image Container - Visible on all devices, stacks on mobile */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0 delay-100' : 'opacity-0 -translate-x-10'}`}>
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                  src="https://img.freepik.com/free-photo/ramadan-celebration-digital-art_23-2151358079.jpg?semt=ais_hybrid&w=740" 
+                  alt="Spiritual healing meditation" 
+                  className="w-full h-64 sm:h-80 md:h-96 object-cover object-center transition-transform duration-700 hover:scale-105" 
+                />
+                
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent"></div>
               </div>
             </div>
+          </div>
 
-            {/* Image Container */}
-            <div className="flex items-center justify-end mb-3 mt-5 md:mt-0 lg:mb-0 order-1 lg:order-2 animate-fade-in" style={{ animationDelay: "0.7s" }}>
-              <div className="relative w-full lg:w-[90vh]">
-                <img src="https://miro.medium.com/v2/resize:fit:1200/1*dYuIVOkIcDKIarat5ynsIw.jpeg" alt="men-meditation" className="w-full lg:min-h-[400px] max-h-[45vh] object-cover object-center scale-x-[-1] lg:rounded-[2.2rem] rounded-[2.2rem]" />
-                {/* <div className="h-5 md:h-8 hidden lg:flex"></div> */}
-              </div>
+          {/* Text Content - Stacked on mobile, side-by-side on larger screens */}
+          <div className={`space-y-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium">
+              <span className="text-green-500 block">Empower Your Spirit</span>
+              <span className="text-gray-800">with Ruqyah</span>
+            </h1>
+            
+            <p className="text-gray-600 text-lg max-w-xl">
+              Connect with expert Raqis for personalized spiritual healing and guidance.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+              <Link 
+                href="/BookRaqis" 
+                className={`px-6 py-3 bg-gray-800 text-white rounded-xl font-medium shadow-lg hover:bg-gray-700 transition-all duration-300 text-center w-full sm:w-auto ${isVisible ? 'opacity-100 translate-y-0 delay-200' : 'opacity-0 translate-y-10'} flex items-center justify-center space-x-2`}
+              >
+                <span>Book a Session</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </Link>
+              
+              <Link 
+                href="/SelfRuqyah" 
+                className={`px-6 py-3 border border-green-500 text-gray-800 bg-white rounded-xl font-medium hover:bg-green-50 transition-all duration-300 text-center w-full sm:w-auto ${isVisible ? 'opacity-100 translate-y-0 delay-300' : 'opacity-0 translate-y-10'}`}
+              >
+                Learn Ruqyah
+              </Link>
+            </div>
+            
+            {/* Trust indicators - Hidden on very small screens */}
+            <div className={`pt-6 ${isVisible ? 'opacity-100 translate-y-0 delay-400' : 'opacity-0 translate-y-10'} transition-all duration-1000`}>
+              <p className="text-sm text-gray-500 mb-3">Trusted by spiritual seekers worldwide</p>
+
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Wave divider */}
+      {/* <div className="absolute bottom-0 left-0 w-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" fill="#ffffff" preserveAspectRatio="none" className="w-full h-10">
+          <path d="M0,40 C400,80 800,10 1440,40 L1440,80 L0,80 Z"></path>
+        </svg>
+      </div> */}
     </section>
   );
 }
-
-export default First;
