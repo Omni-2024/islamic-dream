@@ -8,6 +8,8 @@ import { FaBookBookmark } from "react-icons/fa6";
 import { LuLogOut } from "react-icons/lu";
 import { ErrorMessage } from "@/components/shared/common/ErrorMessage";
 import { auth } from "@/lib/firebase";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,9 +19,10 @@ const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
   const profileDropdownRef = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
 
   const isActive = (path) => (pathname === path ? "text-RuqyaGreen" : "text-gray-700");
-  const isCurrent = (path) => (pathname === path ? " bg-RuqyaLightPurple" : "bg-white");
+  const isCurrent = () => "bg-RuqyaLightPurple";
 
   const handleLinkClick = () => {
     setTimeout(() => {
@@ -54,6 +57,22 @@ const Header = () => {
       document.body.style.overflow = "auto";
     }
   }, [isOpen]);
+
+   // Handle scroll effect
+   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -105,33 +124,42 @@ const Header = () => {
           <ErrorMessage message={error.message} type={error.type} />
         </div>
       )}
-      <header>
-        <nav className={`${isCurrent("/")} lg:px-[7%] lg:py-12 py-4 shadow-md font-normal color-header`}>
-          <div className="flex justify-between items-center mx-8 md:mx-8">
-            <div className="text-xl min-w-32">
+      <header className="w-full fixed top-0 left-0 right-0 z-40">
+        <nav className={`${isCurrent()} transition-all duration-300 w-full ${
+          scrolled 
+            ? "py-2 bg-header/95 backdrop-blur-md shadow-lg" 
+            : "py-6 bg-header"
+        }`}>
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div className="flex items-center z-50">
               <Link href="/" className="text-gray-700 w-40 hover:text-gray-900">
-                <img src="/images/logo.png" alt="Ruqya logo" width="150" height="100" />
+                <img src="/images/logo.png" alt="Ruqya logo" 
+                  className={`transition-all duration-300 ${scrolled ? 'w-32' : 'w-40'}`}
+                />
               </Link>
             </div>
-            <div className="hidden md:flex flex-grow justify-center items-center mx-5">
-              <img src="/nav-flower.svg" alt="Navigation Center" width="33" className="-mr-4" />
-              <img src="/nav-line.svg" alt="Navigation Center" width="16000" />
-            </div>
-            <div className="hidden md:flex space-x-8 gap-5">
-              <Link href="/" className={`${isActive("/")} hover:text-gray-900 text-center`}>
-                Home
-              </Link>
-              <Link href="/BookRaqis" className={`${isActive("/BookRaqis")} w-24 text-center hover:text-gray-900`}>
-                Book Raqis
-              </Link>
-              <Link href="/SelfRuqyah" className={`${isActive("/SelfRuqyah")} w-24 text-center hover:text-gray-900`}>
-                Self-Ruqyah
-              </Link>
-              <Link href="/AboutUs" className={`${isActive("/AboutUs")} w-24 text-center hover:text-gray-900`}>
-                About Us
-              </Link>
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8 ">
+            <div className="flex items-center space-x-6 ">
+                <NavLink href="/" active={isActive("/")}>
+                  Home
+                </NavLink>
+                <NavLink href="/BookRaqis" active={isActive("/BookRaqis")}>
+                  Book Raqis
+                </NavLink>
+                <NavLink href="/SelfRuqyah" active={isActive("/SelfRuqyah")}>
+                  Self-Ruqyah
+                </NavLink>
+                <NavLink href="/AboutUs" active={isActive("/AboutUs")}>
+                  About Us
+                </NavLink>
+              </div>
+
+              <div className="h-8 w-px bg-white/20"></div>
+
+              
               <div className="relative" ref={profileDropdownRef}>
-                <button
+              <button
                   onClick={() => {
                     const token = localStorage.getItem("fe-token");
                     if (!token) {
@@ -140,12 +168,12 @@ const Header = () => {
                       setProfileDropdownOpen(!profileDropdownOpen);
                     }
                   }}
-                  className={`${isActive("/MyProfile")} w-24 hover:text-gray-900 flex items-center md:w-32`}
+                  className="bg-RuqyaLightGreen text-header py-2 px-6 rounded-full font-medium hover:bg-white transition-all duration-200"
                 >
                   {localStorage.getItem("fe-token") ? (
-                    <span className="flex justify-center items-center">
+                    <span className="flex items-center">
                       My Profile
-                      <svg className={`w-4 h-4 ml-1 mb-1 transform transition-transform duration-200 ${profileDropdownOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className={`ml-2 w-4 h-4 transition-transform duration-200 ${profileDropdownOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                       </svg>
                     </span>
@@ -153,110 +181,226 @@ const Header = () => {
                     "Login"
                   )}
                 </button>
-                {profileDropdownOpen && localStorage.getItem("fe-token") && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50 transition-all duration-300 ease-in-out transform opacity-0 translate-y-4" style={{ opacity: profileDropdownOpen ? 1 : 0, transform: profileDropdownOpen ? 'translateY(0)' : 'translateY(16px)' }}>
-                    <Link href="/MyProfile" className="px-4 py-2 text-gray-700 hover:bg-gray-100 flex items-center" onClick={handleLinkClick}>
-                      <FaEdit className="w-4 h-4 mr-2" />
-                      My Profile
-                    </Link>
-                    <Link href="/MyBookings" className=" px-4 py-2 text-gray-700 hover:bg-gray-100 flex items-center" onClick={handleLinkClick}>
-                      <FaBookBookmark className="w-5 -ml-1 h-4 mr-2" />
-                      My Bookings
-                    </Link>
-                    <Link href="/login" className="px-4 py-2 text-gray-700 hover:bg-gray-100 flex items-center" onClick={handleLogout}>
-                      <LuLogOut className="w-4 h-4 mr-2" />
-                      Logout
-                    </Link>
-                  </div>
-                )}
+
+                <AnimatePresence>
+                  {profileDropdownOpen  && localStorage.getItem("fe-token") && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
+                    >
+                      <div className="px-5 pt-5 pb-3 border-b border-gray-100">
+                        <p className="text-sm text-gray-500">Signed in as</p>
+                        <p className="font-medium text-header">user@example.com</p>
+                      </div>
+                      
+                      <div className="py-2">
+                        <Link 
+                          href="/MyProfile" 
+                          className="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-50 transition-colors" 
+                          onClick={handleLinkClick}
+                        >
+                          <FaEdit className="w-4 h-4 mr-3 text-gray-500" />
+                          <span>My Profile</span>
+                        </Link>
+                        
+                        <Link 
+                          href="/MyBookings" 
+                          className="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-50 transition-colors" 
+                          onClick={handleLinkClick}
+                        >
+                          <FaBookBookmark className="w-4 h-4 mr-3 text-gray-500" />
+                          <span>My Bookings</span>
+                        </Link>
+                      </div>
+                      
+                      <div className="py-2 border-t border-gray-100">
+                        <button 
+                          onClick={handleLogout} 
+                          className="flex items-center w-full text-left px-5 py-3 text-red-600 hover:bg-red-50 transition-colors"
+                        >
+                          <LuLogOut className="w-4 h-4 mr-3" />
+                          <span>Logout</span>
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
-            <div className="md:hidden sm:block z-50">
-              <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 focus:outline-none w-8 h-8 relative" aria-label={isOpen ? "Close menu" : "Open menu"}>
-                <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isOpen ? "rotate-45 translate-y-0" : "-translate-y-2"}`} />
-                <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isOpen ? "opacity-0" : "opacity-100"}`} />
-                <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isOpen ? "-rotate-45 translate-y-0" : "translate-y-2"}`} />
+
+            <div className="lg:hidden z-50">
+              <button onClick={() => setIsOpen(!isOpen)} 
+                className="relative w-10 h-10 flex items-center justify-center focus:outline-none"
+                >
+               <div className="w-6 flex flex-col items-end justify-center">
+                  <span className={`block h-0.5 rounded-full bg-white transition-all duration-300 ease-out ${isOpen ? 'w-6 transform rotate-45 translate-y-1' : 'w-6 mb-1'}`}></span>
+                  <span className={`block h-0.5 rounded-full bg-white transition-all duration-300 ease-out ${isOpen ? 'opacity-0 w-0' : 'w-4'}`}></span>
+                  <span className={`block h-0.5 rounded-full bg-white transition-all duration-300 ease-out ${isOpen ? 'w-6 transform -rotate-45 -translate-y-1' : 'w-6 mt-1'}`}></span>
+                </div>
               </button>
             </div>
           </div>
           {/* Mobile Menu */}
-          <div className={`md:hidden fixed inset-0 bg-black transition-opacity duration-300 ease-in-out ${isOpen ? "opacity-50 z-40" : "opacity-0 pointer-events-none"}`} onClick={() => setIsOpen(false)} />
-          <div className={`md:hidden fixed right-0 top-0 h-full w-[80%] max-w-[320px] bg-white z-50 shadow-xl transform transition-all duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
-            <div className="flex flex-col h-full overflow-y-auto">
-              <div className="p-4 border-b border-gray-200 relative">
-                <button onClick={() => setIsOpen(false)} className="absolute right-4 top-4 p-2 hover:bg-gray-100 rounded-full transition-all duration-200 transform hover:rotate-90" aria-label="Close menu">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div 
+          className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden ${
+            isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`} 
+          onClick={() => setIsOpen(false)} />
+          <div 
+           className={`fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 lg:hidden ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          }`}>
+            <div className="flex flex-col h-full overflow-y-auto pt-6 pb-8">
+              <div className="px-6 mb-8 flex justify-between items-center">
+              <Link href="/" onClick={handleLinkClick}>
+                  <img src="/images/logo.png" alt="Ruqya logo" className="w-32" 
+                  />
+                </Link>
+                <button onClick={() => setIsOpen(false)} 
+                className="p-2 text-gray-500 hover:text-gray-700 rounded-full hover:bg-gray-100 transition-all"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
-                <Link href="/" onClick={handleLinkClick}>
-                  <img src="/images/logo.png" alt="Ruqya logo" width="120" className="mx-auto transform transition-transform duration-300 hover:scale-105" />
-                </Link>
               </div>
-              <div className="flex flex-col p-4 space-y-3">
-                <Link href="/" className={`${isActive("/")} px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200`} onClick={handleLinkClick}>
-                  Home
-                </Link>
-                <Link href="/BookRaqis" className={`${isActive("/BookRaqis")} px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200`} onClick={handleLinkClick}>
-                  Book Raqis
-                </Link>
-                <Link href="/SelfRuqyah" className={`${isActive("/SelfRuqyah")} px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200`} onClick={handleLinkClick}>
-                  Self-Ruqyah
-                </Link>
-                <Link href="/AboutUs" className={`${isActive("/AboutUs")} px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200`} onClick={handleLinkClick}>
-                  About Us
-                </Link>
 
-                <div className="border-t border-gray-200 pt-3">
-                  <button
-                    onClick={() => {
-                      const token = localStorage.getItem("fe-token");
-                      if (!token) {
-                        handleLoginClick();
-                      } else {
-                        setMobileProfileDropdownOpen(!mobileProfileDropdownOpen);
-                      }
-    
-                    }}
-                    className={`${isActive("/MyProfile")} w-full px-4 py-3 rounded-lg flex flex-row items-center  ${mobileProfileDropdownOpen ? "bg-RuqyaGreen text-white" : "hover:bg-gray-100"} transition-colors duration-200`}
-                  >
-                    <span>
-                      {localStorage.getItem("fe-token") ? (
-                        <span className="flex justify-center items-center gap-2 flex-row w-full">
-                          My Profile
-                          <svg className={`w-4 h-4 transform transition-transform duration-200 ${mobileProfileDropdownOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                          </svg>
-                        </span>
-                      ) : (
-                        "Login"
-                      )}
-                    </span>
-                  </button>
+              <div className="px-6 py-2">
+              <MobileNavLink 
+                href="/" 
+                active={isActive("/")} 
+                onClick={handleLinkClick}
+              >
+                Home
+              </MobileNavLink>
+              
+              <MobileNavLink 
+                href="/BookRaqis" 
+                active={isActive("/BookRaqis")} 
+                onClick={handleLinkClick}
+              >
+                Book Raqis
+              </MobileNavLink>
+              
+              <MobileNavLink 
+                href="/SelfRuqyah" 
+                active={isActive("/SelfRuqyah")} 
+                onClick={handleLinkClick}
+              >
+                Self-Ruqyah
+              </MobileNavLink>
+              
+              <MobileNavLink 
+                href="/AboutUs" 
+                active={isActive("/AboutUs")} 
+                onClick={handleLinkClick}
+              >
+                About Us
+              </MobileNavLink>
+            </div>
 
-                  {mobileProfileDropdownOpen && localStorage.getItem("fe-token") && (
-                    <div className="mt-2 bg-gray-50 rounded-lg">
-                      <Link href="/MyProfile" className="px-6 py-3 text-gray-700 hover:bg-gray-100 flex items-center rounded-t-lg" onClick={handleLinkClick}>
-                        <FaEdit className="w-4 h-4 mr-3" />
-                        View Profile
-                      </Link>
-                      <Link href="/MyBookings" className="px-6 py-3 text-gray-700 hover:bg-gray-100 flex items-center" onClick={handleLinkClick}>
-                        <FaBookBookmark className="w-4 h-4 mr-3" />
-                        My Bookings
-                      </Link>
-                      <Link href="/login" className="px-6 py-3 text-gray-700 hover:bg-gray-100 flex items-center rounded-b-lg" onClick={handleLogout}>
-                        <LuLogOut className="w-4 h-4 mr-3" />
-                        Logout
-                      </Link>
-                    </div>
-                  )}
-                </div>
+                <div className="mt-4 pt-4 border-t border-gray-100 px-6">
+                <button
+                  onClick={() => {
+                    const token = localStorage.getItem("fe-token");
+                    if (!token) {
+                      handleLoginClick();
+                    } else {
+                      setMobileProfileDropdownOpen(!mobileProfileDropdownOpen);
+                    }
+                  }}
+                  className={`${isActive("/MyProfile")} flex items-center justify-between w-full py-3 px-2 text-header hover:bg-gray-50 rounded-md transition-all duration-200`}
+                >
+                  <span>
+                    {localStorage.getItem("fe-token") ? (
+                      <span className="flex justify-center items-center gap-2 flex-row w-full">
+                        My Profile
+                        <svg className={`w-5 h-5 transition-transform duration-200 ${mobileProfileDropdownOpen ? "rotate-180" : ""}`}  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </span>
+                    ) : (
+                      "Login"
+                    )}
+                  </span>
+                </button>
+                  <AnimatePresence>
+                    {mobileProfileDropdownOpen && localStorage.getItem("fe-token") && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="py-2 pl-11 space-y-1">
+                          <Link 
+                            href="/MyProfile" 
+                            className="flex items-center py-3 text-gray-700 hover:text-header transition-colors" 
+                            onClick={handleLinkClick}
+                          >
+                            <FaEdit className="w-4 h-4 mr-3 text-gray-500" />
+                            <span>View Profile</span>
+                          </Link>
+                          
+                          <Link 
+                            href="/MyBookings" 
+                            className="flex items-center py-3 text-gray-700 hover:text-header transition-colors" 
+                            onClick={handleLinkClick}
+                          >
+                            <FaBookBookmark className="w-4 h-4 mr-3 text-gray-500" />
+                            <span>My Bookings</span>
+                          </Link>
+                          
+                          <button 
+                            onClick={handleLogout} 
+                            className="flex items-center w-full text-left py-3 text-red-600"
+                          >
+                            <LuLogOut className="w-4 h-4 mr-3" />
+                            <span>Logout</span>
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
               </div>
             </div>
           </div>
         </nav>
       </header>
+
+      <div className={`h-20 ${scrolled ? 'h-16' : 'h-24'} transition-all duration-300`} />
+
     </>
+  );
+};
+
+// Desktop Nav Link Component
+const NavLink = ({ href, active, children }) => {
+  return (
+    <Link 
+      href={href} 
+      className={`relative px-3 py-2 text-white ${active} group transition-colors duration-200 hover:text-RuqyaLightGreen `}    >
+      {children}
+      <span className={`absolute left-0 right-0 bottom-0 h-0.5 bg-RuqyaLightGreen transform origin-left transition-transform duration-300  ${active.includes("font-medium") ? "scale-x-100" : "scale-x-0"} group-hover:scale-x-100`}></span>
+    </Link>
+  );
+};
+
+// Mobile Nav Link Component
+const MobileNavLink = ({ href, active, onClick, children }) => {
+  return (
+    <Link 
+      href={href} 
+      className={`block py-4 px-2 mb-1 ${active} hover:text-header transition-colors duration-200 border-b border-gray-100 rounded-md hover:bg-gray-50`}
+      onClick={onClick}
+    >
+      {children}
+    </Link>
   );
 };
 
