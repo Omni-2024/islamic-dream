@@ -108,7 +108,7 @@ export default function RaqisCard({ raqi }) {
                         </span>
                       ))
                     ) : (
-                      <span className="px-3 py-1 bg-RuqyaLightPurple/20 text-RuqyaGreen rounded-full text-sm">English</span>
+                      <span className="px-3 py-1 bg-RuqyaLightPurple text-RuqyaGreen rounded-full text-sm">English</span>
                     )}
                   </div>
                 </div>

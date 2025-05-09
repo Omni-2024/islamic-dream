@@ -20,7 +20,7 @@ const Grid = ({
       `2xl:grid-cols-3`,
       `3xl:grid-cols-5`,
       `gap-${gap}`,
-      'my-4',
+      // 'my-4',
       className
     )}>
       {React.Children.map(children, (child, index) => (

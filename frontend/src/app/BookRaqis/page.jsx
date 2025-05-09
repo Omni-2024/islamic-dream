@@ -239,19 +239,38 @@ export default function BookRaqis() {
   // }
 
   const renderAvailabilityFilter = () => (
-    <div className="filter-section pb-6 animate-fade-in" style={{ animationDelay: `2000ms` }}>
-      <h2 className="text-lg font-semibold mb-4">Availability</h2>
-      <div className="space-y-4 bg-white/50 p-4 rounded-lg font-sans">
-        <div className="relative z-50"> {/* Adjusted z-index */}
-          <label className="text-sm text-gray-600 block mb-1">Date</label>
+    <div className="filter-section animate-fade-in" style={{ animationDelay: `2000ms` }}>
+      <h2 className="text-lg font-semibold text-RuqyaGray mb-4 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+          <line x1="16" x2="16" y1="2" y2="6"></line>
+          <line x1="8" x2="8" y1="2" y2="6"></line>
+          <line x1="3" x2="21" y1="10" y2="10"></line>
+        </svg>
+        Availability
+      </h2>
+      
+      <div className="bg-gray-100 border border-gray-200 rounded-xl p-4">
+        <div className="relative z-10">
+          <div className="mb-3 text-RuqyaGray/80 text-sm font-medium">Select date for availability</div>
           <DateInput
             selected={userSelections.availability.date ? new Date(userSelections.availability.date) : null}
             onChange={handleDateChange}
             placeholderText="Select a date"
             min={new Date()}
-            popperClassName="custom-popper" // Ensure the popper has a higher z-index
-            popperPlacement="top" // Ensure the popper is always displayed on top
+            popperClassName="custom-popper"
+            popperPlacement="top"
+            className="w-full p-3 rounded-lg bg-white border border-gray-300 text-RuqyaGray placeholder-RuqyaGray/60 focus:ring-RuqyaGreen focus:border-RuqyaGreen"
+            calendarClassName="raqi-calendar"
           />
+          
+          {userSelections.availability.date && (
+            <div className="mt-2 text-sm text-RuqyaGreen font-medium">
+              {availableRakisIds.length > 0 ? 
+                `${availableRakisIds.length} Raqis available` : 
+                "No Raqis available on this date"}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -274,170 +293,275 @@ export default function BookRaqis() {
     router.push('/BookRaqis');
   };
 
-  return (
-    <div className="mx-6 md:mx-6 lg:mx-[9%] py-8 min-h-screen mb-56">
-      <nav aria-label="Breadcrumb" className="mb-6">
-        <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
-          <li>
-            <Link href="/" className="hover:text-primary underline">
-              Home
-            </Link>
-          </li>
-          <li>/</li>
-          <li>Book Raqis</li>
-        </ol>
-      </nav>
-      <div className="flex flex-col md:flex-row gap-1">
-        {/* Filters Sidebar */}
-        <aside
-          className={`w-full md:w-72 xl:w-80 md:space-y-6 h-screen ${isFilterVisible ? "block" : "hidden"} md:block fixed md:relative z-50 md:h-auto top-0 left-0 right-0 bottom-0 
-        ${isFilterVisible ? "-mx-6 md:mx-0 -mt-8 md:mt-0" : ""}`}
+return (
+  <div className="mx-6 md:mx-6 lg:mx-[9%] py-8 min-h-screen mb-56">
+    <nav aria-label="Breadcrumb" className="mb-6">
+      <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
+        <li>
+          <Link href="/" className="hover:text-RuqyaGreen underline">
+            Home
+          </Link>
+        </li>
+        <li>/</li>
+        <li>Book Raqis</li>
+      </ol>
+    </nav>
+    <div className="flex flex-col md:flex-row gap-6">
+      {/* Filters Sidebar - REDESIGNED VERSION */}
+      <aside
+        className={`w-full md:w-64 lg:w-72 ${isFilterVisible ? "block" : "hidden"} md:block
+        ${isFilterVisible ? "fixed md:relative inset-0 z-50" : "relative"}`}
+      >
+        {/* Dark overlay for mobile */}
+        {isFilterVisible && <div className="fixed inset-0 md:hidden" onClick={() => setIsFilterVisible(false)} />}
+
+        <div
+          className="bg-white border border-gray-200 text-RuqyaGray h-full md:h-auto md:sticky md:top-6 
+                    overflow-y-auto md:overflow-y-hidden pb-20 md:pb-6 rounded-none md:rounded-2xl shadow-lg"
         >
-          {/* Dark overlay for mobile */}
-          {isFilterVisible && <div className="fixed inset-0 bg-black bg-opacity-50 md:hidden" onClick={() => setIsFilterVisible(false)} />}
-
-          <div
-            className="bg-RuqyaLightPurple p-4 rounded-none md:rounded-lg border border-gray-300 
-                        fixed md:relative w-full md:w-auto h-full md:h-auto 
-                        overflow-y-auto md:overflow-visible pb-20 md:pb-4 top-0 left-0 right-0 bottom-0"
-          >
-            <div className="pt-10 md:pt-0">
-              {/* Close button for mobile view */}
-              <button className="md:hidden absolute top-4 right-4 text-primary z-50" onClick={() => setIsFilterVisible(false)}>
-                <FaTimes size={24} />
-              </button>
-
-              {(searchQuery || language || userSelections.experience[0] > 0 || userSelections.languages.length > 0 || userSelections.countries.length > 0 || userSelections.availability.date || rating > 0) && (
-                <div className="mb-4 p-2 bg-white rounded-md flex items-center justify-between">
-                  <button onClick={clearAllFilters} className="text-red-500 text-center w-full">
-                    Clear All
-                  </button>
-                </div>
-              )}
-
-              {/* Search Query Display */}
-              {searchQuery && (
-                <div className="mb-4 p-2 bg-white rounded-md flex items-center justify-between">
-                  <span>User search: {searchQuery}</span>
-                  <button onClick={handleRemoveSearchQuery} className="text-red-500">
-                    <FaTimes />
-                  </button>
-                </div>
-              )}
-
-              {/* Language Display */}
-              {language && (
-                <div className="mb-4 p-2 bg-white rounded-md flex items-center justify-between">
-                  <span>Language: {getLanguageLabel(language)}</span>
-                  <button onClick={handleRemoveLanguage} className="text-red-500">
-                    <FaTimes />
-                  </button>
-                </div>
-              )}
-
-              {/* Updated Experience Level Section */}
-              <div className="filter-section border-b border-gray-200 pb-6 animate-fade-in" style={{ animationDelay: `0ms` }}>
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-lg font-semibold">Experience Level</h2>
-                  <span className="text-sm text-gray-600 ">
-                    {userSelections.experience[0]} - {userSelections.experience[1]} Year{userSelections.experience[1] !== 1 ? "s" : ""}
-                  </span>
-                </div>
-
-                <div className="space-y-4 ml-5">
-                  <Slider
-                    range
-                    min={Math.min(...raqiData.map((raqi) => raqi.yearOfExperience || 0))}
-                    max={Math.max(...raqiData.map((raqi) => raqi.yearOfExperience || 0))}
-                    value={userSelections.experience}
-                    onChange={handleExperienceChange}
-                    trackStyle={[{ backgroundColor: "green", height: 2 }]}
-                    handleStyle={[
-                      { borderColor: "green", height: 20, width: 20, marginLeft: -9, marginTop: -9 },
-                      { borderColor: "green", height: 20, width: 20, marginLeft: -9, marginTop: -9 },
-                    ]}
-                    railStyle={{ backgroundColor: "gray", height: 2 }}
-                  />
-
-                  <div className="flex justify-between text-sm text-gray-600">
-                    <span>
-                      {Math.min(...raqiData.map((raqi) => raqi.yearOfExperience || 0))} Year{Math.min(...raqiData.map((raqi) => raqi.yearOfExperience || 0)) !== 1 ? "s" : ""}
-                    </span>
-                    <div className="flex ">
-                      {experienceLevels.map((level) => (
-                        <div key={level} className={`h-1 w-1 rounded-full ${level <= userSelections.experience[1] ? "bg-primary" : "bg-gray-300"}`} title={`${level} year${level !== 1 ? "s" : ""}`} />
-                      ))}
-                    </div>
-                    <span>
-                      {Math.max(...raqiData.map((raqi) => raqi.yearOfExperience || 0))} Year{Math.max(...raqiData.map((raqi) => raqi.yearOfExperience || 0)) !== 1 ? "s" : ""}
-                    </span>
-                  </div>
+        <div>
+          {/* Header with wave pattern */}
+            <div className="relative mb-8">
+              <div className="absolute inset-0 bg-RuqyaGreen rounded-b-[40px] h-28">
+                <div className="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 500 50" preserveAspectRatio="none" className="w-full h-12 text-white fill-current">
+                  <path d="M0,50 L0,0 C150,20 350,20 500,0 L500,50 Z"></path>
+                </svg>
                 </div>
               </div>
-
-              {/* Languages Filter Section */}
-              <div className="filter-section border-b border-gray-200 pb-6 animate-fade-in" style={{ animationDelay: `500ms` }}>
-                <h2 className="text-lg  mb-4 flex items-center">
-                  <span className="flex-1 font-semibold">Languages</span>
-                  <div className="text-xs text-gray-500">{userSelections.languages.length} selected</div>
-                </h2>
-                <div className="space-y-1">
-                  {displayedLanguages.map((language, index) => (
-                    <div key={language} className="flex items-center space-x-1 hover:bg-white/50 p-2 rounded-md animate-fade-in" style={{ animationDelay: `${(index % 4) * 500}ms` }}>
-                      <input type="checkbox" id={`language-${language}`} checked={userSelections.languages.includes(languages.find((l) => l.label === language)?.value)} onChange={(e) => handleLanguageChange(e, language)} className="w-5 h-5 rounded text-primary border-none focus:ring-primary cursor-pointer" style={{ borderColor: "RuqyaLightPurple" }} />
-                      <label htmlFor={`language-${language}`} className="text-sm flex-1 pl-2 cursor-pointer">
-                        {language}
-                      </label>
-                    </div>
-                  ))}
-                  {availableLanguages.length > 4 && (
-                    <button onClick={() => setShowMoreLanguages(!showMoreLanguages)} className="text-primary no-underline text-md ml-2 mt-4" style={{ animationDelay: `2000ms` }}>
-                      {showMoreLanguages ? "Show Less" : "Show More ..."}
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              {/* Countries Filter */}
-              <div className="filter-section border-b border-gray-200 pb-6 animate-fade-in" style={{ animationDelay: `1000ms` }}>
-                <h2 className="text-lg  mb-4 flex items-center">
-                  <span className="flex-1 font-semibold">Countries</span>
-                  <div className="text-xs text-gray-500">{userSelections.countries.length} selected</div>
-                </h2>
-                <div className="space-y-1">
-                  {displayedCountries.map((country, index) => (
-                    <div key={country} className="flex items-center space-x-1 hover:bg-white/50 p-2 rounded-md animate-fade-in" style={{ animationDelay: `${(index % 4) * 500}ms` }}>
-                      <input type="checkbox" id={`country-${country}`} checked={userSelections.countries.includes(countries.find((c) => c.label === country)?.value)} onChange={(e) => handleCountryChange(e, country)} className="w-5 h-5 rounded text-primary border-none focus:ring-primary cursor-pointer" style={{ borderColor: "RuqyaLightPurple" }} />
-                      <label htmlFor={`country-${country}`} className="text-sm pl-2 flex-1 cursor-pointer">
-                        {country}
-                      </label>
-                    </div>
-                  ))}
-                  {availableCountries.length > 4 && (
-                    <button onClick={() => setShowMoreCountries(!showMoreCountries)} className="text-primary no-underline text-md ml-2 mt-4" style={{ animationDelay: `2000ms` }}>
-                      {showMoreCountries ? "Show Less..." : "Show More"}
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex flex-col justify-start items-start m-auto filter-section pb-6 animate-fade-in" style={{ animationDelay: `1500ms` }}>
-                <div className="flex justify-between items-center text-lg mb-4 w-full">
-                  <span className="flex-1 font-semibold">Rating</span>
-                  <div className="text-xs text-gray-500 ml-auto">
-                    {rating == 5 ? "Minimun" : "Minimun"} {rating} stars{" "}
-                  </div>
-                </div>
-                <RatingInput rating={rating} setRating={setRating} className={"z-0"} />
-              </div>
-
-              {/* Availability Filter */}
-              {renderAvailabilityFilter()}
-
-              {/* Rating Filter */}
               
+              <div className="relative flex justify-between items-center p-6 pt-4">
+                <h2 className="text-2xl font-semibold text-white">Find Your Raqi</h2>
+                
+                {/* Close button for mobile view */}
+                <button className="md:hidden text-white p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors" 
+                      onClick={() => setIsFilterVisible(false)}>
+                  <FaTimes size={18} />
+                </button>
+              </div>
+              
+              {/* Clear All Filters Button */}
+              {(searchQuery || language || userSelections.experience[0] > 0 || userSelections.languages.length > 0 || 
+                userSelections.countries.length > 0 || userSelections.availability.date || rating > 0) && (
+                <div className="relative px-6">
+                  <button 
+                    onClick={clearAllFilters} 
+                    className="text-white bg-RuqyaGray hover:bg-RuqyaGray/80 transition-all duration-300 
+                              text-center w-full py-2 rounded-xl font-semibold flex items-center justify-center gap-2
+                              shadow-lg transform hover:-translate-y-1 my-3"
+                  >
+                    <FaTimes size={14} />
+                    Clear All Filters
+                  </button>
+                </div>
+              )}
+            </div>
 
-              {/* Debug section */}
+            {/* Active Filters Display */}
+            {(searchQuery || language) && (
+              <div className="mb-6 px-6">
+                <h3 className="text-sm font-semibold text-RuqyaGray/80 mb-3 uppercase tracking-wider">Active Filters</h3>
+                <div className="flex flex-wrap gap-2">
+                  {searchQuery && (
+                    <div className="bg-RuqyaGreen/20 border border-RuqyaGreen/30 rounded-lg py-1 px-3 text-sm flex items-center gap-1">
+                      <span className="text-RuqyaGray">Search: {searchQuery}</span>
+                      <button onClick={handleRemoveSearchQuery} className="text-RuqyaGray/70 hover:text-RuqyaGray transition-colors ml-1">
+                        <FaTimes size={12} />
+                      </button>
+                    </div>
+                  )}
+                  {language && (
+                    <div className="bg-RuqyaGreen/20 border border-RuqyaGreen/30 rounded-lg py-1 px-3 text-sm flex items-center gap-1">
+                      <span className="text-RuqyaGray">Lang: {getLanguageLabel(language)}</span>
+                      <button onClick={handleRemoveLanguage} className="text-RuqyaGray/70 hover:text-RuqyaGray transition-colors ml-1">
+                        <FaTimes size={12} />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            <div className="px-6 space-y-6">
+              {/* Experience Level Section - Modified */}
+              <div className="filter-section animate-fade-in" style={{ animationDelay: `0ms` }}>
+                <h2 className="text-lg font-semibold text-RuqyaGray mb-4 flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                  Experience Level
+                </h2>
+
+                <div className="relative pt-2 pb-6">
+                  {/* Slider with custom styling */}
+                  <div className="px-2">
+                    <Slider
+                      range
+                      min={Math.min(...raqiData.map((raqi) => raqi.yearOfExperience || 0))}
+                      max={Math.max(...raqiData.map((raqi) => raqi.yearOfExperience || 0))}
+                      value={userSelections.experience}
+                      onChange={handleExperienceChange}
+                      trackStyle={[{ backgroundColor: "#3ae391", height: 6, borderRadius: "6px" }]}
+                      handleStyle={[
+                        { borderColor: "#2DB573", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: "0 0 0 5px rgba(45, 181, 115, 0.2)" },
+                        { borderColor: "#2DB573", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: "0 0 0 5px rgba(45, 181, 115, 0.2)" },
+                      ]}
+                      railStyle={{ backgroundColor: "rgba(54, 69, 79, 0.2)", height: 6, borderRadius: "6px" }}
+                    />
+                  </div>
+
+                  <div className="flex justify-between text-sm text-RuqyaGray/80 mt-2">
+                    <span className="font-medium">
+                      Min: {userSelections.experience[0]} Yr
+                    </span>
+                    <span className="font-medium">
+                      Max: {userSelections.experience[1]} Yr
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Languages Filter - Bubble Tags */}
+              <div className="filter-section animate-fade-in" style={{ animationDelay: `500ms` }}>
+                <h2 className="text-lg font-semibold text-RuqyaGray mb-4 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m5 8 6 6"></path><path d="m4 14 10-10 6 6-10 10-6-6z"></path>
+                    </svg>
+                    Languages
+                  </div>
+                  {userSelections.languages.length > 0 && (
+                    <div className="text-xs px-2 py-1 bg-RuqyaGreen text-white rounded-full font-medium">
+                      {userSelections.languages.length}
+                    </div>
+                  )}
+                </h2>
+                
+                <div className="flex flex-wrap gap-2">
+                  {displayedLanguages.map((language, index) => {
+                    const isSelected = userSelections.languages.includes(languages.find((l) => l.label === language)?.value);
+                    return (
+                      <button 
+                        key={language} 
+                        onClick={(e) => handleLanguageChange({target: {checked: !isSelected}}, language)}
+                        className={`py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 animate-fade-in border
+                                  ${isSelected 
+                                    ? "bg-RuqyaGreen text-white border-RuqyaGreen" 
+                                    : "bg-gray-100 text-RuqyaGray border-gray-200 hover:bg-gray-200"}`}
+                        style={{ animationDelay: `${(index % 4) * 200}ms` }}
+                      >
+                        {language}
+                        {isSelected && (
+                          <span className="ml-2 inline-flex items-center justify-center">
+                            <FaTimes size={10} />
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+                
+                {availableLanguages.length > 4 && (
+                  <button 
+                    onClick={() => setShowMoreLanguages(!showMoreLanguages)} 
+                    className="text-RuqyaGreen hover:text-RuqyaGreen/80 transition-colors text-sm font-medium mt-4 flex items-center gap-1"
+                  >
+                    {showMoreLanguages ? "Show Less" : "Show More"}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      {showMoreLanguages ? 
+                        <path d="m18 15-6-6-6 6"/> : 
+                        <path d="m6 9 6 6 6-6"/>
+                      }
+                    </svg>
+                  </button>
+                )}
+              </div>
+
+              {/* Countries Filter - Modified to use Bubble Tags like Languages */}
+              <div className="filter-section animate-fade-in" style={{ animationDelay: `1000ms` }}>
+                <h2 className="text-lg font-semibold text-RuqyaGray mb-4 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      <path d="M2 12h20"></path>
+                    </svg>
+                    Countries
+                  </div>
+                  {userSelections.countries.length > 0 && (
+                    <div className="text-xs px-2 py-1 bg-RuqyaGreen text-white rounded-full font-medium">
+                      {userSelections.countries.length}
+                    </div>
+                  )}
+                </h2>
+                
+                <div className="flex flex-wrap gap-2">
+                  {displayedCountries.map((country, index) => {
+                    const isSelected = userSelections.countries.includes(countries.find((c) => c.label === country)?.value);
+                    return (
+                      <button 
+                        key={country} 
+                        onClick={(e) => handleCountryChange({target: {checked: !isSelected}}, country)}
+                        className={`py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 animate-fade-in border
+                                  ${isSelected 
+                                    ? "bg-RuqyaGreen text-white border-RuqyaGreen" 
+                                    : "bg-gray-100 text-RuqyaGray border-gray-200 hover:bg-gray-200"}`}
+                        style={{ animationDelay: `${(index % 4) * 200}ms` }}
+                      >
+                        {country}
+                        {isSelected && (
+                          <span className="ml-2 inline-flex items-center justify-center">
+                            <FaTimes size={10} />
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+                
+                {availableCountries.length > 4 && (
+                  <button 
+                    onClick={() => setShowMoreCountries(!showMoreCountries)} 
+                    className="text-RuqyaGreen hover:text-RuqyaGreen/80 transition-colors text-sm font-medium mt-4 flex items-center gap-1"
+                  >
+                    {showMoreCountries ? "Show Less" : "Show More"}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      {showMoreCountries ? 
+                        <path d="m18 15-6-6-6 6"/> : 
+                        <path d="m6 9 6 6 6-6"/>
+                      }
+                    </svg>
+                  </button>
+                )}
+              </div>
+
+              {/* Rating Filter - Interactive Stars */}
+              <div className="filter-section animate-fade-in" style={{ animationDelay: `1500ms` }}>
+                <h2 className="text-lg font-semibold text-RuqyaGray mb-4 flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  Rating
+                </h2>
+                
+                <div className="bg-gray-100 border border-gray-200 rounded-xl p-4 flex items-center justify-between">
+                  <RatingInput rating={rating} setRating={setRating} className="text-RuqyaGreen" />
+                  
+                  {rating > 0 && (
+                    <div className="ml-2 bg-RuqyaGreen text-white px-3 py-1 rounded-lg text-sm font-medium">
+                      {rating}+
+                    </div>
+                  )}
+                </div>
+              </div>
+
+               {/* Availability Filter */}
+             {renderAvailabilityFilter()}
+              
+            </div>
+            
+             {/* Debug section */}
               {/* <div className="filter-section bg-white rounded-md">
               <details>
                 <summary className="cursor-pointer">Selected Filters</summary>
@@ -446,30 +570,58 @@ export default function BookRaqis() {
                 </pre>
               </details>
             </div> */}
-            </div>
           </div>
-        </aside>
+        </div>
+      </aside>
 
-        {/* Practitioners Grid */}
-        <main className="flex-1 lg:ml-6">
-          {/* Filter button for mobile view */}
-          <button className="md:hidden text-primary mb-4 fixed bottom-4 right-4 bg-white p-2 rounded-full shadow-lg shadow-gray-500/50 border-2 border-[#0C8281] z-20" onClick={() => setIsFilterVisible(true)}>
-            {isFilterVisible ? <FaTimes size={24} /> : <FaFilter size={24} />}
-          </button>
-          <Grid>
-            {filteredData.map((practitioner, index) => (
-              <RaqisCard key={`${practitioner._id}-${index}`} raqi={practitioner} className={"z-5"} />
-            ))}
-          </Grid>
-          {filteredData.length === 0 && (
-            <div className="text-center py-8 text-gray-500">
-              {userSelections.availability.date && availableRakisIds.length === 0
-                ? "No practitioners available for the selected date"
-                : "No practitioners found matching your criteria"}
-            </div>
-          )}
-        </main>
-      </div>
+      {/* Practitioners Grid */}
+      <main className="flex-1 lg:ml-6">
+        {/* Filter button for mobile view */}
+        <button 
+          className="md:hidden text-white mb-4 fixed bottom-4 right-4 bg-RuqyaGreen p-4 rounded-full shadow-lg z-20 transition-transform hover:scale-110 border-2 border-green-900"
+          onClick={() => setIsFilterVisible(true)}
+        >
+
+          <FaFilter size={24} />
+        </button>
+        
+        {isLoading ? (
+          <div className="flex justify-center items-center h-64">
+            <LoadingSpinner />
+          </div>
+        ) : (
+          <>            
+            <Grid>
+              {filteredData.map((practitioner, index) => (
+                <RaqisCard key={`${practitioner._id}-${index}`} raqi={practitioner} className={"z-5"} />
+              ))}
+            </Grid>
+            
+            {filteredData.length === 0 && (
+              <div className="text-center py-16 bg-gray-100 rounded-xl border border-gray-200 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#36454F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mx-auto mb-4 opacity-70">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+                  <line x1="9" x2="9.01" y1="9" y2="9"></line>
+                  <line x1="15" x2="15.01" y1="9" y2="9"></line>
+                </svg>
+                <p className="text-RuqyaGray font-medium">
+                  {userSelections.availability.date && availableRakisIds.length === 0
+                    ? "No practitioners available for the selected date"
+                    : "No practitioners found matching your criteria"}
+                </p>
+                <button 
+                  onClick={clearAllFilters} 
+                  className="mt-4 text-white bg-RuqyaGreen hover:bg-RuqyaGreen/80 transition-all duration-300 py-2 px-4 rounded-full text-sm font-medium shadow-md"
+                >
+                  Reset Filters
+                </button>
+              </div>
+            )}
+          </>
+        )}
+      </main>
     </div>
-  );
+  </div>
+);
 }
