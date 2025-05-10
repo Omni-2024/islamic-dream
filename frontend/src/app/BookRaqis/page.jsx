@@ -13,6 +13,7 @@ import { getRakis, getRakisIdByDate } from "@/lib/api";
 import LoadingSpinner from "@/components/shared/common/LoadingSpinner";
 import { getLanguageLabel } from "@/lib/utils";
 import { DateInput } from "@/components/ui/input/input";
+import { ChevronRightIcon, HomeIcon } from 'lucide-react'
 
 const displayImage = "https://as2.ftcdn.net/v2/jpg/04/75/12/25/1000_F_475122535_WQkfB8bbLLu7pTanatEAIDt4ppIYgRb8.jpg";
 
@@ -295,17 +296,14 @@ export default function BookRaqis() {
 
 return (
   <div className="mx-6 md:mx-6 lg:mx-[9%] py-8 min-h-screen mb-56">
-    <nav aria-label="Breadcrumb" className="mb-6">
-      <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
-        <li>
-          <Link href="/" className="hover:text-RuqyaGreen underline">
-            Home
+    <nav aria-label="Breadcrumb" className="mb-6 flex items-center text-sm text-gray-600 mt-5">
+          <Link href="/" className="flex items-center hover:text-RuqyaGreen transition-colors">
+            <HomeIcon className="w-4 h-4 mr-1" />
+            <span>Home</span>
           </Link>
-        </li>
-        <li>/</li>
-        <li>Book Raqis</li>
-      </ol>
-    </nav>
+          <ChevronRightIcon className="w-4 h-4 mx-2" />
+          <span className="font-medium text-RuqyaGray">Book Raqis</span>
+        </nav>
     <div className="flex flex-col md:flex-row gap-6">
       {/* Filters Sidebar - REDESIGNED VERSION */}
       <aside
