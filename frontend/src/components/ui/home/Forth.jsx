@@ -14,7 +14,7 @@ function Forth(props) {
   return (
     <div
       id="Forth"
-      className={`mt-20 animate-fade-in md:mx-[7%] lg:mx-[7%] ${props.className} mb-20`}
+      className={`mt-0 animate-fade-in ${props.className} mb-20`}
       style={{ animationDelay: "0.1s" }}
     >
       {/* Same container padding/margins as 'First' */}
