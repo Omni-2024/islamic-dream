@@ -20,7 +20,7 @@ export const BorderInput = ({ label, type, name, placeholder, className, value, 
   return (
       <div className="relative mb-4">
       <label className="text-sm text-gray-600 absolute -top-3 left-8 bg-white px-1">{label}</label>
-      <div className="flex justify-center items-center rounded-full border px-2 py-1 pl-6  border-teal-500 focus:ring-teal-500">
+      <div className="flex justify-center items-center rounded-full border px-2 py-1 pl-6 border-RuqyaGreen focus:ring-RuqyaGreen">        
         <Input type={type} name={name} placeholder={placeholder} className={className} value={value} onChange={onChange} />
       </div>
     </div>
