@@ -18,7 +18,7 @@ import { getCountryLabel, getLanguageLabel } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import PleaseLogin from "@/components/ui/popup/pleaseLogin";
 import {useAuth} from "@/contexts/AuthContexts";
-import { FileIcon, Music2Icon, ChevronDownIcon, ChevronRightIcon, BookOpenIcon, HomeIcon, DownloadIcon } from 'lucide-react'
+import {HomeIcon } from 'lucide-react'
 
 
 const displayImage = "https://as2.ftcdn.net/v2/jpg/04/75/12/25/1000_F_475122535_WQkfB8bbLLu7pTanatEAIDt4ppIYgRb8.jpg";
@@ -361,7 +361,7 @@ return (
       <Button 
         text="Book Now" 
         link={"/Raqi/" + data._id + "/book"} 
-        className="flex items-center justify-center gap-2 bg-RuqyaGreen text-RuqyaGray rounded-none py-3 flex-1 font-bold" 
+        className="flex items-center justify-center gap-2 bg-RuqyaGreen text-RuqyaGray rounded-xl py-3 flex-1 font-bold" 
       />
     </div>
 
