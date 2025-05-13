@@ -221,15 +221,17 @@ function Login() {
                   Forgot Password?
                 </p>
 
-                <div className="">
-                  <button
-                    type="submit"
-                    className="w-full bg-teal-600 hover:bg-teal-700 text-white rounded-full py-3"
-                    onClick={handleSubmit}
-                  >
+                <button
+                  type="submit"
+                  className="group relative w-full bg-RuqyaGreen hover:shadow-lg shadow-md text-white rounded-full py-3 transition-all duration-300"
+                  onClick={handleSubmit}
+                >
+                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-full"></div>
+                  
+                  <span className="relative">
                     Login
-                  </button>
-                </div>
+                  </span>
+                </button>
                 <div className="relative my-3">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-gray-300"></div>
