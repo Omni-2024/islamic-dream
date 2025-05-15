@@ -20,6 +20,11 @@ const Header = () => {
   const router = useRouter();
   const profileDropdownRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
+  
+  // Add these new states for mobile detection and scroll behavior
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   const isActive = (path) => (pathname === path ? "text-RuqyaGreen" : "text-gray-700");
   const isCurrent = () => "bg-RuqyaLightPurple";
@@ -58,21 +63,46 @@ const Header = () => {
     }
   }, [isOpen]);
 
-   // Handle scroll effect
-   useEffect(() => {
+  // Add this useEffect for mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024); // 1024 is where lg breakpoint starts in Tailwind
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Modify the scroll effect to handle navbar visibility
+  useEffect(() => {
     const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      
+      // Set scrolled state for styling
       if (window.scrollY > 50) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
+      
+      // Handle visibility on mobile
+      if (isMobile) {
+        // Visible when scrolling up or at the top
+        setVisible((prevScrollPos > currentScrollPos) || currentScrollPos < 10);
+      } else {
+        // Always visible on desktop
+        setVisible(true);
+      }
+      
+      setPrevScrollPos(currentScrollPos);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [prevScrollPos, isMobile]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -116,21 +146,21 @@ const Header = () => {
       }
     }
   }, [pathname, router]);
-
+  
   return (
-    <>
-      {error.message && (
-        <div className="fixed top-0 left-0 right-0 z-50 animate-slideDown">
-          <ErrorMessage message={error.message} type={error.type} />
-        </div>
-      )}
-      <header className="w-full fixed top-0 left-0 right-0 z-40">
-        <nav className={`${isCurrent()} transition-all duration-300 w-full ${
-          scrolled 
-            ? "py-2 bg-header/95 backdrop-blur-md shadow-lg" 
-            : "py-6 bg-header"
-        }`}>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+  <>
+    {error.message && (
+      <div className="fixed top-0 left-0 right-0 z-50 animate-slideDown">
+        <ErrorMessage message={error.message} type={error.type} />
+      </div>
+    )}
+    <header className={`w-full ${isMobile ? 'absolute' : 'fixed'} top-0 left-0 right-0 z-40`}>
+      <nav className={`${isCurrent()} transition-all duration-300 w-full ${
+        scrolled 
+          ? "py-2 bg-header/95 backdrop-blur-md shadow-lg" 
+          : "py-6 bg-header"
+      }`}>
+          <div className=" mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center md:mx-[6%] md:pl-1 md:pr-3 ">
             <div className="flex items-center z-50">
               <Link href="/" className="text-gray-700 w-40 hover:text-gray-900">
                 <img src="/images/logo.png" alt="Ruqya logo" 
@@ -373,9 +403,9 @@ const Header = () => {
         </nav>
       </header>
 
-      <div className={`h-20 ${scrolled ? 'h-16' : 'h-24'} transition-all duration-300`} />
+    <div className={`h-20 ${scrolled ? 'h-16' : 'h-24'} transition-all duration-300`} />
+  </>
 
-    </>
   );
 };
 
