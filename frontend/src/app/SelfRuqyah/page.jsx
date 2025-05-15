@@ -63,7 +63,7 @@ export default function RuqyahPage() {
   };
 
   return (
-<div className="md:mx-[6%] px-3 py-5 md:pl-1 md:pr-3 min-h-screen bg-gradient-to-br from-white to-RuqyaLightPurple/30 relative">
+<div className="md:mx-[6%] px-3 py-5 md:pl-1 md:pr-3 min-h-screen  relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-20">
      
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center text-sm text-gray-600">
@@ -79,7 +79,7 @@ export default function RuqyahPage() {
         <header className="mb-10">
           <div className="flex items-center mb-4">
             <BookOpenIcon className="w-8 h-8 text-RuqyaGreen mr-3" />
-            <h1 className="text-3xl md:text-4xl font-fullsansbold text-RuqyaGray">Self-Ruqyah Guide</h1>
+            <h1 className="text-3xl md:text-4xl font-semibold text-RuqyaGray">Self-Ruqyah Guide</h1>
           </div>
           <p className="text-gray-600 max-w-3xl">
             A comprehensive guide to performing self-ruqyah with authentic duas and methods from the Sunnah.
