@@ -275,125 +275,159 @@ const MyProfile = () => {
     );
   }
 
-  return (
-    <div className="py-0 md:py-6 mb-10 min-h-screen lg:mx-[9%]">
-      {/* Show popups before the main content */}
-      {isChangePasswordOpen && (
-        <ChangePassword 
-          onClose={() => setIsChangePasswordOpen(false)}
-          onSubmit={handleChangePassword}
-        />
-      )}
-      {errorMessage.message && <ErrorMessage message={errorMessage.message} type={errorMessage.type} />}
+return (
+  <div className="md:mx-[6%] px-3 py-5 md:pl-1 md:pr-3 min-h-screen  relative">
+    {/* Show popups before the main content */}
+    {isChangePasswordOpen && (
+      <ChangePassword 
+        onClose={() => setIsChangePasswordOpen(false)}
+        onSubmit={handleChangePassword}
+      />
+    )}
+    {errorMessage.message && <ErrorMessage message={errorMessage.message} type={errorMessage.type} />}
 
-      {isEditPopupOpen && (
-        <EditProfilePopup 
-          data={formData}
-          onClose={() => setIsEditPopupOpen(false)}
-          onSave={handleSaveProfile}
-          genderOptions={genderOptions}
-          countries={countries}
-          languages={languages}
-        />
-      )}
+    {isEditPopupOpen && (
+      <EditProfilePopup 
+        data={formData}
+        onClose={() => setIsEditPopupOpen(false)}
+        onSave={handleSaveProfile}
+        genderOptions={genderOptions}
+        countries={countries}
+        languages={languages}
+      />
+    )}
 
-      <div className="w-full">
-        <div className="bg-white md:rounded-xl shadow-lg overflow-hidden">
-          <div className="relative h-40 bg-gradient-to-r from-teal-500 to-teal-600">
-            <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
-              <div className="w-32 h-32 rounded-full bg-teal-600 border-4 border-white flex items-center justify-center text-white text-4xl font-bold shadow-lg">{formData.name ? formData.name.charAt(0).toUpperCase() : "?"}</div>
+    {/* Left sidebar */}
+    <div className="flex flex-col md:flex-row">
+      <div className="md:w-1/3 lg:w-1/4 text-white p-6 md:min-h-screen">
+        <div className="flex flex-col mb-12 items-center">
+          {/* Profile avatar with dark background */}
+          <div className="relative w-32 h-32 mb-4">
+            <div className="w-32 h-32 rounded-md bg-RuqyaGreen flex items-center justify-center text-white text-4xl font-bold shadow-lg">
+              {formData.name ? formData.name.charAt(0).toUpperCase() : "?"}
+            </div>
+            {/* Decorative elements */}
+            {/* <div className="absolute top-0 right-0 w-8 h-8 bg-RuqyaLightGreen rounded-tr-md rounded-bl-lg transform translate-x-2 -translate-y-2"></div>
+            <div className="absolute bottom-0 left-0 w-8 h-8 bg-RuqyaLightGreen rounded-bl-md rounded-tr-lg transform -translate-x-2 translate-y-2"></div> */}
+          </div>
+          
+          {/* User name and email */}
+          <h1 className="text-2xl  text-RuqyaGray mt-4">{formData.name}</h1>
+          <p className="text-sm opacity-80 mt-1 text-RuqyaGray font-medium">{formData.email}</p>
+          
+          {/* Action buttons - vertical layout on sidebar */}
+          <div className="w-full mt-12 space-y-3">
+            <button 
+              onClick={handleEditButtonClick} 
+              className="w-full flex items-center justify-center px-4 py-3 bg-RuqyaGreen hover:bg-RuqyaLightGreen text-white font-medium rounded-md transition-all duration-200"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+              </svg>
+              Edit Profile
+            </button>
+            <button 
+              onClick={() => setIsChangePasswordOpen(true)} 
+              className="w-full flex items-center justify-center px-4 py-3 bg-RuqyaGray/60 hover:bg-RuqyaGray text-white font-medium rounded-md transition-all duration-200"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7z" />
+              </svg>
+              Change Password
+            </button>
+          </div>
+        </div>
+        
+      
+      </div>
+
+      {/* Main content area */}
+      <div className="md:w-2/3 lg:w-3/4 p-6 pt-0  md:p-12 ">
+        <h2 className="text-xl sm:text-3xl md:text-3xl font-semibold text-header mb-8 pb-4 border-b border-gray-200">Profile Information</h2>
+        
+        {/* Profile info in a 2-column table layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
+          {/* Row 1: Gender */}
+          <div className="border-b border-dashed border-gray-200 pb-4">
+            <div className="flex items-center">
+              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 font-medium">Gender</p>
+                <p className="text-xl font-medium text-header">{formData.gender || "Not specified"}</p>
+              </div>
             </div>
           </div>
-
-          <div className="pt-20 px-8 pb-8">
-            <h1 className="text-4xl font-bold text-center text-gray-800 mb-2">{formData.name}</h1> {/* Increased text size */}
-            <p className="text-center text-gray-600 mb-8">{formData.email}</p> {/* Increased bottom margin */}
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8">
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-teal-100 rounded-lg">
-                    <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Gender</p>
-                    <p className="font-medium text-gray-800">{formData.gender || "Not specified"}</p>
-                  </div>
-                </div>
+          
+          {/* Row 2: Age & Birthday */}
+          <div className="border-b border-dashed border-gray-200 pb-4">
+            <div className="flex items-center">
+              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-teal-100 rounded-lg">
-                    <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Age & Birthday</p>
-                    <p className="font-medium text-gray-800">{formData.dob ? `${calculateAge(formData.dob)} years (${formatDate(formData.dob)})` : "Not specified"}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-teal-100 rounded-lg">
-                    <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Country</p>
-                    <p className="font-medium text-gray-800">{getCountryLabel(formData.country) || "Not specified"}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-teal-100 rounded-lg">
-                    <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Language</p>
-                    <p className="font-medium text-gray-800">{getLanguageLabel(formData.language) || "Not specified"}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow md:col-span-1">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-teal-100 rounded-lg">
-                    <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Mobile Number</p>
-                    <p className="font-medium text-gray-800">{formData.mobile || "Not specified"}</p>
-                  </div>
-                </div>
+              <div>
+                <p className="text-sm text-gray-500 font-medium">Age & Birthday</p>
+                <p className="text-xl font-medium text-header">{formData.dob ? `${calculateAge(formData.dob)} years (${formatDate(formData.dob)})` : "Not specified"}</p>
               </div>
             </div>
-            <div className="mt-12 text-center flex flex-col md:flex-row gap-5 justify-center space-x-0 md:space-x-4">
-              <button onClick={handleEditButtonClick} className="inline-flex items-center px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-full transition duration-300 shadow-md hover:shadow-lg">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+          </div>
+          
+          {/* Row 3: Country */}
+          <div className="border-b border-dashed border-gray-200 pb-4">
+            <div className="flex items-center">
+              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
                 </svg>
-                Edit Profile
-              </button>
-              <button onClick={() => setIsChangePasswordOpen(true)} className="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-full transition duration-300 shadow-md hover:shadow-lg">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7z" />
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 font-medium">Country</p>
+                <p className="text-xl font-medium text-header">{getCountryLabel(formData.country) || "Not specified"}</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Row 4: Language */}
+          <div className="border-b border-dashed border-gray-200 pb-4">
+            <div className="flex items-center">
+              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                 </svg>
-                Change Password
-              </button>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 font-medium">Language</p>
+                <p className="text-xl font-medium text-header">{getLanguageLabel(formData.language) || "Not specified"}</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Row 5: Mobile Number - spanning both columns on large screens */}
+          <div className="border-b border-dashed border-gray-200 pb-4 lg:col-span-2">
+            <div className="flex items-center">
+              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+                <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 font-medium">Mobile Number</p>
+                <p className="text-xl font-medium text-header">{formData.mobile || "Not specified"}</p>
+              </div>
             </div>
           </div>
         </div>
+        
+      
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default MyProfile;
