@@ -1,153 +1,325 @@
 'use client';
 import React from 'react';
-import { Container, Typography, Box, Paper, Grid, Divider } from '@mui/material';
-import Image from 'next/image';
-import { BookOpenIcon, BookIcon, UsersIcon } from 'lucide-react';
+import { 
+  BookOpenIcon, 
+  BookIcon, 
+  UsersIcon, 
+  Heart, 
+  Star, 
+  Shield,
+  ArrowRight,
+  CircleUser,
+  Waves,
+  Sparkles,
+  HomeIcon,
+  ChevronRightIcon
+} from 'lucide-react';
+import Link from "next/link";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-      {/* Hero Section */}
-      <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0ms' }}>
-        <h1 className="text-4xl font-extrabold text-gray-800 sm:text-5xl mb-4">
-          About Us
-        </h1>
-        <h2 className="text-xl font-medium text-RuqyaGreen mb-6">
-          Welcome to Prophetic Ruqyah
-        </h2>
-        <p className="text-lg max-w-3xl mx-auto text-gray-600">
-          At Prophetic Ruqyah, we are dedicated to restoring spiritual balance and nurturing the heart, mind, and soul through authentic Islamic healing practices. Rooted in the timeless wisdom of the Prophetic traditions, our mission is to bring light, healing, and tranquility to those seeking solace in today's challenging world.
-        </p>
-      </div>
+    <div className="md:mx-[6%] px-3 py-5 md:pl-1 md:pr-3 min-h-screen bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-20">
+        {/* Responsive Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6 flex items-center text-xs sm:text-sm text-gray-600">
+          <Link href="/" className="flex items-center hover:text-RuqyaGreen transition-colors">
+            <HomeIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+            <span>Home</span>
+          </Link>
+          <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 mx-1 sm:mx-2" />
+          <span className="font-medium text-RuqyaGray">About Us</span>
+        </nav>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Our Story Section */}
-        <div className="animate-fade-in h-full flex" style={{ animationDelay: '150ms' }}>
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 mb-8 flex-1 flex flex-col">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-[60px] after:h-[3px] after:bg-RuqyaGreen">Our Story</h3>
-            <div className="flex-1 flex flex-col justify-between">
-              <p className="text-gray-600 mb-4">
-                Prophetic Ruqyah was founded with a deep commitment to the rich heritage of Islamic spiritual healing. Inspired by the teachings of the Prophet Muhammad (peace be upon him), our journey began with the aim of reviving the ancient art of Ruqyah—a practice that combines Quranic recitations, supplications, and spiritual guidance. <br /><br /><br />
-                We believe that true healing comes from a strong connection with faith, sincere prayer, and the compassionate support of a community.
-              </p>
-            </div>
+        {/* Responsive Header */}
+        <header className="mb-6 sm:mb-10">
+          <div className="flex items-center mb-3 sm:mb-4 ">
+            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-RuqyaGreen mr-2 sm:mr-3" />
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold  text-RuqyaGray">About Prophetic Ruqyah</h1>
           </div>
-        </div>
+          <p className="text-sm sm:text-base text-gray-600">
+            Founded on Islamic principles and traditional healing practices, Prophetic Ruqyah serves as a center for spiritual wellness and authentic religious guidance.
+          </p>
+        </header>
 
-        {/* Our Mission Section */}
-        <div className="animate-fade-in h-full flex" style={{ animationDelay: '300ms' }}>
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 mb-8 flex-1 flex flex-col">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-[60px] after:h-[3px] after:bg-RuqyaGreen">Our Mission</h3>
-            <div className="flex flex-col gap-4 flex-1">
-              <div>
-                <h4 className="text-lg font-semibold text-gray-700">Authentic Healing</h4>
-                <p className="text-gray-600">
-                  We provide genuine Ruqyah sessions that adhere to the principles and practices taught by the Prophet (peace be upon him).
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="text-lg font-semibold text-gray-700">Spiritual Empowerment</h4>
-                <p className="text-gray-600">
-                  Our goal is to empower individuals with the knowledge and spiritual tools needed to overcome challenges, heal emotional wounds, and maintain inner peace.
-                </p>
-              </div>
-              
-              <div>
-                <h4 className="text-lg font-semibold text-gray-700">Compassionate Guidance</h4>
-                <p className="text-gray-600">
-                  We offer a supportive environment where every person is respected and cared for, ensuring that your spiritual journey is nurtured with kindness and expertise.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* What We Offer Section */}
-        <div className="col-span-1 md:col-span-2 animate-fade-in" style={{ animationDelay: '450ms' }}>
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 mb-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-[60px] after:h-[3px] after:bg-RuqyaGreen">What We Offer</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-green-50 p-6 rounded-lg text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md h-full flex flex-col">
-                <div className="flex justify-center text-RuqyaGreen mb-4">
-                  <BookOpenIcon size={48} />
+        {/* Main content */}
+        <div className="max-w-6xl mx-auto relative">       
+          {/* Our Story - Responsive Grid */}
+          <div className="group bg-white rounded-xl sm:rounded-3xl shadow-lg overflow-hidden border border-gray-100 mb-8 sm:mb-12 hover:shadow-xl transition-all duration-500">
+            {/* <div className="grid grid-cols-1 md:grid-cols-3"> */}
+              {/* <div className="hidden md:flex bg-gradient-to-br from-RuqyaLightPurple/40 to-white items-center justify-center py-8 md:py-0">
+                <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-white shadow-lg flex items-center justify-center text-RuqyaGreen">
+                  <Waves size={40} className="hidden sm:block" />
                 </div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-2">Personalized Ruqyah Sessions</h4>
-                <p className="text-gray-600 flex-1">
-                  Whether you are facing spiritual distress or seeking protection, our experienced spiritual healers tailor sessions to meet your unique needs.
-                </p>
+              </div> */}
+
+              <div className="md:col-span-2 p-4 sm:p-8 md:pl-6 lg:pl-8">
+                <h3 className="text-xl sm:text-2xl text-RuqyaGray mb-3 sm:mb-4 relative inline-block">
+                  Our Story
+                  <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-RuqyaGreen to-RuqyaLightGreen rounded-full mt-1 sm:mt-2"></div>
+                </h3>
+                
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600">
+                  <p>
+                    Prophetic Ruqyah was founded with a deep commitment to the rich heritage of Islamic spiritual healing. Inspired by the teachings of the Prophet Muhammad (peace be upon him), our journey began with the aim of reviving the ancient art of Ruqyah—a practice that combines Quranic recitations, supplications, and spiritual guidance.
+                  </p>
+                  <p>
+                    We believe that true healing comes from a strong connection with faith, sincere prayer, and the compassionate support of a community.
+                  </p>
+                </div>
+              </div>
+            {/* </div> */}
+          </div>
+          
+          {/* Our Mission */}
+          <div className="rounded-xl sm:rounded-3xl shadow-lg overflow-hidden border border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-5">
+              <div className="md:col-span-3 p-4 sm:p-6 md:p-8">
+                <h3 className="text-xl sm:text-2xl text-RuqyaGray mb-4 sm:mb-6 relative inline-block">
+                  Our Mission
+                  <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-RuqyaGreen to-RuqyaLightGreen rounded-full mt-1 sm:mt-2"></div>
+                </h3>
+                
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl hover:bg-RuqyaLightPurple/10 transition-all duration-300">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
+                      <Heart size={20} className="sm:hidden" />
+                      <Heart size={24} className="hidden sm:block" />
+                    </div>
+                    <div>
+                      <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Authentic Healing</h4>
+                      <p className="text-sm sm:text-base text-gray-600">
+                        We provide genuine Ruqyah sessions that adhere to the principles and practices taught by the Prophet (peace be upon him).
+                      </p>
+                    </div>
+                  </div>
+
+                  
+                  <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl hover:bg-RuqyaLightPurple/10 transition-all duration-300">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
+                    <Star size={20} className="sm:hidden" />
+                    <Star size={24} className="hidden sm:block" />
+                  </div>
+                  <div>
+                    <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Spiritual Empowerment</h4>
+                    <p className="text-sm sm:text-base text-gray-600">
+                      Our goal is to empower individuals with the knowledge and spiritual tools needed to overcome challenges, heal emotional wounds, and maintain inner peace.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl hover:bg-RuqyaLightPurple/10 transition-all duration-300">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
+                    <Shield size={20} className="sm:hidden" />
+                    <Shield size={24} className="hidden sm:block" />
+                  </div>
+                  <div>
+                    <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Compassionate Guidance</h4>
+                    <p className="text-sm sm:text-base text-gray-600">
+                      We offer a supportive environment where every person is respected and cared for, ensuring that your spiritual journey is nurtured with kindness and expertise.
+                    </p>
+                  </div>
+                </div>
+
+                </div>
+              </div>
+            <div className="hidden md:col-span-2 md:flex bg-gradient-to-br from-RuqyaLightGreen/20 to-RuqyaLightPurple/20 p-6 sm:p-8 items-center justify-center relative">
+                <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-RuqyaLightGreen/20 rounded-bl-full"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-32 sm:h-32 bg-RuqyaLightPurple/20 rounded-tr-full"></div>
+                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-white shadow-lg flex items-center justify-center text-RuqyaGreen z-10">
+                  <Sparkles size={36} className="sm:hidden" />
+                  <Sparkles size={48} className="hidden sm:block" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* What We Offer - Responsive Section */}
+          <div className="mt-12 sm:mt-16 mb-12 sm:mb-20">
+            <div className="text-left mb-6 sm:mb-8">
+              <div className="inline-flex items-center flex-wrap">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-RuqyaLightGreen/50 flex items-center justify-center flex-shrink-0 text-RuqyaGreen">
+                  <Star size={12} className="sm:hidden" />
+                  <Star size={14} className="hidden sm:block" />
+                </div>
+                <div className="hidden sm:block h-px w-12 bg-RuqyaLightGreen/50 mx-3"></div>
+                <h2 className="text-xl sm:text-2xl text-RuqyaGray mx-2 sm:mx-0">What We Offer</h2>
+                <div className="hidden sm:block h-px w-12 bg-RuqyaLightGreen/50 mx-3"></div>
+                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-RuqyaLightGreen/50 flex items-center justify-center flex-shrink-0 text-RuqyaGreen">
+                  <Star size={12} className="sm:hidden" />
+                  <Star size={14} className="hidden sm:block" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Responsive Grid - Stacks on mobile */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {/* Card 1 */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-RuqyaGreen/10 rounded-2xl sm:rounded-3xl transform rotate-3 sm:group-hover:rotate-6 transition-all duration-500"></div>
+                <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden h-full border border-gray-100 relative z-10 transform sm:group-hover:-translate-y-2 transition-all duration-500">
+                  <div className="h-1 sm:h-2 bg-gradient-to-r from-RuqyaGreen to-RuqyaLightGreen w-full"></div>
+                  <div className="p-5 sm:p-8 text-center">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-RuqyaLightPurple flex items-center justify-center mx-auto mb-4 sm:mb-6 text-RuqyaGreen rotate-45 sm:group-hover:rotate-0 transition-all duration-500">
+                      <div className="rotate-[-45deg] sm:group-hover:rotate-0 transition-all duration-500">
+                        <BookOpenIcon size={24} className="sm:hidden" />
+                        <BookOpenIcon size={32} className="hidden sm:block" />
+                      </div>
+                    </div>
+                    
+                    <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Personalized Ruqyah Sessions</h4>
+                    
+                    <p className="text-sm sm:text-base text-gray-500">
+                      Whether you are facing spiritual distress or seeking protection, our experienced spiritual healers tailor sessions to meet your unique needs.
+                    </p>
+                  </div>
+                </div>
               </div>
               
-              <div className="bg-blue-50 p-6 rounded-lg text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md h-full flex flex-col">
-                <div className="flex justify-center text-RuqyaGreen mb-4">
-                  <BookIcon size={48} />
+              {/* Card 2 */}
+              <div className="relative group">
+                <div className="absolute inset-0 bg-RuqyaGreen/10 rounded-2xl sm:rounded-3xl transform rotate-3 sm:group-hover:rotate-6 transition-all duration-500"></div>
+                <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden h-full border border-gray-100 relative z-10 transform sm:group-hover:-translate-y-2 transition-all duration-500">
+                  <div className="h-1 sm:h-2 bg-gradient-to-r from-RuqyaGreen to-RuqyaLightGreen w-full"></div>
+                  <div className="p-5 sm:p-8 text-center">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-RuqyaLightPurple flex items-center justify-center mx-auto mb-4 sm:mb-6 text-RuqyaGreen rotate-45 sm:group-hover:rotate-0 transition-all duration-500">
+                      <div className="rotate-[-45deg] sm:group-hover:rotate-0 transition-all duration-500">
+                        <BookIcon size={24} className="sm:hidden" />
+                        <BookIcon size={32} className="hidden sm:block" />
+                      </div>
+                    </div>
+                    
+                    <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Educational Resources</h4>
+                    
+                    <p className="text-sm sm:text-base text-gray-500">
+                      Our website is a repository of articles, guides, and multimedia content that explore the science and spirituality of Ruqyah, helping you understand its profound benefits.
+                    </p>
+                  </div>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-2">Educational Resources</h4>
-                <p className="text-gray-600 flex-1">
-                  Our website is a repository of articles, guides, and multimedia content that explore the science and spirituality of Ruqyah, helping you understand its profound benefits.
-                </p>
               </div>
               
-              <div className="bg-red-50 p-6 rounded-lg text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md h-full flex flex-col">
-                <div className="flex justify-center text-RuqyaGreen mb-4">
-                  <UsersIcon size={48} />
+              {/* Card 3 */}
+              <div className="relative group sm:col-span-2 lg:col-span-1">
+              <div className="absolute inset-0 bg-RuqyaGreen/10 rounded-2xl sm:rounded-3xl transform rotate-3 sm:group-hover:rotate-6 transition-all duration-500"></div>
+              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden h-full border border-gray-100 relative z-10 transform sm:group-hover:-translate-y-2 transition-all duration-500">
+                <div className="h-1 sm:h-2 bg-gradient-to-r from-RuqyaGreen to-RuqyaLightGreen w-full"></div>
+                <div className="p-5 sm:p-8 text-center">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-RuqyaLightPurple flex items-center justify-center mx-auto mb-4 sm:mb-6 text-RuqyaGreen rotate-45 sm:group-hover:rotate-0 transition-all duration-500">
+                    <div className="rotate-[-45deg] sm:group-hover:rotate-0 transition-all duration-500">
+                      <UsersIcon size={24} className="sm:hidden" />
+                      <UsersIcon size={32} className="hidden sm:block" />
+                      </div>
+                    </div>       
+                    <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Community Support</h4>                 
+                    <p className="text-sm sm:text-base text-gray-500">
+                      Connect with like-minded individuals and experts who share your path towards spiritual growth and healing.
+                    </p>
+                  </div>
                 </div>
-                <h4 className="text-lg font-semibold text-gray-800 mb-2">Community Support</h4>
-                <p className="text-gray-600 flex-1">
-                  Connect with like-minded individuals and experts who share your path towards spiritual growth and healing.
-                </p>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Our Approach Section */}
-        <div className="animate-fade-in h-full flex" style={{ animationDelay: '600ms' }}>
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 mb-8 flex-1 flex flex-col">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-[60px] after:h-[3px] after:bg-RuqyaGreen">Our Approach</h3>
-            <div className="flex-1 flex flex-col justify-between">
-              <p className="text-gray-600 mb-4">
-                We combine the art of Prophetic Ruqyah with modern insights to create a healing experience that is both authentic and relevant. Our approach is always grounded in Islamic teachings and aimed at fostering a deep connection with the Divine.
-              </p>
-              <p className="text-gray-600">
-                We ensure that all practices are conducted in a respectful, confidential, and supportive environment.
-              </p>
+          {/* Our Philosophy - Responsive Section */}
+          <div className="mt-12 sm:mt-16 mb-12 sm:mb-20">
+            <div className="text-left mb-6 sm:mb-8">
+              <div className="inline-flex items-center flex-wrap">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-RuqyaLightGreen/50 flex items-center justify-center flex-shrink-0 text-RuqyaGreen">
+                  <Star size={12} className="sm:hidden" />
+                  <Star size={14} className="hidden sm:block" />
+                </div>
+                <div className="hidden sm:block h-px w-12 bg-RuqyaLightGreen/50 mx-3"></div>
+                <h2 className="text-xl sm:text-2xl text-RuqyaGray mx-2 sm:mx-0">Our Philosophy</h2>
+                <div className="hidden sm:block h-px w-12 bg-RuqyaLightGreen/50 mx-3"></div>
+                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-RuqyaLightGreen/50 flex items-center justify-center flex-shrink-0 text-RuqyaGreen">
+                  <Star size={12} className="sm:hidden" />
+                  <Star size={14} className="hidden sm:block" />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              {/* Our Approach Card - Responsive */}
+              <div className="bg-white rounded-t-2xl sm:rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none shadow-lg overflow-hidden border border-gray-100 p-5 sm:p-8 relative z-10">
+                <div className="absolute top-0 left-0 w-24 h-24 sm:w-32 sm:h-32 bg-RuqyaLightPurple/60 rounded-br-full"></div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-xl sm:text-2xl text-RuqyaGray mb-4 sm:mb-6 flex items-center">                  
+                   Our Approach
+                  </h3>
+                  
+                  <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600">
+                    <p>
+                      We combine the art of Prophetic Ruqyah with modern insights to create a healing experience that is both authentic and relevant. Our approach is always grounded in Islamic teachings and aimed at fostering a deep connection with the Divine.
+                    </p>
+                    <p>
+                      We ensure that all practices are conducted in a respectful, confidential, and supportive environment.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-        {/* Our Commitment Section */}
-        <div className="animate-fade-in h-full flex" style={{ animationDelay: '750ms' }}>
-          <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 mb-8 flex-1 flex flex-col">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 relative after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-[60px] after:h-[3px] after:bg-RuqyaGreen">Our Commitment</h3>
-            <div className="flex-1 flex flex-col justify-between">
-              <p className="text-gray-600 mb-4">
-                At Prophetic Ruqyah, your well-being is our priority. We are committed to:
-              </p>
-              <div className="pl-4">
-                <p className="flex items-center text-gray-600 mb-2">
-                  <span className="text-RuqyaGreen mr-2 font-bold">•</span> 
-                  Upholding the highest ethical standards in all our practices.
-                </p>
-                <p className="flex items-center text-gray-600 mb-2">
-                  <span className="text-RuqyaGreen mr-2 font-bold">•</span> 
-                  Providing continuous support and guidance throughout your spiritual journey.
-                </p>
-                <p className="flex items-center text-gray-600">
-                  <span className="text-RuqyaGreen mr-2 font-bold">•</span> 
-                  Being a reliable source of wisdom, healing, and hope in an ever-changing world.
-                </p>
+              {/* Our Commitment Card - Responsive */}
+              <div className="bg-RuqyaLightPurple/10 rounded-b-2xl sm:rounded-b-3xl lg:rounded-r-3xl lg:rounded-bl-none shadow-lg overflow-hidden border border-gray-100 p-5 sm:p-8 relative">
+                <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-RuqyaLightGreen/40 rounded-tl-full"></div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-xl sm:text-2xl text-RuqyaGray mb-4 sm:mb-6 flex items-center">
+                    Our Commitment
+                  </h3>
+                  
+                  <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600">
+                    <p className="mb-3 sm:mb-4">
+                      At Prophetic Ruqyah, your well-being is our priority. We are committed to:
+                    </p>
+                    
+                    <ul className="space-y-3 sm:space-y-4">
+                      <li className="flex items-center">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white shadow-sm flex items-center justify-center flex-shrink-0 mr-3 sm:mr-4 text-RuqyaGreen">
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-RuqyaGreen"></div>
+                        </div>
+                        <span>Upholding the highest ethical standards in all our practices.</span>
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white shadow-sm flex items-center justify-center flex-shrink-0 mr-3 sm:mr-4 text-RuqyaGreen">
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-RuqyaGreen"></div>
+                        </div>
+                        <span>Providing continuous support and guidance throughout your spiritual journey.</span>
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white shadow-sm flex items-center justify-center flex-shrink-0 mr-3 sm:mr-4 text-RuqyaGreen">
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-RuqyaGreen"></div>
+                        </div>
+                        <span>Being a reliable source of wisdom, healing, and hope in an ever-changing world.</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Final CTA */}
-      <div className="text-center mt-8 p-10 bg-green-50 rounded-xl animate-fade-in" style={{ animationDelay: '900ms' }}>
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">
-          Join us on a journey towards spiritual renewal, inner peace, and a deeper connection with your faith.
-        </h3>
+          {/* Call to Action - Responsive */}
+          <div className="mb-8 sm:mb-20">
+            <div className="flex flex-col sm:flex-row items-center px-4 sm:px-0">
+              <div className="mb-4 sm:mb-0 sm:mr-6">
+                <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-white shadow-xl flex items-center justify-center text-RuqyaGreen">
+                  <Heart size={24} className="sm:hidden" fill="currentColor" />
+                  <Heart size={32} className="hidden sm:block" fill="currentColor" />
+                </div>
+              </div>
+              
+              <div className="text-center sm:text-left">
+                <h3 className="text-xl sm:text-2xl font-semibold text-RuqyaGray mb-2 sm:mb-4">
+                  Join us on a journey towards spiritual renewal, inner peace, and a deeper connection with your faith.
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600">
+                  Take the first step towards holistic healing and spiritual growth with our compassionate team.
+                </p>
+              </div>           
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
