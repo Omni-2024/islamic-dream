@@ -50,16 +50,16 @@ const ChangePassword = ({ onClose, onSubmit }) => {
   return (
     <div className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-50 z-50 pt-10 overflow-y-auto ">
       <div className="bg-white rounded-lg relative w-full max-w-md mx-4 md:mx-0 shadow-lg mb-10">
-        <div className="bg-gray-200 p-4 flex justify-between rounded-t-lg items-center">
-          <span className="text-gray-600 text-lg">Change Password</span>
-          <button onClick={handleClose} className="text-white px-3 py-1.5 rounded-lg font-sans hover:text-gray-600 bg-red-500 text-lg font-bold">
-            &times;
+        <div className=" bg-RuqyaGreen p-4 flex justify-between rounded-t-lg items-center">
+          <span className="text-white text-2xl font-semibold">Change Password</span>
+          <button onClick={handleClose} className="bg-red-500 pb-2 text-white h-8 w-8 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-red-600">
+              <span className="text-2xl">&times;</span>
           </button>
         </div>
         <div className="p-6">
           {error && <ErrorMessage message={error} />}
           <div className="flex flex-col gap-4">
-            <div className="relative mb-3">
+            <div className="relative">
               <BorderInput
                 label="Current Password"
                 type="password"
@@ -70,7 +70,7 @@ const ChangePassword = ({ onClose, onSubmit }) => {
                 autoComplete="off"
               />
             </div>
-            <div className="relative mb-3">
+            <div className="relative">
               <BorderInput
                 label="New Password"
                 type="password"
@@ -81,7 +81,7 @@ const ChangePassword = ({ onClose, onSubmit }) => {
                 autoComplete="off"
               />
             </div>
-            <div className="relative mb-3">
+            <div className="relative">
               <BorderInput
                 label="Confirm New Password"
                 type="password"
@@ -92,12 +92,12 @@ const ChangePassword = ({ onClose, onSubmit }) => {
                 autoComplete="off"
               />
             </div>
-            <div className="grid grid-cols-2 gap-6 text-xs">
+            <div className="grid grid-cols-2 gap-6">
               <button onClick={handleClose} className="w-full bg-gray-500 hover:bg-gray-600 text-white rounded-full py-3 mt-5 transition duration-300">
                 Cancel
               </button>
-              <button onClick={handleSubmit} className="w-full bg-RuqyaGreen hover:bg-teal-700 text-white rounded-full py-3 px-5 mt-5 transition duration-300">
-                Change Password
+              <button onClick={handleSubmit} className="w-full bg-RuqyaGreen hover:border-RuqyaGreen text-white rounded-full py-3 mt-5 transition duration-300">
+                Change
               </button>
             </div>
           </div>
