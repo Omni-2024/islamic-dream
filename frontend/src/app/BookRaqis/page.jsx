@@ -15,7 +15,7 @@ import { getLanguageLabel } from "@/lib/utils";
 import { DateInput } from "@/components/ui/input/input";
 import { ChevronRightIcon, HomeIcon } from 'lucide-react'
 
-const displayImage = "https://as2.ftcdn.net/v2/jpg/04/75/12/25/1000_F_475122535_WQkfB8bbLLu7pTanatEAIDt4ppIYgRb8.jpg";
+const displayImage = "https://www.shutterstock.com/image-vector/muslim-avatar-260nw-480512461.jpg";
 
 // Main Page Component
 export default function BookRaqis() {

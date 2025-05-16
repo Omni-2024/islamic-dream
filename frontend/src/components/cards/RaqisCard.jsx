@@ -30,7 +30,7 @@ export default function RaqisCard({ raqi }) {
   }
 
   const { name, country: CountryCode, languages: Languages, yearOfExperience: Experience, _id: id, averageRating } = raqi;
-  const displayImage = "https://as2.ftcdn.net/v2/jpg/04/75/12/25/1000_F_475122535_WQkfB8bbLLu7pTanatEAIDt4ppIYgRb8.jpg";
+  const displayImage = "https://st3.depositphotos.com/12601206/35163/v/450/depositphotos_351635392-stock-illustration-muslim-man-arabic-smile-whit.jpg";
   const countryLabel = getCountryLabel(CountryCode);
 
   // Social media icons - would come from raqi data in real implementation

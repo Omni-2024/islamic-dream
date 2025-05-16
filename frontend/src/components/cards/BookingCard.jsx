@@ -96,7 +96,7 @@ const BookingCard = ({ Booking, selectedDate, selectedTime }) => {
       <div className="flex flex-col gap-4">
         <div className="flex flex-row gap-4 mb-2">
           <div className="col-span-3 rounded-lg">
-            <img src={Booking.image ? Booking.image : "https://as2.ftcdn.net/v2/jpg/04/75/12/25/1000_F_475122535_WQkfB8bbLLu7pTanatEAIDt4ppIYgRb8.jpg"} alt={Booking.name} className="rounded-xl w-36 h-36 min-w-36 min-h-36 object-cover object-top" />
+            <img src={Booking.image ? Booking.image : "https://st3.depositphotos.com/12601206/35163/v/450/depositphotos_351635392-stock-illustration-muslim-man-arabic-smile-whit.jpg"} alt={Booking.name} className="rounded-xl w-36 h-36 min-w-36 min-h-36 object-cover object-top" />
           </div>
 
           <div className="flex flex-col">

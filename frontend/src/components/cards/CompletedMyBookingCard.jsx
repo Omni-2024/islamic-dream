@@ -98,7 +98,7 @@ const CompletedMyBookingCard = ({ booking = {}, show = false, className, onValue
       <div className="flex flex-col gap-4">
         <div className="flex flex-row gap-4 mb-0">
           <div className="col-span-3 rounded-lg">
-            <img src={rakiData?.image ? rakiData.image : "https://as2.ftcdn.net/v2/jpg/04/75/12/25/1000_F_475122535_WQkfB8bbLLu7pTanatEAIDt4ppIYgRb8.jpg"} alt={rakiData?.name} className="rounded-xl w-36 h-36 object-cover object-top" />
+            <img src={rakiData?.image ? rakiData.image : "https://st3.depositphotos.com/12601206/35163/v/450/depositphotos_351635392-stock-illustration-muslim-man-arabic-smile-whit.jpg"} alt={rakiData?.name} className="rounded-xl w-36 h-36 object-cover object-top" />
           </div>
 
           <div className="flex flex-col">

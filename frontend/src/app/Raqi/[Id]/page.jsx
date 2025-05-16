@@ -21,7 +21,7 @@ import {useAuth} from "@/contexts/AuthContexts";
 import {HomeIcon } from 'lucide-react'
 
 
-const displayImage = "https://as2.ftcdn.net/v2/jpg/04/75/12/25/1000_F_475122535_WQkfB8bbLLu7pTanatEAIDt4ppIYgRb8.jpg";
+const displayImage = "https://st3.depositphotos.com/12601206/35163/v/450/depositphotos_351635392-stock-illustration-muslim-man-arabic-smile-whit.jpg";
 
 function Raqis() {
   const [data, setData] = useState(null);
@@ -554,7 +554,7 @@ return (
       </div>
       
       {/* Chat widget with bold styling */}
-      <div className="animate-fade-in" style={{ animationDelay: '1.1s' }}>
+      <div className="fixed bottom-4 right-4 z-50 animate-fade-in" style={{ animationDelay: '1.1s' }}>
         <ChatWidgetWrapper />
       </div>
       
