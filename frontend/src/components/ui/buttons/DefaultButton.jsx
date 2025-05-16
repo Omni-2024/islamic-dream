@@ -18,7 +18,7 @@ function Button (props) {
   const setting = disabled 
     ? "border border-[#36454F] text-[#36454F] opacity-50 cursor-not-allowed" 
     : bg 
-      ? `bg-RuqyaGreen text-white hover:bg-teal-700`   //Note: Dynamic button color changes is remove due to some reaso it not working
+      ? `bg-RuqyaGreen text-white hover:bg-RuqyaLightGreen`   //Note: Dynamic button color changes is remove due to some reaso it not working
       : "";
 // border border-[#36454F] text-[#36454F]
   return (
