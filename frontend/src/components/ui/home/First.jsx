@@ -43,7 +43,8 @@ return (
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="https://img.freepik.com/free-photo/ramadan-celebration-digital-art_23-2151358079.jpg?semt=ais_hybrid&w=740" 
+                src="https://img.freepik.com/premium-photo/muslims-should-pray-five-times-day_1025556-9330.jpg?w=360"
+                // src="https://img.freepik.com/free-photo/ramadan-celebration-digital-art_23-2151358079.jpg?semt=ais_hybrid&w=740" 
                 alt="Spiritual healing meditation" 
                 className="w-full h-64 sm:h-80 md:h-96 object-cover object-center transition-transform duration-700 hover:scale-105" 
               />
