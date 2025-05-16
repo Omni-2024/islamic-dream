@@ -1,7 +1,7 @@
 'use client';
 import React from "react";
 import Link from "next/link";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { ArrowRight } from 'iconsax-react';
 import MyBookingCard from "@/components/cards/MyBookingCard";
 import ResponsiveGrid from "@/components/ui/layout/ResponsiveGrid";
 
@@ -20,7 +20,7 @@ function Third(props) {
           {raqiData.length > 3 && (
             <div className="text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <Link href="/MyBookings" className="text-RuqyaGreen font-bold">
-                See all <FaLongArrowAltRight className="inline mb-1" />
+                See all <ArrowRight size={20} className="inline mb-1"  color="currentColor" variant="Outline"/>
               </Link>
             </div>
           )}

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import RaqisCard from "@/components/cards/RaqisCard";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { ArrowRight } from 'iconsax-react';
 import ResponsiveGrid from "@/components/ui/layout/ResponsiveGrid";
 
 function Forth(props) {
@@ -32,7 +32,7 @@ function Forth(props) {
               style={{ animationDelay: "0.3s" }}
             >
               <Link href="/BookRaqis" className="text-RuqyaGreen font-bold">
-                See all <FaLongArrowAltRight className="inline mb-1" />
+                See all <ArrowRight size={20}  className="inline mb-1"  color="currentColor" variant="Outline" />
               </Link>
             </div>
           )}
