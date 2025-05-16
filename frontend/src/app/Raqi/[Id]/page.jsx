@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import ReactCountryFlag from "react-country-flag";
 import Link from "next/link";
-import { MdOutlineMessage, MdTrendingDown, MdOutlineTrendingUp } from "react-icons/md";
 import Button from "@/components/ui/buttons/DefaultButton";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, LabelList, CartesianGrid } from "recharts";
 import ReviewCard from "@/components/cards/ReviewCard";
 import Forth from "@/components/ui/home/Forth";
@@ -18,7 +17,14 @@ import { getCountryLabel, getLanguageLabel } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import PleaseLogin from "@/components/ui/popup/pleaseLogin";
 import {useAuth} from "@/contexts/AuthContexts";
-import {HomeIcon } from 'lucide-react'
+import {
+  Message,
+  TrendDown,
+  TrendUp,
+  Star,
+  Home
+} from 'iconsax-react';
+
 
 
 const displayImage = "https://st3.depositphotos.com/12601206/35163/v/450/depositphotos_351635392-stock-illustration-muslim-man-arabic-smile-whit.jpg";
@@ -137,11 +143,11 @@ function Raqis() {
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => {
       if (i < Math.floor(rating)) {
-        return <FaStar key={i} color="#ffc107" />;
+        return <Star key={i} color="#ffc107" />;
       } else if (i < rating) {
-        return <FaStarHalfAlt key={i} color="#ffc107" />;
+        return <FaStarHalfAlt key={i} color="#ffc107"  />;
       } else {
-        return <FaStar key={i} color="#e4e5e9" />;
+        return <Star key={i} color="#e4e5e9" />;
       }
     });
   };
@@ -188,7 +194,7 @@ return (
         {/* Minimalist breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center text-sm text-gray-600 relative">
           <Link href="/" className="flex items-center hover:text-RuqyaLightGreen transition-colors">
-            <HomeIcon className="w-4 h-4 mr-1" />
+            <Home className="w-4 h-4 mr-1"  color="currentColor" variant="Outline"/>
             <span>Home</span>
           </Link>
           <span className=" mx-2">/</span>
@@ -238,9 +244,9 @@ return (
                 {token && (
                   <button 
                     onClick={() => handleStartChat(data._id)} 
-                    className="flex items-center justify-center gap-3 w-full bg-RuqyaGray hover:bg-RuqyaGreen text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
+                    className="flex items-center justify-center gap-2 w-full bg-RuqyaGray hover:bg-RuqyaGreen text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
                   >
-                    <MdOutlineMessage className="text-white text-xl group-hover:scale-110 transition-transform" />
+                    <Message  size={20} className="text-white  group-hover:scale-110 transition-transform" color="currentColor" variant="Outline" />
                     <span className="font-medium">Chat with Raqi</span>
                   </button>
                 )}
@@ -355,7 +361,7 @@ return (
           onClick={() => handleStartChat(data._id)} 
           className="flex items-center justify-center gap-2 bg-black text-white rounded-none py-3 flex-1"
         >
-          <MdOutlineMessage className="text-RuqyaLightGreen text-xl" /> Chat
+          <Message className="text-RuqyaLightGreen text-xl" color="currentColor" variant="Outline" /> Chat
         </Button>
       )}
       <Button 
@@ -435,8 +441,8 @@ return (
                   }`}>
                     {review.totalReviews}%
                     {review.totalReviews > 0 ? 
-                      <MdOutlineTrendingUp className="ml-1" /> : 
-                      <MdTrendingDown className="ml-1" />
+                      <TrendUp className="ml-1" color="currentColor" variant="Outline"/> : 
+                      <TrendDown className="ml-1" color="currentColor" variant="Outline" />
                     }
                   </span>
                 </div>
@@ -457,7 +463,7 @@ return (
                 <div className="flex flex-col gap-2 mr-4">
                   {[5, 4, 3, 2, 1].map((star) => (
                     <span key={star} className="flex items-center text-sm text-gray-500">
-                      <FaStar className="text-yellow-400 mr-2" />{star}
+                      <Star color="currentColor" variant="Outline" className="text-yellow-400 mr-2" />{star}
                     </span>
                   ))}
                 </div>
