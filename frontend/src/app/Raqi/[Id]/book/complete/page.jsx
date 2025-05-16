@@ -53,65 +53,78 @@ const CompletePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams.toString()]);
 
-  return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center max-w-md px-4 py-8 bg-white rounded-2xl shadow-lg drop-shadow-md mx-4">
-          <div className="checkmark-circle">
-            <div className="checkmark"></div>
+ return (
+    <div className="min-h-screen  flex items-center justify-center p-10">
+      <div className={`w-full max-w-xl transition-all duration-700 `}>
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          {/* Header with wave pattern */}
+          <div className="relative bg-RuqyaGreen h-32 flex items-center justify-center">
+            <div className="absolute top-0 left-0 w-full h-full opacity-20">
+              <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100 L1000,0 L0,0 Z" fill="white"></path>
+              </svg>
+            </div>
+            <div className="z-10 bg-white rounded-full p-4 shadow-lg">
+              <div className="w-16 h-16 rounded-full bg-RuqyaGreen flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
           </div>
-          <h2 className="mt-6 text-2xl font-semibold text-gray-900">Booking Successful!</h2>
-          <div className="mt-4 space-y-3">
-            <p className="text-gray-700">Your Ruqyah session has been confirmed.</p>
-            <p className="text-gray-700">You will receive a confirmation email with all the details shortly.</p>
-            <div className="mt-6 p-4 bg-green-50 rounded-lg text-left">
-              <h3 className="font-medium text-green-800">Important Notes:</h3>
-              <ul className="mt-2 text-sm text-green-700 list-disc text-left list-inside">
-                <li>Please arrive 5 minutes before your scheduled time</li>
-                <li>Ensure you have a stable internet connection</li>
-                <li>Have your questions ready if any</li>
+
+          {/* Main content */}
+          <div className="px-6 py-8">
+            <h2 className="text-2xl font-fullsansbold text-RuqyaGray text-center">Booking Confirmed!</h2>
+            <p className="mt-2 text-center text-gray-600 font-poppins">Your Ruqyah session has been scheduled successfully</p>
+            
+            {/* Email notification */}
+            <div className="mt-6 flex items-center p-4 bg-blue-50 rounded-lg">
+              <div className="flex-shrink-0">
+                <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <p className="ml-3 text-sm text-blue-700 font-poppins">A confirmation email with all details has been sent to your inbox</p>
+            </div>
+            
+            {/* Instructions */}
+            <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
+              <h3 className="font-medium text-RuqyaGray text-sm font-fullsans">Preparation Instructions:</h3>
+              <ul className="mt-2 space-y-2">
+                {['Join 5 minutes early', 'Ensure stable internet connection', 'Prepare your questions', 'Find a quiet space'].map((item, i) => (
+                  <li key={i} className="flex items-start">
+                    <svg className="w-4 h-4 text-RuqyaGreen mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span className="ml-2 text-sm text-gray-600 font-poppins">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="flex items-center justify-center w-full">
-              <DefultButton bg={true} className="rounded-lg" onClick={() => router.push("/")}>
-                Go to Home
-              </DefultButton>
+
+            {/* Actions */}
+            <div className= "justify-center mt-8 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 items-center">
+              <button 
+                onClick={() => router.push("/")}
+                className="flex-1 py-3 px-4 max-w-fit bg-RuqyaGreen text-white font-medium rounded-lg shadow hover:bg-RuqyaLightGreen transition duration-200 flex items-center justify-center font-poppins"
+              >
+                Return to Home
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+             
             </div>
           </div>
         </div>
-        <style jsx>{`
-          .checkmark-circle {
-            width: 120px;
-            height: 120px;
-            position: relative;
-            margin: 0 auto;
-            border-radius: 50%;
-            border: 3px solid #4CAF50;
-            animation: circle-fill 0.4s ease-in;
-            background: #4CAF50;
-            box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
-          }
-          .checkmark {
-            position: absolute;
-            transform: rotate(45deg);
-            left: 45px;
-            top: 25px;
-            height: 60px;
-            width: 30px;
-            border-bottom: 6px solid white;
-            border-right: 6px solid white;
-            animation: checkmark 0.4s ease-in-out 0.4s forwards;
-            opacity: 0;
-          }
-          @keyframes circle-fill {
-            0% { transform: scale(0); }
-            100% { transform: scale(1); }
-          }
-          @keyframes checkmark {
-            0% { opacity: 0; transform: rotate(45deg) scale(0); }
-            100% { opacity: 1; transform: rotate(45deg) scale(1); }
-          }
-        `}</style>
+        
+        {/* Footer note */}
+        <div className="text-center mt-4 text-xs text-gray-500 font-poppins">
+          Need help? Contact our support team at support@ruqyah.com
+        </div>
       </div>
+    </div>
   );
 };
 
