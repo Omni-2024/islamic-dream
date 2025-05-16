@@ -1,7 +1,16 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from "next/link"
-import { FileIcon, Music2Icon, ChevronDownIcon, ChevronRightIcon, BookOpenIcon, HomeIcon, DownloadIcon } from 'lucide-react'
+import {
+  Document,         
+  Music,            
+  ArrowDown2,       
+  ArrowRight2,      
+  Book,             
+  Home,            
+  Import,           
+} from 'iconsax-react';
+// import { FileIcon, Music2Icon, ChevronDownIcon, ChevronRightIcon, BookOpenIcon, HomeIcon, DownloadIcon } from 'lucide-react'
 import content from '@/data/ruqyah'
 
 export default function RuqyahPage() {
@@ -68,17 +77,17 @@ export default function RuqyahPage() {
      
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center text-sm text-gray-600">
           <Link href="/" className="flex items-center hover:text-RuqyaGreen transition-colors">
-            <HomeIcon className="w-4 h-4 mr-1" />
+            <Home className="w-4 h-4 mr-1" color="currentColor" variant="Outline"/>
             <span>Home</span>
           </Link>
-          <ChevronRightIcon className="w-4 h-4 mx-2" />
+          <ArrowRight2 className="w-4 h-4 mx-2" color="currentColor" variant="Outline" />
           <span className="font-medium text-RuqyaGray">Self-Ruqyah</span>
         </nav>
 
         {/* Page header */}
         <header className="mb-10">
           <div className="flex items-center mb-4">
-            <BookOpenIcon className="w-8 h-8 text-RuqyaGreen mr-3" />
+            <Book className="w-8 h-8 text-RuqyaGreen mr-3" color="currentColor" variant="Outline"/>
             <h1 className="text-3xl md:text-4xl font-semibold text-RuqyaGray">Self-Ruqyah Guide</h1>
           </div>
           <p className="text-gray-600 max-w-3xl">
@@ -95,7 +104,7 @@ export default function RuqyahPage() {
                 className="w-full flex items-center justify-between p-4 bg-white rounded-lg shadow-md border border-RuqyaLightPurple mb-2 lg:hidden"
               >
                 <span className="font-medium text-RuqyaGray">Table of Contents</span>
-                <ChevronDownIcon className={`w-5 text-RuqyaGreen transition-transform ${isNavOpen ? 'rotate-180' : ''}`} />
+                <ArrowDown2 className={`w-5 text-RuqyaGreen transition-transform ${isNavOpen ? 'rotate-180' : ''}`} color="currentColor" variant="Outline" />
               </button>
 
               <nav className={`
@@ -164,7 +173,7 @@ export default function RuqyahPage() {
                     <div className="relative group/item">
                       <div className="flex items-center p-3 cursor-pointer">
                         <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-gradient-to-r from-RuqyaGreen/20 to-RuqyaLightPurple/50">
-                          <FileIcon className="h-6 w-6 text-RuqyaGreen" />
+                          <Document  className="h-6 w-6 text-RuqyaGreen" color="currentColor" variant="Outline" />
                         </div>
                         <div className="ml-4 flex-1">
                           <h4 className="font-medium text-RuqyaGray">Daily Morning & Evening Adhkar</h4>
@@ -173,7 +182,7 @@ export default function RuqyahPage() {
                         <div className="w-12 h-12 relative opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                           <div className="absolute inset-0 rounded-full bg-RuqyaGreen/10 group-hover:bg-RuqyaGreen/20 flex items-center justify-center transition-colors cursor-pointer"
                               onClick={() => handleDownload('/download/Ruqya_PDF1.pdf', 'Daily Morning & Evening Adhkar.pdf')}>
-                            <DownloadIcon className="h-5 w-5 text-RuqyaGreen" />
+                            <Import className="h-5 w-5 text-RuqyaGreen" color="currentColor" variant="Outline" />
                           </div>
                         </div>
                       </div>
@@ -183,7 +192,7 @@ export default function RuqyahPage() {
                     <div className="relative group/item">
                       <div className="flex items-center p-3 cursor-pointer">
                         <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-gradient-to-r from-RuqyaGreen/20 to-RuqyaLightPurple/50">
-                          <FileIcon className="h-6 w-6 text-RuqyaGreen" />
+                          <Document className="h-6 w-6 text-RuqyaGreen" color="currentColor" variant="Outline" />
                         </div>
                         <div className="ml-4 flex-1">
                           <h4 className="font-medium text-RuqyaGray">Ruqyah Booklet</h4>
@@ -192,7 +201,7 @@ export default function RuqyahPage() {
                         <div className="w-12 h-12 relative opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                           <div className="absolute inset-0 rounded-full bg-RuqyaGreen/10 group-hover:bg-RuqyaGreen/20 flex items-center justify-center transition-colors cursor-pointer"
                               onClick={() => handleDownload('/download/Ruqya_PDF2.pdf', 'ruqyah booklet.pdf')}>
-                            <DownloadIcon className="h-5 w-5 text-RuqyaGreen" />
+                            <Import className="h-5 w-5 text-RuqyaGreen" color="currentColor" variant="Outline" />
                           </div>
                         </div>
                       </div>
@@ -202,7 +211,7 @@ export default function RuqyahPage() {
                     <div className="relative group/item">
                       <div className="flex items-center p-3 cursor-pointer">
                         <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-gradient-to-r from-RuqyaGreen/20 to-RuqyaLightPurple/50">
-                          <Music2Icon className="h-6 w-6 text-RuqyaGreen" />
+                          <Music className="h-6 w-6 text-RuqyaGreen" color="currentColor" variant="Outline" />
                         </div>
                         <div className="ml-4 flex-1">
                           <h4 className="font-medium text-RuqyaGray">Ruqyah Audio</h4>
@@ -211,7 +220,7 @@ export default function RuqyahPage() {
                         <div className="w-12 h-12 relative opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                           <div className="absolute inset-0 rounded-full bg-RuqyaGreen/10 group-hover:bg-RuqyaGreen/20 flex items-center justify-center transition-colors cursor-pointer"
                               onClick={() => handleDownload('/download/Ruqya_Audio.mp3', 'Ruqya_Audio.mp3')}>
-                            <DownloadIcon className="h-5 w-5 text-RuqyaGreen" />
+                            <Import className="h-5 w-5 text-RuqyaGreen" color="currentColor" variant="Outline"/>
                           </div>
                         </div>
                       </div>
