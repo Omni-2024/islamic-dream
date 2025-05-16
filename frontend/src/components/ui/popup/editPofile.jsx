@@ -62,15 +62,15 @@ const EditProfilePopup = ({ data, onClose, onSave, genderOptions, countries, lan
   return (
     <div className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-50 z-50 pt-10 overflow-y-auto">
       <div className="bg-white rounded-lg relative w-full max-w-3xl mx-4 md:mx-0 shadow-lg mb-10">
-        <div className="bg-gray-200 p-4 flex justify-between rounded-t-lg items-center">
-          <span className="text-gray-600 text-lg">Edit Profile Details</span>
-            <button onClick={onClose} className="text-white px-3 py-1.5 rounded-lg font-sans hover:text-gray-600 bg-red-500 text-lg font-bold " >
-              &times;
+        <div className="bg-RuqyaGreen p-4 flex justify-between rounded-t-lg items-center">
+          <span className="text-white text-2xl font-semibold">Edit Profile Details</span>
+            <button onClick={onClose} className="bg-red-500 pb-2 text-white h-8 w-8 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-red-600" >
+              <span className="text-2xl">&times;</span>
             </button>
         </div>
-        <div className="p-6 overflow-y-auto max-h-[80vh]">
+        <div className="p-8 rel overflow-y-auto max-h-[80vh]">
           <div className="flex flex-col md:grid gap-6 md:grid-cols-2">
-            <div className="relative mb-6">
+            <div className="relative">
               <BorderInput
                 type="text"
                 name="name"
@@ -80,7 +80,7 @@ const EditProfilePopup = ({ data, onClose, onSave, genderOptions, countries, lan
                 placeholder="First Name"
               />
             </div>
-            <div className="relative mb-6">
+            <div className="relative">
               <BorderInput
                 type="email"
                 name="email"
@@ -90,9 +90,9 @@ const EditProfilePopup = ({ data, onClose, onSave, genderOptions, countries, lan
                 placeholder="Email"
               />
             </div>
-            <div className="relative mb-6">
+            <div className="relative">
               <label className="text-sm text-gray-600 absolute -top-3 left-8 bg-white px-1 w-auto">Gender</label>
-              <div className="flex justify-center items-center rounded-full border px-4 py-1 border-teal-500 focus:ring-teal-500">
+              <div className="flex justify-center items-center rounded-full border px-4 py-1 border-RuqyaGreen">
                 <CustomSelect 
                   options={genderOptions} 
                   value={genderOptions.find(option => option.value === popupData.gender) || null}
@@ -102,7 +102,7 @@ const EditProfilePopup = ({ data, onClose, onSave, genderOptions, countries, lan
                 />
               </div>
             </div>
-            <div className="relative mb-6">
+            <div className="relative">
               <BorderInput
                 type="date"
                 name="dob"
@@ -112,9 +112,9 @@ const EditProfilePopup = ({ data, onClose, onSave, genderOptions, countries, lan
                 max={new Date().toISOString().split('T')[0]}
               />
             </div>
-            <div className="relative mb-6">
+            <div className="relative">
               <label className="text-sm text-gray-600 absolute -top-3 left-8 bg-white px-2 mb-2 w-auto">Country</label>
-              <div className="flex justify-center items-center rounded-full border px-4 py-1 border-teal-500 focus:ring-teal-500">
+              <div className="flex justify-center items-center rounded-full border px-4 py-1 border-RuqyaGreen">
                 <CustomSelect 
                   options={countries} 
                   value={countries.find(option => option.value === popupData.country) || null}
@@ -124,9 +124,9 @@ const EditProfilePopup = ({ data, onClose, onSave, genderOptions, countries, lan
                 />
               </div>
             </div>
-            <div className="relative mb-6">
+            <div className="relative">
               <label className="text-sm text-gray-600 absolute -top-3 left-8 bg-white px-1 w-auto">Language</label>
-              <div className="flex justify-center items-center rounded-full border px-4 py-1 border-teal-500 focus:ring-teal-500">
+              <div className="flex justify-center items-center rounded-full border px-4 py-1 border-RuqyaGreen">
                 <CustomSelect 
                   options={languages} 
                   value={languages.find(option => option.value === popupData.language) || null}
@@ -136,7 +136,7 @@ const EditProfilePopup = ({ data, onClose, onSave, genderOptions, countries, lan
                 />
               </div>
             </div>
-            <div className="relative mb-6">
+            <div className="relative mt-2">
               <BorderInput
                 type="tel"
                 name="mobile"
@@ -150,7 +150,7 @@ const EditProfilePopup = ({ data, onClose, onSave, genderOptions, countries, lan
               <button onClick={onClose} className="w-full bg-gray-500 hover:bg-gray-600 text-white rounded-full py-3 mt-5 transition duration-300">
                 Cancel
               </button>
-              <button onClick={handleSaveButtonClick} className="w-full bg-RuqyaGreen hover:bg-teal-700 text-white rounded-full py-3 mt-5 transition duration-300">
+              <button onClick={handleSaveButtonClick} className="w-full bg-RuqyaGreen hover:border-RuqyaGreen text-white rounded-full py-3 mt-5 transition duration-300">
                 Save
               </button>
             </div>
