@@ -238,9 +238,9 @@ return (
                 {token && (
                   <button 
                     onClick={() => handleStartChat(data._id)} 
-                    className="flex items-center justify-center gap-3 w-full bg-RuqyaGray hover:bg-black text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
+                    className="flex items-center justify-center gap-3 w-full bg-RuqyaGray hover:bg-RuqyaGreen text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
                   >
-                    <MdOutlineMessage className="text-RuqyaLightGreen text-xl group-hover:scale-110 transition-transform" />
+                    <MdOutlineMessage className="text-white text-xl group-hover:scale-110 transition-transform" />
                     <span className="font-medium">Chat with Raqi</span>
                   </button>
                 )}
@@ -338,7 +338,7 @@ return (
                     onClick={handleBookNow} 
                     bg={true} 
                     text="Book Now" 
-                    className="w-full rounded-xl bg-RuqyaGreen hover:bg-RuqyaLightGreen text-RuqyaGray font-bold py-3 transition-all duration-300 text-center flex items-center justify-center" 
+                    className="w-full rounded-xl bg-RuqyaGreen hover:bg-white hover:text-RuqyaGreen text-RuqyaGray font-bold py-3 transition-all duration-300 text-center flex items-center justify-center" 
                   />
                 </div>
               </div>
@@ -554,7 +554,7 @@ return (
       </div>
       
       {/* Chat widget with bold styling */}
-      <div className="fixed bottom-4 right-4 z-50 animate-fade-in" style={{ animationDelay: '1.1s' }}>
+      <div className="fixed bottom-0 right-0 z-50 animate-fade-in" style={{ animationDelay: '1.1s' }}>
         <ChatWidgetWrapper />
       </div>
       
