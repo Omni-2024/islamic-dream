@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { Star1 } from 'iconsax-react';
+
 
 const RatingInput = ({ rating, setRating, className }) => {
   const [hover, setHover] = useState(null);
@@ -20,7 +22,7 @@ const RatingInput = ({ rating, setRating, className }) => {
                   onMouseLeave={() => setHover(null)}
                   className="transition-transform transform hover:scale-110 focus:outline-none"
               >
-                <FaStar
+                <Star1
                     size={30}
                     className={`transition-colors duration-200 ${className}`}
                     color={ratingValue <= (hover || rating) ? "#FFC107" : "#8e8e8f"}

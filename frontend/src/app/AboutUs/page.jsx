@@ -1,19 +1,20 @@
 'use client';
 import React from 'react';
-import { 
-  BookOpenIcon, 
-  BookIcon, 
-  UsersIcon, 
-  Heart, 
-  Star, 
-  Shield,
-  ArrowRight,
-  CircleUser,
-  Waves,
-  Sparkles,
-  HomeIcon,
-  ChevronRightIcon
-} from 'lucide-react';
+import {
+  Book1,
+  Book,
+  Profile2User,
+  Heart,
+  Star1,
+  ShieldSecurity,
+  ArrowRight2,
+  User,
+  WaveSquare,
+  MagicStar,
+  Home,
+  ArrowRight3,
+} from 'iconsax-react';
+
 import Link from "next/link";
 
 const AboutUs = () => {
@@ -23,17 +24,17 @@ const AboutUs = () => {
         {/* Responsive Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6 flex items-center text-xs sm:text-sm text-gray-600">
           <Link href="/" className="flex items-center hover:text-RuqyaGreen transition-colors">
-            <HomeIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+            <Home color="#6B7280" className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
             <span>Home</span>
           </Link>
-          <ChevronRightIcon className="w-3 h-3 sm:w-4 sm:h-4 mx-1 sm:mx-2" />
+          <ArrowRight2  color="#6B7280" className="w-3 h-3 sm:w-4 sm:h-4 mx-1 sm:mx-2" />
           <span className="font-medium text-RuqyaGray">About Us</span>
         </nav>
 
         {/* Responsive Header */}
         <header className="mb-6 sm:mb-10">
           <div className="flex items-center mb-3 sm:mb-4 ">
-            <Star className="w-6 h-6 sm:w-8 sm:h-8 text-RuqyaGreen mr-2 sm:mr-3" />
+            <Star1  color="#2DB573" className="w-6 h-6 sm:w-8 sm:h-8 text-RuqyaGreen mr-2 sm:mr-3" />
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold  text-RuqyaGray">About Prophetic Ruqyah</h1>
           </div>
           <p className="text-sm sm:text-base text-gray-600">
@@ -80,24 +81,31 @@ const AboutUs = () => {
                 </h3>
                 
                 <div className="space-y-4 sm:space-y-6">
-                  <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl hover:bg-RuqyaLightPurple/10 transition-all duration-300">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
-                      <Heart size={20} className="sm:hidden" />
-                      <Heart size={24} className="hidden sm:block" />
-                    </div>
-                    <div>
-                      <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Authentic Healing</h4>
-                      <p className="text-sm sm:text-base text-gray-600">
-                        We provide genuine Ruqyah sessions that adhere to the principles and practices taught by the Prophet (peace be upon him).
-                      </p>
-                    </div>
-                  </div>
-
-                  
-                  <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl hover:bg-RuqyaLightPurple/10 transition-all duration-300">
+                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl sm:hover:bg-RuqyaLightPurple/10 transition-all duration-300">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
-                    <Star size={20} className="sm:hidden" />
-                    <Star size={24} className="hidden sm:block" />
+                    <Heart 
+                      size={22} 
+                      color="currentColor" 
+                      variant="Outline" 
+                      className="transition-all duration-300" 
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Authentic Healing</h4>
+                    <p className="text-sm sm:text-base text-gray-600">
+                      We provide genuine Ruqyah sessions that adhere to the principles and practices taught by the Prophet (peace be upon him).
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl sm:hover:bg-RuqyaLightPurple/10 transition-all duration-300">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
+                    <Star1 
+                      size={22} 
+                      color="currentColor" 
+                      variant="Outline" 
+                      className="transition-all duration-300" 
+                    />
                   </div>
                   <div>
                     <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Spiritual Empowerment</h4>
@@ -107,10 +115,14 @@ const AboutUs = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl hover:bg-RuqyaLightPurple/10 transition-all duration-300">
+                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl sm:hover:bg-RuqyaLightPurple/10 transition-all duration-300">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
-                    <Shield size={20} className="sm:hidden" />
-                    <Shield size={24} className="hidden sm:block" />
+                    <ShieldSecurity 
+                      size={22} 
+                      color="currentColor" 
+                      variant="Outline" 
+                      className="transition-all duration-300" 
+                    />
                   </div>
                   <div>
                     <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Compassionate Guidance</h4>
@@ -120,14 +132,15 @@ const AboutUs = () => {
                   </div>
                 </div>
 
+
                 </div>
               </div>
             <div className="hidden md:col-span-2 md:flex bg-gradient-to-br from-RuqyaLightGreen/20 to-RuqyaLightPurple/20 p-6 sm:p-8 items-center justify-center relative">
                 <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-RuqyaLightGreen/20 rounded-bl-full"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-32 sm:h-32 bg-RuqyaLightPurple/20 rounded-tr-full"></div>
                 <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-white shadow-lg flex items-center justify-center text-RuqyaGreen z-10">
-                  <Sparkles size={36} className="sm:hidden" />
-                  <Sparkles size={48} className="hidden sm:block" />
+                  <MagicStar size={36} color="currentColor" variant="Outline"  className="sm:hidden" />
+                  <MagicStar size={48} color="currentColor" variant="Outline"  className="hidden sm:block" />
                 </div>
               </div>
 
@@ -139,15 +152,15 @@ const AboutUs = () => {
             <div className="text-left mb-6 sm:mb-8">
               <div className="inline-flex items-center flex-wrap">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-RuqyaLightGreen/50 flex items-center justify-center flex-shrink-0 text-RuqyaGreen">
-                  <Star size={12} className="sm:hidden" />
-                  <Star size={14} className="hidden sm:block" />
+                  <Star1 size={12} className="sm:hidden"  color="currentColor" variant="Outline"  />
+                  <Star1 size={14} className="hidden sm:block"  color="currentColor" variant="Outline"  />
                 </div>
                 <div className="hidden sm:block h-px w-12 bg-RuqyaLightGreen/50 mx-3"></div>
                 <h2 className="text-xl sm:text-2xl text-RuqyaGray mx-2 sm:mx-0">What We Offer</h2>
                 <div className="hidden sm:block h-px w-12 bg-RuqyaLightGreen/50 mx-3"></div>
                 <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-RuqyaLightGreen/50 flex items-center justify-center flex-shrink-0 text-RuqyaGreen">
-                  <Star size={12} className="sm:hidden" />
-                  <Star size={14} className="hidden sm:block" />
+                  <Star1 size={12} className="sm:hidden"  color="currentColor" variant="Outline"  />
+                  <Star1 size={14} className="hidden sm:block"  color="currentColor" variant="Outline"  />
                 </div>
               </div>
             </div>
@@ -162,8 +175,8 @@ const AboutUs = () => {
                   <div className="p-5 sm:p-8 text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-RuqyaLightPurple flex items-center justify-center mx-auto mb-4 sm:mb-6 text-RuqyaGreen rotate-45 sm:group-hover:rotate-0 transition-all duration-500">
                       <div className="rotate-[-45deg] sm:group-hover:rotate-0 transition-all duration-500">
-                        <BookOpenIcon size={24} className="sm:hidden" />
-                        <BookOpenIcon size={32} className="hidden sm:block" />
+                        <Book1 size={24} className="sm:hidden"  color="currentColor" variant="Outline"  />
+                        <Book1 size={32} className="hidden sm:block" color="currentColor" variant="Outline" />
                       </div>
                     </div>
                     
@@ -184,8 +197,8 @@ const AboutUs = () => {
                   <div className="p-5 sm:p-8 text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-RuqyaLightPurple flex items-center justify-center mx-auto mb-4 sm:mb-6 text-RuqyaGreen rotate-45 sm:group-hover:rotate-0 transition-all duration-500">
                       <div className="rotate-[-45deg] sm:group-hover:rotate-0 transition-all duration-500">
-                        <BookIcon size={24} className="sm:hidden" />
-                        <BookIcon size={32} className="hidden sm:block" />
+                        <Book size={24} className="sm:hidden" color="currentColor" variant="Outline"/>
+                        <Book size={32} className="hidden sm:block" color="currentColor" variant="Outline" />
                       </div>
                     </div>
                     
@@ -206,8 +219,8 @@ const AboutUs = () => {
                 <div className="p-5 sm:p-8 text-center">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-RuqyaLightPurple flex items-center justify-center mx-auto mb-4 sm:mb-6 text-RuqyaGreen rotate-45 sm:group-hover:rotate-0 transition-all duration-500">
                     <div className="rotate-[-45deg] sm:group-hover:rotate-0 transition-all duration-500">
-                      <UsersIcon size={24} className="sm:hidden" />
-                      <UsersIcon size={32} className="hidden sm:block" />
+                      <Profile2User size={24} className="sm:hidden" color="currentColor" variant="Outline" />
+                      <Profile2User size={32} className="hidden sm:block" color="currentColor" variant="Outline" />
                       </div>
                     </div>       
                     <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Community Support</h4>                 
@@ -225,15 +238,15 @@ const AboutUs = () => {
             <div className="text-left mb-6 sm:mb-8">
               <div className="inline-flex items-center flex-wrap">
                 <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-RuqyaLightGreen/50 flex items-center justify-center flex-shrink-0 text-RuqyaGreen">
-                  <Star size={12} className="sm:hidden" />
-                  <Star size={14} className="hidden sm:block" />
+                  <Star1 size={12} className="sm:hidden" color="currentColor" variant="Outline" />
+                  <Star1 size={14} className="hidden sm:block" color="currentColor" variant="Outline" />
                 </div>
                 <div className="hidden sm:block h-px w-12 bg-RuqyaLightGreen/50 mx-3"></div>
                 <h2 className="text-xl sm:text-2xl text-RuqyaGray mx-2 sm:mx-0">Our Philosophy</h2>
                 <div className="hidden sm:block h-px w-12 bg-RuqyaLightGreen/50 mx-3"></div>
                 <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-RuqyaLightGreen/50 flex items-center justify-center flex-shrink-0 text-RuqyaGreen">
-                  <Star size={12} className="sm:hidden" />
-                  <Star size={14} className="hidden sm:block" />
+                  <Star1 size={12} className="sm:hidden" color="currentColor" variant="Outline" />
+                  <Star1 size={14} className="hidden sm:block" color="currentColor" variant="Outline"/>
                 </div>
               </div>
             </div>
@@ -304,8 +317,8 @@ const AboutUs = () => {
             <div className="flex flex-col sm:flex-row items-center px-4 sm:px-0">
               <div className="mb-4 sm:mb-0 sm:mr-6">
                 <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-white shadow-xl flex items-center justify-center text-RuqyaGreen">
-                  <Heart size={24} className="sm:hidden" fill="currentColor" />
-                  <Heart size={32} className="hidden sm:block" fill="currentColor" />
+                  <Heart size={24} className="sm:hidden" color="currentColor" variant="Outline" />
+                  <Heart size={32} className="hidden sm:block" color="currentColor" variant="Outline" />
                 </div>
               </div>
               

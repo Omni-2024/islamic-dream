@@ -10,7 +10,6 @@ import {
   Home,            
   Import,           
 } from 'iconsax-react';
-// import { FileIcon, Music2Icon, ChevronDownIcon, ChevronRightIcon, BookOpenIcon, HomeIcon, DownloadIcon } from 'lucide-react'
 import content from '@/data/ruqyah'
 
 export default function RuqyahPage() {

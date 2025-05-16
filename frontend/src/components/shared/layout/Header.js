@@ -2,13 +2,10 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { FaEdit } from "react-icons/fa";
-import { PiBookBookmarkLight } from "react-icons/pi";
-import { FaBookBookmark } from "react-icons/fa6";
-import { LuLogOut } from "react-icons/lu";
 import { ErrorMessage } from "@/components/shared/common/ErrorMessage";
 import { auth } from "@/lib/firebase";
 import { motion, AnimatePresence } from "framer-motion";
+import { Edit, Bookmark, Logout } from 'iconsax-react';
 
 
 const Header = () => {
@@ -232,7 +229,7 @@ const Header = () => {
                           className="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-50 transition-colors" 
                           onClick={handleLinkClick}
                         >
-                          <FaEdit className="w-4 h-4 mr-3 text-gray-500" />
+                          <Edit size={15}  color="#36454F" variant="Outline"  className="w-4 h-4 mr-3 text-gray-500" />
                           <span>My Profile</span>
                         </Link>
                         
@@ -241,7 +238,7 @@ const Header = () => {
                           className="flex items-center px-5 py-3 text-gray-700 hover:bg-gray-50 transition-colors" 
                           onClick={handleLinkClick}
                         >
-                          <FaBookBookmark className="w-4 h-4 mr-3 text-gray-500" />
+                          <Bookmark size ={15} className="w-4 h-4 mr-3 text-gray-500" color="#36454F" />
                           <span>My Bookings</span>
                         </Link>
                       </div>
@@ -251,7 +248,7 @@ const Header = () => {
                           onClick={handleLogout} 
                           className="flex items-center w-full text-left px-5 py-3 text-red-600 hover:bg-red-50 transition-colors"
                         >
-                          <LuLogOut className="w-4 h-4 mr-3" />
+                          <Logout size={15}  color="currentColor" variant="Outline" className="w-4 h-4 mr-3" />
                           <span>Logout</span>
                         </button>
                       </div>
@@ -372,7 +369,7 @@ const Header = () => {
                             className="flex items-center py-3 text-gray-700 hover:text-header transition-colors" 
                             onClick={handleLinkClick}
                           >
-                            <FaEdit className="w-4 h-4 mr-3 text-gray-500" />
+                          <Edit size={15}  color="#36454F" variant="Outline"  className="w-4 h-4 mr-3 text-gray-500" />
                             <span>View Profile</span>
                           </Link>
                           
@@ -381,7 +378,7 @@ const Header = () => {
                             className="flex items-center py-3 text-gray-700 hover:text-header transition-colors" 
                             onClick={handleLinkClick}
                           >
-                            <FaBookBookmark className="w-4 h-4 mr-3 text-gray-500" />
+                          <Bookmark size ={15} className="w-4 h-4 mr-3 text-gray-500" color="#36454F" />
                             <span>My Bookings</span>
                           </Link>
                           
@@ -389,7 +386,7 @@ const Header = () => {
                             onClick={handleLogout} 
                             className="flex items-center w-full text-left py-3 text-red-600"
                           >
-                            <LuLogOut className="w-4 h-4 mr-3" />
+                          <Logout size={15}  color="currentColor" variant="Outline" className="w-4 h-4 mr-3" />
                             <span>Logout</span>
                           </button>
                         </div>

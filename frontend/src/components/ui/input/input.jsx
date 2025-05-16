@@ -1,7 +1,8 @@
 import React from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { FaCalendarAlt } from "react-icons/fa";
+import { Calendar } from 'iconsax-react';
+
 
 export const Input = ({ type, placeholder, name, className, value, onChange }) => {
   return (
@@ -40,7 +41,7 @@ export const DateInput = ({ selected, onChange, placeholderText, max, min }) => 
         className="w-full rounded-md border border-gray-300 text-sm p-2 pl-10 focus:border-primary focus:ring-primary cursor-pointer bg-white"
         placeholder="Select date"
       />
-      <FaCalendarAlt className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+      <Calendar size={15} color="currentColor" variant="Outline" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
     </div>
   );
 
