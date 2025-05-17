@@ -75,7 +75,7 @@ const CompletePage = () => {
 
           {/* Main content */}
           <div className="px-6 py-8">
-            <h2 className="text-2xl font-fullsansbold text-RuqyaGray text-center">Booking Confirmed!</h2>
+            <h2 className="text-2xl font-bold text-RuqyaGray text-center">Booking Confirmed!</h2>
             <p className="mt-2 text-center text-gray-600">Your Ruqyah session has been scheduled successfully</p>
             
             {/* Email notification */}
@@ -90,7 +90,7 @@ const CompletePage = () => {
             
             {/* Instructions */}
             <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
-              <h3 className="font-medium text-RuqyaGray text-sm font-fullsans">Preparation Instructions:</h3>
+              <h3 className="font-medium text-RuqyaGray text-sm ">Preparation Instructions:</h3>
               <ul className="mt-2 space-y-2">
                 {['Join 5 minutes early', 'Ensure stable internet connection', 'Prepare your questions', 'Find a quiet space'].map((item, i) => (
                   <li key={i} className="flex items-start">

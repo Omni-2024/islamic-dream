@@ -50,7 +50,7 @@ return (
 
         {/* Main content */}
         <div className="px-6 py-8">
-          <h2 className="text-2xl font-fullsansbold text-gray-800 text-center">Booking Failed!</h2>
+          <h2 className="text-2xl font-bold text-gray-800 text-center">Booking Failed!</h2>
           <p className="mt-2 text-center text-gray-600">We couldn't process your Ruqyah session booking</p>
           
           {/* Error notification */}
@@ -65,7 +65,7 @@ return (
           
           {/* Possible causes */}
           <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
-            <h3 className="font-medium text-gray-800 text-sm font-fullsans">Possible Reasons:</h3>
+            <h3 className="font-medium text-gray-800 text-sm ">Possible Reasons:</h3>
             <ul className="mt-2 space-y-2">
               {[
                 'Selected time slot might no longer be available',
@@ -84,7 +84,7 @@ return (
 
           {/* What to do */}
           <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-100">
-            <h3 className="font-medium text-gray-800 text-sm font-fullsans">What You Can Do:</h3>
+            <h3 className="font-medium text-gray-800 text-sm">What You Can Do:</h3>
             <ul className="mt-2 space-y-2">
               {[
                 'Try booking again in a few minutes',
