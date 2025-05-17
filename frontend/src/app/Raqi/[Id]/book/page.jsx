@@ -265,79 +265,129 @@ const BookSessionPage = () => {
     </div>
   );
 
-  return (
-    <div className="mx-[9%] py-4 min-h-screen flex flex-col md:flex-row relative">
-      {showError && <div className="fixed top-0 left-0 right-0 z-50">
-        <ErrorMessage message={errorMessage} />
-      </div>}
-      <div className="w-full border border-gray-300 rounded-lg shadow-lg p-4 order-1">
-        <div className="mb-4 border-b pb-4">
-          <h1 className="text-2xl font-bold ">Book Your Ruqyah Session</h1>
-          <p>Choose your preferred date & time.</p>
+return (
+  <div className="bg-white min-h-screen py-8 px-4 mt-5">
+    <div className="max-w-6xl mx-auto">
+      {showError && (
+        <div className="fixed top-0 left-0 right-0 z-50">
+          <ErrorMessage message={errorMessage} />
         </div>
-        <form className="space-y-4">
-          {/* <div>
-            <label className="block text-gray-700">Session Type</label>
-            <select value={sessionType} onChange={handleSessionTypeChange} className="mt-3 p-3 block w-full bg-LightGray border border-gray-300 rounded-md shadow-sm focus:ring-RuqyaGreen focus:border-RuqyaGreen text-sm md:text-md appearance-none">
-              <option value="Standard">Standard</option>
-              <option value="Premium">Premium</option>
-              <option value="VIP">VIP</option>
-            </select>
-          </div> */}
-          <div ref={dateRef}>
-            <label className="block text-gray-700">Select Date:</label>
-            <div className="mt-3 grid grid-cols-3 md:flex gap-2 overflow-x-auto w-full place-items-center">
-              {getUpcomingDates().map((date, index) => (
-                <div key={index} className={`flex-1 p-3 mt-2 border rounded-md cursor-pointer text-center w-full ${selectedDate && selectedDate.toDateString() === date.toDateString() ? "bg-RuqyaGreen text-white" : "bg-LightGray"}`} onClick={() => handleDateChange(date)}>
-                  {date.getDate()} {date.toLocaleDateString("en-US", { weekday: "short" })}
-                </div>
-              ))}
-            </div>
-            {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
+      )}
+      
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* Left Column - Booking Form */}
+        <div className="w-full md:w-2/3 bg-white rounded-2xl shadow-xl overflow-hidden">
+          {/* Header with gradient background */}
+          <div className="bg-RuqyaGreen p-6 text-white">
+            <h1 className="text-3xl">Book Your Ruqyah Session</h1>
+            <p className="mt-1">Select your preferred date & time below</p>
           </div>
-          <div ref={timeRef}>
-            <label className="block text-gray-700 mt-14">Select Time:</label>
-            {loading ? (
-              <LoadingDots />
-            ) : (
-              <div className="mt-3 grid grid-cols-3 md:grid-cols-4 gap-2 place-items-center">
-                {getAvailableTimes().map((time, index) => (
+          
+          <form className="p-6 space-y-8">
+            {/* Date Selection */}
+            <div ref={dateRef} className="space-y-3">
+              <div className="flex items-center">
+                <label className="text-RuqyaGray font-semibold text-lg">Select Date</label>
+              </div>
+              
+              <div className="mt-3 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-2">
+                {getUpcomingDates().map((date, index) => (
                   <div 
                     key={index} 
-                    className={`p-3 border rounded-md text-center mt-2 w-full ${
-                      time === "No available time slots" 
-                        ? "bg-gray-200 text-gray-500 cursor-not-allowed col-span-3 md:col-span-4" 
-                        : `cursor-pointer ${selectedTime === time ? "bg-RuqyaGreen text-white" : "bg-LightGray"}`
-                    }`}
-                    onClick={() => time !== "No available time slots" && handleTimeChange({ target: { value: time } })}
+                    className={`py-3 px-1 border rounded-xl cursor-pointer text-center transition-all duration-200 hover:shadow-md ${
+                      selectedDate && selectedDate.toDateString() === date.toDateString() 
+                        ? "bg-RuqyaGreen text-white border-RuqyaGreen shadow-md" 
+                        : "bg-white border-gray-200 hover:border-RuqyaGreen"
+                    }`} 
+                    onClick={() => handleDateChange(date)}
                   >
-                    {time}
+                    <p className="text-xs mb-1">{date.toLocaleDateString("en-US", { weekday: "short" })}</p>
+                    <p className="text-lg ">{date.getDate()}</p>
+                    <p className="text-xs">{date.toLocaleDateString("en-US", { month: "short" })}</p>
                   </div>
                 ))}
               </div>
-            )}
-            {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
+              {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
+            </div>
+            
+            {/* Time Selection */}
+            <div ref={timeRef} className="space-y-3">
+              <div className="flex items-center">
+                <label className="text-RuqyaGray font-semibold text-lg">Select Time</label>
+              </div>
+              
+              {loading ? (
+                <div className="flex justify-center py-10">
+                  <LoadingDots />
+                </div>
+              ) : (
+                <div className="mt-3 grid grid-cols-3 md:grid-cols-4 gap-3">
+                  {getAvailableTimes().map((time, index) => (
+                    <div 
+                      key={index} 
+                      className={`py-3 px-2 border rounded-xl text-center transition-all duration-200 ${
+                        time === "No available time slots" 
+                          ? "bg-RuqyaLightPurple text-gray-500 cursor-not-allowed col-span-3 md:col-span-4" 
+                          : `cursor-pointer hover:shadow-md ${
+                              selectedTime === time 
+                                ? "bg-RuqyaGreen text-white border-RuqyaGreen shadow-md" 
+                                : "bg-white border-gray-200 hover:border-RuqyaGreen"
+                            }`
+                      }`}
+                      onClick={() => time !== "No available time slots" && handleTimeChange({ target: { value: time } })}
+                    >
+                      <span className="">{time}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
+            </div>
+          </form>
+        </div>
+        
+        {/* Right Column - Booking Summary */}
+        <div className="w-full md:w-1/3" ref={bookingRef}>
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-RuqyaGray p-6 text-white">
+              <h3 className="text-2xl ">Session Summary</h3>
+              <p className="text-sm opacity-80 mt-1">Review your booking details</p>
+            </div>
+            
+            <div className="p-6">
+              {rakiData ? (
+                <>
+                  <div className="bg-RuqyaLightPurple/30 p-4 rounded-xl mb-6">
+                    <BookingCard Booking={rakiData} selectedDate={selectedDate} selectedTime={selectedTime} />
+                  </div>
+                  
+                  <div className="pt-4 border-t border-gray-200">
+                    <Button 
+                      text="Confirm Booking" 
+                      color="white" 
+                      bg={true} 
+                      className="bg-RuqyaGreen rounded-xl py-2 w-full text-lg transition-all duration-200" 
+                      onClick={handleButtonClick} 
+                    />
+                  </div>
+                </>
+              ) : (
+                <div className="flex flex-col items-center justify-center py-10">
+                  <div className="w-16 h-16 rounded-full bg-RuqyaLightPurple flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-8 h-8 text-RuqyaGray">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="text-RuqyaGray ">Select a date and time to continue</p>
+                </div>
+              )}
+            </div>
           </div>
-        </form>
-      </div>
-
-
-
-      <div className="w-full md:w-1/2 md:mx-5 order-2 mt-10 md:mt-0 max-w-[450px]" ref={bookingRef}>
-        <div className="border border-gray-300 rounded-lg shadow-lg p-4">
-          <h3 className="border-b mb-3 pb-5 text-2xl">Summary</h3>
-          {rakiData ? (
-            <>
-              <BookingCard Booking={rakiData} selectedDate={selectedDate} selectedTime={selectedTime} />
-              <Button text="Book a Session" color="RuqyaGreen" bg={true} className="rounded-xl py-3 mt-4 w-full" onClick={handleButtonClick} />
-            </>
-          ) : (
-            <p>No booking data available.</p>
-          )}
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default BookSessionPage;
