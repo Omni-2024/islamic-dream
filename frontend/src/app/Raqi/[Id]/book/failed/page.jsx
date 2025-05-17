@@ -51,7 +51,7 @@ return (
         {/* Main content */}
         <div className="px-6 py-8">
           <h2 className="text-2xl font-fullsansbold text-gray-800 text-center">Booking Failed!</h2>
-          <p className="mt-2 text-center text-gray-600 font-poppins">We couldn't process your Ruqyah session booking</p>
+          <p className="mt-2 text-center text-gray-600">We couldn't process your Ruqyah session booking</p>
           
           {/* Error notification */}
           <div className="mt-6 flex items-center p-4 bg-red-50 rounded-lg">
@@ -60,7 +60,7 @@ return (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <p className="ml-3 text-sm text-red-700 font-poppins">There was a problem processing your booking request</p>
+            <p className="ml-3 text-sm text-red-700">There was a problem processing your booking request</p>
           </div>
           
           {/* Possible causes */}
@@ -76,7 +76,7 @@ return (
                   <svg className="w-4 h-4 text-red-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                   </svg>
-                  <span className="ml-2 text-sm text-gray-600 font-poppins">{item}</span>
+                  <span className="ml-2 text-sm text-gray-600">{item}</span>
                 </li>
               ))}
             </ul>
@@ -96,7 +96,7 @@ return (
                   <svg className="w-4 h-4 text-blue-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
-                  <span className="ml-2 text-sm text-gray-600 font-poppins">{item}</span>
+                  <span className="ml-2 text-sm text-gray-600">{item}</span>
                 </li>
               ))}
             </ul>
@@ -106,7 +106,7 @@ return (
             <div className= "justify-center mt-8 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 items-center">
               <button 
                 onClick={() => router.push("/")}
-                className="flex-1 py-3 px-4 max-w-fit bg-RuqyaGreen text-white font-medium rounded-lg shadow hover:bg-RuqyaLightGreen transition duration-200 flex items-center justify-center font-poppins"
+                className="flex-1 py-3 px-4 max-w-fit bg-RuqyaGreen text-white font-medium rounded-lg shadow hover:bg-RuqyaLightGreen transition duration-200 flex items-center justify-center"
               >
                 Return to Home
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -119,7 +119,7 @@ return (
       </div>
       
       {/* Footer note */}
-      <div className="text-center mt-4 text-xs text-gray-500 font-poppins">
+      <div className="text-center mt-4 text-xs text-gray-500">
         Need help? Contact our support team at support@ruqyah.com
       </div>
     </div>

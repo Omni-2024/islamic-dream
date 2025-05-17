@@ -76,7 +76,7 @@ const CompletePage = () => {
           {/* Main content */}
           <div className="px-6 py-8">
             <h2 className="text-2xl font-fullsansbold text-RuqyaGray text-center">Booking Confirmed!</h2>
-            <p className="mt-2 text-center text-gray-600 font-poppins">Your Ruqyah session has been scheduled successfully</p>
+            <p className="mt-2 text-center text-gray-600">Your Ruqyah session has been scheduled successfully</p>
             
             {/* Email notification */}
             <div className="mt-6 flex items-center p-4 bg-blue-50 rounded-lg">
@@ -85,7 +85,7 @@ const CompletePage = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
               </div>
-              <p className="ml-3 text-sm text-blue-700 font-poppins">A confirmation email with all details has been sent to your inbox</p>
+              <p className="ml-3 text-sm text-blue-700 ">A confirmation email with all details has been sent to your inbox</p>
             </div>
             
             {/* Instructions */}
@@ -97,7 +97,7 @@ const CompletePage = () => {
                     <svg className="w-4 h-4 text-RuqyaGreen mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span className="ml-2 text-sm text-gray-600 font-poppins">{item}</span>
+                    <span className="ml-2 text-sm text-gray-600">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -107,7 +107,7 @@ const CompletePage = () => {
             <div className= "justify-center mt-8 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 items-center">
               <button 
                 onClick={() => router.push("/")}
-                className="flex-1 py-3 px-4 max-w-fit bg-RuqyaGreen text-white font-medium rounded-lg shadow hover:bg-RuqyaLightGreen transition duration-200 flex items-center justify-center font-poppins"
+                className="flex-1 py-3 px-4 max-w-fit bg-RuqyaGreen text-white font-medium rounded-lg shadow hover:bg-RuqyaLightGreen transition duration-200 flex items-center justify-center"
               >
                 Return to Home
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +120,7 @@ const CompletePage = () => {
         </div>
         
         {/* Footer note */}
-        <div className="text-center mt-4 text-xs text-gray-500 font-poppins">
+        <div className="text-center mt-4 text-xs text-gray-500">
           Need help? Contact our support team at support@ruqyah.com
         </div>
       </div>
