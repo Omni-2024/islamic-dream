@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input/input";
 import Button from "@/components/ui/buttons/DefaultButton";
-import { FaFacebook, FaTwitter, FaInstagram, FaArrowRight } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 import { ErrorMessage } from "@/components/shared/common/ErrorMessage";
 import { Facebook, Instagram, ArrowRight, Location, Call, Sms  } from 'iconsax-react';
 
