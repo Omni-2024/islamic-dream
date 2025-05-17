@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { getUserProfileWithEmail, resetPassword } from "@/lib/api";
 import { ErrorMessage } from "@/components/shared/common/ErrorMessage";
-import { Loader2 } from "lucide-react";
-import { Eye, EyeSlash } from "iconsax-react";
+import { Eye, EyeSlash, RefreshCircle } from "iconsax-react";
 import { sendOtpEmail } from "@/lib/EmailService";
 import Image from "next/image";
 import Link from "next/link";
+import { BorderInput } from "@/components/ui/input/input";
 
 export default function ForgotPassword() {
   const [step, setStep] = useState(1);
@@ -43,6 +43,21 @@ export default function ForgotPassword() {
   const handleOtpKeyDown = (index, e) => {
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       document.getElementById(`otp-${index - 1}`)?.focus();
+    }
+  };
+
+  // Handle Email Change
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  // Handle Password Change
+  const handlePasswordChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "password") {
+      setPassword(value);
+    } else if (name === "confirmPassword") {
+      setConfirmPassword(value);
     }
   };
 
@@ -101,7 +116,7 @@ export default function ForgotPassword() {
     <>
       {error.message && <ErrorMessage message={error.message} type={error.type} />}
       <div
-        className="min-h-screen flex items-center justify-center bg-gray-100"
+        className="min-h-screen flex items-center justify-center "
         style={{
           backgroundImage: 'url("/svg/auth-bg.svg")',
           backgroundSize: "cover",
@@ -115,12 +130,20 @@ export default function ForgotPassword() {
           <h1 className="text-2xl font-extrabold mt-6 text-center text-secondary-50">Forgot Password</h1>
 
           {/* Steps */}
-          <div className="w-fit">
+          <div className="w-full max-w-md px-6">
             {/* Step 1: Enter Email */}
             {step === 1 && (
               <motion.div key="step1" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} transition={{ duration: 0.5 }}>
                 <p className="text-sm text-[#474747] text-center mt-2 mb-7 font-bold">Enter your email address, and we'll send you a otp to reset your password.</p>
-                <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 block w-full h-12 px-3 border border-gray-300 rounded-xl focus:outline-none" />
+                <BorderInput
+                  label="Email Address"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  autoComplete="email"
+                />
               </motion.div>
             )}
 
@@ -142,19 +165,41 @@ export default function ForgotPassword() {
               <motion.div key="step3" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} transition={{ duration: 0.5 }}>
                 <p className="text-sm text-[#474747] text-center mt-2 mb-7 font-bold">Set a new password for your account. Make sure it is strong and secure.</p>
 
-                <div className="relative">
-                  <input type={showPassword ? "text" : "password"} placeholder="New Password" value={password} onChange={(e) => setPassword(e.target.value)} className="mt-2 block w-full h-12 px-3 border border-gray-300 rounded-xl focus:outline-none" />
-                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-5 top-4 text-gray-500">
-                    {showPassword ? <EyeSlash size={15} color="#474747" /> : <Eye size={15} color="#474747" />}
-                  </button>
+                <div className="flex flex-col gap-4">
+                  <div className="relative">
+                    <BorderInput
+                      label="New Password"
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      placeholder="Enter your new password"
+                      value={password}
+                      onChange={handlePasswordChange}
+                      autoComplete="new-password"
+                      rightIcon={
+                        <button type="button" onClick={() => setShowPassword(!showPassword)} className="text-gray-500">
+                          {showPassword ? <EyeSlash size={15} color="#474747" /> : <Eye size={15} color="#474747" />}
+                        </button>
+                      }
+                    />
+                  </div>
+                  <div className="relative">
+                    <BorderInput
+                      label="Confirm New Password"
+                      type="password"
+                      name="confirmPassword"
+                      placeholder="Confirm your new password"
+                      value={confirmPassword}
+                      onChange={handlePasswordChange}
+                      autoComplete="new-password"
+                    />
+                  </div>
                 </div>
-                <input type="password" placeholder="Confirm New Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="mt-2 block w-full h-12 px-3 border border-gray-300 rounded-xl focus:outline-none" />
               </motion.div>
             )}
 
             {/* Next Button */}
-            <button disabled={loading} onClick={handleNext} className="w-full flex justify-center mt-6 py-2 px-6 h-10 border rounded-2xl shadow-sm text-m font-bold text-white bg-RuqyaGreen hover:bg-primary-800">
-              {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Next"}
+            <button disabled={loading} onClick={handleNext} className="w-full flex justify-center mt-6 py-2 px-6 h-10 border rounded-full shadow-sm text-m font-bold text-white bg-RuqyaGreen hover:bg-primary-800">
+              {loading ? <RefreshCircle color="currentColor" variant="Outline" className="mr-2 h-4 w-4 animate-spin" /> : "Next"}
             </button>
           </div>
         </motion.div>
