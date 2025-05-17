@@ -6,9 +6,19 @@ import { ErrorMessage } from "@/components/shared/common/ErrorMessage";
 import { auth } from "@/lib/firebase";
 import { motion, AnimatePresence } from "framer-motion";
 import { Edit, Bookmark, Logout } from 'iconsax-react';
+import { getOwnProfile} from "@/lib/api";
 
 
 const Header = () => {
+    const defaultValues = {
+    name: "",
+    email: "",
+    gender: "",
+    dob: new Date().toISOString().split('T')[0],
+    country: "",
+    language: "",
+    mobile: ""
+  };
   const [isOpen, setIsOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [mobileProfileDropdownOpen, setMobileProfileDropdownOpen] = useState(false);
@@ -17,6 +27,9 @@ const Header = () => {
   const router = useRouter();
   const profileDropdownRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
+  const [formData, setFormData] = useState(defaultValues);
+  const [userData, setUserData] = useState(null);
+
   
   // Add these new states for mobile detection and scroll behavior
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -59,6 +72,39 @@ const Header = () => {
       document.body.style.overflow = "auto";
     }
   }, [isOpen]);
+
+    useEffect(() => {
+      const fetchUserData = async () => {
+        try {
+          const data = await getOwnProfile();
+          if (!data) {
+            throw new Error("No data returned from API");
+          }
+          setUserData(data);
+          setFormData({
+            name: startCase(data.name) || defaultValues.name,
+            email: data.email || defaultValues.email,
+            gender: data.gender || defaultValues.gender,
+            dob: data.DOB || defaultValues.dob,
+            country: data.country || defaultValues.country,
+            language: data.language || defaultValues.language,
+            mobile: data.mobile || defaultValues.mobile,
+          });
+          setIsLoading(false);
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          setIsLoading(false);
+         
+          setUserData({
+            ...defaultValues,
+            DOB: defaultValues.dob
+          });
+          setFormData(defaultValues);
+        }
+      };
+  
+      fetchUserData();
+    }, []);
 
   // Add this useEffect for mobile detection
   useEffect(() => {
@@ -220,7 +266,7 @@ const Header = () => {
                     >
                       <div className="px-5 pt-5 pb-3 border-b border-gray-100">
                         <p className="text-sm text-gray-500">Signed in as</p>
-                        <p className="font-medium text-header">user@example.com</p>
+                        <p className="font-medium text-header">{formData.email || userData?.email || "User"}</p>
                       </div>
                       
                       <div className="py-2">
