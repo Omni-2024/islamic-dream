@@ -67,7 +67,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
                       className={[
                         "flex items-center px-4 py-2 text-m font-semibold transition-colors duration-200",
                         !collapsed ? "rounded-xl" : "rounded-md text-black justify-center",
-                        pathname === item.href ? "bg-primary-700 text-white" : "hover:bg-primary-200 hover:text-primary-500"
+                        pathname === item.href ? "bg-primary-700 text-white" : "hover:bg-primary-200 hover:text-black"
                       ].filter(Boolean).join(" ")}
                       onHoverStart={() => setHoveredIndex(index)}
                       onHoverEnd={() => setHoveredIndex(null)}
