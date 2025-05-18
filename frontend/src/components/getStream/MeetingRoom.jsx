@@ -71,16 +71,16 @@ export const MeetingRoom = () => {
                 </div>
 
                 {/* Main error container */}
-                <div className="relative max-w-xl w-full bg-gradient-to-br from-[#FF6961] via-[#0C8281] to-red-900 rounded-2xl ">
+                <div className="relative max-w-xl w-full  bg-gradient-to-br from-[#27a165]  to-white rounded-2xl ">
                     {/* Error icon with ripple effect */}
                     <div className="absolute -top-20 left-1/2 transform -translate-x-1/2">
                         <div className="relative">
-                            <div className="animate-ping absolute inset-0 rounded-full opacity-20"/>
+                            <div className="animate-ping absolute inset-0 rounded-full  bg-[#27a165] opacity-20"/>
                             <div
                                 className="animate-ping absolute inset-0 rounded-full bg-red-500 opacity-30 delay-150"/>
                             <div className="relative bg-white rounded-full p-4 shadow-xl">
                                 <svg
-                                    className="w-12 h-12 text-[#0C8281] animate-bounce"
+                                    className="w-12 h-12 text-[#27a165] animate-bounce"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -100,7 +100,7 @@ export const MeetingRoom = () => {
                     <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-[#0C8281]/20">
                         <div className="text-center space-y-6 mt-8">
                             {/* Glowing error title */}
-                            <h2 className="text-4xl font-bold text-white animate-pulse">
+                            <h2 className="text-4xl font-bold text-black animate-pulse">
                                 {error || "Unable to Join"}
                             </h2>
 
@@ -110,34 +110,31 @@ export const MeetingRoom = () => {
                                     className="h-1 w-24 bg-gradient-to-r from-transparent via-[#0C8281] to-transparent animate-pulse"/>
                             </div>
 
-                            <p className="text-gray-100 text-lg leading-relaxed">
+                            <p className="text-gray-900 text-lg leading-relaxed">
                                 We couldn't connect you to the meeting. This might be due to:
                             </p>
 
                             {/* Error reasons with icons */}
                             <div className="space-y-4 text-left text-gray-100">
                                 <div className="flex items-center space-x-3">
-                                    <svg className="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd"
                                               d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"/>
                                     </svg>
-                                    <span>Invalid meeting credentials</span>
+                                    <span className="text-black">Invalid meeting credentials</span>
                                 </div>
                                 <div className="flex items-center space-x-3">
-                                    <svg className="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd"
                                               d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z"/>
                                     </svg>
-                                    <span>Invalid user id</span>
+                                    <span className="text-black">Invalid user id</span>
                                 </div>
                             </div>
 
                             <button
                                 onClick={() => router.push('/')}
-                                className="group relative px-8 py-4 bg-gradient-to-r from-[#FF6961] to-[#FF6961] text-white rounded-xl font-semibold shadow-xl
-                       transition-all duration-300 ease-in-out hover:from-[#0b7473] hover:to-[#095857] hover:scale-105
-                       focus:outline-none focus:ring-2 focus:ring-[#0C8281] focus:ring-offset-2 w-full mt-6"
-                            >
+                                className="w-full px-4 py-2 mt-3 bg-primary-500 text-primary-25 rounded-md hover:bg-primary-100 transition">
               <span className="relative flex items-center justify-center gap-2">
                 <svg
                     className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform"
