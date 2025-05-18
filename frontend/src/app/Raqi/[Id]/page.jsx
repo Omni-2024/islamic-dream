@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import ReactCountryFlag from "react-country-flag";
 import Link from "next/link";
 import Button from "@/components/ui/buttons/DefaultButton";
-import { FaStarHalfAlt } from "react-icons/fa";
+import { FaStarHalfAlt, FaStar } from "react-icons/fa";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, LabelList, CartesianGrid } from "recharts";
 import ReviewCard from "@/components/cards/ReviewCard";
 import Forth from "@/components/ui/home/Forth";
@@ -21,8 +21,9 @@ import {
   Message,
   TrendDown,
   TrendUp,
-  Star,
-  Home
+  Star1,
+  Home,
+  Calendar,
 } from 'iconsax-react';
 
 
@@ -143,11 +144,11 @@ function Raqis() {
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => {
       if (i < Math.floor(rating)) {
-        return <Star key={i} color="#ffc107" />;
+        return <Star1 key={i} color="#ffc107" />;
       } else if (i < rating) {
         return <FaStarHalfAlt key={i} color="#ffc107"  />;
       } else {
-        return <Star key={i} color="#e4e5e9" />;
+        return <Star1 key={i} color="#e4e5e9" />;
       }
     });
   };
@@ -208,168 +209,174 @@ return (
           <div className="absolute h-2 top-0 left-0 right-0 bg-RuqyaGreen"></div>
           
           {/* Main profile grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-0 lg:p-8">
-            {/* Left column - profile image with unique shape */}
-            <div className="lg:col-span-3 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="relative h-64 lg:h-80 lg:-mt-16">
-                {/* Status pill */}
-                {data.status && (
-                  <div className="absolute top-4 right-4 z-20">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                      data.status === "Available" 
-                        ? "bg-black text-RuqyaLightGreen" 
-                        : "bg-black text-red-400"
-                    }`}>
-                      <span className={`w-2 h-2 rounded-full mr-2 ${
-                        data.status === "Available" ? "bg-RuqyaLightGreen animate-pulse" : "bg-red-400"
-                      }`}></span>
-                      {data.status}
-                    </span>
-                  </div>
-                )}
-                
-                {/* Profile image with creative shape */}
-                <div className="h-full w-full overflow-hidden">
-                  <img 
-                    id="raqi-profile" 
-                    src={data.image || displayImage} 
-                    alt={data.name} 
-                    className="h-full w-full object-cover"
-                  />
-               </div>
-              </div>
-              
-              {/* Desktop action buttons */}
-              <div className="hidden md:block mt-6 animate-fade-in px-4 lg:px-0" style={{ animationDelay: '0.3s' }}>
-                {token && (
-                  <button 
-                    onClick={() => handleStartChat(data._id)} 
-                    className="flex items-center justify-center gap-2 w-full bg-RuqyaGray hover:bg-RuqyaGreen text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
-                  >
-                    <Message  size={20} className="text-white  group-hover:scale-110 transition-transform" color="currentColor" variant="Outline" />
-                    <span className="font-medium">Chat with Raqi</span>
-                  </button>
-                )}
-              </div>
-            </div>
-            
-            {/* Middle column - profile details with bold typography */}
-            <div className="lg:col-span-5 text-gray-800 animate-fade-in p-4 lg:p-0" style={{ animationDelay: '0.4s' }}>
-              {data.name && <h1 className="text-4xl font-bold mb-3 text-RuqyaGray tracking-tight">{data.name}</h1>}
-              
-              {/* Stats grid with consistent styling */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                <div className="space-y-6">
-                  {data.country && (
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-RuqyaLightPurple rounded-none flex items-center justify-center">
-                        <ReactCountryFlag countryCode={data.country} svg className="w-6 h-6" title={getCountryLabel(data.country)} />
-                      </div>
-                      <div>
-                        <p className="text-gray-400 text-xs uppercase tracking-wider font-bold">Country</p>
-                        <p className="font-medium text-RuqyaGray">{getCountryLabel(data.country)}</p>
-                      </div>
-                    </div>
-                  )}
-                  
-                  {data.yearOfExperience && (
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-RuqyaLightPurple rounded-none flex items-center justify-center text-RuqyaGray">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-gray-400 text-xs uppercase tracking-wider font-bold">Experience</p>
-                        <p className="font-medium text-RuqyaGray">{data.yearOfExperience} Years</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                
-                <div className="space-y-6">
-                  {availability && (
-                    <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 bg-RuqyaLightPurple rounded-none flex items-center justify-center text-RuqyaGray mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-gray-400 text-xs uppercase tracking-wider font-bold">Availability</p>
-                        <ul className="space-y-1.5 mt-1">
-                          {availability.map((slot, index) => (
-                            <li key={index} className="flex items-center text-sm">
-                              <span className="w-1.5 h-1.5 bg-RuqyaGreen rounded-none mr-2"></span>
-                              {slot}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-              
-              {/* Languages with modern pill design */}
-              {data.languages && (
-                <div className="mt-8">
-                  <p className="text-gray-400 text-xs uppercase tracking-wider font-bold mb-3">Languages</p>
-                  <div className="flex flex-wrap gap-2">
-                    {data.languages.map((lang, index) => (
-                      <span key={index} className="px-4 py-2 bg-gray-100 border-l-4 border-RuqyaGreen text-sm font-medium">
-                        {getLanguageLabel(lang)}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 lg:p-8">
+              {/* Left column - profile image with unique shape */}
+              <div className="lg:col-span-3 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                <div className="relative h-64 lg:h-80">
+                  {/* Status pill */}
+                  {data.status && (
+                    <div className="absolute top-4 right-4 z-20">
+                      <span
+                        className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                          data.status === "Available" ? "bg-black text-RuqyaLightGreen" : "bg-black text-red-400"
+                        }`}
+                      >
+                        <span
+                          className={`w-2 h-2 rounded-full mr-2 ${
+                            data.status === "Available" ? "bg-RuqyaLightGreen animate-pulse" : "bg-red-400"
+                          }`}
+                        ></span>
+                        {data.status}
                       </span>
-                    ))}
+                    </div>
+                  )}
+
+                  {/* Profile image */}
+                  <div className=" rounded-xl h-full w-full overflow-hidden"> 
+                    <img
+                      id="raqi-profile"
+                      src={data.image || displayImage}
+                      alt={data.name}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                 </div>
-              )}
-            </div>
-            
-            {/* Right column - booking widget with bold design */}
-            <div className="lg:col-span-4 animate-fade-in p-4 lg:p-0" style={{ animationDelay: '0.5s' }}>
-              <div className="bg-RuqyaGray text-white overflow-hidden relative">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaGreen/30 rounded-bl-full"></div>
-                <div className="p-6 relative">
-                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                    <span className="inline-block w-8 h-8 bg-RuqyaGreen/20 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-RuqyaLightGreen" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </span>
-                    Ready for a Session?
-                  </h3>
-                  <p className="text-gray-300 mb-6">Book your appointment with {data.name} now.</p>
-                  <Button 
-                    onClick={handleBookNow} 
-                    bg={true} 
-                    text="Book Now" 
-                    className="w-full rounded-xl bg-RuqyaGreen hover:bg-white hover:text-RuqyaGreen text-RuqyaGray font-bold py-3 transition-all duration-300 text-center flex items-center justify-center" 
-                  />
+
+                {/* Desktop action buttons */}
+                <div className="hidden md:block mt-2 animate-fade-in px-4 lg:px-0" style={{ animationDelay: "0.3s" }}>
+                  {token && (
+                    <button
+                      onClick={() => handleStartChat(data._id)}
+                      className="flex items-center justify-center gap-2 w-full bg-RuqyaGray hover:bg-RuqyaGreen text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
+                    >
+                      <Message
+                        size={20}
+                        className="text-white  group-hover:scale-110 transition-transform"
+                        color="currentColor"
+                        variant="Outline"
+                      />
+                      <span className="font-medium">Chat with Raqi</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Middle column - profile details with bold typography */}
+              <div
+                className="lg:col-span-5 text-gray-800 animate-fade-in p-4 lg:p-0"
+                style={{ animationDelay: "0.4s" }}
+              >
+                {data.name && <h1 className="text-4xl font-bold mb-3 text-RuqyaGray tracking-tight">{data.name}</h1>}
+
+                {/* Stats grid with consistent styling */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                  <div className="space-y-6">
+                    {data.country && (
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-RuqyaLightPurple rounded-none flex items-center justify-center">
+                          <ReactCountryFlag
+                            countryCode={data.country}
+                            svg
+                            className="w-6 h-6"
+                            title={getCountryLabel(data.country)}
+                          />
+                        </div>
+                        <div>
+                          <p className="text-gray-400 text-xs uppercase tracking-wider font-bold">Country</p>
+                          <p className="font-medium text-RuqyaGray">{getCountryLabel(data.country)}</p>
+                        </div>
+                      </div>
+                    )}
+
+                    {data.yearOfExperience && (
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-RuqyaLightPurple rounded-none flex items-center justify-center text-RuqyaGray">
+                          <Calendar size={20} color="currentColor" variant="Outline" />
+                        </div>
+                        <div>
+                          <p className="text-gray-400 text-xs uppercase tracking-wider font-bold">Experience</p>
+                          <p className="font-medium text-RuqyaGray">{data.yearOfExperience} Years</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-6">
+                    {availability && (
+                      <div className="flex items-start gap-3">
+                        <div className="w-12 h-12 bg-RuqyaLightPurple rounded-none flex items-center justify-center text-RuqyaGray mt-1">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-gray-400 text-xs uppercase tracking-wider font-bold">Availability</p>
+                          <ul className="space-y-1.5 mt-1">
+                            {availability.map((slot, index) => (
+                              <li key={index} className="flex items-center text-sm">
+                                <span className="w-1.5 h-1.5 bg-RuqyaGreen rounded-none mr-2"></span>
+                                {slot}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Languages with modern pill design */}
+                {data.languages && (
+                  <div className="mt-8">
+                    <p className="text-gray-400 text-xs uppercase tracking-wider font-bold mb-3">Languages</p>
+                    <div className="flex flex-wrap gap-2">
+                      {data.languages.map((lang, index) => (
+                        <span
+                          key={index}
+                          className="px-4 py-2 bg-gray-100 border-l-4 border-RuqyaGreen text-sm font-medium"
+                        >
+                          {getLanguageLabel(lang)}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Right column - booking widget with bold design */}
+              <div className="lg:col-span-4 animate-fade-in p-4 lg:p-0" style={{ animationDelay: "0.5s" }}>
+                <div className="bg-RuqyaGray text-white overflow-hidden relative">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaGreen/30 rounded-bl-full"></div>
+                  <div className="p-6 relative">
+                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                      <Calendar size={20} color="currentColor" variant="Outline" />
+                      Ready for a Session?
+                    </h3>
+                    <p className="text-gray-300 mb-6">Book your appointment with {data.name} now.</p>
+                    <Button
+                      onClick={handleBookNow}
+                      bg={true}
+                      text="Book Now"
+                      className="w-full rounded-xl bg-RuqyaGreen hover:bg-RuqyaDarkGreen  font-bold py-3 transition-all duration-300 text-center flex items-center justify-center"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     {/* </div> */}
 
-    {/* Bold mobile action buttons */}
-    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-RuqyaGray p-4 z-50 flex gap-3 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-      {token && (
-        <Button 
-          onClick={() => handleStartChat(data._id)} 
-          className="flex items-center justify-center gap-2 bg-black text-white rounded-none py-3 flex-1"
-        >
-          <Message className="text-RuqyaLightGreen text-xl" color="currentColor" variant="Outline" /> Chat
-        </Button>
-      )}
-      <Button 
-        text="Book Now" 
-        link={"/Raqi/" + data._id + "/book"} 
-        className="flex items-center justify-center gap-2 bg-RuqyaGreen text-RuqyaGray rounded-xl py-3 flex-1 font-bold" 
-      />
-    </div>
+
 
     {/* Content sections with bold geometric accents */}
     <div className=" relative z-20 mt-10">
@@ -463,7 +470,7 @@ return (
                 <div className="flex flex-col gap-2 mr-4">
                   {[5, 4, 3, 2, 1].map((star) => (
                     <span key={star} className="flex items-center text-sm text-gray-500">
-                      <Star color="currentColor" variant="Outline" className="text-yellow-400 mr-2" />{star}
+<FaStar className="text-yellow-400 mr-2" />{star}
                     </span>
                   ))}
                 </div>
