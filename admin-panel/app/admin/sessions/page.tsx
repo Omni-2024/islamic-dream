@@ -88,7 +88,7 @@ const SessionsPage=()=> {
 
     return (
         <div className="container mx-auto py-10">
-            <h1 className="text-3xl font-bold mb-6">Sessions</h1>
+            <h1 className="text-3xl font-bold mb-6 text-primary-700">Sessions</h1>
             <Tabs defaultValue="all" onValueChange={setActiveTab}>
                 <TabsList className="grid w-full grid-cols-4 mb-6 bg-gray-100 p-1 rounded-lg">
                     <TabsTrigger value="all" className="data-[state=active]:bg-primary-700 data-[state=active]:text-white data-[state=active]:font-bold">

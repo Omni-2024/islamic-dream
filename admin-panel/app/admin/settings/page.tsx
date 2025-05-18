@@ -196,7 +196,7 @@ const SettingsPage=()=> {
         <div className="p-4 grid gap-8 md:grid-cols-2">
             <Card>
                 <CardContent>
-                    <h2 className="text-xl font-semibold my-4">Profile</h2>
+                    <h2 className="text-xl font-semibold my-4 text-primary-700">Profile</h2>
                     <div className="space-y-4">
                         <div>
                             <label className="block mb-1 font-medium">Name</label>
@@ -313,7 +313,7 @@ const SettingsPage=()=> {
 
             <Card className="h-96">
                 <CardContent>
-                    <h2 className="text-xl font-semibold my-4">Security</h2>
+                    <h2 className="text-xl font-semibold my-4 text-primary-700">Security</h2>
                     <div className="space-y-4">
                         <div className="relative">
                             <label className="block mb-1 font-medium">Current Password</label>
