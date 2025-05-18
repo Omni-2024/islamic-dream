@@ -77,7 +77,7 @@ export const SessionList = ({ sessions }: { sessions: IMeeting[] }) => {
                   className={cn("flex items-center gap-2.5 text-sm font-semibold")}
               >
             <span className={cn("flex items-center gap-2")}>
-              <UserTag size="32" color="#0C8281" variant="Bold"/>
+              <UserTag size="32" color="#27a165" variant="Bold"/>
               {session?.rakiName}
             </span>
               </div>
