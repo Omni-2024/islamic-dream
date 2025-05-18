@@ -69,7 +69,7 @@ export const SessionList = ({ sessions }: { sessions: IMeeting[] }) => {
             >
               <img
                   alt="cover"
-                  src={"/images/makka.png"}
+                  src={"/images/menSitting.png"}
                   className={cn("h-44 w-full rounded-2xl object-cover")}
               />
 
