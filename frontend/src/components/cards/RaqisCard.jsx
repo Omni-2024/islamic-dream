@@ -5,6 +5,8 @@ import { useState } from "react";
 import { FaStar, FaGlobe, FaRegCalendarAlt, FaTwitter, FaInstagram, FaFacebookF, FaDribbble } from "react-icons/fa";
 import ReactCountryFlag from "react-country-flag";
 import { languages, countries } from "@/lib/constance";
+import { Calendar, Global } from "iconsax-react";
+
 
 export default function RaqisCard({ raqi }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -86,7 +88,7 @@ export default function RaqisCard({ raqi }) {
               {CountryCode ? (
                 <ReactCountryFlag countryCode={CountryCode} svg className="w-5 h-5" />
               ) : (
-                <FaGlobe className="text-RuqyaGray w-5 h-5" />
+                <Global color="currentColor" variant="Outline" className="text-RuqyaGray w-5 h-5" />
               )}
               <span className="text-gray-600 text-sm">{countryLabel}</span>
             </div>
@@ -125,18 +127,15 @@ export default function RaqisCard({ raqi }) {
 
             {/* Book Now button with calendar icon */}
             <Link 
-              href={id ? "/Raqi/" + id : "#"} 
-              className="relative block w-full py-3 rounded-xl text-center font-semibold text-white bg-RuqyaGreen shadow-md transition-all duration-300 hover:shadow-lg mt-4"
+              href={id ? `/Raqi/${id}` : "#"} 
+              className="block w-full py-3 rounded-xl text-center font-semibold text-white bg-RuqyaGreen hover:bg-RuqyaDarkGreen shadow-md transition-all duration-300 mt-4"
             >
-              <div className={`absolute inset-0 bg-black opacity-0 transition-opacity duration-300 ${
-                isHovered ? "opacity-10" : ""
-              }`}></div>
-              
-              <span className="relative flex items-center justify-center gap-2">
-                <FaRegCalendarAlt />
+              <span className="flex items-center justify-center gap-2">
+                <Calendar size={20} color="currentColor" variant="Outline" />
                 Book Now
               </span>
             </Link>
+
           </div>
         </div>
       </div>

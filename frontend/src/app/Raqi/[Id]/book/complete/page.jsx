@@ -107,7 +107,7 @@ const CompletePage = () => {
             <div className= "justify-center mt-8 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 items-center">
               <button 
                 onClick={() => router.push("/")}
-                className="flex-1 py-3 px-4 max-w-fit bg-RuqyaGreen text-white font-medium rounded-lg shadow hover:bg-RuqyaLightGreen transition duration-200 flex items-center justify-center"
+                className="flex-1 py-3 px-4 max-w-fit bg-RuqyaGreen text-white font-medium rounded-lg shadow hover:bg-RuqyaDarkGreen transition duration-200 flex items-center justify-center"
               >
                 Return to Home
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -366,7 +366,7 @@ return (
                       text="Confirm Booking" 
                       color="white" 
                       bg={true} 
-                      className="bg-RuqyaGreen rounded-xl py-2 w-full text-lg transition-all duration-200" 
+                      className="bg-RuqyaGreen hover:bg-RuqyaDarkGreen rounded-xl py-2 w-full text-lg transition-all duration-200" 
                       onClick={handleButtonClick} 
                     />
                   </div>

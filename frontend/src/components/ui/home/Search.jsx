@@ -37,7 +37,7 @@ function Search() {
         <CustomSelect options={languages} value={language} onChange={handleLanguageChange} name="language" placeholder="Language" />
       </div>
       <div className="flex items-center justify-center -mt-13 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-        <Button text="Search" bg={true} onClick={handleSearch} className="w-32 md:w-40 md:h-10 bg-RuqyaGreen text-white rounded-lg transition duration-300 p-3" />
+        <Button text="Search" bg={true} onClick={handleSearch} className="w-32 md:w-40 md:h-10 bg-RuqyaGreen hover:bg-RuqyaDarkGreen text-white rounded-lg transition duration-300 p-3" />
       </div>
     </div>
   );
