@@ -221,7 +221,7 @@ const PaymentManagementPage: React.FC<PaymentManagementPageProps> = () => {
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-4 py-2 bg-primary-50 text-primary-500 rounded-lg hover:bg-primary-100 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-primary-50 text-primary-500 rounded-lg hover:bg-primary-200 transition-colors"
             >
               <Filter className="h-4 w-4" />
               {showFilters ? "Hide Filters" : "Show Filters"}
@@ -285,7 +285,7 @@ const PaymentManagementPage: React.FC<PaymentManagementPageProps> = () => {
               {(selectedMonth || selectedYear || paymentStatus) && (
                 <div className="mt-4 flex flex-wrap gap-2">
                   {selectedMonth && (
-                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-25 rounded-full text-sm">
                       {selectedMonth}
                       <X
                         className="h-3 w-3 cursor-pointer"
@@ -294,7 +294,7 @@ const PaymentManagementPage: React.FC<PaymentManagementPageProps> = () => {
                     </span>
                   )}
                   {selectedYear && (
-                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-25 rounded-full text-sm">
                       {selectedYear}
                       <X
                         className="h-3 w-3 cursor-pointer"
@@ -303,7 +303,7 @@ const PaymentManagementPage: React.FC<PaymentManagementPageProps> = () => {
                     </span>
                   )}
                   {paymentStatus && (
-                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 text-primary-25 rounded-full text-sm">
                       {paymentStatus}
                       <X
                         className="h-3 w-3 cursor-pointer"
@@ -358,7 +358,7 @@ const PaymentManagementPage: React.FC<PaymentManagementPageProps> = () => {
                 {isAdmin && !meeting.isPaid ? (
                     canRequestPayment(meeting) ? (
                         <button
-                            className="w-full px-4 py-2 mt-3 bg-primary-500 text-primary-25 rounded-md hover:bg-primary-300 transition"
+                            className="w-full px-4 py-2 mt-3 bg-primary-500 text-primary-25 rounded-md hover:bg-primary-100 transition"
                             onClick={() => handlePaymentRequest(meeting._id)}
                         >
                           Request Payment
