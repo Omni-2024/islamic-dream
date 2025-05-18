@@ -240,7 +240,7 @@ function SignUp() {
                       value={digit}
                       maxLength={1}
                       style={{ border: "1px solid #474747" }}
-                      className="w-8 h-8 md:w-11 md:h-11 md:mx-2 mx-1 !border !border-gray-300 text-center text-lg font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-teal-600"
+                      className="w-8 h-8 md:w-11 md:h-11 md:mx-2 mx-1 !border !border-gray-300 text-center text-lg font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-RuqyaDarkGreen"
                       onChange={(e) => handleOtpChange(index, e.target.value)}
                       ref={(el) => (otpRefs.current[index] = el)}
                     />
@@ -252,7 +252,7 @@ function SignUp() {
                   text={loading ? "Verifying..." : "Verify"}
                   color={"RuqyaGreen"}
                   disabled={loading}
-                  className="w-full bg-teal-600 hover:bg-teal-700 text-white rounded-full py-3 mt-5"
+                  className="w-full bg-RuqyaGreen hover:bg-RuqyaDarkGreen text-white rounded-full py-3 mt-5"
                 />
               </form>
             )}

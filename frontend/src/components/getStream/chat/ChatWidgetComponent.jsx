@@ -22,7 +22,7 @@ const FloatingChatWidget = ({ userId, otherUserId, isOpen, setIsOpen }) => {
     <div className="fixed bottom-4 right-4 z-50">
       <AnimatePresence>
         {!isOpen && (
-          <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} onClick={() => setIsOpen(true)} className="bg-RuqyaGreen hover:bg-teal-700 text-white rounded-full p-4 shadow-lg flex items-center justify-center">
+          <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} onClick={() => setIsOpen(true)} className="bg-RuqyaGreen hover:bg-RuqyaDarkGreen text-white rounded-full p-4 shadow-lg flex items-center justify-center">
             <MessageCircle size={24} />
           </motion.button>
         )}

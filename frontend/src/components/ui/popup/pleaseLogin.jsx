@@ -14,7 +14,7 @@ const PleaseLogin = ({ isOpen, onClose, onLogin }) => {
           <button onClick={onClose} className="w-full bg-gray-500 hover:bg-gray-600 text-white rounded-full py-3 mt-5 transition duration-300">
             Cancel
           </button>
-          <button onClick={onLogin} className="w-full bg-RuqyaGreen hover:bg-teal-700 text-white rounded-full py-3 px-5 mt-5 transition duration-300">
+          <button onClick={onLogin} className="w-full bg-RuqyaGreen hover:bg-RuqyaDarkGreen text-white rounded-full py-3 px-5 mt-5 transition duration-300">
             Login
           </button>
         </div>
