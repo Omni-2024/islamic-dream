@@ -103,7 +103,7 @@ export default function SignIn() {
                     <button
                         disabled={isLoading}
                         type="submit"
-                        className="w-full flex justify-center mt-5 py-2 px-6 h-10 border border-transparent rounded-2xl shadow-sm text-m font-bold text-white bg-primary-700 hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:to-primary-400"
+                        className="w-full flex justify-center mt-5 py-2 px-6 h-10 border border-transparent rounded-3xl shadow-sm text-m font-bold text-white bg-primary-700 hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:to-primary-400"
                     >
                         {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                         {isLoading ? 'Continue with email ...' : 'Continue with email'}
