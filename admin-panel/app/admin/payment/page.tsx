@@ -377,14 +377,14 @@ const PaymentManagementPage: React.FC<PaymentManagementPageProps> = () => {
                   <div className="mt-4">
                     {meeting.isPaid ? (
                       <button
-                        className="w-full px-4 py-2  border border-primary-500 bg-primary-600   rounded-md hover:bg-300 hover:text-white text-white transition"
+                        className="w-full px-4 py-2  border border-primary-500 bg-primary-700 hover:bg-primary-100   rounded-md hover:bg-300 hover:text-white text-white transition"
                         onClick={() => handleMarkAsPaid(meeting._id,false)}
                       >
                         Mark as unpaid
                       </button>
                     ) : (
                             <button
-                                className="w-full px-4 py-2  border border-primary-500 bg-[rgba(0,128,128,0.1)] text-primary-700 rounded-md hover:bg-primary-300 hover:text-white transition"
+                                className="w-full px-4 py-2  border border-primary-500 bg-primary-25 text-primary-700 rounded-md hover:bg-primary-700 hover:text-white transition"
                                 onClick={() => handleMarkAsPaid(meeting._id,true)}
                             >
                               Mark as paid
