@@ -141,7 +141,7 @@ const RakiPage=()=> {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-primary-700">Rakis</h1>
+      <h1 className="text-3xl font-bold mb-6 text-primary-700">Muabbir</h1>
       <div className="flex flex-col md:flex-row gap-4 mb-6">
         <div className="relative flex-grow">
           <Input
