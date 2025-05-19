@@ -14,13 +14,14 @@ import {
   Calendar,
   Book,
   Logout,
+  Clock,
 } from "iconsax-react";
 
 const menuItems = [
   { icon: Home, label: 'Dashboard', href: '/admin', roles: ["admin", "super-admin"] },
-  { icon: Book, label: 'Rakis', href: '/admin/rakis', roles: ["super-admin"] },
+  { icon: Book, label: 'Muabbir', href: '/admin/rakis', roles: ["super-admin"] },
   { icon: People, label: 'Users', href: '/admin/users', roles: ["admin", "super-admin"] },
-  { icon: Calendar, label: 'Availability', href: '/admin/availability', roles: ["admin"] },
+  { icon: Clock, label: 'Availability', href: '/admin/availability', roles: ["admin"] },
   { icon: Calendar, label: 'Sessions', href: '/admin/sessions', roles: ["admin", "super-admin"] },
   { icon: Money, label: 'Payment', href: '/admin/payment', roles: ["admin", "super-admin"] },
   { icon: Setting2, label: 'Settings', href: '/admin/settings', roles: ["admin", "super-admin"] },
