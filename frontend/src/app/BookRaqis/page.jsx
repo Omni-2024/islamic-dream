@@ -23,6 +23,7 @@ import {
   ArrowRight3,
   Global,
   LanguageSquare,
+  EmojiSad,
 } from 'iconsax-react';
 
 const displayImage = "https://www.shutterstock.com/image-vector/muslim-avatar-260nw-480512461.jpg";
@@ -168,21 +169,23 @@ export default function BookRaqis() {
   };
 
   const handleDateChange = async (date) => {
-    if (date) {
-      const formattedDate = date.toISOString().split('T')[0];
-      setUserSelections((prev) => ({
-        ...prev,
-        availability: { ...prev.availability, date: formattedDate },
-      }));
-      await fetchAvailableRakis(formattedDate);
-    } else {
-      setUserSelections((prev) => ({
-        ...prev,
-        availability: { ...prev.availability, date: null },
-      }));
-      setAvailableRakisIds([]);
-    }
-  };
+  if (date) {
+    // Format date in local timezone instead of using toISOString()
+    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    
+    setUserSelections((prev) => ({
+      ...prev,
+      availability: { ...prev.availability, date: formattedDate },
+    }));
+    await fetchAvailableRakis(formattedDate);
+  } else {
+    setUserSelections((prev) => ({
+      ...prev,
+      availability: { ...prev.availability, date: null },
+    }));
+    setAvailableRakisIds([]);
+  }
+};
 
   const handleDurationChange = (duration) => {
     setUserSelections((prev) => ({
@@ -344,14 +347,20 @@ return (
               </div>
               
               {/* Clear All Filters Button */}
-              {(searchQuery || language || userSelections.experience[0] > 0 || userSelections.languages.length > 0 || 
-                userSelections.countries.length > 0 || userSelections.availability.date || rating > 0) && (
+              {(searchQuery ||
+                language ||
+                userSelections.experience[0] > Math.min(...raqiData.map((raqi) => raqi.yearOfExperience || 0)) ||
+                userSelections.experience[1] < Math.max(...raqiData.map((raqi) => raqi.yearOfExperience || 0)) ||
+                userSelections.languages.length > 0 ||
+                userSelections.countries.length > 0 ||
+                userSelections.availability.date ||
+                rating > 0) && (
                 <div className="relative px-6">
-                  <button 
-                    onClick={clearAllFilters} 
+                  <button
+                    onClick={clearAllFilters}
                     className="text-white bg-RuqyaGray hover:bg-RuqyaGray/80 transition-all duration-300 
-                              text-center w-full py-2 rounded-xl font-semibold flex items-center justify-center gap-2
-                              shadow-lg transform hover:-translate-y-1 my-3"
+                            text-center w-full py-2 rounded-xl font-semibold flex items-center justify-center gap-2
+                            shadow-lg transform hover:-translate-y-1 my-3"
                   >
                     <FaTimes size={14} />
                     Clear All Filters
@@ -590,9 +599,9 @@ return (
             </Grid>
             
             {filteredData.length === 0 && (
-              <div className="text-center py-16 bg-gray-100 rounded-xl border border-gray-200 shadow-sm">
+              <div className="text-center flex flex-col items-center py-16 bg-gray-100 rounded-xl border border-gray-200 shadow-sm">
                 <EmojiSad size={48} color="#36454F" variant="Outline" />
-                <p className="text-RuqyaGray font-medium">
+                <p className="text-RuqyaGray font-medium mt-4">
                   {userSelections.availability.date && availableRakisIds.length === 0
                     ? "No practitioners available for the selected date"
                     : "No practitioners found matching your criteria"}
@@ -605,6 +614,7 @@ return (
                 </button>
               </div>
             )}
+
           </>
         )}
       </main>
