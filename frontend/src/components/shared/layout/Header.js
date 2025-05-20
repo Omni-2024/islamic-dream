@@ -90,11 +90,9 @@ const Header = () => {
             language: data.language || defaultValues.language,
             mobile: data.mobile || defaultValues.mobile,
           });
-          setIsLoading(false);
         } catch (error) {
           console.error("Error fetching user data:", error);
-          setIsLoading(false);
-         
+
           setUserData({
             ...defaultValues,
             DOB: defaultValues.dob
