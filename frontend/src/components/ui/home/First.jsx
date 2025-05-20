@@ -56,17 +56,17 @@ return (
         </div>
 
         {/* Text Content - Simplified animation */}
-        <div className="w-full space-y-6">
+        <div className="w-full  mt-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium">
-            <span className="text-green-500 block">Empower Your Spirit</span>
-            <span className="text-gray-800">with Ruqyah</span>
+            <span className="text-green-500 block">Discover the Meaning Behind Your Dreams</span>
+            <span className="text-gray-800 text-3xl">The Islamic Way</span>
           </h1>
           
           <p className="text-gray-600 text-lg max-w-xl">
-            Connect with expert Raqis for personalized spiritual healing and guidance.
+            Connect with experienced Muabbirs and uncover the spiritual guidance hidden in your dreams. Book a 10-minute consultation — quick, easy, and rooted in authentic Islamic tradition.          
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
             <Link 
               href="/BookRaqis" 
               className="px-6 py-3 bg-gray-800 text-white rounded-xl font-medium shadow-lg hover:bg-gray-700 transition-all duration-300 text-center w-full sm:w-auto flex items-center justify-center space-x-2"
@@ -77,17 +77,17 @@ return (
               </svg>
             </Link>
             
-            <Link 
+            {/* <Link 
               href="/SelfRuqyah" 
               className="px-6 py-3 border border-green-500 text-gray-800 bg-white rounded-xl font-medium hover:bg-green-50 transition-all duration-300 text-center w-full sm:w-auto"
             >
               Learn Ruqyah
-            </Link>
+            </Link> */}
           </div>
           
           {/* Trust indicators - Hidden on very small screens */}
           <div className="pt-6">
-            <p className="text-sm text-gray-500 mb-3">Trusted by spiritual seekers worldwide</p>
+            {/* <p className="text-sm text-gray-500 mb-3">Trusted by spiritual seekers worldwide</p> */}
           </div>
         </div>
       </div>
