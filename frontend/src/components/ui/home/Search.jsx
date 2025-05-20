@@ -16,7 +16,7 @@ function Search() {
     const params = new URLSearchParams();
     if (searchQuery) params.append("searchQuery", searchQuery);
     if (language) params.append("language", language.value);
-    router.push(`/BookRaqis?${params.toString()}`);
+    router.push(`/BookMuabbirs?${params.toString()}`);
   };
 
   const handleLanguageChange = (selectedOption) => {

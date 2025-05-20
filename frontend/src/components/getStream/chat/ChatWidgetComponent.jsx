@@ -52,7 +52,7 @@ const FloatingChatWidget = ({ userId, otherUserId, isOpen, setIsOpen }) => {
               </div>
             </div>
 
-            <div className="flex flex-1">
+            <div className="flex flex-1 bg-gray-50">
               {isAdmin && !isMinimized && (
                 <div className="w-1/3 border-r border-gray-200 overflow-y-auto">
                   <div className="p-4">

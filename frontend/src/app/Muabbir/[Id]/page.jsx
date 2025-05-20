@@ -174,10 +174,10 @@ function Raqis() {
     const token = localStorage.getItem("fe-token");
     if (!token) {
       setShowLoginPopup(true);
-      saveRedirectPath(`/Raqi/${data._id}`);
+      saveRedirectPath(`/Muabbir/${data._id}`);
       return; 
     }
-    router.push(`/Raqi/${data._id}/book`);
+    router.push(`/Muabbir/${data._id}/book`);
   };
 
   const handleShowMore = () => {
@@ -255,7 +255,7 @@ return (
                         color="currentColor"
                         variant="Outline"
                       />
-                      <span className="font-medium">Chat with Raqi</span>
+                      <span className="font-medium">Chat with Muabbir</span>
                     </button>
                   )}
                 </div>

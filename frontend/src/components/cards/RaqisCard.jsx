@@ -127,7 +127,7 @@ export default function RaqisCard({ raqi }) {
 
             {/* Book Now button with calendar icon */}
             <Link 
-              href={id ? `/Raqi/${id}` : "#"} 
+              href={id ? `/Muabbir/${id}` : "#"}
               className="block w-full py-3 rounded-xl text-center font-semibold text-white bg-RuqyaGreen hover:bg-RuqyaDarkGreen shadow-md transition-all duration-300 mt-4"
             >
               <span className="flex items-center justify-center gap-2">

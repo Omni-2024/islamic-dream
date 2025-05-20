@@ -164,7 +164,7 @@ const Header = () => {
     const token = localStorage.getItem("fe-token");
     const raqiRegex = /^\/Raqi\/[a-f0-9]{24}$/;
     if (!token) {
-      if (pathname !== "/" && pathname !== "/BookRaqis" && pathname !== "/SelfRuqyah" && pathname !== "/AboutUs" && pathname !== "/signup" && pathname !== "/login" && !raqiRegex.test(pathname)) {
+      if (pathname !== "/" && pathname !== "/BookMuabbirs" && pathname !== "/SelfRuqyah" && pathname !== "/AboutUs" && pathname !== "/signup" && pathname !== "/login" && !raqiRegex.test(pathname)) {
         router.push("/login");
       }
     } else {
@@ -217,7 +217,7 @@ const Header = () => {
                 <NavLink href="/" active={isActive("/")}>
                   Home
                 </NavLink>
-                <NavLink href="/BookRaqis" active={isActive("/BookRaqis")}>
+                <NavLink href="/BookMuabbirs" active={isActive("/BookMuabbirs")}>
                   Book Muabbirs
                 </NavLink>
                 {/* <NavLink href="/SelfRuqyah" active={isActive("/SelfRuqyah")}>
@@ -351,8 +351,8 @@ const Header = () => {
               </MobileNavLink>
               
               <MobileNavLink 
-                href="/BookRaqis" 
-                active={isActive("/BookRaqis")} 
+                href="/BookMuabbirs"
+                active={isActive("/BookMuabbirs")}
                 onClick={handleLinkClick}
               >
                 Book Muabbirs

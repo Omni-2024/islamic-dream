@@ -97,7 +97,7 @@ function Footer() {
                   <span className="text-RuqyaGreen mr-2">→</span>
                   Home
                 </Link>
-                <Link href="/BookRaqis" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">
+                <Link href="/BookMuabbirs" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">
                   <span className="text-RuqyaGreen mr-2">→</span>
                   Book Muabbirs
                 </Link>
