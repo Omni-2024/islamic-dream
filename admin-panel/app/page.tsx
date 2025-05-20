@@ -7,6 +7,8 @@ import { toast } from '@/components/ui/use-toast';
 import { Loader2 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContexts';
 import { Eye, EyeSlash } from 'iconsax-react';
+import Image from 'next/image'
+
 
 interface LoginForm {
     email: string;
@@ -65,7 +67,15 @@ export default function SignIn() {
             }}
         >
             <div className="flex flex-col justify-center items-center bg-opacity-30 shadow-xl backdrop-blur-lg max-w-full sm:max-w-3xl w-full bg-white sm:shadow-box sm:rounded-3xl py-10 sm:py-16 sm:mx-5 sm:my-auto px-4 sm:px-0">
-                <img  onClick={() => router.push("/")} alt={'logo'} loading={'lazy'} width={180} height={105} data-nimg="1" src="/Logo.png" />
+                <Image
+                    onClick={() => router.push("/")}
+                    alt="logo"
+                    src="/images/Logo-B.png"
+                    width={200}
+                    height={120}
+                    priority={false} // or true if it's important for LCP
+                    style={{ cursor: 'pointer' }}
+                />
                 <h1 className="text-2xl font-extrabold my-6 text-center text-secondary-50">Welcome to Ruqya Admin</h1>
                 <form onSubmit={handleSubmit} className="w-3/5">
                     <div>

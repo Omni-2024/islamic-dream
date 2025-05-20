@@ -44,7 +44,7 @@ const SessionTable = ({ sessions, userData, rakiData, setCancelSessionId, setRes
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[25%]">Topic</TableHead>
-                                <TableHead className="w-[20%]">Raki ID</TableHead>
+                                <TableHead className="w-[20%]">Muabbir ID</TableHead>
                                 <TableHead className="w-[20%]">User ID</TableHead>
                                 <TableHead className="w-[15%]">Time</TableHead>
                                 <TableHead className="w-[20%]">Actions</TableHead>

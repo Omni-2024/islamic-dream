@@ -8,6 +8,7 @@ import { toast } from "@/components/ui/use-toast";
 import { Loader2} from "lucide-react";
 import { Eye, EyeSlash } from 'iconsax-react';
 import {sendOtpEmail} from "@/lib/emailService";
+import Image from "next/image";
 
 
 export default function ForgotPassword() {
@@ -45,7 +46,6 @@ export default function ForgotPassword() {
         try {
             if (step === 1) {
                 const userProfile = await getUserProfileWithEmail(email)
-                console.log("Test",userProfile)
                 if (userProfile.data.status){
                     const {name,email} =userProfile.data.user
                     const newOtp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -95,7 +95,15 @@ export default function ForgotPassword() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="flex flex-col justify-center items-center bg-opacity-30 shadow-xl backdrop-blur-lg max-w-full sm:max-w-3xl w-full bg-white sm:shadow-box sm:rounded-3xl py-10 sm:py-16 sm:mx-5 sm:my-auto px-4 sm:px-0"
             >
-                <img alt="logo" width={180} height={105} src="/Logo.png" />
+                <Image
+                    onClick={() => router.push("/")}
+                    alt="logo"
+                    src="/images/Logo-B.png"
+                    width={200}
+                    height={120}
+                    priority={false} // or true if it's important for LCP
+                    style={{ cursor: 'pointer' }}
+                />
                 <h1 className="text-2xl font-extrabold mt-6 text-center text-secondary-50">
                     Forgot Password
                 </h1>

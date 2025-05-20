@@ -46,9 +46,9 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
         transition={{duration: 0.3}}
       >
         <div className="mt-4 p0  w-150 h-12 flex items-center justify-center">
-          <div className="bg-primary-700 w-12 h-12 flex items-center justify-center custom-box ">
+          <div className=" w-14 h-14 flex items-center justify-center custom-box ">
             <motion.img
-              src="/images/logo2.png"
+              src="/images/Dream-logo-B.png"
               alt="Logo"
               className="custom-logo "
               animate={{rotate: collapsed ? 360 : 0}}

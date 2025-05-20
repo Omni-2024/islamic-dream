@@ -35,8 +35,8 @@ const FloatingChatWidget = ({ userId, otherUserId, isOpen, setIsOpen }) => {
             transition={{ duration: 0.2 }}
             className="bg-RuqyaGreen rounded-lg shadow-xl flex flex-col"
             style={{
-              width: isMinimized ? "300px" : isAdmin ? "600px" : "350px",
-              height: isMinimized ? "60px" : "420px",
+              width: isMinimized ? "300px" : isAdmin ? "600px" : "400px",
+              height: isMinimized ? "60px" : "600px",
             }}
           >
             {/* Chat Header */}
