@@ -13,6 +13,7 @@ import {
   MagicStar,
   Home,
   ArrowRight3,
+  Component,
 } from 'iconsax-react';
 
 import Link from "next/link";
@@ -35,10 +36,10 @@ const AboutUs = () => {
         <header className="mb-6 sm:mb-10">
           <div className="flex items-center mb-3 sm:mb-4 ">
             <Star1  color="#2DB573" className="w-6 h-6 sm:w-8 sm:h-8 text-RuqyaGreen mr-2 sm:mr-3" />
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold  text-RuqyaGray">About Prophetic Ruqyah</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold  text-RuqyaGray">About Islamic Dreams</h1>
           </div>
           <p className="text-sm sm:text-base text-gray-600">
-            Founded on Islamic principles and traditional healing practices, Prophetic Ruqyah serves as a center for spiritual wellness and authentic religious guidance.
+            Founded on Islamic principles and traditional healing practices,  Islamic Dreams serves as a center for spiritual wellness and authentic religious guidance.
           </p>
         </header>
 
@@ -55,17 +56,16 @@ const AboutUs = () => {
 
               <div className="md:col-span-2 p-4 sm:p-8 md:pl-6 lg:pl-8">
                 <h3 className="text-xl sm:text-2xl text-RuqyaGray mb-3 sm:mb-4 relative inline-block">
-                  Our Story
+                  Our Mission
                   <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-RuqyaGreen to-RuqyaLightGreen rounded-full mt-1 sm:mt-2"></div>
                 </h3>
                 
                 <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600">
+                  <p className='font-bold text-lg'> Authentic Dream Interpretation - At Your Fingertips              
+                  </p>    
                   <p>
-                    Prophetic Ruqyah was founded with a deep commitment to the rich heritage of Islamic spiritual healing. Inspired by the teachings of the Prophet Muhammad (peace be upon him), our journey began with the aim of reviving the ancient art of Ruqyah—a practice that combines Quranic recitations, supplications, and spiritual guidance.
-                  </p>
-                  <p>
-                    We believe that true healing comes from a strong connection with faith, sincere prayer, and the compassionate support of a community.
-                  </p>
+                    IslamicDreamsOnline.com was created with one mission: to make authentic Islamic dream interpretation accessible to everyone.
+                  </p>               
                 </div>
               </div>
             {/* </div> */}
@@ -76,7 +76,7 @@ const AboutUs = () => {
             <div className="grid grid-cols-1 md:grid-cols-5">
               <div className="md:col-span-3 p-4 sm:p-6 md:p-8">
                 <h3 className="text-xl sm:text-2xl text-RuqyaGray mb-4 sm:mb-6 relative inline-block">
-                  Our Mission
+                  Who we are
                   <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-RuqyaGreen to-RuqyaLightGreen rounded-full mt-1 sm:mt-2"></div>
                 </h3>
                 
@@ -93,8 +93,7 @@ const AboutUs = () => {
                   <div>
                     <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Authentic Healing</h4>
                     <p className="text-sm sm:text-base text-gray-600">
-                      We provide genuine Ruqyah sessions that adhere to the principles and practices taught by the Prophet (peace be upon him).
-                    </p>
+                      At IslamicDreamsOnline.com, we connect you with qualified Muabbirs – dream interpreters grounded in Islamic scholarship. Whether you've had a vivid dream, a recurring vision, or a symbol that puzzles you, our interpreters help uncover the spiritual meaning in light of the Qur'an, Hadith, and classical Islamic texts like those of Ibn Sirin.                    </p>
                   </div>
                 </div>
 
@@ -108,9 +107,9 @@ const AboutUs = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Spiritual Empowerment</h4>
+                    <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Rooted in Islamic Tradition</h4>
                     <p className="text-sm sm:text-base text-gray-600">
-                      Our goal is to empower individuals with the knowledge and spiritual tools needed to overcome challenges, heal emotional wounds, and maintain inner peace.
+                      Inspired by the deep spiritual tradition of dream interpretation in Islam, our platform bridges the gap between dreamers and knowledgeable Muabbirs — interpreters rooted in the Qur'an, Hadith, and classical Islamic understanding.
                     </p>
                   </div>
                 </div>
@@ -125,9 +124,26 @@ const AboutUs = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Compassionate Guidance</h4>
+                    <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">A Meaningful Approach to Dreams</h4>
                     <p className="text-sm sm:text-base text-gray-600">
-                      We offer a supportive environment where every person is respected and cared for, ensuring that your spiritual journey is nurtured with kindness and expertise.
+                      We believe that dreams are not just random images — they may carry signs, wisdom, and direction from Allah (SWT). Our aim is to help Muslims approach dreams with reverence, understanding, and balance.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl sm:hover:bg-RuqyaLightPurple/10 transition-all duration-300">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
+                    <Component 
+                      size={22} 
+                      color="currentColor" 
+                      variant="Outline" 
+                      className="transition-all duration-300" 
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-base sm:text-lg font-semibold text-RuqyaGray">Support You Can Trust</h4>
+                    <p className="text-sm sm:text-base text-gray-600">
+                      Whether you're seeking clarity, reassurance, or simply want to understand your dreams better, we're here to support you — respectfully and authentically.
                     </p>
                   </div>
                 </div>
@@ -136,9 +152,9 @@ const AboutUs = () => {
                 </div>
               </div>
             <div className="hidden md:col-span-2 md:flex bg-gradient-to-br from-RuqyaLightGreen/20 to-RuqyaLightPurple/20 p-6 sm:p-8 items-center justify-center relative">
-                <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-RuqyaLightGreen/20 rounded-bl-full"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-32 sm:h-32 bg-RuqyaLightPurple/20 rounded-tr-full"></div>
-                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-white shadow-lg flex items-center justify-center text-RuqyaGreen z-10">
+                <div className="absolute top-0 right-0 w-20 h-24 sm:w-20 sm:h-32 bg-RuqyaLightGreen/20 rounded-bl-full"></div>
+                <div className="absolute bottom-0 left-0 w-20 h-24 sm:w-32 sm:h-32 bg-RuqyaLightPurple/20 rounded-tr-full"></div>
+                <div className="w-20 h-24 sm:w-32 sm:h-32 rounded-full bg-white shadow-lg flex items-center justify-center text-RuqyaGreen z-10">
                   <MagicStar size={36} color="currentColor" variant="Outline"  className="sm:hidden" />
                   <MagicStar size={48} color="currentColor" variant="Outline"  className="hidden sm:block" />
                 </div>
@@ -180,10 +196,10 @@ const AboutUs = () => {
                       </div>
                     </div>
                     
-                    <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Personalized Ruqyah Sessions</h4>
+                    <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Book a 10-Minute Appointment</h4>
                     
                     <p className="text-sm sm:text-base text-gray-500">
-                      Whether you are facing spiritual distress or seeking protection, our experienced spiritual healers tailor sessions to meet your unique needs.
+                      Choose a time that suits you and reserve your session.
                     </p>
                   </div>
                 </div>
@@ -202,10 +218,10 @@ const AboutUs = () => {
                       </div>
                     </div>
                     
-                    <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Educational Resources</h4>
+                    <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Talk to a Muabbir</h4>
                     
                     <p className="text-sm sm:text-base text-gray-500">
-                      Our website is a repository of articles, guides, and multimedia content that explore the science and spirituality of Ruqyah, helping you understand its profound benefits.
+                      Get one-on-one personalized dream interpretation via secure online chat or call.
                     </p>
                   </div>
                 </div>
@@ -223,14 +239,16 @@ const AboutUs = () => {
                       <Profile2User size={32} className="hidden sm:block" color="currentColor" variant="Outline" />
                       </div>
                     </div>       
-                    <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Community Support</h4>                 
+                    <h4 className="text-lg sm:text-xl font-semibold text-RuqyaGray mb-3 sm:mb-4">Receive Clarity & Guidance</h4>                 
                     <p className="text-sm sm:text-base text-gray-500">
-                      Connect with like-minded individuals and experts who share your path towards spiritual growth and healing.
+                      Understand what your dream could signify — with authentic Islamic insight.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
+            <p className='mt-6 text-sm sm:text-xl text-center text-gray-600'>Our service is designed to be simple, respectful, and spiritually uplifting.</p>
+
           </div>
 
           {/* Our Philosophy - Responsive Section */}
