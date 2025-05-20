@@ -178,8 +178,8 @@ function Login() {
             <div className="flex justify-center mb-6">
               <Link href="/">
                 <Image
-                  src={"/images/logo.png"}
-                  alt="Prophetic Ruqyah"
+                  src={"/images/Logo-B.png"}
+                  alt="Islamic Dreams Logo"
                   width={200}
                   height={50}
                   className="h-12 w-auto"
@@ -187,8 +187,8 @@ function Login() {
               </Link>
             </div>
 
-            <h1 className="text-2xl text-gray-700 text-center mb-8 pb-3 w-full border-b-2">
-              Login
+            <h1 className="text-2xl text-gray-700 text-center mb-8 font-bold pb-3 w-full border-b-2">
+              Welcome Back
             </h1>
 
             {!otpSent ? (

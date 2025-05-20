@@ -125,7 +125,7 @@ export default function ForgotPassword() {
       >
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -30 }} transition={{ duration: 0.5, ease: "easeInOut" }} className="flex flex-col justify-center items-center bg-opacity-30 shadow-xl backdrop-blur-lg max-w-full sm:max-w-3xl w-full bg-white sm:shadow-box sm:rounded-3xl py-10 sm:py-16 sm:mx-5 sm:my-auto px-4 sm:px-0">
           <Link href="/">
-            <Image src={"/images/logo.png"} alt="Prophetic Ruqyah" width={100} height={100} className="h-20 w-auto" />
+            <Image src={"/images/Logo-B.png"} alt="Islamic Dreams Logo" width={100} height={100} className="h-20 w-auto" />
           </Link>
           <h1 className="text-2xl font-extrabold mt-6 text-center text-secondary-50">Forgot Password</h1>
 
@@ -154,7 +154,16 @@ export default function ForgotPassword() {
 
                 <div className="flex justify-center gap-2 mt-4">
                   {otp.map((digit, index) => (
-                    <input key={index} id={`otp-${index}`} type="text" maxLength={1} value={digit} onChange={(e) => handleOtpChange(index, e.target.value)} onKeyDown={(e) => handleOtpKeyDown(index, e)} className="w-11 h-11 mx-2 border text-center text-lg font-bold border-gray-300 rounded-xl focus:outline-none" />
+                      <input
+                          key={index}
+                          id={`otp-${index}`}
+                          type="text"
+                          maxLength={1}
+                          value={digit}
+                          onChange={(e) => handleOtpChange(index, e.target.value)}
+                          onKeyDown={(e) => handleOtpKeyDown(index, e)}
+                          className="w-11 h-11 mx-2 border border-black text-center text-lg font-bold rounded-xl focus:outline-none"
+                      />
                   ))}
                 </div>
               </motion.div>

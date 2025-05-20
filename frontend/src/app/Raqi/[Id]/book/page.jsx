@@ -279,7 +279,7 @@ return (
         <div className="w-full md:w-2/3 bg-white rounded-2xl shadow-xl overflow-hidden">
           {/* Header with gradient background */}
           <div className="bg-RuqyaGreen p-6 text-white">
-            <h1 className="text-3xl">Book Your Ruqyah Session</h1>
+            <h1 className="text-3xl">Book Your Islamic Dreams Session</h1>
             <p className="mt-1">Select your preferred date & time below</p>
           </div>
           

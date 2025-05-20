@@ -65,7 +65,7 @@ function Raqis() {
         // const raqiAvailability = await getRakiAvailability(Id, new Date().toISOString().split("T")[0]);
         // setAvailability(raqiAvailability);
         const rakiReviews = await getReviews(Id);
-        if (rakiReviews.message === "No reviews found for this raki") {
+        if (MuabbirReviews.message === "No reviews found for this muabbir") {
         } else {
           setReview(rakiReviews);
         }
@@ -199,7 +199,7 @@ return (
             <span>Home</span>
           </Link>
           <span className=" mx-2">/</span>
-          <span className="transition-colors">Raqi</span>
+          <span className="transition-colors">Muabbir</span>
           <span className="mx-2">/</span>
           <span className=" font-semibold">{data.name}</span>
         </nav>
@@ -556,7 +556,7 @@ return (
       <div className="animate-fade-in mb-16" style={{ animationDelay: '1.0s' }}>
         <div className="flex items-center gap-3 mb-5">
           <div className="w-12 h-2 bg-RuqyaGreen"></div>
-          <h3 className="text-2xl font-bold text-RuqyaGray">Similar Raqis</h3>
+          <h3 className="text-2xl font-bold text-RuqyaGray">Similar Muabbirs</h3>
         </div>
         
         <Forth 

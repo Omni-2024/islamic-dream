@@ -64,11 +64,10 @@ function Footer() {
                   <rect width="40" height="40" rx="4" fill="#2DB573" />
                   <path d="M10 20 L30 20 M20 10 L20 30" stroke="white" strokeWidth="3" />
                 </svg>
-                <h2 className="text-2xl font-bold text-RuqyaGray">Prophetic Ruqyah</h2>
+                <h2 className="text-2xl font-bold text-RuqyaGray">Islamic Dreams</h2>
               </div>
               <p className="text-RuqyaGray mb-6">
-                Reviving the prophetic traditions of healing through authentic Ruqyah practices and spiritual wellness.
-              </p>
+                Reviving the prophetic tradition of dream interpretation through authentic insights and spiritual understanding              </p>
               <div className="flex space-x-4">
                 <Link href="https://facebook.com" target="_blank" aria-label="Facebook">
                   <div className="bg-white rounded-full p-2 hover:bg-RuqyaGreen transition-colors">
@@ -100,12 +99,12 @@ function Footer() {
                 </Link>
                 <Link href="/BookRaqis" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">
                   <span className="text-RuqyaGreen mr-2">→</span>
-                  Book Raqis
+                  Book Muabbirs
                 </Link>
-                <Link href="/SelfRuqyah" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">
-                  <span className="text-RuqyaGreen mr-2">→</span>
-                  Self-Ruqyah
-                </Link>
+                {/*<Link href="/SelfRuqyah" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">*/}
+                {/*  <span className="text-RuqyaGreen mr-2">→</span>*/}
+                {/*  Self-Ruqyah*/}
+                {/*</Link>*/}
                 <Link href="/AboutUs" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">
                   <span className="text-RuqyaGreen mr-2">→</span>
                   About Us
@@ -182,7 +181,7 @@ function Footer() {
         {/* Copyright Bar */}
         <div className="bg-RuqyaGray py-4 mt-8">
           <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white text-sm">&copy; {currentYear} Prophetic Ruqyah. All rights reserved.</p>
+            <p className="text-white text-sm">&copy; {currentYear} Islamic Dreams. All rights reserved.</p>
             <div className="flex space-x-6 mt-2 md:mt-0">
               <Link href="/privacy-policy" className="text-white hover:text-RuqyaGreen text-sm transition-colors">
                 Privacy Policy

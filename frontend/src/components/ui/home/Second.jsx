@@ -77,7 +77,7 @@ function Second() {
           <div className={`mt-5 hidden md:flex items-center justify-center mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="h-px w-12 bg-RuqyaGreen"></div>
           <span className="mx-4 text-RuqyaGreen font-medium px-4 py-2 rounded-full bg-gradient-to-r from-RuqyaGreen/10 to-RuqyaLightPurple/20 text-sm tracking-wide">
-            About Ruqyah
+            About Islamic Dreams
           </span>
           <div className="h-px w-12 bg-RuqyaGreen"></div>
         </div>

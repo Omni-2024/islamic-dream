@@ -165,7 +165,7 @@ function SignUp() {
             <div className="flex justify-center mb-6 ">
               <Link href="/">
                 <Image
-                  src={"/images/logo.png"}
+                  src={"/images/Logo-B.png"}
                   alt="Logo"
                   width={200}
                   height={50}
@@ -174,7 +174,7 @@ function SignUp() {
               </Link>
             </div>
             <h1 className="text-2xl text-gray-700 text-center mb-8 font-bold pb-3 border-b-2">
-              {otpSent ? "Verify Your Email" : "Registration"}
+              {otpSent ? "Verify Your Email" : "Get Started"}
             </h1>
 
             {error && <ErrorMessage message={error} type="error" />}

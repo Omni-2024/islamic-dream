@@ -206,7 +206,7 @@ const Header = () => {
           <div className=" mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center md:mx-[6%] md:pl-1 md:pr-3 ">
             <div className="flex items-center z-50">
               <Link href="/" className="text-gray-700 w-40 hover:text-gray-900">
-                <img src="/images/logo.png" alt="Ruqya logo" 
+                <img src="/images/Logo-W.png" alt="Ruqya logo"
                   className={`transition-all duration-300 ${scrolled ? 'w-32' : 'w-40'}`}
                 />
               </Link>
@@ -218,7 +218,7 @@ const Header = () => {
                   Home
                 </NavLink>
                 <NavLink href="/BookRaqis" active={isActive("/BookRaqis")}>
-                  Book Raqis
+                  Book Muabbirs
                 </NavLink>
                 {/* <NavLink href="/SelfRuqyah" active={isActive("/SelfRuqyah")}>
                   Self-Ruqyah
@@ -329,7 +329,7 @@ const Header = () => {
             <div className="flex flex-col h-full overflow-y-auto pt-6 pb-8">
               <div className="px-6 mb-8 flex justify-between items-center">
               <Link href="/" onClick={handleLinkClick}>
-                  <img src="/images/logo.png" alt="Ruqya logo" className="w-32" 
+                  <img src="/images/Logo-B.png" alt="Ruqya logo" className="w-32"
                   />
                 </Link>
                 <button onClick={() => setIsOpen(false)} 
@@ -355,16 +355,16 @@ const Header = () => {
                 active={isActive("/BookRaqis")} 
                 onClick={handleLinkClick}
               >
-                Book Raqis
+                Book Muabbirs
               </MobileNavLink>
               
-              <MobileNavLink 
-                href="/SelfRuqyah" 
-                active={isActive("/SelfRuqyah")} 
-                onClick={handleLinkClick}
-              >
-                Self-Ruqyah
-              </MobileNavLink>
+              {/*<MobileNavLink */}
+              {/*  href="/SelfRuqyah" */}
+              {/*  active={isActive("/SelfRuqyah")} */}
+              {/*  onClick={handleLinkClick}*/}
+              {/*>*/}
+              {/*  Self-Ruqyah*/}
+              {/*</MobileNavLink>*/}
               
               <MobileNavLink 
                 href="/AboutUs" 

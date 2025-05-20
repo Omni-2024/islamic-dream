@@ -310,7 +310,7 @@ return (
             <span>Home</span>
           </Link>
           <ArrowRight2  color="#6B7280" className="w-3 h-3 sm:w-4 sm:h-4 mx-1 sm:mx-2" />
-          <span className="font-medium text-RuqyaGray">Book Raqis</span>
+          <span className="font-medium text-RuqyaGray">Book Muabbirs</span>
         </nav>
     <div className="flex flex-col md:flex-row gap-6">
       {/* Filters Sidebar - REDESIGNED VERSION */}
@@ -337,7 +337,7 @@ return (
               </div>
               
               <div className="relative flex justify-between items-center p-6 pt-4">
-                <h2 className="text-2xl font-semibold text-white">Find Your Raqi</h2>
+                <h2 className="text-2xl font-semibold text-white">Find Your Muabbirs</h2>
                 
                 {/* Close button for mobile view */}
                 <button className="md:hidden text-white p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors" 

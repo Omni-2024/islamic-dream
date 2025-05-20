@@ -51,7 +51,7 @@ export default function Home() {
       <Search className="animate-fade-in" style={{ animationDelay: '0.3s' }} />
       <Second className="animate-fade-in" style={{ animationDelay: '0.4s' }} />
       {myBookings && myBookings.length !== 0 && <Third raqiData={myBookings} className="animate-fade-in" style={{ animationDelay: '0.5s' }} />}
-      {raqiData && <Forth  raqiData={raqiData} title="Meet Our Expert Raqis" className="animate-fade-in" style={{ animationDelay: '0.6s' }} />}
+      {raqiData && <Forth  raqiData={raqiData} title="Meet Our Expert Muabbirs" className="animate-fade-in" style={{ animationDelay: '0.6s' }} />}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 export default function generateMetadata() {
   return {
-    title: 'Ruqya',
-    description: 'Ruqya is a web application that helps you to perform Ruqya on yourself or others.',
+    title: 'Islamic Dreams',
+    description: 'Islamic Dreams is a web application dedicated to making authentic Islamic dream interpretation accessible to everyone.',
     icons: {
       icon: [
         {

@@ -29,7 +29,7 @@ function Search() {
       <div className="flex items-center justify-center w-full md:w-3/5 h-full p-1 rounded-lg bg-white animate-fade-in" style={{ animationDelay: '0.2s' }}>
         <SearchNormal1 className="fa-thin mr-2 text-gray-500" size="27" color="#0D766E" />
         <Input type="text" placeholder="Find Raqi" className="block w-full lg:hidden" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
-        <Input type="text" placeholder="Search for Raqis, Ruqyah, or Symptoms" className="hidden w-full lg:block" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+        <Input type="text" placeholder="Search Muabbirs" className="hidden w-full lg:block" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
       </div>
       <hr className="rounded-lg bg-gray-400 opacity-50 h-8 w-px rotate-95 hidden md:block animate-fade-in" style={{ animationDelay: '0.3s' }} />
       <div className="md:flex items-center justify-center w-full hidden md:w-1/3 h-full p-1 rounded-lg bg-white animate-fade-in" style={{ animationDelay: '0.4s' }}>
