@@ -220,9 +220,9 @@ const Header = () => {
                 <NavLink href="/BookRaqis" active={isActive("/BookRaqis")}>
                   Book Raqis
                 </NavLink>
-                <NavLink href="/SelfRuqyah" active={isActive("/SelfRuqyah")}>
+                {/* <NavLink href="/SelfRuqyah" active={isActive("/SelfRuqyah")}>
                   Self-Ruqyah
-                </NavLink>
+                </NavLink> */}
                 <NavLink href="/AboutUs" active={isActive("/AboutUs")}>
                   About Us
                 </NavLink>
