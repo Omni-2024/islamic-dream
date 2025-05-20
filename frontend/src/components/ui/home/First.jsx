@@ -68,7 +68,7 @@ return (
           
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
             <Link 
-              href="/BookRaqis" 
+              href="/BookMuabbirs"
               className="px-6 py-3 bg-gray-800 text-white rounded-xl font-medium shadow-lg hover:bg-gray-700 transition-all duration-300 text-center w-full sm:w-auto flex items-center justify-center space-x-2"
             >
               <span>Book a Session</span>

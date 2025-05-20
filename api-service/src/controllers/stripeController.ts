@@ -28,7 +28,7 @@ export const createCheckoutSession = async (req: AuthenticatedRequest, res: Resp
                         currency: 'gbp',
                         product_data: {
                             name: `1-on-1 Session: ${topic}`,
-                            description: `Session with Raki ${rakiName} on ${date}`,
+                            description: `Session with Muabbir ${rakiName} on ${date}`,
                         },
                         unit_amount: Math.round(price * 100),
                     },
@@ -36,8 +36,8 @@ export const createCheckoutSession = async (req: AuthenticatedRequest, res: Resp
                 },
             ],
             mode: 'payment',
-            success_url: `${process.env.FRONTEND_URL}/Raqi/${rakiId}/book/complete?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.FRONTEND_URL}/Raqi/${rakiId}/book/failed?rakiId=${rakiId}&date=${date}`,
+            success_url: `${process.env.FRONTEND_URL}/Muabbir/${rakiId}/book/complete?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.FRONTEND_URL}/Muabbir/${rakiId}/book/failed?rakiId=${rakiId}&date=${date}`,
             customer_email: req.user?.email || undefined,
             metadata: {
                 rakiId: rakiId.toString(),
