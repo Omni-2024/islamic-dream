@@ -337,7 +337,7 @@ return (
               </div>
               
               <div className="relative flex justify-between items-center p-6 pt-4">
-                <h2 className="text-2xl font-semibold text-white">Find Your Muabbirs</h2>
+                <h2 className="text-2xl font-semibold text-white">Find Your Muabbir</h2>
                 
                 {/* Close button for mobile view */}
                 <button className="md:hidden text-white p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors" 
