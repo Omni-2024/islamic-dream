@@ -185,7 +185,7 @@ function Second() {
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <span className="text-gray-700">Certified Raqis</span>
+                      <span className="text-gray-700">Certified Muabbir</span>
                     </li>
                     <li className="flex items-center">
                       <div className="w-6 h-6 rounded-full bg-RuqyaGreen/20 flex items-center justify-center mr-3">
@@ -199,7 +199,7 @@ function Second() {
                 </div>
                 
                 <Link 
-                  href="/BookRaqis"
+                  href="/BookMuabbirs"
                   className="mt-8 w-full py-3 rounded-xl bg-gradient-to-r from-RuqyaGreen to-RuqyaLightGreen text-white font-medium transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-RuqyaGreen focus:ring-opacity-50 text-center block"
                 >
                   Book Now
@@ -216,7 +216,7 @@ function Second() {
             
             <div className="text-center px-8 pt-4">
               <p className="text-gray-700 italic mb-6">
-                "Ruqyah sessions have transformed my life. I feel more at peace and connected to my spiritual path than ever before."
+                "Islamic Dreams sessions have transformed my life. I feel more at peace and connected to my spiritual path than ever before."
               </p>
               <div className="flex items-center justify-center">
                 <div className="w-10 h-10 rounded-full bg-RuqyaLightPurple flex items-center justify-center">
