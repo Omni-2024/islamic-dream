@@ -140,7 +140,7 @@ function Footer() {
                   <div className="text-RuqyaGreen mr-2">
                     <Sms size={25} color="currentColor" variant="Outline" />
                   </div>
-                  <span className="text-RuqyaGray">contact@propheticruqyah.com</span>
+                  <span className="text-RuqyaGray">contact@islamicdreams.com</span>
                 </div>
               </div>
 

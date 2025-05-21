@@ -76,7 +76,7 @@ const CompletePage = () => {
           {/* Main content */}
           <div className="px-6 py-8">
             <h2 className="text-2xl font-bold text-RuqyaGray text-center">Booking Confirmed!</h2>
-            <p className="mt-2 text-center text-gray-600">Your Ruqyah session has been scheduled successfully</p>
+            <p className="mt-2 text-center text-gray-600">Your Islamic Dreams session has been scheduled successfully</p>
             
             {/* Email notification */}
             <div className="mt-6 flex items-center p-4 bg-blue-50 rounded-lg">
@@ -121,7 +121,7 @@ const CompletePage = () => {
         
         {/* Footer note */}
         <div className="text-center mt-4 text-xs text-gray-500">
-          Need help? Contact our support team at support@ruqyah.com
+          Need help? Contact our support team at support@islamicdreams.com
         </div>
       </div>
     </div>
