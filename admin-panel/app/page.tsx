@@ -76,7 +76,7 @@ export default function SignIn() {
                     priority={false} // or true if it's important for LCP
                     style={{ cursor: 'pointer' }}
                 />
-                <h1 className="text-2xl font-extrabold my-6 text-center text-secondary-50">Welcome to Ruqya Admin</h1>
+                <h1 className="text-2xl font-extrabold my-6 text-center text-secondary-50">Welcome to Islamic Dreams Admin</h1>
                 <form onSubmit={handleSubmit} className="w-3/5">
                     <div>
                         <input
