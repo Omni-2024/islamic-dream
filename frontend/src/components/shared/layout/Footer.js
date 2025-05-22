@@ -46,14 +46,14 @@ function Footer() {
           preserveAspectRatio="none"
         >
           <path 
-            fill="#E6E6FA" 
+            fill="#C49666" 
             fillOpacity="1" 
             d="M0,32L60,53.3C120,75,240,117,360,117.3C480,117,600,75,720,69.3C840,64,960,96,1080,106.7C1200,117,1320,107,1380,101.3L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
           ></path>
         </svg>
       </div>
 
-      <div className="bg-RuqyaLightPurple pt-12 pb-0">
+      <div className="bg-RuqyaLightGreen pt-12 pb-0">
         <div className="max-w-6xl mx-auto px-4">
           {/* Main Footer Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
@@ -61,27 +61,27 @@ function Footer() {
             <div className="col-span-1">
               <div className="flex items-center mb-4">
                 <svg width="40" height="40" viewBox="0 0 40 40" className="mr-2">
-                  <rect width="40" height="40" rx="4" fill="#2DB573" />
+                  <rect width="40" height="40" rx="4" fill="#1B184C" />
                   <path d="M10 20 L30 20 M20 10 L20 30" stroke="white" strokeWidth="3" />
                 </svg>
-                <h2 className="text-2xl font-bold text-RuqyaGray">Islamic Dreams</h2>
+                <h2 className="text-2xl font-bold text-RuqyaGreen">Islamic Dreams</h2>
               </div>
-              <p className="text-RuqyaGray mb-6">
+              <p className="text-RuqyaGreen mb-6">
                 Reviving the prophetic tradition of dream interpretation through authentic insights and spiritual understanding              </p>
               <div className="flex space-x-4">
                 <Link href="https://facebook.com" target="_blank" aria-label="Facebook">
-                  <div className="bg-white rounded-full p-2 hover:bg-RuqyaGreen transition-colors">
-                    <Facebook color="currentColor" variant="Outline" size={20} className="text-RuqyaGray" />
+                  <div className="bg-white rounded-full p-2 transition-transform transform hover:scale-110">
+                      <Facebook color="currentColor" variant="Outline" size={20} className="text-RuqyaGreen" />
                   </div>
                 </Link>
                 <Link href="https://twitter.com" target="_blank" aria-label="Twitter">
-                  <div className="bg-white rounded-full p-2 hover:bg-RuqyaGreen  transition-colors">
-                    <FaTwitter color="currentColor" variant="Outline" size={20} className="text-RuqyaGray" />
+                  <div className="bg-white rounded-full p-2 transition-transform transform hover:scale-110">
+                    <FaTwitter color="currentColor" variant="Outline" size={20} className="text-RuqyaGreen" />
                   </div>
                 </Link>
                 <Link href="https://instagram.com" target="_blank" aria-label="Instagram">
-                  <div className="bg-white rounded-full p-2 hover:bg-RuqyaGreen transition-colors">
-                    <Instagram color="currentColor" variant="Outline" size={20} className="text-RuqyaGray" />
+                  <div className="bg-white rounded-full p-2 transition-transform transform hover:scale-110">
+                    <Instagram color="currentColor" variant="Outline" size={20} className="text-RuqyaGreen" />
                   </div>
                 </Link>
               </div>
@@ -89,15 +89,15 @@ function Footer() {
 
             {/* Quick Links Column */}
             <div className="col-span-1">
-              <h3 className="text-RuqyaGray font-semibold text-lg mb-5 pb-2 border-b-2 border-RuqyaGreen inline-block">
+              <h3 className="text-RuqyaGreen font-semibold text-lg mb-5 pb-2 border-b-2 border-RuqyaGreen inline-block">
                 Quick Links
               </h3>
               <nav className="flex flex-col space-y-3">
-                <Link href="/" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">
+                <Link href="/" className="text-RuqyaGreen hover:font-bold transition-colors flex items-center">
                   <span className="text-RuqyaGreen mr-2">→</span>
                   Home
                 </Link>
-                <Link href="/BookMuabbirs" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">
+                <Link href="/BookMuabbirs" className="text-RuqyaGreen hover:font-bold transition-colors flex items-center">
                   <span className="text-RuqyaGreen mr-2">→</span>
                   Book Muabbirs
                 </Link>
@@ -105,11 +105,11 @@ function Footer() {
                 {/*  <span className="text-RuqyaGreen mr-2">→</span>*/}
                 {/*  Self-Ruqyah*/}
                 {/*</Link>*/}
-                <Link href="/AboutUs" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">
+                <Link href="/AboutUs" className="text-RuqyaGreen hover:font-bold transition-colors flex items-center">
                   <span className="text-RuqyaGreen mr-2">→</span>
                   About Us
                 </Link>
-                <Link href={isLoggedIn ? "/MyProfile" : "/login"} className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">
+                <Link href={isLoggedIn ? "/MyProfile" : "/login"} className="text-RuqyaGreen hover:font-bold transition-colors flex items-center">
                   <span className="text-RuqyaGreen mr-2">→</span>
                   {isLoggedIn ? "My Profile" : "Login"}
                 </Link>
@@ -118,7 +118,7 @@ function Footer() {
 
             {/* Contact Us Column */}
             <div className="col-span-1">
-              <h3 className="text-RuqyaGray font-semibold text-lg mb-5 pb-2 border-b-2 border-RuqyaGreen inline-block">
+              <h3 className="text-RuqyaGreen font-semibold text-lg mb-5 pb-2 border-b-2 border-RuqyaGreen inline-block">
                 Contact Us
               </h3>
              <div className="space-y-4">
@@ -126,21 +126,21 @@ function Footer() {
                 <div className="text-RuqyaGreen mr-2 mt-1">
                   <Location size={25} color="currentColor" variant="Outline"/>
                 </div>
-                <span className="text-RuqyaGray">123 Healing Street, Wellness City, Islamic Center</span>
+                <span className="text-RuqyaGreen">123 Healing Street, Wellness City, Islamic Center</span>
               </div>
 
                 <div className="flex items-center">
                   <div className="text-RuqyaGreen mr-2">
                     <Call size={25} color="currentColor" variant="Outline" />
                   </div>
-                  <span className="text-RuqyaGray">071 - 3833341</span>
+                  <span className="text-RuqyaGreen">071 - 3833341</span>
                 </div>
 
                 <div className="flex items-center">
                   <div className="text-RuqyaGreen mr-2">
                     <Sms size={25} color="currentColor" variant="Outline" />
                   </div>
-                  <span className="text-RuqyaGray">contact@islamicdreams.com</span>
+                  <span className="text-RuqyaGreen">contact@islamicdreams.com</span>
                 </div>
               </div>
 
@@ -148,10 +148,10 @@ function Footer() {
 
             {/* Newsletter Column */}
             <div className="col-span-1">
-              <h3 className="text-RuqyaGray font-semibold text-lg mb-5 pb-2 border-b-2 border-RuqyaGreen inline-block">
+              <h3 className="text-RuqyaGreen font-semibold text-lg mb-5 pb-2 border-b-2 border-RuqyaGreen inline-block">
                 Newsletter
               </h3>
-              <p className="text-RuqyaGray mb-4">
+              <p className="text-RuqyaGreen mb-4">
                 Subscribe to receive the latest news about health and healing practices from our experts.
               </p>
               <div className="flex">
@@ -179,14 +179,14 @@ function Footer() {
         </div>
 
         {/* Copyright Bar */}
-        <div className="bg-RuqyaGray py-4 mt-8">
+        <div className="bg-RuqyaGreen py-4 mt-8">
           <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
             <p className="text-white text-sm">&copy; {currentYear} Islamic Dreams. All rights reserved.</p>
             <div className="flex space-x-6 mt-2 md:mt-0">
-              <Link href="/privacy-policy" className="text-white hover:text-RuqyaGreen text-sm transition-colors">
+              <Link href="/privacy-policy" className="text-white hover:font-bold text-sm transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className="text-white hover:text-RuqyaGreen text-sm transition-colors">
+              <Link href="/terms-of-service" className="text-white hover:font-bold text-sm transition-colors">
                 Terms of Service
               </Link>
             </div>
