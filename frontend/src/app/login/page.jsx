@@ -187,7 +187,7 @@ function Login() {
               </Link>
             </div>
 
-            <h1 className="text-2xl text-RuqyaLightGreen text-center mb-8 font-bold pb-3 w-full border-b-2">
+            <h1 className="text-2xl text-RuqyahGreen text-center mb-8 font-bold pb-3 w-full border-b-2">
               Welcome Back
             </h1>
 

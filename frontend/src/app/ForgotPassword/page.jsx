@@ -127,7 +127,7 @@ export default function ForgotPassword() {
           <Link href="/">
             <Image src={"/images/Logo-B.png"} alt="Islamic Dreams Logo" width={100} height={100} className="h-20 w-auto" />
           </Link>
-          <h1 className="text-2xl font-extrabold mt-6 text-center text-secondary-50 text-RuqyaLightGreen">Forgot Password</h1>
+          <h1 className="text-2xl font-extrabold mt-6 text-center text-secondary-50 text-RuqyahGreen">Forgot Password</h1>
 
           {/* Steps */}
           <div className="w-full max-w-md px-6">

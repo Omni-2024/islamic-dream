@@ -173,7 +173,7 @@ function SignUp() {
                 />
               </Link>
             </div>
-            <h1 className="text-2xl text-RuqyaLightGreen text-center mb-8 font-bold pb-3 border-b-2">
+            <h1 className="text-2xl text-RuqyahGreen text-center mb-8 font-bold pb-3 border-b-2">
               {otpSent ? "Verify Your Email" : "Get Started"}
             </h1>
 
