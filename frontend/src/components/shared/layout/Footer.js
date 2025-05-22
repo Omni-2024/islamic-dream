@@ -179,7 +179,7 @@ function Footer() {
         </div>
 
         {/* Copyright Bar */}
-        <div className="bg-RuqyaLightGreen py-4 mt-8">
+        <div className="bg-RuqyaLightGreen py-1 mt-8">
           <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
             <p className="text-RuqyaGreen text-sm">&copy; {currentYear} Islamic Dreams. All rights reserved.</p>
             <div className="flex space-x-6 mt-2 md:mt-0">
