@@ -37,7 +37,7 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const isActive = (path) => (pathname === path ? "text-RuqyaGreen" : "text-gray-700");
-  const isCurrent = () => "bg-RuqyaLightPurple";
+  const isCurrent = () => "bg-RuqyaGreen";
 
   const handleLinkClick = () => {
     setTimeout(() => {
@@ -198,8 +198,8 @@ const Header = () => {
     <header className={`w-full ${isMobile ? 'absolute' : 'fixed'} top-0 left-0 right-0 z-40`}>
       <nav className={`${isCurrent()} transition-all duration-300 w-full ${
         scrolled 
-          ? "py-2 bg-header/95 backdrop-blur-md shadow-lg" 
-          : "py-6 bg-header"
+          ? "py-2 bg-RuqyaGreen/95 backdrop-blur-md shadow-lg" 
+          : "py-6 bg-RuqyaGreen"
       }`}>
           <div className=" mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center md:mx-[6%] md:pl-1 md:pr-3 ">
             <div className="flex items-center z-50">
@@ -239,7 +239,7 @@ const Header = () => {
                       setProfileDropdownOpen(!profileDropdownOpen);
                     }
                   }}
-                  className="bg-RuqyaLightGreen text-header py-2 px-6 rounded-full font-medium hover:bg-white transition-all duration-200"
+                  className="bg-RuqyaLightGreen text-white py-2 px-6 rounded-full font-medium hover:bg-white hover:text-header transition-all duration-200"
                 >
                   {localStorage.getItem("fe-token") ? (
                     <span className="flex items-center">
