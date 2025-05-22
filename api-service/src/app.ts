@@ -25,23 +25,23 @@ const allowedOrigins = [
     "http://localhost:3001"
 ];
 
-// const corsOptions: cors.CorsOptions = {
-//     origin: (origin, callback) => {
-//         console.log("CORS Origin received:", origin);
-//
-//         if (!origin || allowedOrigins.includes(origin)) {
-//             callback(null, true);
-//         } else {
-//             console.error(`Blocked CORS request from origin: ${origin}`);
-//             callback(new Error('Not allowed by CORS'));
-//         }
-//     },
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//     credentials: true,
-// };
-//
-// app.use(cors(corsOptions));
+const corsOptions: cors.CorsOptions = {
+    origin: (origin, callback) => {
+        console.log("CORS Origin received:", origin);
+
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            console.error(`Blocked CORS request from origin: ${origin}`);
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 
 
@@ -58,9 +58,20 @@ app.post(
                 process.env.STRIPE_WEBHOOK_SECRET!
             );
 
+            console.log(`Received event: ${event.type}`);
+
+
             if (event.type === 'checkout.session.completed') {
                 const session = event.data.object;
+                console.log('Session metadata:', session.metadata);
 
+                const timeZone = session.metadata?.timeZone;
+                const date = session.metadata?.date;
+                const rakiId = session.metadata?.rakiId;
+
+                if (!timeZone || !date || !rakiId) {
+                    console.error('Missing metadata in session');
+                }
                 const validatedTimeZone = validateAndConvertTimezone(session.metadata?.timeZone!!);
 
                 const utcDate = moment
@@ -68,13 +79,23 @@ app.post(
                     .utc()
                     .toISOString();
 
+                console.log('Looking for meeting with:', { rakiId, utcDate });
+
+
                 const updatedMeeting = await Meeting.findOneAndUpdate(
                     {rakiId: session.metadata?.rakiId, date: utcDate},
                     {
                         status: MeetingStatus.SCHEDULED,
+                        isPaid:true
                     },
                     {new: true}
                 );
+
+                if (!updatedMeeting) {
+                    console.warn('No matching meeting found to update.');
+                } else {
+                    console.log('Meeting updated:', updatedMeeting);
+                }
 
             }
 
