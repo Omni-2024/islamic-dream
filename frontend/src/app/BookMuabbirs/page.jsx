@@ -579,7 +579,7 @@ return (
       <main className="flex-1 lg:ml-6">
         {/* Filter button for mobile view */}
         <button 
-          className="md:hidden text-white mb-4 fixed bottom-4 right-4 bg-RuqyaGreen p-4 rounded-full shadow-lg z-20 transition-transform hover:scale-110 border-2 border-green-900"
+          className="md:hidden text-white mb-4 fixed bottom-4 right-4 bg-RuqyaGreen p-4 rounded-full shadow-lg z-20 transition-transform hover:scale-110 border-2 border-RuqyaGreen"
           onClick={() => setIsFilterVisible(true)}
         >
 
