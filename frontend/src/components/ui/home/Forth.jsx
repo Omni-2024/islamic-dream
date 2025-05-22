@@ -19,24 +19,18 @@ function Forth(props) {
     >
       {/* Same container padding/margins as 'First' */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className="flex justify-between items-center animate-fade-in"
-          style={{ animationDelay: "0.2s" }}
-        >
-          <h1 className="text-xl md:text-3xl font-bold text-RuqyaGray">
-            {title}
-          </h1>
-          {raqiData.length > 3 && (
-            <div
-              className="text-center animate-fade-in"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <Link href="/BookMuabbirs" className="text-RuqyaGreen font-bold">
-                See all <ArrowRight size={20}  className="inline mb-1"  color="currentColor" variant="Outline" />
-              </Link>
-            </div>
-          )}
-        </div>
+        <div className="text-center mt-16 mb-4">
+        <h1 className="text-3xl text-RuqyaGreen font-bold leading-tight transition-all duration-700 delay-100">
+          {title}
+        </h1>
+
+        {raqiData.length > 3 && (
+          <Link href="/BookMuabbirs" className="text-RuqyaGreen font-bold inline-block mt-2 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            See all <ArrowRight size={20} className="inline mb-1" color="currentColor" variant="Outline" />
+          </Link>
+        )}
+      </div>
+
 
         <ResponsiveGrid
           data={raqiData}
