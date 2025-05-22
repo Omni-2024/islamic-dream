@@ -274,7 +274,7 @@ export default function BookRaqis() {
           />
           
           {userSelections.availability.date && (
-            <div className="mt-2 text-sm text-RuqyaGreen font-medium">
+            <div className="mt-2 text-sm text-RuqyaLightGreen font-bold">
               {availableRakisIds.length > 0 ? 
                 `${availableRakisIds.length} Raqis available` : 
                 "No Raqis available on this date"}
@@ -299,7 +299,7 @@ export default function BookRaqis() {
     }));
     setRating(0);
     setAvailableRakisIds([]);
-    router.push('/BookRaqis');
+    router.push('/BookMuabbirs');
   };
 
 return (
@@ -328,7 +328,7 @@ return (
         <div>
           {/* Header with wave pattern */}
             <div className="relative mb-8">
-              <div className="absolute inset-0 bg-RuqyaGreen rounded-b-[40px] h-28">
+              <div className="absolute inset-0 bg-RuqyaLightGreen rounded-b-[40px] h-28">
                 <div className="absolute bottom-0 left-0 right-0">
                 <svg viewBox="0 0 500 50" preserveAspectRatio="none" className="w-full h-12 text-white fill-current">
                   <path d="M0,50 L0,0 C150,20 350,20 500,0 L500,50 Z"></path>
@@ -358,7 +358,7 @@ return (
                 <div className="relative px-6">
                   <button
                     onClick={clearAllFilters}
-                    className="text-white bg-RuqyaGray hover:bg-RuqyaGray/80 transition-all duration-300 
+                    className="text-white bg-RuqyaGreen hover:bg-RuqyaGreen/80 transition-all duration-300 
                             text-center w-full py-2 rounded-xl font-semibold flex items-center justify-center gap-2
                             shadow-lg transform hover:-translate-y-1 my-3"
                   >
@@ -375,7 +375,7 @@ return (
                 <h3 className="text-sm font-semibold text-RuqyaGray/80 mb-3 uppercase tracking-wider">Active Filters</h3>
                 <div className="flex flex-wrap gap-2">
                   {searchQuery && (
-                    <div className="bg-RuqyaGreen/20 border border-RuqyaGreen/30 rounded-lg py-1 px-3 text-sm flex items-center gap-1">
+                    <div className="bg-RuqyaLightGreen/20 border border-RuqyaLightGreen/30 rounded-lg py-1 px-3 text-sm flex items-center gap-1">
                       <span className="text-RuqyaGray">Search: {searchQuery}</span>
                       <button onClick={handleRemoveSearchQuery} className="text-RuqyaGray/70 hover:text-RuqyaGray transition-colors ml-1">
                         <FaTimes size={12} />
@@ -383,7 +383,7 @@ return (
                     </div>
                   )}
                   {language && (
-                    <div className="bg-RuqyaGreen/20 border border-RuqyaGreen/30 rounded-lg py-1 px-3 text-sm flex items-center gap-1">
+                    <div className="bg-RuqyaLightGreen/20 border border-RuqyaLightGreen/30 rounded-lg py-1 px-3 text-sm flex items-center gap-1">
                       <span className="text-RuqyaGray">Lang: {getLanguageLabel(language)}</span>
                       <button onClick={handleRemoveLanguage} className="text-RuqyaGray/70 hover:text-RuqyaGray transition-colors ml-1">
                         <FaTimes size={12} />
@@ -411,10 +411,10 @@ return (
                       max={Math.max(...raqiData.map((raqi) => raqi.yearOfExperience || 0))}
                       value={userSelections.experience}
                       onChange={handleExperienceChange}
-                      trackStyle={[{ backgroundColor: "#3ae391", height: 6, borderRadius: "6px" }]}
+                      trackStyle={[{ backgroundColor: "#C49666", height: 6, borderRadius: "6px" }]}
                       handleStyle={[
-                        { borderColor: "#2DB573", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: "0 0 0 5px rgba(45, 181, 115, 0.2)" },
-                        { borderColor: "#2DB573", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: "0 0 0 5px rgba(45, 181, 115, 0.2)" },
+                        { borderColor: "#C49666", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: "0 0 0 5px rgba(45, 181, 115, 0.2)" },
+                        { borderColor: "#C49666", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: "0 0 0 5px rgba(45, 181, 115, 0.2)" },
                       ]}
                       railStyle={{ backgroundColor: "rgba(54, 69, 79, 0.2)", height: 6, borderRadius: "6px" }}
                     />
@@ -439,7 +439,7 @@ return (
                     Languages
                   </div>
                   {userSelections.languages.length > 0 && (
-                    <div className="text-xs px-2 py-1 bg-RuqyaGreen text-white rounded-full font-medium">
+                    <div className="text-xs px-2 py-1 bg-RuqyaLightGreen text-white rounded-full font-medium">
                       {userSelections.languages.length}
                     </div>
                   )}
@@ -454,7 +454,7 @@ return (
                         onClick={(e) => handleLanguageChange({target: {checked: !isSelected}}, language)}
                         className={`py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 animate-fade-in border
                                   ${isSelected 
-                                    ? "bg-RuqyaGreen text-white border-RuqyaGreen" 
+                                    ? "bg-RuqyaLightGreen text-white border-RuqyaLightGreen" 
                                     : "bg-gray-100 text-RuqyaGray border-gray-200 hover:bg-gray-200"}`}
                         style={{ animationDelay: `${(index % 4) * 200}ms` }}
                       >
@@ -493,7 +493,7 @@ return (
                     Countries
                   </div>
                   {userSelections.countries.length > 0 && (
-                    <div className="text-xs px-2 py-1 bg-RuqyaGreen text-white rounded-full font-medium">
+                    <div className="text-xs px-2 py-1 bg-RuqyaLightGreen text-white rounded-full font-medium">
                       {userSelections.countries.length}
                     </div>
                   )}
@@ -508,7 +508,7 @@ return (
                         onClick={(e) => handleCountryChange({target: {checked: !isSelected}}, country)}
                         className={`py-2 px-3 rounded-full text-sm font-medium transition-all duration-300 animate-fade-in border
                                   ${isSelected 
-                                    ? "bg-RuqyaGreen text-white border-RuqyaGreen" 
+                                    ? "bg-RuqyaLightGreen text-white border-RuqyaLightGreen" 
                                     : "bg-gray-100 text-RuqyaGray border-gray-200 hover:bg-gray-200"}`}
                         style={{ animationDelay: `${(index % 4) * 200}ms` }}
                       >
@@ -547,10 +547,10 @@ return (
                 </h2>
                 
                 <div className="bg-gray-100 border border-gray-200 rounded-xl p-4 flex items-center justify-between">
-                  <RatingInput rating={rating} setRating={setRating} className="text-RuqyaGreen" />
+                  <RatingInput rating={rating} setRating={setRating} className="text-RuqyaLightGreen" />
                   
                   {rating > 0 && (
-                    <div className="ml-2 bg-RuqyaGreen text-white px-3 py-1 rounded-lg text-sm font-medium">
+                    <div className="ml-2 bg-RuqyaLightGreen text-white px-3 py-1 rounded-lg text-sm font-medium">
                       {rating}+
                     </div>
                   )}
