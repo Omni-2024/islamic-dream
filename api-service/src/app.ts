@@ -25,23 +25,23 @@ const allowedOrigins = [
     "http://localhost:3001"
 ];
 
-const corsOptions: cors.CorsOptions = {
-    origin: (origin, callback) => {
-        console.log("CORS Origin received:", origin);
-
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.error(`Blocked CORS request from origin: ${origin}`);
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-};
-
-app.use(cors(corsOptions));
+// const corsOptions: cors.CorsOptions = {
+//     origin: (origin, callback) => {
+//         console.log("CORS Origin received:", origin);
+//
+//         if (!origin || allowedOrigins.includes(origin)) {
+//             callback(null, true);
+//         } else {
+//             console.error(`Blocked CORS request from origin: ${origin}`);
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     },
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+// };
+//
+// app.use(cors(corsOptions));
 
 
 
