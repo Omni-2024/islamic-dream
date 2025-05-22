@@ -36,7 +36,7 @@ function Second() {
     <section 
       id="second" 
       ref={sectionRef}
-      className="relative py-16 md:py-10 px-4 md:px-6 overflow-hidden bg-gradient-to-b from-white to-RuqyaLightPurple/20 mb-20"
+      className="relative py-10 md:py-4 px-4 md:px-6 overflow-hidden bg-gradient-to-b bg-white mb-20"
     >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -131,7 +131,7 @@ function Second() {
                     <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>1-on-1 Online Consultation</span>
+                    <span>1-on-1 Online Consultation or real-time chat</span>
                   </div>
                   <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
                     <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -164,8 +164,8 @@ function Second() {
               <div className="text-center">
                 <h4 className="text-RuqyaGray text-lg font-medium mb-5">Starting from</h4>
                 <div className="relative inline-block">
-                  <h3 className="text-RuqyaLightGreen text-5xl font-bold mb-1">£50</h3>
-                  <span className="absolute -top-2 -right-6 text-sm font-medium text-RuqyaLightGreen/70">.00</span>
+                  <h3 className="text-RuqyaLightGreen text-5xl font-bold mb-1">£7.50</h3>
+                  {/* <span className="absolute -top-2 -right-6 text-sm font-medium text-RuqyaLightGreen/70">.50</span> */}
                 </div>
                 <p className="text-RuqyaGray text-lg">per booking session</p>
                 
@@ -219,7 +219,7 @@ function Second() {
                 "Islamic Dreams sessions have transformed my life. I feel more at peace and connected to my spiritual path than ever before."
               </p>
               <div className="flex items-center justify-center">
-                <div className="w-10 h-10 rounded-full bg-RuqyaLightPurple flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-RuqyaGreen/10 flex items-center justify-center">
                   <span className="text-RuqyaGreen font-medium">SA</span>
                 </div>
                 <div className="ml-3 text-left">
