@@ -224,7 +224,7 @@ function SignUp() {
                   text={loading ? "Signing up..." : "Sign Up"}
                   color={"RuqyaGreen"}
                   disabled={loading}
-                  className="group relative w-full bg-RuqyaGreen hover:shadow-lg shadow-md text-white rounded-full py-3 transition-all duration-300"
+                  className="group relative w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80 text-white rounded-full py-3 transition-all duration-300"
                 />
               </form>
             ) : (

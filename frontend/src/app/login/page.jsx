@@ -223,7 +223,7 @@ function Login() {
 
                 <button
                   type="submit"
-                  className="group relative w-full bg-RuqyaGreen hover:shadow-lg shadow-md text-white rounded-full py-3 transition-all duration-300"
+                  className="group relative w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80 text-white rounded-full py-3 transition-all duration-300"
                   onClick={handleSubmit}
                 >
                   <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-full"></div>
@@ -284,7 +284,7 @@ function Login() {
                   text={isLoading ? "Verifying..." : "Verify"}
                   color={"RuqyaGreen"}
                   disabled={isLoading}
-                  className="w-full bg-RuqyaGreen hover:bg-RuqyaDarkGreen text-white rounded-full py-3 mt-5"
+                  className="w-full bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen text-white rounded-full py-3 mt-5"
                 />
               </form>
             )}
