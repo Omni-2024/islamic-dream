@@ -31,7 +31,7 @@ function Forth(props) {
               className="text-center animate-fade-in"
               style={{ animationDelay: "0.3s" }}
             >
-              <Link href="/BookRaqis" className="text-RuqyaGreen font-bold">
+              <Link href="/BookMuabbirs" className="text-RuqyaGreen font-bold">
                 See all <ArrowRight size={20}  className="inline mb-1"  color="currentColor" variant="Outline" />
               </Link>
             </div>

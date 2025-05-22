@@ -173,7 +173,7 @@ function SignUp() {
                 />
               </Link>
             </div>
-            <h1 className="text-2xl text-gray-700 text-center mb-8 font-bold pb-3 border-b-2">
+            <h1 className="text-2xl text-RuqyahGreen text-center mb-8 font-bold pb-3 border-b-2">
               {otpSent ? "Verify Your Email" : "Get Started"}
             </h1>
 
@@ -224,7 +224,7 @@ function SignUp() {
                   text={loading ? "Signing up..." : "Sign Up"}
                   color={"RuqyaGreen"}
                   disabled={loading}
-                  className="group relative w-full bg-RuqyaGreen hover:shadow-lg shadow-md text-white rounded-full py-3 transition-all duration-300"
+                  className="group relative w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80 text-white rounded-full py-3 transition-all duration-300"
                 />
               </form>
             ) : (

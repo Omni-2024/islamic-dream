@@ -71,16 +71,16 @@ export const MeetingRoom = () => {
                 </div>
 
                 {/* Main error container */}
-                <div className="relative max-w-xl w-full  bg-gradient-to-br from-[#27a165]  to-white rounded-2xl ">
+                <div className="relative max-w-xl w-full  bg-gradient-to-br from-[#1B184C]  to-white rounded-2xl ">
                     {/* Error icon with ripple effect */}
                     <div className="absolute -top-20 left-1/2 transform -translate-x-1/2">
                         <div className="relative">
-                            <div className="animate-ping absolute inset-0 rounded-full  bg-[#27a165] opacity-20"/>
+                            <div className="animate-ping absolute inset-0 rounded-full  bg-[#1B184C] opacity-20"/>
                             <div
                                 className="animate-ping absolute inset-0 rounded-full bg-red-500 opacity-30 delay-150"/>
                             <div className="relative bg-white rounded-full p-4 shadow-xl">
                                 <svg
-                                    className="w-12 h-12 text-[#27a165] animate-bounce"
+                                    className="w-12 h-12 text-[#1B184C] animate-bounce"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -107,7 +107,7 @@ export const MeetingRoom = () => {
                             {/* Animated separator */}
                             <div className="flex justify-center">
                                 <div
-                                    className="h-1 w-24 bg-gradient-to-r from-transparent via-[#0C8281] to-transparent animate-pulse"/>
+                                    className="h-1 w-24 bg-gradient-to-r from-transparent via-[#1B184C] to-transparent animate-pulse"/>
                             </div>
 
                             <p className="text-gray-900 text-lg leading-relaxed">
@@ -165,7 +165,7 @@ export const MeetingRoom = () => {
                 <motion.div
                     animate={{rotate: 360}}
                     transition={{repeat: Infinity, duration: 1, ease: "linear"}}
-                    className="rounded-full h-16 w-16 border-t-4 border-b-4 border-[#0C8281]"
+                    className="rounded-full h-16 w-16 border-t-4 border-b-4 border-[#1B184C]"
                 />
             </div>
         );

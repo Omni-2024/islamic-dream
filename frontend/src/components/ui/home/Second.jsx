@@ -76,7 +76,7 @@ function Second() {
           {/* Title with decorative elements */}
           <div className={`mt-5 hidden md:flex items-center justify-center mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="h-px w-12 bg-RuqyaGreen"></div>
-          <span className="mx-4 text-RuqyaGreen font-medium px-4 py-2 rounded-full bg-gradient-to-r from-RuqyaGreen/10 to-RuqyaLightPurple/20 text-sm tracking-wide">
+          <span className="mx-4 text-RuqyaGreen font-medium px-4 py-2 rounded-full bg-gradient-to-r from-RuqyaLightGreen/10 to-RuqyaDarkGreen/20 text-sm tracking-wide">
             About Islamic Dreams
           </span>
           <div className="h-px w-12 bg-RuqyaGreen"></div>
@@ -84,8 +84,8 @@ function Second() {
 
           
           {/* Main heading */}
-          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-center leading-tight mb-10 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Key <span className="text-RuqyaGreen relative">
+          <h2 className={`text-3xl text-RuqyaGreen md:text-4xl lg:text-5xl font-bold text-center leading-tight mb-10 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Key <span className="text-RuqyaLightGreen relative">
               Benefits
               <svg 
                 className="hidden md:block absolute -bottom-2 left-0 w-full h-2 text-RuqyaGreen/30" 
@@ -122,25 +122,25 @@ function Second() {
                 
                 <div className="flex flex-wrap gap-4 pt-4">
                   <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Trusted Islamic Dream Interpretation</span>
                   </div>
                   <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>1-on-1 Online Consultation</span>
                   </div>
                   <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Book in Minutes – Get Clarity Today</span>
                   </div>
                   <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Based on the Teachings of the Qur’an & Sunnah</span>
@@ -154,9 +154,9 @@ function Second() {
             </div>
             
             {/* Pricing card */}
-            <div className={`bg-gradient-to-br from-white via-RuqyaGreen/10 to-RuqyaLightPurple/40 p-8 rounded-2xl shadow-lg transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`bg-gradient-to-br from-white via-RuqyaLightGreen/10 to-white/40 p-8 rounded-2xl shadow-lg transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="absolute -top-3 right-8 w-6 h-6">
-                <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-RuqyaGreen">
+                <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-RuqyaLightGreen">
                   <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" opacity="0.3" />
                 </svg>
               </div>
@@ -164,32 +164,32 @@ function Second() {
               <div className="text-center">
                 <h4 className="text-RuqyaGray text-lg font-medium mb-5">Starting from</h4>
                 <div className="relative inline-block">
-                  <h3 className="text-RuqyaGreen text-5xl font-bold mb-1">£50</h3>
-                  <span className="absolute -top-2 -right-6 text-sm font-medium text-RuqyaGreen/70">.00</span>
+                  <h3 className="text-RuqyaLightGreen text-5xl font-bold mb-1">£50</h3>
+                  <span className="absolute -top-2 -right-6 text-sm font-medium text-RuqyaLightGreen/70">.00</span>
                 </div>
                 <p className="text-RuqyaGray text-lg">per booking session</p>
                 
-                <div className="mt-8 pt-6 border-t border-RuqyaGreen/20">
+                <div className="mt-8 pt-6 border-t border-RuqyaLightGreen/20">
                   <ul className="space-y-4">
                     <li className="flex items-center">
-                      <div className="w-6 h-6 rounded-full bg-RuqyaGreen/20 flex items-center justify-center mr-3">
-                        <svg className="w-4 h-4 text-RuqyaGreen" fill="currentColor" viewBox="0 0 20 20">
+                      <div className="w-6 h-6 rounded-full bg-RuqyaLightGreen/20 flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-RuqyaLightGreen" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
                       <span className="text-gray-700">Personalized sessions</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="w-6 h-6 rounded-full bg-RuqyaGreen/20 flex items-center justify-center mr-3">
-                        <svg className="w-4 h-4 text-RuqyaGreen" fill="currentColor" viewBox="0 0 20 20">
+                      <div className="w-6 h-6 rounded-full bg-RuqyaLightGreen/20 flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-RuqyaLightGreen" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <span className="text-gray-700">Certified Raqis</span>
+                      <span className="text-gray-700">Certified Muabbir</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="w-6 h-6 rounded-full bg-RuqyaGreen/20 flex items-center justify-center mr-3">
-                        <svg className="w-4 h-4 text-RuqyaGreen" fill="currentColor" viewBox="0 0 20 20">
+                      <div className="w-6 h-6 rounded-full bg-RuqyaLightGreen/20 flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-RuqyaLightGreen" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
@@ -199,8 +199,8 @@ function Second() {
                 </div>
                 
                 <Link 
-                  href="/BookRaqis"
-                  className="mt-8 w-full py-3 rounded-xl bg-gradient-to-r from-RuqyaGreen to-RuqyaLightGreen text-white font-medium transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-RuqyaGreen focus:ring-opacity-50 text-center block"
+                  href="/BookMuabbirs"
+                  className="mt-8 w-full py-3 rounded-xl bg-gradient-to-r from-RuqyaLightGreen to-RuqyaDarkGreen text-white font-medium transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-RuqyaGreen focus:ring-opacity-50 text-center block"
                 >
                   Book Now
                 </Link>
@@ -216,7 +216,7 @@ function Second() {
             
             <div className="text-center px-8 pt-4">
               <p className="text-gray-700 italic mb-6">
-                "Ruqyah sessions have transformed my life. I feel more at peace and connected to my spiritual path than ever before."
+                "Islamic Dreams sessions have transformed my life. I feel more at peace and connected to my spiritual path than ever before."
               </p>
               <div className="flex items-center justify-center">
                 <div className="w-10 h-10 rounded-full bg-RuqyaLightPurple flex items-center justify-center">

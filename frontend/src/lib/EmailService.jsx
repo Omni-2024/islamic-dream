@@ -1,6 +1,6 @@
 import emailjs from "@emailjs/browser";
 
-const resetHeading="We received a request to reset the password for your Ruqya website. To proceed with resetting your password, please use the following 6-digit verification code:"
+const resetHeading="We received a request to reset the password for your Islamic Dreams website. To proceed with resetting your password, please use the following 6-digit verification code:"
 
 
 export const sendEmail = async (templateID, params) => {

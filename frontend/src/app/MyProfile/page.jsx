@@ -303,7 +303,7 @@ return (
         <div className="flex flex-col mb-12 items-center">
           {/* Profile avatar with dark background */}
           <div className="relative w-32 h-32 mb-4">
-            <div className="w-32 h-32 rounded-md bg-RuqyaGreen flex items-center justify-center text-white text-4xl font-bold shadow-lg">
+            <div className="w-32 h-32 rounded-md bg-RuqyaLightGreen flex items-center justify-center text-white text-4xl font-bold shadow-lg">
               {formData.name ? formData.name.charAt(0).toUpperCase() : "?"}
             </div>
             {/* Decorative elements */}
@@ -319,7 +319,7 @@ return (
           <div className="w-full mt-12 space-y-3">
             <button 
               onClick={handleEditButtonClick} 
-              className="w-full flex items-center justify-center px-4 py-3 bg-RuqyaGreen hover:bg-RuqyaDarkGreen  text-white font-medium rounded-md transition-all duration-200"
+              className="w-full flex items-center justify-center px-4 py-3 bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen  text-white font-medium rounded-md transition-all duration-200"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -343,14 +343,14 @@ return (
 
       {/* Main content area */}
       <div className="md:w-2/3 lg:w-3/4 p-6 pt-0  md:p-12 ">
-        <h2 className="text-xl sm:text-3xl md:text-3xl font-semibold text-header mb-8 pb-4 border-b border-gray-200">Profile Information</h2>
+        <h2 className="text-xl sm:text-3xl md:text-3xl font-semibold text-RuqyaGreen mb-8 pb-4 border-b border-gray-200">Profile Information</h2>
         
         {/* Profile info in a 2-column table layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
           {/* Row 1: Gender */}
           <div className="border-b border-dashed border-gray-200 pb-4">
             <div className="flex items-center">
-              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+              <div className="w-12 h-12 rounded-md bg-RuqyaGreen/10 flex items-center justify-center mr-4">
                 <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
@@ -365,7 +365,7 @@ return (
           {/* Row 2: Age & Birthday */}
           <div className="border-b border-dashed border-gray-200 pb-4">
             <div className="flex items-center">
-              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+              <div className="w-12 h-12 rounded-md bg-RuqyaGreen/10 flex items-center justify-center mr-4">
                 <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
@@ -380,7 +380,7 @@ return (
           {/* Row 3: Country */}
           <div className="border-b border-dashed border-gray-200 pb-4">
             <div className="flex items-center">
-              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+              <div className="w-12 h-12 rounded-md bg-RuqyaGreen/10 flex items-center justify-center mr-4">
                 <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
                 </svg>
@@ -395,7 +395,7 @@ return (
           {/* Row 4: Language */}
           <div className="border-b border-dashed border-gray-200 pb-4">
             <div className="flex items-center">
-              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+              <div className="w-12 h-12 rounded-md bg-RuqyaGreen/10 flex items-center justify-center mr-4">
                 <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                 </svg>
@@ -410,7 +410,7 @@ return (
           {/* Row 5: Mobile Number - spanning both columns on large screens */}
           <div className="border-b border-dashed border-gray-200 pb-4 lg:col-span-2">
             <div className="flex items-center">
-              <div className="w-12 h-12 rounded-md bg-RuqyaLightPurple/30 flex items-center justify-center mr-4">
+              <div className="w-12 h-12 rounded-md bg-RuqyaGreen/10 flex items-center justify-center mr-4">
                 <svg className="w-6 h-6 text-RuqyaGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>

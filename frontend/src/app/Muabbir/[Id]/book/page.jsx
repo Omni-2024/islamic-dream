@@ -278,7 +278,7 @@ return (
         {/* Left Column - Booking Form */}
         <div className="w-full md:w-2/3 bg-white rounded-2xl shadow-xl overflow-hidden">
           {/* Header with gradient background */}
-          <div className="bg-RuqyaGreen p-6 text-white">
+          <div className="bg-RuqyaLightGreen p-6 text-white">
             <h1 className="text-3xl">Book Your Islamic Dreams Session</h1>
             <p className="mt-1">Select your preferred date & time below</p>
           </div>
@@ -327,7 +327,7 @@ return (
                       key={index} 
                       className={`py-3 px-2 border rounded-xl text-center transition-all duration-200 ${
                         time === "No available time slots" 
-                          ? "bg-RuqyaLightPurple text-gray-500 cursor-not-allowed col-span-3 md:col-span-4" 
+                          ? "bg-RuqyaGreen/10   text-gray-500 cursor-not-allowed col-span-3 md:col-span-4" 
                           : `cursor-pointer hover:shadow-md ${
                               selectedTime === time 
                                 ? "bg-RuqyaGreen text-white border-RuqyaGreen shadow-md" 
@@ -349,7 +349,7 @@ return (
         {/* Right Column - Booking Summary */}
         <div className="w-full md:w-1/3" ref={bookingRef}>
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="bg-RuqyaGray p-6 text-white">
+            <div className="bg-RuqyaGreen p-6 text-white">
               <h3 className="text-2xl ">Session Summary</h3>
               <p className="text-sm opacity-80 mt-1">Review your booking details</p>
             </div>
@@ -357,7 +357,7 @@ return (
             <div className="p-6">
               {rakiData ? (
                 <>
-                  <div className="bg-RuqyaLightPurple/30 p-4 rounded-xl mb-6">
+                  <div className="bg-bg-RuqyaGreen/30 p-4 rounded-xl mb-6">
                     <BookingCard Booking={rakiData} selectedDate={selectedDate} selectedTime={selectedTime} />
                   </div>
                   
@@ -366,14 +366,14 @@ return (
                       text="Confirm Booking" 
                       color="white" 
                       bg={true} 
-                      className="bg-RuqyaGreen hover:bg-RuqyaDarkGreen rounded-xl py-2 w-full text-lg transition-all duration-200" 
+                      className="bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen rounded-xl py-2 w-full text-lg transition-all duration-200" 
                       onClick={handleButtonClick} 
                     />
                   </div>
                 </>
               ) : (
                 <div className="flex flex-col items-center justify-center py-10">
-                  <div className="w-16 h-16 rounded-full bg-RuqyaLightPurple flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-RuqyaGreen/10  flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-8 h-8 text-RuqyaGray">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>

@@ -43,7 +43,7 @@ const ChatApp=()=> {
                 <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-                    className="rounded-full h-16 w-16 border-t-4 border-b-4 border-[#0C8281]"
+                    className="rounded-full h-16 w-16 border-t-4 border-b-4 border-[#1B184C]"
                 />
                 <h3 className="text-xl text-primary-700 font-semibold animate-pulse mt-4">
                     Connecting to chat...

@@ -76,7 +76,7 @@ export default function SignIn() {
                     priority={false} // or true if it's important for LCP
                     style={{ cursor: 'pointer' }}
                 />
-                <h1 className="text-2xl font-extrabold my-6 text-center text-secondary-50">Welcome to Ruqya Admin</h1>
+                <h1 className="text-2xl font-extrabold my-6 text-center text-secondary-50">Welcome to Islamic Dreams Admin</h1>
                 <form onSubmit={handleSubmit} className="w-3/5">
                     <div>
                         <input
@@ -113,7 +113,7 @@ export default function SignIn() {
                     <button
                         disabled={isLoading}
                         type="submit"
-                        className="w-full flex justify-center mt-5 py-2 px-6 h-10 border border-transparent rounded-3xl shadow-sm text-m font-bold text-white bg-primary-700 hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:to-primary-400"
+                        className="w-full flex justify-center mt-5 py-2 px-6 h-10 border border-transparent rounded-3xl shadow-sm text-m font-bold text-white bg-primary-700 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:to-primary-400"
                     >
                         {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                         {isLoading ? 'Continue with email ...' : 'Continue with email'}

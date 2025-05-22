@@ -60,7 +60,7 @@ export default function RaqisCard({ raqi }) {
         {/* Rating badge - added from first design */}
         <div className="absolute top-4 right-4 flex items-center justify-center z-20">
           <div className="bg-white rounded-full px-3 py-1 shadow-md flex items-center gap-1 border border-gray-100">
-            <FaStar className="text-RuqyaGreen" />
+            <FaStar className="text-RuqyaLightGreen" />
             <p className="font-semibold">{averageRating ? formatRating(averageRating) : "0.0"}</p>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function RaqisCard({ raqi }) {
             {/* Book Now button with calendar icon */}
             <Link 
               href={id ? `/Muabbir/${id}` : "#"}
-              className="block w-full py-3 rounded-xl text-center font-semibold text-white bg-RuqyaGreen hover:bg-RuqyaDarkGreen shadow-md transition-all duration-300 mt-4"
+              className="block w-full py-3 rounded-xl text-center font-semibold text-white bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen shadow-md transition-all duration-300 mt-4"
             >
               <span className="flex items-center justify-center gap-2">
                 <Calendar size={20} color="currentColor" variant="Outline" />
