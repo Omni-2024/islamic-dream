@@ -413,8 +413,8 @@ return (
                       onChange={handleExperienceChange}
                       trackStyle={[{ backgroundColor: "#C49666", height: 6, borderRadius: "6px" }]}
                       handleStyle={[
-                        { borderColor: "#C49666", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: "0 0 0 5px rgba(45, 181, 115, 0.2)" },
-                        { borderColor: "#C49666", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: "0 0 0 5px rgba(45, 181, 115, 0.2)" },
+                        { borderColor: "#C49666", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: '0 4px 10px rgba(196, 150, 102, 0.5)' },
+                        { borderColor: "#C49666", height: 24, width: 24, marginLeft: -12, marginTop: -9, backgroundColor: "white", boxShadow: '0 4px 10px rgba(196, 150, 102, 0.5)' },
                       ]}
                       railStyle={{ backgroundColor: "rgba(54, 69, 79, 0.2)", height: 6, borderRadius: "6px" }}
                     />

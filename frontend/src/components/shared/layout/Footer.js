@@ -61,7 +61,7 @@ function Footer() {
             <div className="col-span-1">
               <div className="flex items-center mb-4">
                 <svg width="40" height="40" viewBox="0 0 40 40" className="mr-2">
-                  <rect width="40" height="40" rx="4" fill="#1B184C" />
+                  <rect width="40" height="40" rx="4" fill="#C49666" />
                   <path d="M10 20 L30 20 M20 10 L20 30" stroke="white" strokeWidth="3" />
                 </svg>
                 <h2 className="text-2xl font-bold text-white">Islamic Dreams</h2>

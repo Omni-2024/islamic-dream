@@ -30,7 +30,7 @@ return (
   <section id="hero" className="relative w-full bg-white overflow-hidden py-8 md:py-12">
     {/* Background decorative element */}
     <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-      <div className="absolute -bottom-32 -right-32 w-64 md:w-96 h-64 md:h-96 rounded-full bg-purple-100 opacity-50"></div>
+      <div className="absolute -bottom-32 -right-32 w-64 md:w-96 h-64 md:h-96 rounded-full bg-RuqyaGreen/10  opacity-50"></div>
     </div>
 
     {/* Main Content Container - Using exact same container as in Header */}
