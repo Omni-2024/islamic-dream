@@ -24,12 +24,12 @@ export default {
         foreground: "var(--foreground)",
         header: "#36454F",
         RuqyaGray: "#36454F",
-        RuqyaGreen: "#2DB573",
+        RuqyaGreen: "#1B184C", //#2DB573 
         RuqyaLightPurple: "#E6E6FA",//#E6E6FA80
         LightGray: "#E6E6FA80",
         mobilePurple:"#E6E6FA",
-        RuqyaLightGreen: "#3ae391", //#27a165
-        RuqyaDarkGreen: "#27a165",
+        RuqyaLightGreen: "#C49666", //#27a165, #3ae391
+        RuqyaDarkGreen: "#ad8153", //#27a165
       },
       fontFamily: {
         fullsans: ['"FullSans-LC50Book"', 'sans-serif'],
