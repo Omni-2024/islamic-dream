@@ -13,8 +13,8 @@ const NotFound = () => {
                 className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 relative overflow-hidden text-center"
             >
                 {/* Abstract decorative elements */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[#2DB573]/20 rounded-full -mr-20 -mt-20" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#2DB573]/20  rounded-full -ml-16 -mb-16" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#F3F3F6] rounded-full -mr-20 -mt-20" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#F3F3F6]  rounded-full -ml-16 -mb-16" />
                 
                 <div className="relative z-10">
                     <motion.div 
@@ -22,7 +22,7 @@ const NotFound = () => {
                         animate={{ y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h1 className="text-7xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#2DB573] to-[#27a165]">404</h1>
+                        <h1 className="text-7xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1B184C] to-[#C49666]">404</h1>
                     </motion.div>
                     
                     <motion.p
@@ -68,7 +68,7 @@ const NotFound = () => {
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="block w-full py-3 px-6 text-center text-white bg-[#2DB573] hover:bg-[#27a165] rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300"
+                                className="block w-full py-3 px-6 text-center text-white bg-[#C49666] hover:bg-[#ad8153] rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300"
                             >
                                 Return Home
                             </motion.a>
