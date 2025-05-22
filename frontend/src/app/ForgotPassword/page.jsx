@@ -127,7 +127,7 @@ export default function ForgotPassword() {
           <Link href="/">
             <Image src={"/images/Logo-B.png"} alt="Islamic Dreams Logo" width={100} height={100} className="h-20 w-auto" />
           </Link>
-          <h1 className="text-2xl font-extrabold mt-6 text-center text-secondary-50">Forgot Password</h1>
+          <h1 className="text-2xl font-extrabold mt-6 text-center text-secondary-50 text-RuqyaLightGreen">Forgot Password</h1>
 
           {/* Steps */}
           <div className="w-full max-w-md px-6">
@@ -207,7 +207,7 @@ export default function ForgotPassword() {
             )}
 
             {/* Next Button */}
-            <button disabled={loading} onClick={handleNext} className="w-full flex justify-center mt-6 py-2 px-6 h-10 border rounded-full shadow-sm text-m font-bold text-white bg-RuqyaGreen hover:bg-primary-800">
+            <button disabled={loading} onClick={handleNext} className="w-full flex justify-center mt-6 py-2 px-6 h-10 border rounded-full shadow-sm text-m font-bold text-white bg-RuqyaGreen hover:bg-RuqyaGreen/80">
               {loading ? <RefreshCircle color="currentColor" variant="Outline" className="mr-2 h-4 w-4 animate-spin" /> : "Next"}
             </button>
           </div>
