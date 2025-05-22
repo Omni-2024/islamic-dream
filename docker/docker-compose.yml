@@ -1,8 +1,8 @@
 version: '3.9'
 
 services:
-  ruqya-frontend:
-    image: ruqya-frontend:1.3.3
+  islamic-dreams-frontend:
+    image: islamic-dreams:1.0.0
     build:
       context: ../frontend
 #      platforms:
@@ -17,8 +17,8 @@ services:
     networks:
       - app-network
 
-  ruqya-admin:
-    image: ruqya-admin:1.3.0
+  islamic-dreams-admin:
+    image: islamic-dreams-admin:1.0.0
     build:
       context: ../admin-panel
 #      platforms:
@@ -33,8 +33,8 @@ services:
     networks:
       - app-network
 
-  ruqya-api:
-    image: ruqya-api:1.3.1
+  islamic-dreams-api:
+    image: islamic-dreams-api:1.0.0
     build:
       context: ../api-service
 #      platforms:
@@ -50,8 +50,8 @@ services:
   mongo:
     image: mongo:4.4
     volumes:
-      - /ruqya/data:/data/db
-      - /ruqya/backup:/backup
+      - /islamic-dreams/data:/data/db
+      - /islamic-dreams/backup:/backup
     networks:
       - app-network
     ports:
