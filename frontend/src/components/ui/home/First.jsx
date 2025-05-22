@@ -58,7 +58,7 @@ return (
         {/* Text Content - Simplified animation */}
         <div className="w-full  mt-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium">
-            <span className="text-green-500 block">Discover the Meaning Behind Your Dreams</span>
+            <span className="text-RuqyaDarkGreen block">Discover the Meaning Behind Your Dreams</span>
             <span className="text-gray-800 text-3xl">The Islamic Way</span>
           </h1>
           
@@ -69,7 +69,7 @@ return (
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
             <Link 
               href="/BookMuabbirs"
-              className="px-6 py-3 bg-gray-800 text-white rounded-xl font-medium shadow-lg hover:bg-gray-700 transition-all duration-300 text-center w-full sm:w-auto flex items-center justify-center space-x-2"
+              className="px-6 py-3 bg-RuqyaLightGreen text-white rounded-xl font-bold shadow-lg hover:bg-RuqyaDarkGreen transition-all duration-300 text-center w-full sm:w-auto flex items-center justify-center space-x-2"
             >
               <span>Book a Session</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
