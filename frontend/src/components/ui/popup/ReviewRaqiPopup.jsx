@@ -49,8 +49,8 @@ function ReviewRaqiPopup(props) {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-lg relative mx-4 md:mx-0 shadow-xl max-w-lg ">
         {/* Header */}
-        <div className="bg-gray-100 p-4 flex justify-between rounded-t-lg items-center">
-          <span className="text-gray-700 text-xl font-semibold">Add Review</span>
+        <div className="bg-RuqyaLightGreen p-4 flex justify-between rounded-t-lg items-center">
+          <span className="text-white text-xl font-semibold">Add Review</span>
           <button onClick={handleClosePopup} className="hover:text-gray-600 focus:outline-none p-1 text-white bg-red-500 rounded-lg">
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
