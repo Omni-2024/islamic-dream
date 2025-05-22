@@ -278,7 +278,7 @@ return (
         {/* Left Column - Booking Form */}
         <div className="w-full md:w-2/3 bg-white rounded-2xl shadow-xl overflow-hidden">
           {/* Header with gradient background */}
-          <div className="bg-RuqyaGreen p-6 text-white">
+          <div className="bg-RuqyaLightGreen p-6 text-white">
             <h1 className="text-3xl">Book Your Islamic Dreams Session</h1>
             <p className="mt-1">Select your preferred date & time below</p>
           </div>
@@ -349,7 +349,7 @@ return (
         {/* Right Column - Booking Summary */}
         <div className="w-full md:w-1/3" ref={bookingRef}>
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="bg-RuqyaGray p-6 text-white">
+            <div className="bg-RuqyaGreen p-6 text-white">
               <h3 className="text-2xl ">Session Summary</h3>
               <p className="text-sm opacity-80 mt-1">Review your booking details</p>
             </div>
@@ -366,7 +366,7 @@ return (
                       text="Confirm Booking" 
                       color="white" 
                       bg={true} 
-                      className="bg-RuqyaGreen hover:bg-RuqyaDarkGreen rounded-xl py-2 w-full text-lg transition-all duration-200" 
+                      className="bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen rounded-xl py-2 w-full text-lg transition-all duration-200" 
                       onClick={handleButtonClick} 
                     />
                   </div>
