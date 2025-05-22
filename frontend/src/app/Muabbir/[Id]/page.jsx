@@ -247,7 +247,7 @@ return (
                   {token && (
                     <button
                       onClick={() => handleStartChat(data._id)}
-                      className="flex items-center justify-center gap-2 w-full bg-RuqyaGray hover:bg-RuqyaGreen text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
+                      className="flex items-center justify-center gap-2 w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80 text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
                     >
                       <Message
                         size={20}
@@ -266,14 +266,14 @@ return (
                 className="lg:col-span-5 text-gray-800 animate-fade-in p-4 lg:p-0"
                 style={{ animationDelay: "0.4s" }}
               >
-                {data.name && <h1 className="text-4xl font-bold mb-3 text-RuqyaGray tracking-tight">{data.name}</h1>}
+                {data.name && <h1 className="text-4xl font-bold mb-3 text-RuqyaLightGreen tracking-tight">{data.name}</h1>}
 
                 {/* Stats grid with consistent styling */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                   <div className="space-y-6">
                     {data.country && (
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-RuqyaLightPurple rounded-none flex items-center justify-center">
+                        <div className="w-12 h-12 bg-RuqyaGreen/10 rounded-none flex items-center justify-center">
                           <ReactCountryFlag
                             countryCode={data.country}
                             svg
@@ -282,7 +282,7 @@ return (
                           />
                         </div>
                         <div>
-                          <p className="text-gray-400 text-xs uppercase tracking-wider font-bold">Country</p>
+                          <p className="text-RuqyaLightGreen text-xs uppercase tracking-wider font-bold">Country</p>
                           <p className="font-medium text-RuqyaGray">{getCountryLabel(data.country)}</p>
                         </div>
                       </div>
@@ -290,11 +290,11 @@ return (
 
                     {data.yearOfExperience && (
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-RuqyaLightPurple rounded-none flex items-center justify-center text-RuqyaGray">
+                        <div className="w-12 h-12 bg-RuqyaGreen/10 rounded-none flex items-center justify-center text-RuqyaGray">
                           <Calendar size={20} color="currentColor" variant="Outline" />
                         </div>
                         <div>
-                          <p className="text-gray-400 text-xs uppercase tracking-wider font-bold">Experience</p>
+                          <p className="text-RuqyaLightGreen text-xs uppercase tracking-wider font-bold">Experience</p>
                           <p className="font-medium text-RuqyaGray">{data.yearOfExperience} Years</p>
                         </div>
                       </div>
@@ -304,7 +304,7 @@ return (
                   <div className="space-y-6">
                     {availability && (
                       <div className="flex items-start gap-3">
-                        <div className="w-12 h-12 bg-RuqyaLightPurple rounded-none flex items-center justify-center text-RuqyaGray mt-1">
+                        <div className="w-12 h-12 bg-RuqyaGreen/10 rounded-none flex items-center justify-center text-RuqyaGray mt-1">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -337,7 +337,7 @@ return (
                 {/* Languages with modern pill design */}
                 {data.languages && (
                   <div className="mt-8">
-                    <p className="text-gray-400 text-xs uppercase tracking-wider font-bold mb-3">Languages</p>
+                    <p className="text-RuqyaLightGreen text-xs uppercase tracking-wider font-bold mb-3">Languages</p>
                     <div className="flex flex-wrap gap-2">
                       {data.languages.map((lang, index) => (
                         <span
@@ -354,19 +354,19 @@ return (
 
               {/* Right column - booking widget with bold design */}
               <div className="lg:col-span-4 animate-fade-in p-4 lg:p-0" style={{ animationDelay: "0.5s" }}>
-                <div className="bg-RuqyaGray text-white overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaGreen/30 rounded-bl-full"></div>
+                <div className="bg-RuqyaGreen/10   text-RuqyaGreen overflow-hidden relative">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaLightGreen/30 rounded-bl-full"></div>
                   <div className="p-6 relative">
-                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                    <h3 className="text-xl text-RuqyaGreen font-bold mb-4 flex items-center gap-2">
                       <Calendar size={20} color="currentColor" variant="Outline" />
                       Ready for a Session?
                     </h3>
-                    <p className="text-gray-300 mb-6">Book your appointment with {data.name} now.</p>
+                    <p className="text-RuqyaGreen mb-6">Book your appointment with {data.name} now.</p>
                     <Button
                       onClick={handleBookNow}
                       bg={true}
                       text="Book Now"
-                      className="w-full rounded-xl bg-RuqyaGreen hover:bg-RuqyaDarkGreen  font-bold py-3 transition-all duration-300 text-center flex items-center justify-center"
+                      className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen  font-bold py-3 transition-all duration-300 text-center flex items-center justify-center"
                     />
                   </div>
                 </div>
@@ -384,7 +384,7 @@ return (
       {data.description && (
         <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.7s' }}>
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-12 h-2 bg-RuqyaGreen"></div>
+            <div className="w-12 h-2 bg-RuqyaLightGreen"></div>
             <h3 className="text-2xl font-bold text-RuqyaGray">About {data.name}</h3>
           </div>
           
@@ -409,7 +409,7 @@ return (
       {/* Review stats with bold geometric design */}
       <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.8s' }}>
         <div className="flex items-center gap-3 mb-5">
-          <div className="w-12 h-2 bg-RuqyaGreen"></div>
+          <div className="w-12 h-2 bg-RuqyaLightGreen"></div>
           <h3 className="text-2xl font-bold text-RuqyaGray">Client Feedback</h3>
         </div>
         
@@ -434,7 +434,7 @@ return (
           
           {review && review.totalReviews !== undefined && (
             <div className="bg-white shadow-lg relative overflow-hidden group">
-              {/* <div className="absolute top-0 left-0 w-full h-1 bg-RuqyaGreen"></div> */}
+              {/* <div className="absolute top-0 left-0 w-full h-1 bg-RuqyaLightGreen"></div> */}
               <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[40px] border-r-[40px] border-b-RuqyaLightPurple/20 border-r-transparent group-hover:border-b-RuqyaLightPurple/40 transition-colors"></div>
               
               <div className="border-b border-gray-200 p-4">
@@ -509,7 +509,7 @@ return (
       {/* Customer reviews with bold styling */}
       <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.9s' }}>
         <div className="flex items-center gap-3 mb-5">
-          <div className="w-12 h-2 bg-RuqyaGreen"></div>
+          <div className="w-12 h-2 bg-RuqyaLightGreen"></div>
           <h3 className="text-2xl font-bold text-RuqyaGray">Client Reviews</h3>
         </div>
         
@@ -555,7 +555,7 @@ return (
       {/* Similar Raqis */}
       <div className="animate-fade-in mb-16" style={{ animationDelay: '1.0s' }}>
         <div className="flex items-center gap-3 mb-5">
-          <div className="w-12 h-2 bg-RuqyaGreen"></div>
+          <div className="w-12 h-2 bg-RuqyaLightGreen"></div>
           <h3 className="text-2xl font-bold text-RuqyaGray">Similar Muabbirs</h3>
         </div>
         
