@@ -210,7 +210,7 @@ const AvailabilityPage=()=> {
                             variant={isAvailable ? "default" : "outline"}
                             className={cn(
                                 "w-full h-12",
-                                isAvailable && "bg-primary-700 text-primary-foreground hover:bg-primary-500"
+                                isAvailable && "bg-primary-700 text-primary-foreground hover:bg-primary-600"
                             )}
                             onClick={() =>
                                 isAvailable
