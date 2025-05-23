@@ -1,0 +1,154 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: test
+  pull_request:
+    branches: test
+
+jobs:
+  build:
+    runs-on: self-hosted
+    # needs: enable-maintenance
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Ensure Docker is running
+      run: |
+        sudo systemctl start docker
+        sudo systemctl enable docker
+
+    - name: Install Docker Compose (if missing)
+      run: |
+        if ! [ -x "$(command -v docker-compose)" ]; then
+          sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+        fi
+
+    - name: Create required directories and set permissions
+      run: |
+        echo "db setup"
+
+        sudo mkdir -p /islamic-dreams/data
+        sudo mkdir -p /islamic-dreams/backup
+
+        echo "Setting permissions..."
+
+        sudo chown -R $USER:$USER /islamic-dreams/data
+        sudo chmod -R 775 /islamic-dreams/data
+
+        sudo chown -R $USER:$USER /islamic-dreams/backup
+        sudo chmod -R 775 /islamic-dreams/backup
+
+    - name: Ensure Docker is running
+      run: |
+        sudo systemctl start docker
+        sudo systemctl enable docker
+
+    - name: check directory
+      run: |
+        pwd
+        ls -la
+   
+  setup-api-env:
+    needs: build
+    environment: api
+    runs-on: self-hosted
+    steps:
+      - run: |
+          echo "Setting environment variables for API service..."
+          cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/api-service/
+          touch .env.production
+          echo "DEV_FRONTEND_URL=${{ secrets.DEV_FRONTEND_URL }}" >> .env.production
+          echo "FIREBASE_AUTH_PROVIDER_X509_CERT_URL=${{ secrets.FIREBASE_AUTH_PROVIDER_X509_CERT_URL }}" >> .env.production
+          echo "FIREBASE_AUTH_URI=${{ secrets.FIREBASE_AUTH_URI }}" >> .env.production
+          echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env.production
+          echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env.production
+          echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env.production
+          echo "FIREBASE_CLIENT_ID=${{ secrets.FIREBASE_CLIENT_ID }}" >> .env.production
+          echo "FIREBASE_CLIENT_X509_CERT_URL=${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}" >> .env.production
+          echo "FIREBASE_PRIVATE_KEY=${{ secrets.FIREBASE_PRIVATE_KEY }}" >> .env.production
+          echo "FIREBASE_PRIVATE_KEY_ID=${{ secrets.FIREBASE_PRIVATE_KEY_ID }}" >> .env.production
+          echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env.production
+          echo "FIREBASE_TOKEN_URI=${{ secrets.FIREBASE_TOKEN_URI }}" >> .env.production
+          echo "FIREBASE_TYPE=${{ secrets.FIREBASE_TYPE }}" >> .env.production
+          echo "FIREBASE_UNIVERSE_DOMAIN=${{ secrets.FIREBASE_UNIVERSE_DOMAIN }}" >> .env.production
+          echo "FRONTEND_URL=${{ secrets.FRONTEND_URL }}" >> .env.production
+          echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> .env.production
+          echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> .env.production
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env.production
+          echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> .env.production
+          echo "PORT=${{ secrets.PORT }}" >> .env.production
+          echo "SECRET_KEY_VIDEO=${{ secrets.SECRET_KEY_VIDEO }}" >> .env.production
+          echo "SESSION_COST=${{ secrets.SESSION_COST }}" >> .env.production
+          echo "STREAM_API_KEY_CHAT=${{ secrets.STREAM_API_KEY_CHAT }}" >> .env.production
+          echo "STREAM_API_KEY_VIDEO=${{ secrets.STREAM_API_KEY_VIDEO }}" >> .env.production
+          echo "STREAM_API_SECRET_CHAT=${{ secrets.STREAM_API_SECRET_CHAT }}" >> .env.production
+          echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" >> .env.production
+          echo "STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" >> .env.production
+
+  setup-admin-env:
+    needs: setup-api-env
+    environment: admin
+    runs-on: self-hosted
+    steps:
+      - run: |
+          echo "Setting environment variables for admin panel..."
+          cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/admin-panel/
+          touch .env.production
+          echo "MONGONEXT_PUBLIC_API_URLDB_URI=${{ secrets.NEXT_PUBLIC_API_URL }}" > .env.production
+          echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_MEETING=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_MEETING }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_OTP=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_OTP }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_VERIFICATION=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_VERIFICATION }}" >> .env.production
+          echo "NEXT_PUBLIC_STREAM_API_KEY=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY }}" >> .env.production
+          echo "NEXT_PUBLIC_STREAM_API_KEY_CHAT=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY_CHAT }}" >> .env.production
+
+  setup-client-env:
+    needs: setup-admin-env
+    environment: client
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          echo "Setup Client Environment Variables"
+          cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/frontend/
+          touch .env.production
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_MEETING=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_MEETING }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_OTP=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_OTP }}" >> .env.production
+          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_VERIFICATION=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_VERIFICATION }}" >> .env.production
+          echo "NEXT_PUBLIC_FIREBASE_API_KEY=${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}" >> .env
+          echo "NEXT_PUBLIC_FIREBASE_APP_ID=${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}" >> .env.production
+          echo "NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_FIREBASE_PROJECT_ID=${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}" >> .env.production
+          echo "NEXT_PUBLIC_STREAM_API_KEY=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY }}" >> .env.production
+          echo "NEXT_PUBLIC_STREAM_API_KEY_CHAT=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY_CHAT }}" >> .env.production
+
+
+  docker-compose:
+    needs: setup-client-env
+    runs-on: self-hosted
+    steps:
+      - name: Deploy with Docker Compose
+        run: |
+          cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/docker/
+          sudo docker-compose up --build -d
+          sudo docker-compose ps
+
+      # - name: Debugging - Get Logs if Failure
+      #   if: failure()
+      #   run: sudo docker-compose logs
+
+      - name: Clean up
+        run: |
+          sudo docker image prune -af --filter "until=16h"
+
