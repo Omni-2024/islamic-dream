@@ -9,6 +9,16 @@ import { Edit, Bookmark, Logout } from 'iconsax-react';
 import { getOwnProfile} from "@/lib/api";
 
 
+// Add this function at the top of your component, before the Header component
+const startCase = (str) => {
+  if (!str) return ""
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ")
+}
+
 const Header = () => {
     const defaultValues = {
     name: "",
@@ -264,7 +274,7 @@ const Header = () => {
                     >
                       <div className="px-5 pt-5 pb-3 border-b border-gray-100">
                         <p className="text-sm text-gray-500">Signed in as</p>
-                        <p className="font-medium text-header">{formData.email || userData?.email || "User"}</p>
+                        <p className="font-medium text-header">{userData?.email || "User"} </p>
                       </div>
                       
                       <div className="py-2">
@@ -433,6 +443,10 @@ const Header = () => {
                           <Logout size={15}  color="currentColor" variant="Outline" className="w-4 h-4 mr-3" />
                             <span>Logout</span>
                           </button>
+                        </div>
+                        <div className="px-5 pt-3 pb-2 border-t border-gray-100">
+                          <p className="text-sm text-gray-500">Signed in as</p>
+                          <p className="font-medium text-header">{userData?.email || "User"}</p>
                         </div>
                       </motion.div>
                     )}
