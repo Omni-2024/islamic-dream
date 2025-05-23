@@ -13,27 +13,27 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install Docker Compose (if missing)
-      run: |
-        if ! [ -x "$(command -v docker-compose)" ]; then
-          curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          chmod +x /usr/local/bin/docker-compose
-        fi
+    # - name: Install Docker Compose (if missing)
+    #   run: |
+    #     if ! [ -x "$(command -v docker-compose)" ]; then
+    #       curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    #       chmod +x /usr/local/bin/docker-compose
+    #     fi
 
-    - name: Create required directories and set permissions
-      run: |
-        echo "db setup"
+    # - name: Create required directories and set permissions
+    #   run: |
+    #     echo "db setup"
 
-        mkdir -p /islamic-dreams/data
-        mkdir -p /islamic-dreams/backup
+    #     mkdir -p /islamic-dreams/data
+    #     mkdir -p /islamic-dreams/backup
 
-        echo "Setting permissions..."
+    #     echo "Setting permissions..."
 
-        chown -R $USER:$USER /islamic-dreams/data
-        chmod -R 775 /islamic-dreams/data
+    #     chown -R $USER:$USER /islamic-dreams/data
+    #     chmod -R 775 /islamic-dreams/data
 
-        chown -R $USER:$USER /islamic-dreams/backup
-        chmod -R 775 /islamic-dreams/backup
+    #     chown -R $USER:$USER /islamic-dreams/backup
+    #     chmod -R 775 /islamic-dreams/backup
 
     - name: Ensure Docker is running
       run: |
