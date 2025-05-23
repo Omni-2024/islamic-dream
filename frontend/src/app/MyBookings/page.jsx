@@ -94,7 +94,7 @@ function MyBookings() {
           <span className="font-medium text-RuqyaGray">My Booking</span>
         </nav>
 
-        <h1 className="text-3xl font-bold mb-6 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+        <h1 className="text-3xl font-bold text-RuqyaGreen mb-6 animate-fade-in" style={{ animationDelay: "0.3s" }}>
           My Bookings
         </h1>
         <div className="flex justify-center mb-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
