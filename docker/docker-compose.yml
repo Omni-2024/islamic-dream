@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   islamic-dreams-frontend:
     image: islamic-dreams:1.0.0
