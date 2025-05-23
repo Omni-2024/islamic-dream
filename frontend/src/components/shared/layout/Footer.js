@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input/input";
 import Button from "@/components/ui/buttons/DefaultButton";
 import { FaTwitter } from "react-icons/fa";
 import { ErrorMessage } from "@/components/shared/common/ErrorMessage";
-import { Facebook, Instagram, ArrowRight, Location, Call, Sms  } from 'iconsax-react';
+import {Facebook, Instagram, ArrowRight, Location, Call, Sms, Musicnote} from 'iconsax-react';
 
 
 function Footer() {
@@ -69,19 +69,24 @@ function Footer() {
               <p className="text-white mb-6">
                 Reviving the prophetic tradition of dream interpretation through authentic insights and spiritual understanding              </p>
               <div className="flex space-x-4">
-                <Link href="https://facebook.com" target="_blank" aria-label="Facebook">
-                  <div className="bg-white rounded-full p-2 transition-transform transform hover:scale-110">
-                      <Facebook color="currentColor" variant="Outline" size={20} className="text-RuqyaGreen" />
-                  </div>
-                </Link>
-                <Link href="https://twitter.com" target="_blank" aria-label="Twitter">
-                  <div className="bg-white rounded-full p-2 transition-transform transform hover:scale-110">
-                    <FaTwitter color="currentColor" variant="Outline" size={20} className="text-RuqyaGreen" />
-                  </div>
-                </Link>
-                <Link href="https://instagram.com" target="_blank" aria-label="Instagram">
+                {/*<Link href="https://facebook.com" target="_blank" aria-label="Facebook">*/}
+                {/*  <div className="bg-white rounded-full p-2 transition-transform transform hover:scale-110">*/}
+                {/*      <Facebook color="currentColor" variant="Outline" size={20} className="text-RuqyaGreen" />*/}
+                {/*  </div>*/}
+                {/*</Link>*/}
+                {/*<Link href="https://twitter.com" target="_blank" aria-label="Twitter">*/}
+                {/*  <div className="bg-white rounded-full p-2 transition-transform transform hover:scale-110">*/}
+                {/*    <FaTwitter color="currentColor" variant="Outline" size={20} className="text-RuqyaGreen" />*/}
+                {/*  </div>*/}
+                {/*</Link>*/}
+                <Link href="https://www.instagram.com/dreamswitharif?igsh=NW16cTh2YTlscWxp" target="_blank" aria-label="Instagram">
                   <div className="bg-white rounded-full p-2 transition-transform transform hover:scale-110">
                     <Instagram color="currentColor" variant="Outline" size={20} className="text-RuqyaGreen" />
+                  </div>
+                </Link>
+                <Link href="https://www.tiktok.com/@dreamswitharif?_t=ZS-8wbe6UQEwkC&_r=1" target="_blank" aria-label="Instagram">
+                  <div className="bg-white rounded-full p-2 transition-transform transform hover:scale-110">
+                    <Musicnote color="currentColor" variant="Outline" size={20} className="text-RuqyaGreen" />
                   </div>
                 </Link>
               </div>
@@ -129,18 +134,18 @@ function Footer() {
                 <span className="text-white">123 Healing Street, Wellness City, Islamic Center</span>
               </div>
 
-                <div className="flex items-center">
-                  <div className="text-white mr-2">
-                    <Call size={25} color="currentColor" variant="Outline" />
-                  </div>
-                  <span className="text-white">071 - 3833341</span>
-                </div>
+                {/*<div className="flex items-center">*/}
+                {/*  <div className="text-white mr-2">*/}
+                {/*    <Call size={25} color="currentColor" variant="Outline" />*/}
+                {/*  </div>*/}
+                {/*  <span className="text-white">071 - 3833341</span>*/}
+                {/*</div>*/}
 
                 <div className="flex items-center">
                   <div className="text-white mr-2">
                     <Sms size={25} color="currentColor" variant="Outline" />
                   </div>
-                  <span className="text-white">contact@islamicdreams.com</span>
+                  <span className="text-white">dreamswitharif@gmail.com</span>
                 </div>
               </div>
 
