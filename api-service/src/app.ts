@@ -85,8 +85,7 @@ app.post(
                 const updatedMeeting = await Meeting.findOneAndUpdate(
                     {rakiId: session.metadata?.rakiId, date: utcDate},
                     {
-                        status: MeetingStatus.SCHEDULED,
-                        isPaid:true
+                        status: MeetingStatus.SCHEDULED
                     },
                     {new: true}
                 );
