@@ -13,11 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Ensure Docker is running
-      run: |
-        sudo systemctl start docker
-        sudo systemctl enable docker
-
     - name: Install Docker Compose (if missing)
       run: |
         if ! [ -x "$(command -v docker-compose)" ]; then
@@ -58,13 +53,11 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           echo "Setting environment variables for API service..."
-          cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/api-service/
+          cd /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/api-service
           touch .env.production
           echo "DEV_FRONTEND_URL=${{ secrets.DEV_FRONTEND_URL }}" >> .env.production
           echo "FIREBASE_AUTH_PROVIDER_X509_CERT_URL=${{ secrets.FIREBASE_AUTH_PROVIDER_X509_CERT_URL }}" >> .env.production
           echo "FIREBASE_AUTH_URI=${{ secrets.FIREBASE_AUTH_URI }}" >> .env.production
-          echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env.production
-          echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env.production
           echo "FIREBASE_CLIENT_EMAIL=${{ secrets.FIREBASE_CLIENT_EMAIL }}" >> .env.production
           echo "FIREBASE_CLIENT_ID=${{ secrets.FIREBASE_CLIENT_ID }}" >> .env.production
           echo "FIREBASE_CLIENT_X509_CERT_URL=${{ secrets.FIREBASE_CLIENT_X509_CERT_URL }}" >> .env.production
@@ -96,9 +89,9 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           echo "Setting environment variables for admin panel..."
-          cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/admin-panel/
+          cd /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/admin-panel/
           touch .env.production
-          echo "MONGONEXT_PUBLIC_API_URLDB_URI=${{ secrets.NEXT_PUBLIC_API_URL }}" > .env.production
+          echo "MONGONEXT_PUBLIC_API_URLDB_URI=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL }}" >> .env.production
@@ -116,7 +109,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           echo "Setup Client Environment Variables"
-          cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/frontend/
+          cd /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/frontend/
           touch .env.production
           echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}" >> .env.production
