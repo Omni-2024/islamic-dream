@@ -63,6 +63,18 @@ const Fifth = () => {
       answer:
         "Absolutely. All dream submissions are treated as private and confidential. We consider this an amanah (sacred trust), and your information will never be shared.",
     },
+    {
+      question: "Is there a refund policy?",
+      answer: "No. Once your payment has been processed and your dream has been interpreted by one of our interpreters, no refunds can be issued.",
+    },
+    {
+      question: "Can I send more than one dream?",
+      answer: "It’s £7.50 for each dream. You can send more than one dream if you make the payments for every dream",
+    },
+    {
+      question: "What Aqeedah Do you follow?",
+      answer: "We follow the Aqeedah of Ahl Sunnah wa Al-Jama, the understanding of the companions and those who followed them in belief, methodology and manners.",
+    },
   ]
 
   return (
