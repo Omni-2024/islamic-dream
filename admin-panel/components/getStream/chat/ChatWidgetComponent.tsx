@@ -30,7 +30,7 @@ const FloatingChatWidget = ({ userId, otherUserId }: { userId: string; otherUser
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
                         onClick={() => setIsOpen(true)}
-                        className="bg-primary-700 hover:bg-primary-500 text-white rounded-full p-4 shadow-lg flex items-center justify-center"
+                        className="bg-primary-700 hover:bg-primary-600 text-white rounded-full p-4 shadow-lg flex items-center justify-center"
                     >
                         <MessageCircle size={24} />
                     </motion.button>

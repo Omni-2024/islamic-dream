@@ -187,7 +187,7 @@ const SettingsPage=()=> {
             <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-                className="rounded-full h-16 w-16 border-t-4 border-b-4 border-[#0C8281]"
+                className="rounded-full h-16 w-16 border-t-4 border-b-4 border-[#1B184C]"
             />
         </div>
     );
@@ -304,7 +304,7 @@ const SettingsPage=()=> {
                             {errors.languages && <p className="text-red-500 text-sm mt-1">{errors.languages}</p>}
                         </div>
 
-                        <Button className="mt-4 w-full bg-primary-700 rounded-2xl hover:bg-primary-100 font-bold" onClick={handleProfileSubmit} >
+                        <Button className="mt-4 w-full rounded-2xl bg-primary-800  hover:bg-primary-900   font-bold" onClick={handleProfileSubmit} >
                             Save Profile
                         </Button>
                     </div>
@@ -383,7 +383,7 @@ const SettingsPage=()=> {
                         </div>
 
                         <Button
-                            className="mt-4 w-full bg-primary-700 rounded-2xl hover:bg-primary-100 font-bold"
+                            className="mt-4 w-full rounded-2xl bg-primary-800  hover:bg-primary-900   font-bold"
                             onClick={handleSecuritySubmit}
                         >
                             Change Password

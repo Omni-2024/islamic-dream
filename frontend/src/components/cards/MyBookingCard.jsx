@@ -95,15 +95,14 @@ const MyBookingCard = ({ booking, className }) => {
 
   if (!rakiData) {
     return (
-      <div className={`bg-white rounded-xl mx-auto md:max-w-[450px] text-left p-2 mb-1 flex flex-col justify-between  w-full ${className}`}>
+      <div className={`bg-white rounded-xl mx-auto md:max-w-[350px] text-left p-2 m-5 flex flex-col justify-between  w-full ${className}`}>
         <MyBookingCardSkeleton />
       </div>
     );
   }
 
   return (
-    <div className={`bg-white rounded-xl w-full md:max-w-[450px] text-left p-2 mb-1 flex flex-col justify-between ${className}`}>
-      <div className="flex flex-col gap-4 w-full">
+      <div className={`bg-white rounded-xl w-full md:max-w-[450px] text-left p-2 mb-4 flex flex-col justify-between ${className}`}>   <div className="flex flex-col gap-4 w-full">
         <div className="flex flex-row gap-4 w-full">
           <div className="col-span-2 rounded-lg">
             <img src={rakiData.image ? rakiData.image : "https://st3.depositphotos.com/12601206/35163/v/450/depositphotos_351635392-stock-illustration-muslim-man-arabic-smile-whit.jpg"} alt={rakiData.name} className="rounded-xl w-48 h-32 object-cover object-top" />

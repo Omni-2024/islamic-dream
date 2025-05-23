@@ -13,8 +13,8 @@ const NotFound = () => {
                 className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 relative overflow-hidden"
             >
                 {/* Abstract decorative elements */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-RuqyaGreen/20 rounded-full -mr-20 -mt-20" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-RuqyaGreen/20  rounded-full -ml-16 -mb-16" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#F3F3F6] rounded-full -mr-20 -mt-20" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#F3F3F6] rounded-full -ml-16 -mb-16" />
                 
                 <div className="relative z-10">
                     <motion.div 
@@ -68,7 +68,7 @@ const NotFound = () => {
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="block w-full py-3 px-6 text-center text-white bg-RuqyaGreen hover:RuqyaDarkGreen rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300"
+                                className="block w-full py-3 px-6 text-center text-white bg-RuqyaLightGreen hover:RuqyaDarkGreen rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300"
                             >
                                 Return Home
                             </motion.a>

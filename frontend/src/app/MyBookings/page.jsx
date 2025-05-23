@@ -9,7 +9,16 @@ import { getMyBookings } from "@/lib/api";
 import { ErrorMessage } from "@/components/shared/common/ErrorMessage";
 import { parseBookingDate } from "@/lib/utils";
 import LoadingSpinner from "@/components/shared/common/LoadingSpinner";
-
+import {
+  
+  ArrowRight2,
+  User,
+  WaveSquare,
+  MagicStar,
+  Home,
+  ArrowRight3,
+  Component,
+} from 'iconsax-react';
 function MyBookings() {
   const [bookings, setBookings] = useState([]);
   const [showUpcoming, setShowUpcoming] = useState(true);
@@ -69,25 +78,23 @@ function MyBookings() {
       <div className="" style={{ animationDelay: "0.8s" }}>
         {selectedBooking && <ReviewRaqiPopup raqiData={selectedBooking} onClose={handleClosePopup} />}
       </div>
-      <div className="min-h-screen text-black mx-5 md:mx-10 mt-10 text-xs md:text-base animate-fade-in lg:mx-[9%]" style={{ animationDelay: "0.1s" }}>
-        <nav aria-label="Breadcrumb m-10" className="mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          <ol className="flex items-center space-x-2 mt-5 text-sm text-muted-foreground">
-            <li>
-              <Link href="/" className="hover:text-primary underline">
-                Home
-              </Link>
-            </li>
-            <li>/</li>
-            <li>
-              <Link href="/MyProfile" className="hover:text-primary underline">
-                My Profile
-              </Link>
-            </li>
-            <li>/</li>
-            <li>My Booking</li>
-          </ol>
+    <div className="md:mx-[6%] px-3 py-5 md:pl-1 md:pr-3 min-h-screen bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-20">
+        {/* Responsive Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6 flex items-center text-xs sm:text-sm text-gray-600 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <Link href="/" className="flex items-center hover:text-RuqyaGreen transition-colors">
+            <Home color="#6B7280" className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+            <span>Home</span>
+          </Link>
+          <ArrowRight2 color="#6B7280" className="w-3 h-3 sm:w-4 sm:h-4 mx-1 sm:mx-2" />
+          <Link href="/MyProfile" className="flex items-center hover:text-RuqyaGreen transition-colors">
+            <span>My Profile</span>
+          </Link>
+          <ArrowRight2 color="#6B7280" className="w-3 h-3 sm:w-4 sm:h-4 mx-1 sm:mx-2" />
+          <span className="font-medium text-RuqyaGray">My Booking</span>
         </nav>
-        <h1 className="text-3xl font-bold mb-6 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+
+        <h1 className="text-3xl font-bold text-RuqyaGreen mb-6 animate-fade-in" style={{ animationDelay: "0.3s" }}>
           My Bookings
         </h1>
         <div className="flex justify-center mb-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
@@ -118,6 +125,7 @@ function MyBookings() {
           {showUpcoming && upcomingBookings.length === 0 && <p className="flex w-full col-span-10 items-center justify-center text-center text-gray-500 font-xl mt-4">No upcoming bookings found.</p>}
           {!showUpcoming && completedBookings.length === 0 && <p className="flex w-full col-span-3 items-center justify-center text-center text-gray-500 font-xl mt-4">No completed bookings found.</p>}
         </div>
+      </div>
       </div>
     </>
   );

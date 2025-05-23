@@ -201,7 +201,7 @@ export default function ForgotPassword() {
                     <button
                         disabled={loading}
                         onClick={handleNext}
-                        className="w-full flex justify-center mt-6 py-2 px-6 h-10 border rounded-2xl shadow-sm text-m font-bold text-white bg-primary-700 hover:bg-primary-800"
+                        className="w-full flex justify-center mt-6 py-2 px-6 h-10 border rounded-2xl shadow-sm text-m font-bold text-white bg-primary-700 hover:bg-primary-600"
                     >
                         {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Next"}
                     </button>

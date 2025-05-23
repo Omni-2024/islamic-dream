@@ -50,7 +50,7 @@ const ChangePassword = ({ onClose, onSubmit }) => {
   return (
     <div className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-50 z-50 pt-10 overflow-y-auto ">
       <div className="bg-white rounded-lg relative w-full max-w-md mx-4 md:mx-0 shadow-lg mb-10">
-        <div className=" bg-RuqyaGreen p-4 flex justify-between rounded-t-lg items-center">
+        <div className=" bg-RuqyaLightGreen p-4 flex justify-between rounded-t-lg items-center">
           <span className="text-white text-2xl font-semibold">Change Password</span>
           <button onClick={handleClose} className="bg-red-500 text-white h-8 w-8 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-red-600">
               <span className="text-2xl">&times;</span>
@@ -93,10 +93,10 @@ const ChangePassword = ({ onClose, onSubmit }) => {
               />
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <button onClick={handleClose} className="w-full bg-gray-500 hover:bg-gray-600 text-white rounded-full py-3 mt-5 transition duration-300">
+              <button onClick={handleClose} className="w-full bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen text-white rounded-full py-3 mt-5 transition duration-300">
                 Cancel
               </button>
-              <button onClick={handleSubmit} className="w-full bg-RuqyaGreen hover:bg-RuqyaDarkGreen  text-white rounded-full py-3 mt-5 transition duration-300">
+              <button onClick={handleSubmit} className="w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80  text-white rounded-full py-3 mt-5 transition duration-300">
                 Change
               </button>
             </div>
