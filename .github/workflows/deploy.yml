@@ -124,7 +124,7 @@ jobs:
         run: |
           cd /actions-runner/_work/islamic-dream/islamic-dream/docker/
           sudo docker-compose up --build -d
-          sudo docker-compose ps
+          sudo docker-compose ps 
 
       # - name: Debugging - Get Logs if Failure
       #   if: failure()
