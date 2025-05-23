@@ -13,32 +13,32 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    # - name: Install Docker Compose (if missing)
-    #   run: |
-    #     if ! [ -x "$(command -v docker-compose)" ]; then
-    #       curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    #       chmod +x /usr/local/bin/docker-compose
-    #     fi
+    - name: Install Docker Compose (if missing)
+      run: |
+        if ! [ -x "$(command -v docker-compose)" ]; then
+          sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+        fi
 
-    # - name: Create required directories and set permissions
-    #   run: |
-    #     echo "db setup"
+    - name: Create required directories and set permissions
+      run: |
+        echo "db setup"
 
-    #     mkdir -p /islamic-dreams/data
-    #     mkdir -p /islamic-dreams/backup
+        sudo mkdir -p /islamic-dreams/data
+        sudo mkdir -p /islamic-dreams/backup
 
-    #     echo "Setting permissions..."
+        echo "Setting permissions..."
 
-    #     chown -R $USER:$USER /islamic-dreams/data
-    #     chmod -R 775 /islamic-dreams/data
+        sudo chown -R $USER:$USER /islamic-dreams/data
+        sudo chmod -R 775 /islamic-dreams/data
 
-    #     chown -R $USER:$USER /islamic-dreams/backup
-    #     chmod -R 775 /islamic-dreams/backup
+        sudo chown -R $USER:$USER /islamic-dreams/backup
+        sudo chmod -R 775 /islamic-dreams/backup
 
     - name: Ensure Docker is running
       run: |
-        systemctl start docker
-        systemctl enable docker
+        sudo systemctl start docker
+        sudo systemctl enable docker
 
     - name: check directory
       run: |
@@ -123,14 +123,14 @@ jobs:
       - name: Deploy with Docker Compose
         run: |
           cd /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/docker/
-          docker-compose up --build -d
-          docker-compose ps
+          sudo docker-compose up --build -d
+          sudo docker-compose ps
 
       # - name: Debugging - Get Logs if Failure
       #   if: failure()
-      #   run: docker-compose logs
+      #   run: sudo docker-compose logs
 
       - name: Clean up
         run: |
-          docker image prune -af --filter "until=16h"
+          sudo docker image prune -af --filter "until=16h"
 
