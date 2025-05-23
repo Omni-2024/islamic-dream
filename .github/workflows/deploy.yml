@@ -55,6 +55,7 @@ jobs:
     environment: api
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v3
       - run: |
           echo "Setting environment variables for API service..."
           cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/api-service/
@@ -92,6 +93,7 @@ jobs:
     environment: admin
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v3
       - run: |
           echo "Setting environment variables for admin panel..."
           cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/admin-panel/
@@ -138,6 +140,7 @@ jobs:
     needs: setup-client-env
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v3
       - name: Deploy with Docker Compose
         run: |
           cd /home/cloud-user/actions-runner/_work/islamic-dream/islamic-dream/docker/
