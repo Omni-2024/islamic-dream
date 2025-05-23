@@ -23,7 +23,7 @@ function Third(props) {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-5 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-          <h2 className="text-3xl text-RuqyaGreen md:text-4xl lg:text-5xl font-bold text-center leading-tight mb-2 transition-all duration-700 delay-100">
+          <h2 className="text-3xl text-RuqyaGreen md:text-4xl pt-5 lg:text-5xl font-bold text-center leading-tight mb-2 transition-all duration-700 delay-100">
             My Bookings
           </h2>
           <p className="text-gray-600  text-lg max-w-2xl mx-auto">
