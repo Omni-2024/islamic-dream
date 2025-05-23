@@ -4,7 +4,7 @@ const resetHeading="We received a request to reset the password for your Ruqya w
 
 
 export const sendEmail = async (templateID, params) => {
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+    const serviceID = process.env.NEXT_PUBLIC_CLIENT_EMAILJS_SERVICE_ID || "";
     const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
     if (!serviceID || !userID) {
