@@ -104,7 +104,7 @@ jobs:
           echo "NEXT_PUBLIC_STREAM_API_KEY=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY }}" >> .env.production
           echo "NEXT_PUBLIC_STREAM_API_KEY_CHAT=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY_CHAT }}" >> .env.production
           pwd
-          ls -la
+          ls -la /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/api-service
           cat .env.production
 
   setup-client-env:
