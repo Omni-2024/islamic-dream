@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    # needs: enable-maintenance
+    environment: production
     steps:
     - uses: actions/checkout@v3
 
@@ -45,14 +45,16 @@ jobs:
         pwd
         ls -la
    
-  setup-api-env:
+  docker-build:
     needs: build
-    environment: api
+    environment: production
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          echo "Setting environment variables for API service..."
+
+      - name: Set up environment variables for API service
+        run: |
+          echo "Setting up environment variables for API service..."
           cd /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/api-service
           touch .env.production
           echo "DEV_FRONTEND_URL=${{ secrets.DEV_FRONTEND_URL }}" >> .env.production
@@ -80,46 +82,30 @@ jobs:
           echo "STREAM_API_SECRET_CHAT=${{ secrets.STREAM_API_SECRET_CHAT }}" >> .env.production
           echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" >> .env.production
           echo "STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" >> .env.production
-          pwd
-          ls -la
-          cat .env.production
-
-  setup-admin-env:
-    needs: setup-api-env
-    environment: admin
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
+      
+      - name: Set up environment variables for admin panel
+        run: |
           echo "Setting environment variables for admin panel..."
           cd /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/admin-panel/
           touch .env.production
           echo "MONGONEXT_PUBLIC_API_URLDB_URI=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}" >> .env.production
-          echo "NEXT_PUBLIC_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_ADMIN_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_MEETING=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_MEETING }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_OTP=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_OTP }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_VERIFICATION=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_VERIFICATION }}" >> .env.production
           echo "NEXT_PUBLIC_STREAM_API_KEY=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY }}" >> .env.production
           echo "NEXT_PUBLIC_STREAM_API_KEY_CHAT=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY_CHAT }}" >> .env.production
-          pwd
-          ls -la /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/api-service
-          cat .env.production
-
-  setup-client-env:
-    needs: setup-admin-env
-    environment: client
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
+      
+      - name: Set up environment variables for frontend
+        run: |
           echo "Setup Client Environment Variables"
           cd /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/frontend/
           touch .env.production
           echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}" >> .env.production
-          echo "NEXT_PUBLIC_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}" >> .env.production
+          echo "NEXT_PUBLIC_CLIENT_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_MEETING=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_MEETING }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_OTP=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_OTP }}" >> .env.production
@@ -133,17 +119,7 @@ jobs:
           echo "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}" >> .env.production
           echo "NEXT_PUBLIC_STREAM_API_KEY=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY }}" >> .env.production
           echo "NEXT_PUBLIC_STREAM_API_KEY_CHAT=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY_CHAT }}" >> .env.production
-          pwd
-          ls -la
-          cat .env.production
 
-
-
-  docker-compose:
-    needs: setup-client-env
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v3
       - name: Deploy with Docker Compose
         run: |
           cd /home/farhad/actions-runner/_work/islamic-dream/islamic-dream/docker/

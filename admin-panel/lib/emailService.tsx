@@ -19,7 +19,7 @@ export const sendEmail = async (
     templateID: string,
     params: EmailParams
 ): Promise<boolean> => {
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+    const serviceID = process.env.NEXT_PUBLIC_ADMIN_EMAILJS_SERVICE_ID || "";
     const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
     try {
