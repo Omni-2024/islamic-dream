@@ -9,7 +9,6 @@ import { Edit, Bookmark, Logout } from 'iconsax-react';
 import { getOwnProfile} from "@/lib/api";
 
 
-// Add this function at the top of your component, before the Header component
 const startCase = (str) => {
   if (!str) return ""
   return str
