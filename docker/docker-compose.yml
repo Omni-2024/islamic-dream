@@ -5,13 +5,10 @@ services:
     image: islamic-dreams:1.0.0
     build:
       context: ../frontend
-#      platforms:
-#        - linux/amd64
-#        - linux/arm64
     ports:
       - "3001:3000"
     depends_on:
-      - ruqya-api
+      - islamic-dreams-api
     env_file:
       - ../frontend/.env.production
     networks:
@@ -21,13 +18,10 @@ services:
     image: islamic-dreams-admin:1.0.0
     build:
       context: ../admin-panel
-#      platforms:
-#        - linux/amd64
-#        - linux/arm64
     ports:
       - "3002:3000"
     depends_on:
-      - ruqya-api
+      - islamic-dreams-api 
     env_file:
       - ../admin-panel/.env.production
     networks:
@@ -37,9 +31,6 @@ services:
     image: islamic-dreams-api:1.0.0
     build:
       context: ../api-service
-#      platforms:
-#        - linux/amd64
-#        - linux/arm64
     ports:
       - "5050:5050"
     env_file:
@@ -56,7 +47,6 @@ services:
       - app-network
     ports:
       - "27317:27017"
-  #    restart: always
 
 networks:
   app-network:
