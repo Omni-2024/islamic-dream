@@ -80,7 +80,9 @@ jobs:
           echo "STREAM_API_SECRET_CHAT=${{ secrets.STREAM_API_SECRET_CHAT }}" >> .env.production
           echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" >> .env.production
           echo "STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" >> .env.production
+          pwd
           ls -la
+          cat .env.production
 
   setup-admin-env:
     needs: setup-api-env
@@ -101,7 +103,9 @@ jobs:
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_VERIFICATION=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_VERIFICATION }}" >> .env.production
           echo "NEXT_PUBLIC_STREAM_API_KEY=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY }}" >> .env.production
           echo "NEXT_PUBLIC_STREAM_API_KEY_CHAT=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY_CHAT }}" >> .env.production
+          pwd
           ls -la
+          cat .env.production
 
   setup-client-env:
     needs: setup-admin-env
@@ -129,7 +133,10 @@ jobs:
           echo "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}" >> .env.production
           echo "NEXT_PUBLIC_STREAM_API_KEY=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY }}" >> .env.production
           echo "NEXT_PUBLIC_STREAM_API_KEY_CHAT=${{ secrets.NEXT_PUBLIC_STREAM_API_KEY_CHAT }}" >> .env.production
+          pwd
           ls -la
+          cat .env.production
+
 
 
   docker-compose:
