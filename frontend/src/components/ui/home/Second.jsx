@@ -36,7 +36,7 @@ function Second() {
     <section 
       id="second" 
       ref={sectionRef}
-      className="relative py-10 md:py-4 px-4 md:px-6 overflow-hidden bg-gradient-to-b bg-white mb-20"
+      className="relative py-10 md:py-4 px-4 md:px-6 overflow-hidden bg-gradient-to-b bg-white mb-12"
     >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
