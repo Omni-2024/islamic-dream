@@ -22,6 +22,9 @@ const BookSessionPage = () => {
   const [showError, setShowError] = useState(false);
   const [availableTimes, setAvailableTimes] = useState([]);
   const [loading, setLoading] = useState(false); // Add loading state
+  const now = new Date();
+  const currentTime = now.getHours() * 60 + now.getMinutes(); // Current time in minutes
+  const isToday = selectedDate && selectedDate.toDateString() === now.toDateString();
 
   useEffect(() => {
     if (Id) {
@@ -68,11 +71,22 @@ const BookSessionPage = () => {
             setAvailableTimes([]); 
           } else {
             // Only map if response is an array
-            setAvailableTimes(response
-                .filter(slot => slot.isAvailable)
-                .map(slot => slot.startTime)
-                .sort((a, b) => new Date(`1970-01-01T${a}:00Z`) - new Date(`1970-01-01T${b}:00Z`))
-            );          
+         setAvailableTimes(response
+              .filter(slot => {
+                  if (!slot.isAvailable) return false;
+                  
+                  // If it's today, filter out past times
+                  if (isToday) {
+                      const [hours, minutes] = slot.startTime.split(':').map(Number);
+                      const slotTimeInMinutes = hours * 60 + minutes;
+                      return slotTimeInMinutes > currentTime;
+                  }
+                  
+                  return true;
+              })
+              .map(slot => slot.startTime)
+              .sort((a, b) => new Date(`1970-01-01T${a}:00Z`) - new Date(`1970-01-01T${b}:00Z`))
+          );     
           }
         } catch (error) {
           console.error("Error fetching availability:", error);
