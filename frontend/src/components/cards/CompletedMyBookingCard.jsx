@@ -94,7 +94,7 @@ const CompletedMyBookingCard = ({ booking = {}, show = false, className, onValue
   }
 
   return (
-    <div className={`bg-white rounded-xl  mx-auto md:max-w-[450px] text-left p-2 mb-1 flex flex-col justify-between  w-full ${className}`}>
+    <div className={`bg-white rounded-xl  mx-auto md:max-w-[350px] text-left p-2 m-5 flex flex-col justify-between  w-full ${className}`}>
       <div className="flex flex-col gap-4">
         <div className="flex flex-row gap-4 mb-0">
           <div className="col-span-3 rounded-lg">
