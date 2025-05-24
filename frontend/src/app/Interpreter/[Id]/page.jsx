@@ -24,13 +24,14 @@ import {
   Star1,
   Home,
   Calendar,
+  Call,
 } from 'iconsax-react';
 
 
 
 const displayImage = "https://st3.depositphotos.com/12601206/35163/v/450/depositphotos_351635392-stock-illustration-muslim-man-arabic-smile-whit.jpg";
 
-function Raqis() {
+function Interpreters() {
   const [data, setData] = useState(null);
   const params = useParams();
   const Id = params.Id;
@@ -65,7 +66,7 @@ function Raqis() {
         // const raqiAvailability = await getRakiAvailability(Id, new Date().toISOString().split("T")[0]);
         // setAvailability(raqiAvailability);
         const rakiReviews = await getReviews(Id);
-        if (MuabbirReviews.message === "No reviews found for this muabbir") {
+        if (rakiReviews.message === "No reviews found for this Interpreter") {
         } else {
           setReview(rakiReviews);
         }
@@ -174,10 +175,10 @@ function Raqis() {
     const token = localStorage.getItem("fe-token");
     if (!token) {
       setShowLoginPopup(true);
-      saveRedirectPath(`/Muabbir/${data._id}`);
-      return; 
+      saveRedirectPath(`/Interpreter/${data._id}`);
+      return;
     }
-    router.push(`/Muabbir/${data._id}/book`);
+    router.push(`/Interpreter/${data._id}/book`);
   };
 
   const handleShowMore = () => {
@@ -189,7 +190,7 @@ function Raqis() {
 return (
   <div className="md:mx-[6%] px-3 py-5 md:pl-1 md:pr-3 min-h-screen bg-white relative">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mb-20">
-      
+
       {/* Main content */}
       <div className="relative ">
         {/* Minimalist breadcrumb */}
@@ -199,15 +200,15 @@ return (
             <span>Home</span>
           </Link>
           <span className=" mx-2">/</span>
-          <span className="transition-colors">Muabbir</span>
+          <span className="transition-colors">Interpreter</span>
           <span className="mx-2">/</span>
           <span className=" font-semibold">{data.name}</span>
         </nav>
-        
+
         {/* Modern card layout with shadow offset */}
         <div className="bg-white rounded-none lg:rounded-2xl shadow-2xl relative z-10 overflow-hidden">
           <div className="absolute h-2 top-0 left-0 right-0 bg-RuqyaGreen"></div>
-          
+
           {/* Main profile grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 lg:p-8">
               {/* Left column - profile image with unique shape */}
@@ -232,7 +233,7 @@ return (
                   )}
 
                   {/* Profile image */}
-                  <div className=" rounded-xl h-full w-full overflow-hidden"> 
+                  <div className=" rounded-xl h-full w-full overflow-hidden">
                     <img
                       id="raqi-profile"
                       src={data.image || displayImage}
@@ -243,22 +244,22 @@ return (
                 </div>
 
                 {/* Desktop action buttons */}
-                <div className="hidden md:block mt-2 animate-fade-in px-4 lg:px-0" style={{ animationDelay: "0.3s" }}>
-                  {token && (
-                    <button
-                      onClick={() => handleStartChat(data._id)}
-                      className="flex items-center justify-center gap-2 w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80 text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
-                    >
-                      <Message
-                        size={20}
-                        className="text-white  group-hover:scale-110 transition-transform"
-                        color="currentColor"
-                        variant="Outline"
-                      />
-                      <span className="font-medium">Chat with Muabbir</span>
-                    </button>
-                  )}
-                </div>
+                {/*<div className="hidden md:block mt-2 animate-fade-in px-4 lg:px-0" style={{ animationDelay: "0.3s" }}>*/}
+                {/*  {token && (*/}
+                {/*    <button*/}
+                {/*      onClick={() => handleStartChat(data._id)}*/}
+                {/*      className="flex items-center justify-center gap-2 w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80 text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"*/}
+                {/*    >*/}
+                {/*      <Message*/}
+                {/*        size={20}*/}
+                {/*        className="text-white  group-hover:scale-110 transition-transform"*/}
+                {/*        color="currentColor"*/}
+                {/*        variant="Outline"*/}
+                {/*      />*/}
+                {/*      <span className="font-medium">Chat with Interpreter</span>*/}
+                {/*    </button>*/}
+                {/*  )}*/}
+                {/*</div>*/}
               </div>
 
               {/* Middle column - profile details with bold typography */}
@@ -352,25 +353,50 @@ return (
                 )}
               </div>
 
-              {/* Right column - booking widget with bold design */}
-              <div className="lg:col-span-4 animate-fade-in p-4 lg:p-0" style={{ animationDelay: "0.5s" }}>
-                <div className="bg-RuqyaGreen/10   text-RuqyaGreen overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaLightGreen/30 rounded-bl-full"></div>
-                  <div className="p-6 relative">
-                    <h3 className="text-xl text-RuqyaGreen font-bold mb-4 flex items-center gap-2">
-                      <Calendar size={20} color="currentColor" variant="Outline" />
-                      Ready for a Session?
-                    </h3>
-                    <p className="text-RuqyaGreen mb-6">Book your appointment with {data.name} now.</p>
-                    <Button
-                      onClick={handleBookNow}
-                      bg={true}
-                      text="Book Now"
-                      className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen  font-bold py-3 transition-all duration-300 text-center flex items-center justify-center"
-                    />
-                  </div>
-                </div>
-              </div>
+{/* Right column - booking widget with bold design */}
+<div className="lg:col-span-4 animate-fade-in p-4 lg:p-0" style={{ animationDelay: "0.5s" }}>
+  <div className="bg-RuqyaGreen/10 text-RuqyaGreen overflow-hidden relative">
+    <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaLightGreen/30 rounded-bl-full"></div>
+    <div className="p-4 sm:p-6 relative">
+      <h3 className="text-lg sm:text-xl text-RuqyaGreen font-bold mb-4 flex items-center gap-2">
+        <Calendar size={20} color="currentColor" variant="Outline" />
+        Ready for a Session?
+      </h3>
+      <p className="text-RuqyaGreen mb-6 text-sm sm:text-base">
+        Book your appointment with {data.name} now.
+      </p>
+
+      {token && (
+        <button
+          onClick={() => handleStartChat(data._id)}
+          className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen mb-3 font-bold py-3 px-4 transition-all duration-300 text-center flex items-center justify-center gap-2"
+        >
+          <Message
+            size={18}
+            className="text-white flex-shrink-0"
+            color="currentColor"
+            variant="Outline"
+          />
+          <span className="font-semibold text-white text-sm sm:text-base text-left">
+            Book a Chat Session
+          </span>
+        </button>
+      )}
+
+      <Button
+        onClick={handleBookNow}
+        bg={true}
+        text={
+          <span className="flex items-center justify-center gap-2 w-full">
+            <Call size="18" color="#fff" className="flex-shrink-0" />
+            <span className="text-sm sm:text-base  text-left">Book a Call Session</span>
+          </span>
+        }
+        className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen font-bold py-3 px-4 transition-all duration-300"
+      />
+    </div>
+  </div>
+</div>
             </div>
         </div>
       </div>
@@ -387,14 +413,14 @@ return (
             <div className="w-12 h-2 bg-RuqyaLightGreen"></div>
             <h3 className="text-2xl font-bold text-RuqyaGray">About {data.name}</h3>
           </div>
-          
+
           <div className="bg-white border-l-4 border-RuqyaGreen shadow-lg">
             <div className="p-6">
               <p className="text-gray-700 leading-relaxed">
                 {showFullAbout ? data.description : `${data.description.substring(0, maxAboutLength)}...`}
                 {data.description.length > maxAboutLength && (
-                  <button 
-                    onClick={() => setShowFullAbout(!showFullAbout)} 
+                  <button
+                    onClick={() => setShowFullAbout(!showFullAbout)}
                     className="ml-2 text-RuqyaGreen hover:text-RuqyaLightGreen font-bold transition-colors"
                   >
                     {showFullAbout ? "See Less" : "See More"}
@@ -412,13 +438,13 @@ return (
           <div className="w-12 h-2 bg-RuqyaLightGreen"></div>
           <h3 className="text-2xl font-bold text-RuqyaGray">Client Feedback</h3>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {review && review.averageRating !== undefined && (
             <div className="bg-white shadow-lg relative overflow-hidden group">
               {/* <div className="absolute top-0 left-0 w-full h-1 bg-RuqyaGreen"></div> */}
               <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[40px] border-r-[40px] border-b-RuqyaLightPurple/20 border-r-transparent group-hover:border-b-RuqyaLightPurple/40 transition-colors"></div>
-              
+
               <div className="border-b border-gray-200 p-4">
                 <h2 className="text-gray-500 text-sm font-bold uppercase tracking-wider">Average Rating</h2>
               </div>
@@ -431,12 +457,12 @@ return (
               </div>
             </div>
           )}
-          
+
           {review && review.totalReviews !== undefined && (
             <div className="bg-white shadow-lg relative overflow-hidden group">
               {/* <div className="absolute top-0 left-0 w-full h-1 bg-RuqyaLightGreen"></div> */}
               <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[40px] border-r-[40px] border-b-RuqyaLightPurple/20 border-r-transparent group-hover:border-b-RuqyaLightPurple/40 transition-colors"></div>
-              
+
               <div className="border-b border-gray-200 p-4">
                 <h2 className="text-gray-500 text-sm font-bold uppercase tracking-wider">Total Reviews</h2>
               </div>
@@ -447,8 +473,8 @@ return (
                     review.totalReviews > 0 ? "bg-green-100 text-green-600" : "bg-red-100 text-red-500"
                   }`}>
                     {review.totalReviews}%
-                    {review.totalReviews > 0 ? 
-                      <TrendUp className="ml-1" color="currentColor" variant="Outline"/> : 
+                    {review.totalReviews > 0 ?
+                      <TrendUp className="ml-1" color="currentColor" variant="Outline"/> :
                       <TrendDown className="ml-1" color="currentColor" variant="Outline" />
                     }
                   </span>
@@ -457,26 +483,26 @@ return (
               </div>
             </div>
           )}
-          
+
           {review && review.totalReviews !== undefined && (
             <div className="hidden md:block bg-white shadow-lg relative overflow-hidden group">
               {/* <div className="absolute top-0 left-0 w-full h-1 bg-RuqyaGreen"></div> */}
               <div className="absolute bottom-0 right-0 w-0 h-0 border-b-[40px] border-r-[40px] border-b-RuqyaLightPurple/20 border-r-transparent group-hover:border-b-RuqyaLightPurple/40 transition-colors"></div>
-              
+
               <div className="border-b border-gray-200 p-4">
                 <h2 className="text-gray-500 text-sm font-bold uppercase tracking-wider">Rating Distribution</h2>
               </div>
               <div className="p-5 flex">
-                <div className="flex flex-col gap-2 mr-4">
+                <div className="flex flex-col gap-1 mr-4 mt-2">
                   {[5, 4, 3, 2, 1].map((star) => (
-                    <span key={star} className="flex items-center text-sm text-gray-500">
+                    <span key={star} className="flex items-center text-sm text-gray-500 mt-1 mb-0">
 <FaStar className="text-yellow-400 mr-2" />{star}
                     </span>
                   ))}
                 </div>
                 <BarChart 
                   width={180} 
-                  height={100} 
+                  height={150}
                   data={chartData} 
                   layout="vertical" 
                   className="ml-2"
@@ -485,18 +511,18 @@ return (
                   <XAxis type="number" hide domain={[0, 'auto']} />
                   <YAxis type="category" dataKey="name" hide />
                   <CartesianGrid horizontal={false} vertical={false} />
-                  <Bar 
-                    dataKey="value" 
-                    radius={[0, 0, 0, 0]} 
+                  <Bar
+                    dataKey="value"
+                    radius={[0, 0, 0, 0]}
                     barSize={8}
                     fill="#2DB573"
                   >
-                    <LabelList 
-                      dataKey="real" 
+                    <LabelList
+                      dataKey="real"
                       position="right"
                       offset={5}
                       formatter={(value) => `${value}`}
-                      style={{ fill: "#111", fontSize: '14px', fontWeight: 'bold' }}
+                      style={{ fill: "#111", fontSize: '14px', fontWeight: 'bold', }}
                     />
                   </Bar>
                 </BarChart>
@@ -512,10 +538,10 @@ return (
           <div className="w-12 h-2 bg-RuqyaLightGreen"></div>
           <h3 className="text-2xl font-bold text-RuqyaGray">Client Reviews</h3>
         </div>
-        
+
         <div className="bg-white shadow-lg relative">
           {/* <div className="absolute top-0 left-0 w-full h-1 bg-RuqyaGreen"></div> */}
-          
+
           {review && review.reviews.length > 0 ? (
             <div className="p-6">
               <div className="space-y-8">
@@ -523,11 +549,11 @@ return (
                   <ReviewCard key={index} review={review} colorIndex={index} />
                 ))}
               </div>
-              
+
               {visibleReviews < review.reviews.length && (
                 <div className="flex justify-center mt-8 pt-6 border-t border-gray-200">
-                  <button 
-                    onClick={handleShowMore} 
+                  <button
+                    onClick={handleShowMore}
                     className="px-8 py-3 bg-RuqyaGray hover:bg-black text-white rounded-none font-medium transition-all duration-300 flex items-center gap-2"
                   >
                     Show More Reviews
@@ -551,28 +577,28 @@ return (
           )}
         </div>
       </div>
-      
+
       {/* Similar Raqis */}
       <div className="animate-fade-in mb-16" style={{ animationDelay: '1.0s' }}>
         <div className="flex items-center gap-3 mb-5">
           <div className="w-12 h-2 bg-RuqyaLightGreen"></div>
-          <h3 className="text-2xl font-bold text-RuqyaGray">Similar Muabbirs</h3>
+          <h3 className="text-2xl font-bold text-RuqyaGray">Similar Interpreters</h3>
         </div>
-        
-        <Forth 
-          raqiData={raqiData} 
-          title="" 
+
+        <Forth
+          raqiData={raqiData}
+          title=""
           className="mb-12"
         />
       </div>
-      
+
       {/* Chat widget with bold styling */}
       <div className="fixed bottom-0 right-0 z-50 animate-fade-in" style={{ animationDelay: '1.1s' }}>
         <ChatWidgetWrapper />
       </div>
-      
+
       {/* Login popup */}
-      <PleaseLogin 
+      <PleaseLogin
         isOpen={showLoginPopup}
         onClose={() => setShowLoginPopup(false)}
         onLogin={handleLogin}
@@ -583,4 +609,4 @@ return (
 );
 }
 
-export default Raqis;
+export default Interpreters;

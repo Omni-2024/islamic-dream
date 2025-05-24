@@ -57,7 +57,7 @@ function Forth(props) {
               <>
                 Meet Our{" "}
                 <span className="text-RuqyaLightGreen relative">
-                  Muabbirs
+                  Interpreters
                 </span>
               </>
             )}
@@ -68,7 +68,7 @@ function Forth(props) {
               className={`mt-4 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
               <Link
-                href="/BookMuabbirs"
+                href="/BookInterpreters"
                 className="inline-flex items-center text-RuqyaLightGreen hover:text-RuqyaDarkGreen transition-all duration-200 hover:scale-105 group"
               >
                 See all
@@ -126,7 +126,7 @@ function Forth(props) {
                 />
               </svg>
             </div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No Muabbirs available</h3>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">No Interpreters available</h3>
             <p className="text-gray-500 mb-4">Check back soon for our expert dream interpreters</p>
           </div>
         )}

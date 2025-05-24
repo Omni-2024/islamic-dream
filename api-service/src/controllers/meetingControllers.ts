@@ -10,7 +10,7 @@ import Meeting, { MeetingStatus } from "../models/meeting";
 import { client } from "../config/streamConfig";
 import User from "../models/user";
 
-const MEETING_COST = Number(process.env.SESSION_COST) || 50;
+const MEETING_COST = Number(process.env.SESSION_COST) || 8;
 
 interface MeetingRequest {
   meetingId: string;
@@ -57,7 +57,10 @@ export const getAllMeetings = async (
     const { timeZone = "UTC" } = req.query;
     const validatedTimeZone = validateAndConvertTimezone(timeZone.toString());
 
-    const meetings = await Meeting.find({ status: { $ne: MeetingStatus.PENDING } });
+    const meetings = await Meeting.find({
+      status: { $ne: MeetingStatus.PENDING },
+      isChat: false
+    });
     if (!meetings.length)
       return res.status(404).json({ message: "No meetings found" });
 
@@ -87,13 +90,15 @@ export const getTodayAndFutureMeetings = async (
           $gte: nowUTC.toISOString(),
           $lte: endOfTodayUTC.toISOString()
         },
-        status: { $in: [MeetingStatus.SCHEDULED, MeetingStatus.RESCHEDULED] }
+        status: { $in: [MeetingStatus.SCHEDULED, MeetingStatus.RESCHEDULED] },
+        isChat:false
       });
     } else {
       meetings = await Meeting.find({
         date: { $gte: nowUTC.toISOString(), $lte: endOfTodayUTC.toString() },
         rakiId: user?.id,
-        status: { $in: [MeetingStatus.SCHEDULED, MeetingStatus.RESCHEDULED] }
+        status: { $in: [MeetingStatus.SCHEDULED, MeetingStatus.RESCHEDULED] },
+        isChat:false
       });
     }
 
@@ -224,7 +229,11 @@ export const getMeetingsByUserId = async (
     const { timeZone = "UTC" } = req.query;
     const validatedTimeZone = validateAndConvertTimezone(timeZone.toString());
 
-    const meetings = await Meeting.find({ userId,status: { $in: [MeetingStatus.SCHEDULED, MeetingStatus.RESCHEDULED] }
+    const meetings = await Meeting.find(
+        {
+          userId,
+          status: { $in: [MeetingStatus.SCHEDULED, MeetingStatus.RESCHEDULED]},
+          isChat:false
     });
     res.status(200).json(convertMeetingDates(meetings, validatedTimeZone));
   } catch (error) {
@@ -601,7 +610,8 @@ export const getMeetingsByRakiId = async (
 
     const meetings = await Meeting.find({
       rakiId,
-      status: { $in: [MeetingStatus.SCHEDULED, MeetingStatus.RESCHEDULED] }
+      status: { $in: [MeetingStatus.SCHEDULED, MeetingStatus.RESCHEDULED] },
+      isChat:false
     });
 
     if (!meetings || meetings.length === 0) {

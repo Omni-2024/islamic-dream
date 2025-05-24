@@ -20,7 +20,8 @@ export interface IMeeting extends Document {
     status:string,
     isPaid:boolean,
     requestedAt:Date,
-    note:string
+    note:string,
+    isChat:boolean
 }
 
 const meetingSchema: Schema<IMeeting> = new Schema({
@@ -33,7 +34,8 @@ const meetingSchema: Schema<IMeeting> = new Schema({
     status:{type:String,default:MeetingStatus.SCHEDULED},
     isPaid:{type:Boolean, default: false},
     requestedAt:{type:Date},
-    note:{type:String}
+    note:{type:String},
+    isChat:{type:Boolean,default:false}
 });
 
 

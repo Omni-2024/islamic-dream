@@ -125,34 +125,43 @@ const Header = () => {
   }, []);
 
   // Modify the scroll effect to handle navbar visibility
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    
+    // Set scrolled state for styling
+    if (window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+    
+    // Different behavior for mobile vs desktop
+    if (isMobile) {
+      // Mobile: Only show at top, hide completely when scrolled
+      setVisible(currentScrollPos < 10);
+    } else {
+      // Desktop: Hide when scrolling down, show when scrolling up
+      const isScrollingDown = currentScrollPos > prevScrollPos;
+      const isAtTop = currentScrollPos < 10;
       
-      // Set scrolled state for styling
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-      
-      // Handle visibility on mobile
-      if (isMobile) {
-        // Visible when scrolling up or at the top
-        setVisible((prevScrollPos > currentScrollPos) || currentScrollPos < 10);
-      } else {
-        // Always visible on desktop
+      if (isAtTop) {
+        setVisible(true);
+      } else if (isScrollingDown && currentScrollPos > 100) {
+        setVisible(false);
+      } else if (!isScrollingDown) {
         setVisible(true);
       }
-      
-      setPrevScrollPos(currentScrollPos);
-    };
+    }
+    
+    setPrevScrollPos(currentScrollPos);
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollPos, isMobile]);
+  window.addEventListener("scroll", handleScroll);
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, [prevScrollPos, isMobile]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -169,9 +178,9 @@ const Header = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("fe-token");
-    const raqiRegex = /^\/Raqi\/[a-f0-9]{24}$/;
+    const InterpreterRegex = /^\/Interpreter\/[a-f0-9]{24}$/;
     if (!token) {
-      if (pathname !== "/" && pathname !== "/BookMuabbirs" && pathname !== "/SelfRuqyah" && pathname !== "/AboutUs" && pathname !== "/signup" && pathname !== "/login" && !raqiRegex.test(pathname)) {
+      if (pathname !== "/" && pathname !== "/BookInterpreters" && pathname !== "/SelfRuqyah" && pathname !== "/AboutUs" && pathname !== "/signup" && pathname !== "/login" && !InterpreterRegex.test(pathname)) {
         router.push("/login");
       }
     } else {
@@ -204,12 +213,12 @@ const Header = () => {
         <ErrorMessage message={error.message} type={error.type} />
       </div>
     )}
-    <header className={`w-full ${isMobile ? 'absolute' : 'fixed'} top-0 left-0 right-0 z-40`}>
-      <nav className={`${isCurrent()} transition-all duration-300 w-full ${
-        scrolled 
-          ? "py-2 bg-RuqyaGreen/95 backdrop-blur-md shadow-lg" 
-          : "py-6 bg-RuqyaGreen"
-      }`}>
+<header className={`w-full ${isMobile ? (visible ? 'fixed' : 'hidden') : 'fixed'} top-0 left-0 right-0 z-40`}>
+        <nav className={`${isCurrent()} transition-all duration-300 w-full ${
+    scrolled && !isMobile
+      ? "py-2 bg-RuqyaGreen/95 backdrop-blur-md shadow-lg" 
+      : "py-6 bg-RuqyaGreen"
+  }`}>
           <div className=" mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center md:mx-[6%] md:pl-1 md:pr-3 ">
             <div className="flex items-center z-50">
               <Link href="/" className="text-gray-700 w-40 hover:text-gray-900">
@@ -224,8 +233,8 @@ const Header = () => {
                 <NavLink href="/" active={isActive("/")}>
                   Home
                 </NavLink>
-                <NavLink href="/BookMuabbirs" active={isActive("/BookMuabbirs")}>
-                  Book Muabbirs
+                <NavLink href="/BookInterpreters" active={isActive("/BookInterpreters")}>
+                  Book Interpreters
                 </NavLink>
                 {/* <NavLink href="/SelfRuqyah" active={isActive("/SelfRuqyah")}>
                   Self-Ruqyah
@@ -358,11 +367,11 @@ const Header = () => {
               </MobileNavLink>
               
               <MobileNavLink 
-                href="/BookMuabbirs"
-                active={isActive("/BookMuabbirs")}
+                href="/BookInterpreters"
+                active={isActive("/BookInterpreters")}
                 onClick={handleLinkClick}
               >
-                Book Muabbirs
+                Book Interpreters
               </MobileNavLink>
               
               {/*<MobileNavLink */}
@@ -457,7 +466,7 @@ const Header = () => {
         </nav>
       </header>
 
-    <div className={`h-20 ${scrolled ? 'h-16' : 'h-24'} transition-all duration-300`} />
+    <div className={`${isMobile ? (visible ? 'h-20' : 'h-0') : (scrolled ? 'h-16' : 'h-24')} transition-all duration-300`} />
   </>
 
   );

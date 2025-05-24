@@ -11,10 +11,11 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true)
     const router = useRouter()
     const pathname = usePathname()
-    const raqiRegex = /^\/Raqi\/[a-f0-9]{24}$/;
+    const interpreterRegex = /^\/Interpreter\/[a-f0-9]{24}$/;
     
     useEffect(() => {
         const initializeAuth = async () => {
+            console.log("Ommala",pathname,interpreterRegex.test(pathname))
             try {
                 const userData = await getOwnProfile()
                 if (userData) {
@@ -22,7 +23,7 @@ export const AuthProvider = ({ children }) => {
                 } else {
                     // Clear any potential data in localStorage when no user data
                     localStorage.clear()
-                    if (pathname !== "/" && pathname !== "/BookRaqis" && pathname !== "/SelfRuqyah" && pathname !== "/signup" && pathname !== "/AboutUs" && pathname !== "/login" && !raqiRegex.test(pathname)) {
+                    if (pathname !== "/" && pathname !== "/BookInterpreters" && pathname !== "/SelfRuqyah" && pathname !== "/signup" && pathname !== "/AboutUs" && pathname !== "/login" && !interpreterRegex.test(pathname)) {
                         router.push("/login");
                       }
                 }
@@ -30,7 +31,7 @@ export const AuthProvider = ({ children }) => {
                 console.error('Failed to fetch user profile:', error)
                 // Clear localStorage on error too
                 localStorage.clear()
-                if (pathname !== "/" && pathname !== "/BookRaqis" && pathname !== "/SelfRuqyah" && pathname !== "/signup" && pathname !== "/AboutUs" && pathname !== "/login" && !raqiRegex.test(pathname)) {
+                if (pathname !== "/" && pathname !== "/BookInterpreters" && pathname !== "/SelfRuqyah" && pathname !== "/signup" && pathname !== "/AboutUs" && pathname !== "/login" && !interpreterRegex.test(pathname)) {
                     router.push("/login");
                   }
             } finally {
@@ -46,7 +47,7 @@ export const AuthProvider = ({ children }) => {
             const userData = await getOwnProfile()
             if (userData) {
                 setUser(userData)
-                router.push('/admin')
+                router.push('/')
             } else {
                 localStorage.clear()
                 throw new Error('No user data returned after login')

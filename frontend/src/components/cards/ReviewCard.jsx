@@ -81,7 +81,7 @@ const ReviewCard = ({ review, colorIndex }) => {
   return (
     <div className="p-4 rounded-lg shadow-md mb-4 font-normal" style={{ backgroundColor }}>
       <div className="flex items-center mb-2">
-        <div className="flex items-center justify-center w-10 h-10 rounded-full text-white font-bold mr-3" style={{ backgroundColor: circleColor }}>
+        <div className="flex items-center justify-center w-10 h-10 min-w-[2.5rem] min-h-[2.5rem] rounded-full text-white font-bold mr-3 text-sm" style={{ backgroundColor: circleColor }}>
           {getInitials(user.name)}
         </div>
         <div>

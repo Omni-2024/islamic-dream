@@ -5,7 +5,7 @@ import { useState } from "react";
 import { FaStar, FaGlobe, FaRegCalendarAlt, FaTwitter, FaInstagram, FaFacebookF, FaDribbble } from "react-icons/fa";
 import ReactCountryFlag from "react-country-flag";
 import { languages, countries } from "@/lib/constance";
-import { Calendar, Global } from "iconsax-react";
+import { Calendar, Global, Calendar1 } from "iconsax-react";
 
 
 export default function RaqisCard({ raqi }) {
@@ -127,11 +127,11 @@ export default function RaqisCard({ raqi }) {
 
             {/* Book Now button with calendar icon */}
             <Link 
-              href={id ? `/Muabbir/${id}` : "#"}
+              href={id ? `/Interpreter/${id}` : "#"}
               className="block w-full py-3 rounded-xl text-center font-semibold text-white bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen shadow-md transition-all duration-300 mt-4"
             >
               <span className="flex items-center justify-center gap-2">
-                <Calendar size={20} color="currentColor" variant="Outline" />
+                <Calendar1 size={20} color="currentColor" variant="Outline" />
                 Book Now
               </span>
             </Link>
