@@ -105,12 +105,12 @@ function Second() {
           {/* Content cards in grid layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-16">
             {/* Main content card */}
-            <div className={`md:col-span-2 bg-white p-8 rounded-2xl shadow-lg relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`md:col-span-2 bg-white p-8 rounded-2xl shadow-lg relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} pt-0 md:pt-8`}>
               {/* <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-RuqyaGreen/10 flex items-center justify-center">
                 <Image src={flower} alt="flower icon" width={24} height={24} />
               </div> */}
-            <div className="flex flex-col space-y-6">
-              <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
+            <div className="flex flex-col space-y-6 ">
+              <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed ">
                 We offer comprehensive self-guided resources to support your spiritual journey toward peace and well-being.
               </p>
 
@@ -173,27 +173,27 @@ function Second() {
                 </div>
                 <p className="text-RuqyaGray text-lg">per booking session</p>
                 <div className="mt-8 pt-6 border-t border-gray-200">
-      <ul className="space-y-4">
-        <li className="flex items-center">
-          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-            <Profile size="20" color="#2563eb" variant="Bold" />
-          </div>
-          <span className="text-gray-700">Personalized sessions</span>
-        </li>
-        <li className="flex items-center">
-          <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center mr-3">
-            <Medal size="20" color="#d97706" variant="Bold" />
-          </div>
-          <span className="text-gray-700">Certified Muabbir</span>
-        </li>
-        <li className="flex items-center">
-          <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
-            <Call size="20" color="#059669" variant="Bold" />
-          </div>
-          <span className="text-gray-700">Follow-up support</span>
-        </li>
-      </ul>
-    </div>
+                  <ul className="space-y-4">
+                    <li className="flex items-center">
+                      <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                        <Profile size="20" color="#2563eb" variant="Bold" />
+                      </div>
+                      <span className="text-gray-700">Personalized sessions</span>
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center mr-3">
+                        <Medal size="20" color="#d97706" variant="Bold" />
+                      </div>
+                      <span className="text-gray-700">Certified Muabbir</span>
+                    </li>
+                    <li className="flex items-center">
+                      <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                        <Call size="20" color="#059669" variant="Bold" />
+                      </div>
+                      <span className="text-gray-700">Follow-up support</span>
+                    </li>
+                  </ul>
+                </div>
                 
                 <Link 
                   href="/BookMuabbirs"
