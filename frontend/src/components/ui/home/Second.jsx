@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import flower from "@/assets/svg/green-flower.svg";
 import Link from "next/link";
-import { Book1, VideoPlay, MessageText1, Calendar1, Crown1 } from "iconsax-react"
+import { Book1, VideoPlay, MessageText1, Calendar1, Crown1,  Profile, Medal, Call } from "iconsax-react"
 
 function Second() {
   const [isVisible, setIsVisible] = useState(false);
@@ -168,39 +168,32 @@ function Second() {
               <div className="text-center">
                 <h4 className="text-RuqyaGray text-lg font-medium mb-5">Starting from</h4>
                 <div className="relative inline-block">
-                  <h3 className="text-RuqyaLightGreen text-5xl font-bold mb-1">£7.50</h3>
+                  <h3 className="text-RuqyaLightGreen text-5xl font-bold mb-1">£8.00</h3>
                   {/* <span className="absolute -top-2 -right-6 text-sm font-medium text-RuqyaLightGreen/70">.50</span> */}
                 </div>
                 <p className="text-RuqyaGray text-lg">per booking session</p>
-                
-                <div className="mt-8 pt-6 border-t border-RuqyaLightGreen/20">
-                  <ul className="space-y-4">
-                    <li className="flex items-center">
-                      <div className="w-6 h-6 rounded-full bg-RuqyaLightGreen/20 flex items-center justify-center mr-3">
-                        <svg className="w-4 h-4 text-RuqyaLightGreen" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <span className="text-gray-700">Personalized sessions</span>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-6 h-6 rounded-full bg-RuqyaLightGreen/20 flex items-center justify-center mr-3">
-                        <svg className="w-4 h-4 text-RuqyaLightGreen" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <span className="text-gray-700">Certified Muabbir</span>
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-6 h-6 rounded-full bg-RuqyaLightGreen/20 flex items-center justify-center mr-3">
-                        <svg className="w-4 h-4 text-RuqyaLightGreen" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <span className="text-gray-700">Follow-up support</span>
-                    </li>
-                  </ul>
-                </div>
+                <div className="mt-8 pt-6 border-t border-gray-200">
+      <ul className="space-y-4">
+        <li className="flex items-center">
+          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+            <Profile size="20" color="#2563eb" variant="Bold" />
+          </div>
+          <span className="text-gray-700">Personalized sessions</span>
+        </li>
+        <li className="flex items-center">
+          <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center mr-3">
+            <Medal size="20" color="#d97706" variant="Bold" />
+          </div>
+          <span className="text-gray-700">Certified Muabbir</span>
+        </li>
+        <li className="flex items-center">
+          <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+            <Call size="20" color="#059669" variant="Bold" />
+          </div>
+          <span className="text-gray-700">Follow-up support</span>
+        </li>
+      </ul>
+    </div>
                 
                 <Link 
                   href="/BookMuabbirs"
