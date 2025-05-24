@@ -93,7 +93,7 @@ export default function BookRaqis() {
   const handleRemoveSearchQuery = () => {
     const params = new URLSearchParams(window.location.search);
     params.delete("searchQuery");
-    router.push(`/BookRaqis?${params.toString()}`);
+    router.push(`/BookMuabbirs?${params.toString()}`);
   };
 
   const handleRemoveLanguage = () => {
@@ -103,7 +103,7 @@ export default function BookRaqis() {
       ...prev,
       languages: [],
     }));
-    router.push(`/BookRaqis?${params.toString()}`);
+    router.push(`/BookMuabbirs?${params.toString()}`);
   };
 
   const availableLanguages = [
