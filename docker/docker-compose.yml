@@ -1,26 +1,19 @@
 services:
   islamic-dreams-frontend:
     image: islamic-dreams:1.0.0
-    container_name: frontend
     build:
       context: ../frontend
-    expose:
-      - "3001"
+    ports:
+      - "3001:3001"
     depends_on:
       - islamic-dreams-api
     env_file:
       - ../frontend/.env.production
     networks:
       - app-network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3001"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 
   islamic-dreams-admin:
     image: islamic-dreams-admin:1.0.0
-    container_name: admin
     build:
       context: ../admin-panel
     ports:
@@ -34,7 +27,6 @@ services:
 
   islamic-dreams-api:
     image: islamic-dreams-api:1.0.0
-    container_name: api
     build:
       context: ../api-service
     ports:
@@ -56,7 +48,6 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: nginx
     ports:
       - "80:80"
       - "443:443"
@@ -67,6 +58,8 @@ services:
       - islamic-dreams-frontend
       - islamic-dreams-admin
       - islamic-dreams-api
+    networks:
+      - app-network
 
 networks:
   app-network:
