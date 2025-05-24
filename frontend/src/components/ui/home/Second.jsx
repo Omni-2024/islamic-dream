@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import flower from "@/assets/svg/green-flower.svg";
 import Link from "next/link";
+import { Book1, VideoPlay, MessageText1, Calendar1, Crown1 } from "iconsax-react"
 
 function Second() {
   const [isVisible, setIsVisible] = useState(false);
@@ -108,51 +109,48 @@ function Second() {
               {/* <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-RuqyaGreen/10 flex items-center justify-center">
                 <Image src={flower} alt="flower icon" width={24} height={24} />
               </div> */}
-              
-              <div className="flex flex-col space-y-6">
-                {/* <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Our platform connects you with expert Raqis who provide authentic 
-                  spiritual healing sessions based on traditional practices.
-                </p> */}
-                
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  We offer comprehensive self-guided resources to support 
-                  your spiritual journey toward peace and well-being.
-                </p>
-                
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>Trusted Islamic Dream Interpretation</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>1-on-1 Online Consultation</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>Start a real-time chat with a trusted Muabbir</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>Book in Minutes – Get Clarity Today</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>Based on the Teachings of the Qur’an & Sunnah</span>
-                  </div>
+            <div className="flex flex-col space-y-6">
+              <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
+                We offer comprehensive self-guided resources to support your spiritual journey toward peace and well-being.
+              </p>
+
+            <div className="flex flex-col space-y-6 pt-4">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <Book1 size="24" color="#16a34a" />
                 </div>
+                <h3 className="text-base md:text-lg mb-2 text-left">Trusted Islamic Dream Interpretation</h3>
               </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <VideoPlay size="24" color="#16a34a" />
+                </div>
+                <h3 className="text-base md:text-lg text-left mb-2">1-on-1 Online Consultation</h3>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <MessageText1 size="24" color="#16a34a" />
+                </div>
+                <h3 className="text-base md:text-lg text-left mb-2">Real-time Chat with Trusted Muabbir</h3>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <Calendar1 size="24" color="#16a34a" />
+                </div>
+                <h3 className="text-base md:text-lg text-left mb-2">Book in Minutes – Get Clarity Today</h3>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <Crown1 size="24" color="#16a34a" />
+                </div>
+                <h3 className="text-base md:text-lg text-left mb-2">Based on the Teachings of the Qur'an & Sunnah</h3>
+              </div>
+            </div>
+            </div>
               
               {/* <div className="absolute -bottom-4 -right-4 w-12 h-12 rounded-full bg-RuqyaGreen/10 flex items-center justify-center">
                 <Image src={flower} alt="flower icon" width={24} height={24} />
