@@ -62,8 +62,6 @@ services:
       - islamic-dreams-frontend
       - islamic-dreams-admin
       - islamic-dreams-api
-    networks:
-      - app-network
 
 networks:
   app-network:
