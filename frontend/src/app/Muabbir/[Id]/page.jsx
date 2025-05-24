@@ -65,7 +65,7 @@ function Raqis() {
         // const raqiAvailability = await getRakiAvailability(Id, new Date().toISOString().split("T")[0]);
         // setAvailability(raqiAvailability);
         const rakiReviews = await getReviews(Id);
-        if (MuabbirReviews.message === "No reviews found for this muabbir") {
+        if (rakiReviews.message === "No reviews found for this muabbir") {
         } else {
           setReview(rakiReviews);
         }
