@@ -24,6 +24,7 @@ import {
   Star1,
   Home,
   Calendar,
+  Call,
 } from 'iconsax-react';
 
 
@@ -242,23 +243,7 @@ return (
                   </div>
                 </div>
 
-                {/* Desktop action buttons */}
-                <div className="hidden md:block mt-2 animate-fade-in px-4 lg:px-0" style={{ animationDelay: "0.3s" }}>
-                  {token && (
-                    <button
-                      onClick={() => handleStartChat(data._id)}
-                      className="flex items-center justify-center gap-2 w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80 text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
-                    >
-                      <Message
-                        size={20}
-                        className="text-white  group-hover:scale-110 transition-transform"
-                        color="currentColor"
-                        variant="Outline"
-                      />
-                      <span className="font-medium">Chat with Muabbir</span>
-                    </button>
-                  )}
-                </div>
+
               </div>
 
               {/* Middle column - profile details with bold typography */}
@@ -352,25 +337,50 @@ return (
                 )}
               </div>
 
-              {/* Right column - booking widget with bold design */}
-              <div className="lg:col-span-4 animate-fade-in p-4 lg:p-0" style={{ animationDelay: "0.5s" }}>
-                <div className="bg-RuqyaGreen/10   text-RuqyaGreen overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaLightGreen/30 rounded-bl-full"></div>
-                  <div className="p-6 relative">
-                    <h3 className="text-xl text-RuqyaGreen font-bold mb-4 flex items-center gap-2">
-                      <Calendar size={20} color="currentColor" variant="Outline" />
-                      Ready for a Session?
-                    </h3>
-                    <p className="text-RuqyaGreen mb-6">Book your appointment with {data.name} now.</p>
-                    <Button
-                      onClick={handleBookNow}
-                      bg={true}
-                      text="Book Now"
-                      className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen  font-bold py-3 transition-all duration-300 text-center flex items-center justify-center"
-                    />
-                  </div>
-                </div>
-              </div>
+{/* Right column - booking widget with bold design */}
+<div className="lg:col-span-4 animate-fade-in p-4 lg:p-0" style={{ animationDelay: "0.5s" }}>
+  <div className="bg-RuqyaGreen/10 text-RuqyaGreen overflow-hidden relative">
+    <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaLightGreen/30 rounded-bl-full"></div>
+    <div className="p-4 sm:p-6 relative">
+      <h3 className="text-lg sm:text-xl text-RuqyaGreen font-bold mb-4 flex items-center gap-2">
+        <Calendar size={20} color="currentColor" variant="Outline" />
+        Ready for a Session?
+      </h3>
+      <p className="text-RuqyaGreen mb-6 text-sm sm:text-base">
+        Book your appointment with {data.name} now.
+      </p>
+      
+      {token && (
+        <button
+          onClick={() => handleStartChat(data._id)}
+          className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen mb-3 font-bold py-3 px-4 transition-all duration-300 text-center flex items-center justify-center gap-2"
+        >
+          <Message
+            size={18}
+            className="text-white flex-shrink-0"
+            color="currentColor"
+            variant="Outline"
+          />
+          <span className="font-semibold text-white text-sm sm:text-base text-left">
+            Book a Chat Session
+          </span>
+        </button>
+      )}
+
+      <Button
+        onClick={handleBookNow}
+        bg={true}
+        text={
+          <span className="flex items-center justify-center gap-2 w-full">
+            <Call size="18" color="#fff" className="flex-shrink-0" />
+            <span className="text-sm sm:text-base  text-left">Book a Call Session</span>
+          </span>
+        }
+        className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen font-bold py-3 px-4 transition-all duration-300"
+      />
+    </div>
+  </div>
+</div>
             </div>
         </div>
       </div>
