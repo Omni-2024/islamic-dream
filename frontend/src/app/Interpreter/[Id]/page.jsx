@@ -244,22 +244,22 @@ return (
                 </div>
 
                 {/* Desktop action buttons */}
-                <div className="hidden md:block mt-2 animate-fade-in px-4 lg:px-0" style={{ animationDelay: "0.3s" }}>
-                  {token && (
-                    <button
-                      onClick={() => handleStartChat(data._id)}
-                      className="flex items-center justify-center gap-2 w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80 text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"
-                    >
-                      <Message
-                        size={20}
-                        className="text-white  group-hover:scale-110 transition-transform"
-                        color="currentColor"
-                        variant="Outline"
-                      />
-                      <span className="font-medium">Chat with Interpreter</span>
-                    </button>
-                  )}
-                </div>
+                {/*<div className="hidden md:block mt-2 animate-fade-in px-4 lg:px-0" style={{ animationDelay: "0.3s" }}>*/}
+                {/*  {token && (*/}
+                {/*    <button*/}
+                {/*      onClick={() => handleStartChat(data._id)}*/}
+                {/*      className="flex items-center justify-center gap-2 w-full bg-RuqyaGreen hover:bg-RuqyaGreen/80 text-white rounded-none py-3 px-4 mb-3 transition-all duration-300 group"*/}
+                {/*    >*/}
+                {/*      <Message*/}
+                {/*        size={20}*/}
+                {/*        className="text-white  group-hover:scale-110 transition-transform"*/}
+                {/*        color="currentColor"*/}
+                {/*        variant="Outline"*/}
+                {/*      />*/}
+                {/*      <span className="font-medium">Chat with Interpreter</span>*/}
+                {/*    </button>*/}
+                {/*  )}*/}
+                {/*</div>*/}
               </div>
 
               {/* Middle column - profile details with bold typography */}
