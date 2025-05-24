@@ -27,7 +27,7 @@ COPY --from=builder /app/package.json /app/package-lock.json /app/
 RUN npm install  --legacy-peer-deps
 
 # Expose the default Next.js port
-EXPOSE 3002
+EXPOSE 3000
 
 # Start the app
 CMD ["npm", "start"]
