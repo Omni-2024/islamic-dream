@@ -125,7 +125,13 @@ jobs:
           cd /actions-runner/_work/islamic-dream/islamic-dream/docker/
           sudo docker-compose down
           sudo docker-compose up --build -d
-          sudo docker-compose ps 
+          sudo docker-compose ps
+          
+      - name: Setup Nginx
+        run: |
+          sudo ln -s /actions-runner/_work/islamic-dream/islamic-dream/docker/nginx/islamicdreams.online.conf /etc/nginx/sites-available/islamicdreams.online
+          sudo ln -s /etc/nginx/sites-available/islamicdreams.online /etc/nginx/sites-enabled/
+          sudo nginx -t && sudo systemctl reload nginx
 
       # - name: Debugging - Get Logs if Failure
       #   if: failure()
