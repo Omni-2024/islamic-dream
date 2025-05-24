@@ -4,14 +4,19 @@ services:
     container_name: frontend
     build:
       context: ../frontend
-    ports:
-      - "3001:3001"
+    expose:
+      - "3001"
     depends_on:
       - islamic-dreams-api
     env_file:
       - ../frontend/.env.production
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   islamic-dreams-admin:
     image: islamic-dreams-admin:1.0.0
