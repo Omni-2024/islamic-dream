@@ -105,7 +105,7 @@ function Second() {
           {/* Content cards in grid layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-16">
             {/* Main content card */}
-          <div className={`md:col-span-2 bg-white p-8 rounded-2xl shadow-lg relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} pt-0 md:pt-8`}>
+          <div className={`md:col-span-2 bg-white p-8 rounded-2xl shadow-lg relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} pt-5 md:pt-8`}>
               {/* <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-RuqyaGreen/10 flex items-center justify-center">
                 <Image src={flower} alt="flower icon" width={24} height={24} />
               </div> */}
