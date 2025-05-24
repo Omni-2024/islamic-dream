@@ -59,11 +59,11 @@ return (
         <div className="w-full  mt-4">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium">
             <span className="text-RuqyaDarkGreen block">Discover the Meaning Behind Your Dreams</span>
-            <span className="text-gray-800 text-3xl">The Islamic Way</span>
+            {/* <span className="text-gray-800 text-3xl">The Islamic Way</span> */}
           </h1>
           
           <p className="text-gray-600 text-lg max-w-xl">
-            Connect with experienced Muabbirs and uncover the spiritual guidance hidden in your dreams. Book a 10-minute consultation — quick, easy, and rooted in authentic Islamic tradition.          
+            Accurate, spiritually grounded dream interpretations by experienced interpreters in Arabic, English, Urdu, French, and Spanish.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
