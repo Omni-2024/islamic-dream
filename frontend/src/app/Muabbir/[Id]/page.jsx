@@ -467,16 +467,16 @@ return (
                 <h2 className="text-gray-500 text-sm font-bold uppercase tracking-wider">Rating Distribution</h2>
               </div>
               <div className="p-5 flex">
-                <div className="flex flex-col gap-2 mr-4">
+                <div className="flex flex-col gap-1 mr-4 mt-2">
                   {[5, 4, 3, 2, 1].map((star) => (
-                    <span key={star} className="flex items-center text-sm text-gray-500">
+                    <span key={star} className="flex items-center text-sm text-gray-500 mt-1 mb-0">
 <FaStar className="text-yellow-400 mr-2" />{star}
                     </span>
                   ))}
                 </div>
                 <BarChart 
                   width={180} 
-                  height={100} 
+                  height={150} 
                   data={chartData} 
                   layout="vertical" 
                   className="ml-2"
@@ -496,7 +496,7 @@ return (
                       position="right"
                       offset={5}
                       formatter={(value) => `${value}`}
-                      style={{ fill: "#111", fontSize: '14px', fontWeight: 'bold' }}
+                      style={{ fill: "#111", fontSize: '14px', fontWeight: 'bold', }}
                     />
                   </Bar>
                 </BarChart>
