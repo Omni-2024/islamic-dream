@@ -766,3 +766,103 @@ export const deleteMeeting = async (
     });
   }
 };
+
+export const addChatSession = async (
+    req: AuthenticatedRequest,
+    res: Response
+): Promise<any> => {
+  try {
+    const userId = req.user?.id;
+    if (!userId)
+      return res.status(401).json({ message: "User ID not found in request" });
+
+    const {
+      topic,
+      date,
+      rakiId,
+      notificationSend = false,
+      timeZone = "UTC",
+      duration = 60,
+      status = MeetingStatus.PENDING,
+    } = req.body as MeetingRequest;
+    if (!topic || !date || !rakiId) {
+      return res
+          .status(400)
+          .json({ message: "All required fields must be provided" });
+    }
+    const validatedTimeZone = validateAndConvertTimezone(timeZone);
+
+    const utcDate = moment
+        .tz(date, "YYYY-MM-DD HH:mm", validatedTimeZone)
+        .utc()
+        .toISOString();
+
+
+    const newMeeting = new Meeting({
+      topic,
+      date: utcDate,
+      rakiId,
+      userId,
+      notificationSend,
+      duration,
+      status,
+      isChat:true
+    });
+
+    newMeeting.meetingId = newMeeting?.id.toString();
+
+    const savedMeeting = await newMeeting.save();
+
+    const getRakiDetails = await User.findOne({ _id: savedMeeting.rakiId });
+    const getUserDetails = await User.findOne({ _id: savedMeeting.userId });
+
+
+    res.status(201).json({
+      ...savedMeeting.toObject(),
+      date: moment(savedMeeting.date)
+          .tz(validatedTimeZone)
+          .format("YYYY-MM-DD HH:mm:ss"),
+      raki: getRakiDetails,
+      user: getUserDetails,
+    });
+  } catch (error: any) {
+    console.error("General Error:", error?.message || error);
+    res
+        .status(500)
+        .json({
+          message: "Failed to add chat session",
+          error: error?.message || error,
+        });
+  }
+};
+
+export const hasRecentChatSession = async (
+    req: AuthenticatedRequest,
+    res: Response
+): Promise<any> =>{
+
+  const userId = req.user?.id;
+  if (!userId)
+    return res.status(401).json({ message: "User ID not found in request" });
+
+  const { rakiId } = req.query;
+
+
+  const recentSession = await Meeting.findOne({
+    userId,
+    rakiId,
+    isChat: true,
+  })
+      .sort({ date: -1 })
+      .lean();
+
+  if (!recentSession) {
+    return false;
+  }
+
+  const sessionDate = moment(recentSession.date);
+  const sevenDaysAgo = moment().subtract(7, "days");
+
+  return sessionDate.isAfter(sevenDaysAgo);
+
+}

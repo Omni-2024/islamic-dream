@@ -1,9 +1,17 @@
 import express from "express";
 import {
-    addMeeting, cancelMeeting,
-    getAllMeetings, getMeetingsByRakiId,
-    getMeetingsByUserId, getMeetingStatistics,
-    getTodayAndFutureMeetings, requestMeetingPayment, rescheduleMeeting, updateMeetingPayment,deleteMeeting
+    addMeeting,
+    cancelMeeting,
+    getAllMeetings,
+    getMeetingsByRakiId,
+    getMeetingsByUserId,
+    getMeetingStatistics,
+    getTodayAndFutureMeetings,
+    requestMeetingPayment,
+    rescheduleMeeting,
+    updateMeetingPayment,
+    deleteMeeting,
+    addChatSession, hasRecentChatSession
 } from "../controllers/meetingControllers";
 import {authorizeRoles, protect} from "../middleware/authMiddleware";
 
@@ -12,6 +20,8 @@ const router = express.Router();
 router.get('/get-meetings', protect, authorizeRoles('super-admin'), getAllMeetings);
 router.get('/get-today-meetings', protect, authorizeRoles('super-admin',"admin"), getTodayAndFutureMeetings);
 router.post('/add-meetings', protect, authorizeRoles('admin', 'user'), addMeeting);
+router.post('/add-chat-session', protect, authorizeRoles( 'user'), addChatSession);
+router.get('/has-chat-session', protect, authorizeRoles("user"), hasRecentChatSession);
 router.get('/get-meetings/user/', protect, authorizeRoles('user'), getMeetingsByUserId);
 router.get('/get-meetings/raki/', protect, authorizeRoles('admin', 'super-admin'), getMeetingsByRakiId);
 router.post('/reschedule/', protect, authorizeRoles('admin','super-admin'), rescheduleMeeting);
