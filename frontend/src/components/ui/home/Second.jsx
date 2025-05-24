@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import flower from "@/assets/svg/green-flower.svg";
 import Link from "next/link";
+import { Book1, VideoPlay, MessageText1, Calendar1, Crown1,  Profile, Medal, Call } from "iconsax-react"
 
 function Second() {
   const [isVisible, setIsVisible] = useState(false);
@@ -104,55 +105,52 @@ function Second() {
           {/* Content cards in grid layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-16">
             {/* Main content card */}
-            <div className={`md:col-span-2 bg-white p-8 rounded-2xl shadow-lg relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`md:col-span-2 bg-white p-8 rounded-2xl shadow-lg relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} pt-5 md:pt-8`}>
               {/* <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-RuqyaGreen/10 flex items-center justify-center">
                 <Image src={flower} alt="flower icon" width={24} height={24} />
               </div> */}
-              
-              <div className="flex flex-col space-y-6">
-                {/* <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Our platform connects you with expert Raqis who provide authentic 
-                  spiritual healing sessions based on traditional practices.
-                </p> */}
-                
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  We offer comprehensive self-guided resources to support 
-                  your spiritual journey toward peace and well-being.
-                </p>
-                
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>Trusted Islamic Dream Interpretation</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>1-on-1 Online Consultation</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>Start a real-time chat with a trusted Muabbir</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>Book in Minutes – Get Clarity Today</span>
-                  </div>
-                  <div className="flex items-center px-4 py-2 bg-RuqyaLightPurple/30 rounded-full">
-                    <svg className="w-5 h-5 text-RuqyaLightGreen mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span>Based on the Teachings of the Qur’an & Sunnah</span>
-                  </div>
+            <div className="flex flex-col space-y-6 ">
+              <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed ">
+                We offer comprehensive self-guided resources to support your spiritual journey toward peace and well-being.
+              </p>
+
+            <div className="flex flex-col space-y-6 pt-4">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <Book1 size="24" color="#16a34a" />
                 </div>
+                <h3 className="text-base md:text-lg mb-2 text-left">Trusted Islamic Dream Interpretation</h3>
               </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <VideoPlay size="24" color="#16a34a" />
+                </div>
+                <h3 className="text-base md:text-lg text-left mb-2">1-on-1 Online Consultation</h3>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <MessageText1 size="24" color="#16a34a" />
+                </div>
+                <h3 className="text-base md:text-lg text-left mb-2">Real-time Chat with Trusted Muabbir</h3>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <Calendar1 size="24" color="#16a34a" />
+                </div>
+                <h3 className="text-base md:text-lg text-left mb-2">Book in Minutes – Get Clarity Today</h3>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <Crown1 size="24" color="#16a34a" />
+                </div>
+                <h3 className="text-base md:text-lg text-left mb-2">Based on the Teachings of the Qur'an & Sunnah</h3>
+              </div>
+            </div>
+            </div>
               
               {/* <div className="absolute -bottom-4 -right-4 w-12 h-12 rounded-full bg-RuqyaGreen/10 flex items-center justify-center">
                 <Image src={flower} alt="flower icon" width={24} height={24} />
@@ -170,34 +168,27 @@ function Second() {
               <div className="text-center">
                 <h4 className="text-RuqyaGray text-lg font-medium mb-5">Starting from</h4>
                 <div className="relative inline-block">
-                  <h3 className="text-RuqyaLightGreen text-5xl font-bold mb-1">£7.50</h3>
+                  <h3 className="text-RuqyaLightGreen text-5xl font-bold mb-1">£8.00</h3>
                   {/* <span className="absolute -top-2 -right-6 text-sm font-medium text-RuqyaLightGreen/70">.50</span> */}
                 </div>
                 <p className="text-RuqyaGray text-lg">per booking session</p>
-                
-                <div className="mt-8 pt-6 border-t border-RuqyaLightGreen/20">
+                <div className="mt-8 pt-6 border-t border-gray-200">
                   <ul className="space-y-4">
                     <li className="flex items-center">
-                      <div className="w-6 h-6 rounded-full bg-RuqyaLightGreen/20 flex items-center justify-center mr-3">
-                        <svg className="w-4 h-4 text-RuqyaLightGreen" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
+                      <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                        <Profile size="20" color="#2563eb" variant="Bold" />
                       </div>
                       <span className="text-gray-700">Personalized sessions</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="w-6 h-6 rounded-full bg-RuqyaLightGreen/20 flex items-center justify-center mr-3">
-                        <svg className="w-4 h-4 text-RuqyaLightGreen" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
+                      <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center mr-3">
+                        <Medal size="20" color="#d97706" variant="Bold" />
                       </div>
                       <span className="text-gray-700">Certified Muabbir</span>
                     </li>
                     <li className="flex items-center">
-                      <div className="w-6 h-6 rounded-full bg-RuqyaLightGreen/20 flex items-center justify-center mr-3">
-                        <svg className="w-4 h-4 text-RuqyaLightGreen" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
+                      <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center mr-3">
+                        <Call size="20" color="#059669" variant="Bold" />
                       </div>
                       <span className="text-gray-700">Follow-up support</span>
                     </li>

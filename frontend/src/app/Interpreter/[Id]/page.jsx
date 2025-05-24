@@ -24,6 +24,7 @@ import {
   Star1,
   Home,
   Calendar,
+  Call,
 } from 'iconsax-react';
 
 
@@ -52,7 +53,7 @@ function Interpreters() {
 
   const handleLogin = () => {
     // Navigate to login page or show login form
-    // router.push('/login');
+    router.push('/login');
   };
 
   useEffect(() => {
@@ -352,25 +353,50 @@ return (
                 )}
               </div>
 
-              {/* Right column - booking widget with bold design */}
-              <div className="lg:col-span-4 animate-fade-in p-4 lg:p-0" style={{ animationDelay: "0.5s" }}>
-                <div className="bg-RuqyaGreen/10   text-RuqyaGreen overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaLightGreen/30 rounded-bl-full"></div>
-                  <div className="p-6 relative">
-                    <h3 className="text-xl text-RuqyaGreen font-bold mb-4 flex items-center gap-2">
-                      <Calendar size={20} color="currentColor" variant="Outline" />
-                      Ready for a Session?
-                    </h3>
-                    <p className="text-RuqyaGreen mb-6">Book your appointment with {data.name} now.</p>
-                    <Button
-                      onClick={handleBookNow}
-                      bg={true}
-                      text="Book Now"
-                      className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen  font-bold py-3 transition-all duration-300 text-center flex items-center justify-center"
-                    />
-                  </div>
-                </div>
-              </div>
+{/* Right column - booking widget with bold design */}
+<div className="lg:col-span-4 animate-fade-in p-4 lg:p-0" style={{ animationDelay: "0.5s" }}>
+  <div className="bg-RuqyaGreen/10 text-RuqyaGreen overflow-hidden relative">
+    <div className="absolute top-0 right-0 w-32 h-32 bg-RuqyaLightGreen/30 rounded-bl-full"></div>
+    <div className="p-4 sm:p-6 relative">
+      <h3 className="text-lg sm:text-xl text-RuqyaGreen font-bold mb-4 flex items-center gap-2">
+        <Calendar size={20} color="currentColor" variant="Outline" />
+        Ready for a Session?
+      </h3>
+      <p className="text-RuqyaGreen mb-6 text-sm sm:text-base">
+        Book your appointment with {data.name} now.
+      </p>
+
+      {token && (
+        <button
+          onClick={() => handleStartChat(data._id)}
+          className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen mb-3 font-bold py-3 px-4 transition-all duration-300 text-center flex items-center justify-center gap-2"
+        >
+          <Message
+            size={18}
+            className="text-white flex-shrink-0"
+            color="currentColor"
+            variant="Outline"
+          />
+          <span className="font-semibold text-white text-sm sm:text-base text-left">
+            Book a Chat Session
+          </span>
+        </button>
+      )}
+
+      <Button
+        onClick={handleBookNow}
+        bg={true}
+        text={
+          <span className="flex items-center justify-center gap-2 w-full">
+            <Call size="18" color="#fff" className="flex-shrink-0" />
+            <span className="text-sm sm:text-base  text-left">Book a Call Session</span>
+          </span>
+        }
+        className="w-full rounded-xl bg-RuqyaLightGreen hover:bg-RuqyaDarkGreen font-bold py-3 px-4 transition-all duration-300"
+      />
+    </div>
+  </div>
+</div>
             </div>
         </div>
       </div>
@@ -467,18 +493,18 @@ return (
                 <h2 className="text-gray-500 text-sm font-bold uppercase tracking-wider">Rating Distribution</h2>
               </div>
               <div className="p-5 flex">
-                <div className="flex flex-col gap-2 mr-4">
+                <div className="flex flex-col gap-1 mr-4 mt-2">
                   {[5, 4, 3, 2, 1].map((star) => (
-                    <span key={star} className="flex items-center text-sm text-gray-500">
+                    <span key={star} className="flex items-center text-sm text-gray-500 mt-1 mb-0">
 <FaStar className="text-yellow-400 mr-2" />{star}
                     </span>
                   ))}
                 </div>
-                <BarChart
-                  width={180}
-                  height={100}
-                  data={chartData}
-                  layout="vertical"
+                <BarChart 
+                  width={180} 
+                  height={150}
+                  data={chartData} 
+                  layout="vertical" 
                   className="ml-2"
                   margin={{ left: 0, right: 40, top: 5, bottom: 5 }}
                 >
@@ -496,7 +522,7 @@ return (
                       position="right"
                       offset={5}
                       formatter={(value) => `${value}`}
-                      style={{ fill: "#111", fontSize: '14px', fontWeight: 'bold' }}
+                      style={{ fill: "#111", fontSize: '14px', fontWeight: 'bold', }}
                     />
                   </Bar>
                 </BarChart>

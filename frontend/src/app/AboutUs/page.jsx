@@ -9,11 +9,12 @@ import {
   ShieldSecurity,
   ArrowRight2,
   User,
-  WaveSquare,
-  MagicStar,
+  Lamp,
+  People,
   Home,
-  ArrowRight3,
-  Component,
+  Moon,
+  BookSaved,
+  MedalStar
 } from 'iconsax-react';
 
 import Link from "next/link";
@@ -72,96 +73,103 @@ const AboutUs = () => {
           </div>
           
           {/* Our Mission */}
-          <div className="rounded-xl sm:rounded-3xl shadow-lg overflow-hidden border border-gray-100">
-            <div className="grid grid-cols-1 md:grid-cols-5">
-              <div className="md:col-span-3 p-4 sm:p-6 md:p-8">
-                <h3 className="text-xl sm:text-2xl text-RuqyaGreen mb-4 sm:mb-6 relative inline-block">
+<div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl lg:rounded-3xl shadow-xl border border-gray-100/50 overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-1gap-8 lg:gap-0">
+        {/* Content Section */}
+        <div className="p-6 sm:p-8 lg:p-12">
+          <div className="mb-5 lg:mb-5">
+           <h3 className="text-xl sm:text-2xl text-RuqyaGreen relative inline-block">
                   Who we are
                   <div className="h-1 w-12 sm:w-16 bg-gradient-to-r from-RuqyaLightGreen to-RuqyaDarkGreen rounded-full mt-1 sm:mt-2"></div>
                 </h3>
-                
-                <div className="space-y-4 sm:space-y-6">
-                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl transition-all duration-300">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
-                    <Heart 
-                      size={22} 
-                      color="currentColor" 
-                      variant="Outline" 
-                      className="transition-all duration-300" 
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-base sm:text-lg font-bold text-RuqyaDarkGreen">Authentic Healing</h4>
-                    <p className="text-sm sm:text-base text-gray-600">
-                      At IslamicDreamsOnline.com, we connect you with qualified Interpreters – dream interpreters grounded in Islamic scholarship. Whether you've had a vivid dream, a recurring vision, or a symbol that puzzles you, our interpreters help uncover the spiritual meaning in light of the Qur'an, Hadith, and classical Islamic texts like those of Ibn Sirin.                    </p>
-                  </div>
-                </div>
+          </div>
 
-                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl transition-all duration-300">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
-                    <Star1 
-                      size={22} 
-                      color="currentColor" 
-                      variant="Outline" 
-                      className="transition-all duration-300" 
-                    />
+          <div className="space-y-6 lg:space-y-8">
+            {/* Authentic Healing */}
+            <div className="group">
+              <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300">
+                <div className="relative">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <MedalStar size={24} color="white" variant="Bold" />
                   </div>
-                  <div>
-                    <h4 className="text-base sm:text-lg font-bold text-RuqyaDarkGreen">Rooted in Islamic Tradition</h4>
-                    <p className="text-sm sm:text-base text-gray-600">
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors duration-300">
+                    Authentic Healing
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                      At IslamicDreamsOnline.com, we connect you with qualified Interpreters – dream interpreters grounded in Islamic scholarship. Whether you've had a vivid dream, a recurring vision, or a symbol that puzzles you, our interpreters help uncover the spiritual meaning in light of the Qur'an, Hadith, and classical Islamic texts like those of Ibn Sirin.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Rooted in Islamic Tradition */}
+            <div className="group">
+              <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300">
+                <div className="relative">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <BookSaved size={24} color="white" variant="Bold" />
+                  </div>
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                    Rooted in Islamic Tradition
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                       Inspired by the deep spiritual tradition of dream interpretation in Islam, our platform bridges the gap between dreamers and knowledgeable Interpreters — interpreters rooted in the Qur'an, Hadith, and classical Islamic understanding.
-                    </p>
-                  </div>
+                  </p>
                 </div>
+              </div>
+            </div>
 
-                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl  transition-all duration-300">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
-                    <ShieldSecurity 
-                      size={22} 
-                      color="currentColor" 
-                      variant="Outline" 
-                      className="transition-all duration-300" 
-                    />
+            {/* Meaningful Approach */}
+            <div className="group">
+              <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300">
+                <div className="relative">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Moon size={24} color="white" variant="Bold" />
                   </div>
-                  <div>
-                    <h4 className="text-base sm:text-lg font-bold text-RuqyaDarkGreen">A Meaningful Approach to Dreams</h4>
-                    <p className="text-sm sm:text-base text-gray-600">
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors duration-300">
+                    A Meaningful Approach to Dreams
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                       We believe that dreams are not just random images — they may carry signs, wisdom, and direction from Allah (SWT). Our aim is to help Muslims approach dreams with reverence, understanding, and balance.
-                    </p>
-                  </div>
+                  </p>
                 </div>
+              </div>
+            </div>
 
-                <div className="flex items-start space-x-3 sm:space-x-4 group p-3 sm:p-4 rounded-xl transition-all duration-300">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-md flex items-center justify-center flex-shrink-0 text-RuqyaGreen sm:group-hover:bg-RuqyaGreen sm:group-hover:text-white transition-all duration-300">
-                    <Component 
-                      size={22} 
-                      color="currentColor" 
-                      variant="Outline" 
-                      className="transition-all duration-300" 
-                    />
+            {/* Support You Can Trust */}
+            <div className="group">
+              <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300">
+                <div className="relative">
+                  <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <People size={24} color="white" variant="Bold" />
                   </div>
-                  <div>
-                    <h4 className="text-base sm:text-lg font-bold text-RuqyaLightGreen">Support You Can Trust</h4>
-                    <p className="text-sm sm:text-base text-gray-600">
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300">
+                    Support You Can Trust
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                       Whether you're seeking clarity, reassurance, or simply want to understand your dreams better, we're here to support you — respectfully and authentically.
-                    </p>
-                  </div>
-                </div>
-
-
+                  </p>
                 </div>
               </div>
-            <div className="hidden md:col-span-2 md:flex bg-gradient-to-br from-RuqyaLightGreen/20 to-bg-RuqyaGreen/10 p-6 sm:p-8 items-center justify-center relative">
-                <div className="absolute top-0 right-0 w-20 h-24 sm:w-20 sm:h-32 bg-RuqyaLightGreen/20 rounded-bl-full"></div>
-                <div className="absolute bottom-0 left-0 w-20 h-24 sm:w-32 sm:h-32 bg-RuqyaGreen/10 rounded-tr-full"></div>
-                <div className="w-20 h-24 sm:w-32 sm:h-32 rounded-full bg-white shadow-lg flex items-center justify-center text-RuqyaGreen z-10">
-                  <MagicStar size={36} color="currentColor" variant="Outline"  className="sm:hidden" />
-                  <MagicStar size={48} color="currentColor" variant="Outline"  className="hidden sm:block" />
-                </div>
-              </div>
-
             </div>
           </div>
+        </div>
+
+
+      </div>
+    </div>
 
           {/* What We Offer - Responsive Section */}
           <div className="mt-12 sm:mt-16 mb-12 sm:mb-20">
@@ -191,8 +199,8 @@ const AboutUs = () => {
                   <div className="p-5 sm:p-8 text-center">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-RuqyaLightGreen/50  flex items-center justify-center mx-auto mb-4 sm:mb-6 text-RuqyaGreen rotate-45 sm:group-hover:rotate-0 transition-all duration-500">
                       <div className="rotate-[-45deg] sm:group-hover:rotate-0 transition-all duration-500">
-                        <Book1 size={24} className="sm:hidden"  color="currentColor" variant="Outline"  />
-                        <Book1 size={32} className="hidden sm:block" color="currentColor" variant="Outline" />
+                        <Book1 size={24} className="sm:hidden"  color="#fff" variant="Outline"  />
+                        <Book1 size={32} className="hidden sm:block" color="#fff" variant="Outline" />
                       </div>
                     </div>
                     
