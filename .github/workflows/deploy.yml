@@ -88,7 +88,7 @@ jobs:
           echo "Setting environment variables for admin panel..."
           cd /actions-runner/_work/islamic-dream/islamic-dream/admin-panel/
           touch .env.production
-          echo "MONGONEXT_PUBLIC_API_URLDB_URI=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.production
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}" >> .env.production
           echo "NEXT_PUBLIC_ADMIN_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_ADMIN_EMAILJS_SERVICE_ID }}" >> .env.production
           echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL=${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_CANCEL }}" >> .env.production
