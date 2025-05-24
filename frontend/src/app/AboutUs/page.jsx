@@ -93,7 +93,7 @@ const AboutUs = () => {
                   <div>
                     <h4 className="text-base sm:text-lg font-bold text-RuqyaDarkGreen">Authentic Healing</h4>
                     <p className="text-sm sm:text-base text-gray-600">
-                      At IslamicDreamsOnline.com, we connect you with qualified Muabbirs – dream interpreters grounded in Islamic scholarship. Whether you've had a vivid dream, a recurring vision, or a symbol that puzzles you, our interpreters help uncover the spiritual meaning in light of the Qur'an, Hadith, and classical Islamic texts like those of Ibn Sirin.                    </p>
+                      At IslamicDreamsOnline.com, we connect you with qualified Interpreters – dream interpreters grounded in Islamic scholarship. Whether you've had a vivid dream, a recurring vision, or a symbol that puzzles you, our interpreters help uncover the spiritual meaning in light of the Qur'an, Hadith, and classical Islamic texts like those of Ibn Sirin.                    </p>
                   </div>
                 </div>
 
@@ -109,7 +109,7 @@ const AboutUs = () => {
                   <div>
                     <h4 className="text-base sm:text-lg font-bold text-RuqyaDarkGreen">Rooted in Islamic Tradition</h4>
                     <p className="text-sm sm:text-base text-gray-600">
-                      Inspired by the deep spiritual tradition of dream interpretation in Islam, our platform bridges the gap between dreamers and knowledgeable Muabbirs — interpreters rooted in the Qur'an, Hadith, and classical Islamic understanding.
+                      Inspired by the deep spiritual tradition of dream interpretation in Islam, our platform bridges the gap between dreamers and knowledgeable Interpreters — interpreters rooted in the Qur'an, Hadith, and classical Islamic understanding.
                     </p>
                   </div>
                 </div>

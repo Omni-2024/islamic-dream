@@ -205,7 +205,7 @@ function Second() {
                 </div>
                 
                 <Link 
-                  href="/BookMuabbirs"
+                  href="/BookInterpreters"
                   className="mt-8 w-full py-3 rounded-xl bg-gradient-to-r from-RuqyaLightGreen to-RuqyaDarkGreen text-white font-medium transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-RuqyaGreen focus:ring-opacity-50 text-center block"
                 >
                   Book Now

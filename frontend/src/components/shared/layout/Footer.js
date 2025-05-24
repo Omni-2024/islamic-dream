@@ -102,9 +102,9 @@ function Footer() {
                   <span className="text-white mr-2">→</span>
                   Home
                 </Link>
-                <Link href="/BookMuabbirs" className="text-white hover:font-bold transition-colors flex items-center">
+                <Link href="/BookInterpreters" className="text-white hover:font-bold transition-colors flex items-center">
                   <span className="text-white mr-2">→</span>
-                  Book Muabbirs
+                  Book Interpreters
                 </Link>
                 {/*<Link href="/SelfRuqyah" className="text-RuqyaGray hover:text-RuqyaGreen transition-colors flex items-center">*/}
                 {/*  <span className="text-RuqyaGreen mr-2">→</span>*/}

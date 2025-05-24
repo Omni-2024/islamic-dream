@@ -169,9 +169,9 @@ const Header = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("fe-token");
-    const raqiRegex = /^\/Raqi\/[a-f0-9]{24}$/;
+    const InterpreterRegex = /^\/Interpreter\/[a-f0-9]{24}$/;
     if (!token) {
-      if (pathname !== "/" && pathname !== "/BookMuabbirs" && pathname !== "/SelfRuqyah" && pathname !== "/AboutUs" && pathname !== "/signup" && pathname !== "/login" && !raqiRegex.test(pathname)) {
+      if (pathname !== "/" && pathname !== "/BookInterpreters" && pathname !== "/SelfRuqyah" && pathname !== "/AboutUs" && pathname !== "/signup" && pathname !== "/login" && !InterpreterRegex.test(pathname)) {
         router.push("/login");
       }
     } else {
@@ -224,8 +224,8 @@ const Header = () => {
                 <NavLink href="/" active={isActive("/")}>
                   Home
                 </NavLink>
-                <NavLink href="/BookMuabbirs" active={isActive("/BookMuabbirs")}>
-                  Book Muabbirs
+                <NavLink href="/BookInterpreters" active={isActive("/BookInterpreters")}>
+                  Book Interpreters
                 </NavLink>
                 {/* <NavLink href="/SelfRuqyah" active={isActive("/SelfRuqyah")}>
                   Self-Ruqyah
@@ -358,11 +358,11 @@ const Header = () => {
               </MobileNavLink>
               
               <MobileNavLink 
-                href="/BookMuabbirs"
-                active={isActive("/BookMuabbirs")}
+                href="/BookInterpreters"
+                active={isActive("/BookInterpreters")}
                 onClick={handleLinkClick}
               >
-                Book Muabbirs
+                Book Interpreters
               </MobileNavLink>
               
               {/*<MobileNavLink */}

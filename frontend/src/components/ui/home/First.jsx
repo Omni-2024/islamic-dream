@@ -63,12 +63,12 @@ return (
           </h1>
           
           <p className="text-gray-600 text-lg max-w-xl">
-            Connect with experienced Muabbirs and uncover the spiritual guidance hidden in your dreams. Book a 10-minute consultation — quick, easy, and rooted in authentic Islamic tradition.          
+            Connect with experienced Interpreters and uncover the spiritual guidance hidden in your dreams. Book a 10-minute consultation — quick, easy, and rooted in authentic Islamic tradition.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
             <Link 
-              href="/BookMuabbirs"
+              href="/BookInterpreters"
               className="px-6 py-3 bg-RuqyaLightGreen text-white rounded-xl font-bold shadow-lg hover:bg-RuqyaDarkGreen transition-all duration-300 text-center w-full sm:w-auto flex items-center justify-center space-x-2"
             >
               <span>Book a Session</span>

@@ -93,7 +93,7 @@ export default function BookRaqis() {
   const handleRemoveSearchQuery = () => {
     const params = new URLSearchParams(window.location.search);
     params.delete("searchQuery");
-    router.push(`/BookMuabbirs?${params.toString()}`);
+    router.push(`/BookInterpreters?${params.toString()}`);
   };
 
   const handleRemoveLanguage = () => {
@@ -103,7 +103,7 @@ export default function BookRaqis() {
       ...prev,
       languages: [],
     }));
-    router.push(`/BookMuabbirs?${params.toString()}`);
+    router.push(`/BookInterpreters?${params.toString()}`);
   };
 
   const availableLanguages = [
@@ -299,7 +299,7 @@ export default function BookRaqis() {
     }));
     setRating(0);
     setAvailableRakisIds([]);
-    router.push('/BookMuabbirs');
+    router.push('/BookInterpreters');
   };
 
 return (
@@ -310,7 +310,7 @@ return (
             <span>Home</span>
           </Link>
           <ArrowRight2  color="#6B7280" className="w-3 h-3 sm:w-4 sm:h-4 mx-1 sm:mx-2" />
-          <span className="font-medium text-RuqyaGray">Book Muabbirs</span>
+          <span className="font-medium text-RuqyaGray">Book Interpreters</span>
         </nav>
     <div className="flex flex-col md:flex-row gap-6">
       {/* Filters Sidebar - REDESIGNED VERSION */}
